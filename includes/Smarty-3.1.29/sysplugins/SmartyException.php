@@ -1,0 +1,1 @@
+smartyexception.php
