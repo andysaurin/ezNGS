@@ -305,7 +305,7 @@ abstract class NQ_Module extends NQ_Object_Web
 
 	    $str = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $str);
 	    $str = preg_replace('#&([A-za-z]{2})(?:lig);#', '\1', $str); // pour les ligatures e.g. '&oelig;'
-	    $str = preg_replace('#&[^;]+;#', '', $str); // supprime les autres caractères
+	    $str = preg_replace('#&[^;]+;#', '', $str); // supprime les autres caractï¿½res
 
 	    return $str;
 	}
@@ -1114,10 +1114,25 @@ EOT;
 	}
 
 	//creation of a new project
-	public function new_project($arg1, $arg2, $arg3)
-	{
+	public function new_project($nameProject)
+	{   //To create a new project we need to compute several variable
+        //the md5sum's name project
+        $md5sum = md5($nameProject);
+        $created = time();
+        $modified = $created;
+        $uuid = uniqid();
+        $modified_by = $this->user->id;
+		$this->db->master->query("INSERT INTO `projects` (id, name, md5sum, created, modified, uuid, modified_by) VALUES (NULL, '{$nameProject}', '{$md5sum}', {$created}, {$modified}, '{$uuid}', '{$modified_by}')");
 
-		return "not yet implemented";
+        $rowsAffected = $this->db->master->rows_affected;
+
+        if ($rowsAffected > 0){ //we inserted the new project
+            return true;
+        } else {
+            return $rowsAffected;
+        }
+
+		//return $md5sum;
 
 		//return true; //if all went well
 

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-06-14 16:20:34
+/* Smarty version 3.1.29, created on 2016-06-16 08:58:14
   from "/home/lucie/amidex/templates/default/templates/common/page.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_576012b2eacb21_95936758',
+  'unifunc' => 'content_57624e06bf2a18_71539575',
   'file_dependency' => 
   array (
     'eb57149f96fb0035278ef3c96e46d78864bbd6ad' => 
@@ -24,7 +24,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:common/footer.tpl' => 1,
   ),
 ),false)) {
-function content_576012b2eacb21_95936758 ($_smarty_tpl) {
+function content_57624e06bf2a18_71539575 ($_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['ShowBodyOnly']->value == 1) {
 $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, $_smarty_tpl->tpl_vars['tplFile']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>

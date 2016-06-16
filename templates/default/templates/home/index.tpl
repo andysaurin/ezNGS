@@ -1,6 +1,6 @@
 
 	<div>
-		Welcome ! toto le plus beau !
+		Welcome !
 			
 	</div>
 

@@ -1,21 +1,20 @@
 
+<h1>Create New Project</h1>
+
 <form method="POST">
-
-  <div class="row">
-
-    <div class="small-8">
-
-      <div class="row">
-        <div class="small-3 columns">
-          <label for="right-label" class="right">Username</label>
+    <div class="row left">
+        <div class="large-6 columns">
+            <div class="row collapse prefix-radius ">
+                <div class="small-3 columns">
+                    <span class="prefix">Project name</span>
+                </div>
+                <div class="small-9 columns">
+                    <input type="text" name="project_name" placeholder="Enter the name project">
+                </div>
+            </div>
+           <input class="button success small round" type="submit" name="create_project" value="Create New Project" />
         </div>
-        <div class="small-9 columns">
-          <input type="text" id="right-label" placeholder="Username">
-        </div>
-      </div>
 
-    </div>
-
-	<div class="small-8"><input type="submit" name="create_user" value="Create New User" /></div>
   </div>
 </form>
+

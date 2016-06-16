@@ -41,16 +41,16 @@ class projects extends NQ_Auth_Admin
 	{
 
 
-		if ( isset($_POST['create_user']) ) {
+		if ( isset($_POST['create_project']) ) {
 			//form submitted
 
-
-			$retvar = $this->new_project($arg1, $arg2, $arg3);
+			$retvar = $this->new_project($_POST['project_name']);
 
 			if ( $retvar === true ) {
-echo 'all ok';
-exit;
-
+				$message['text'] = "New project is created: <br /><code>".$_POST['project_name']."</code></i>";
+				$message['type'] = 'success';
+				$message['delay'] = '4000';
+				$this->session->message = $message;
 
 			} else {
 
@@ -61,7 +61,6 @@ exit;
 
 
 			}
-//print_r($_POST);
 
 		}
 

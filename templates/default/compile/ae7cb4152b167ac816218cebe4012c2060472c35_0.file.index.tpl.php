@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-06-14 16:20:34
+/* Smarty version 3.1.29, created on 2016-06-15 11:12:05
   from "/home/lucie/amidex/templates/default/templates/home/index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_576012b2eebd31_10325086',
+  'unifunc' => 'content_57611be53b1114_95382791',
   'file_dependency' => 
   array (
     'ae7cb4152b167ac816218cebe4012c2060472c35' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/home/index.tpl',
-      1 => 1465896701,
+      1 => 1465981874,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,11 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:home/login.tpl' => 3,
   ),
 ),false)) {
-function content_576012b2eebd31_10325086 ($_smarty_tpl) {
+function content_57611be53b1114_95382791 ($_smarty_tpl) {
 ?>
 
 	<div>
-		Welcome ! toto le plus beau !
+		Welcome !
 			
 	</div>
 
