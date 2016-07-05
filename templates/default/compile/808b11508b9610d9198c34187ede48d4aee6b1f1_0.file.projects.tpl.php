@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-05 11:35:12
+/* Smarty version 3.1.29, created on 2016-07-05 16:49:48
   from "/home/lucie/amidex/templates/default/templates/admin/projects.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_577b7f50121d62_60226575',
+  'unifunc' => 'content_577bc90ca75965_52434365',
   'file_dependency' => 
   array (
     '808b11508b9610d9198c34187ede48d4aee6b1f1' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/admin/projects.tpl',
-      1 => 1465824263,
+      1 => 1467721163,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:admin/index.tpl' => 1,
   ),
 ),false)) {
-function content_577b7f50121d62_60226575 ($_smarty_tpl) {
+function content_577bc90ca75965_52434365 ($_smarty_tpl) {
 ?>
 
 <?php if ($_smarty_tpl->tpl_vars['event']->value == 'create') {?>
@@ -41,7 +41,6 @@ function content_577b7f50121d62_60226575 ($_smarty_tpl) {
 
 <?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:admin/index.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-
 
 
 <?php }

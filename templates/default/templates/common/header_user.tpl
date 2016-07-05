@@ -83,8 +83,6 @@
 					          <li class="active"><a href="#">Active link in dropdown</a></li>
 					        </ul>
 					      </li>
-
-
 					</ul>
 
 				</section>

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-05 11:35:12
+/* Smarty version 3.1.29, created on 2016-07-05 17:02:25
   from "/home/lucie/amidex/templates/default/templates/common/header_admin.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_577b7f50117816_12124192',
+  'unifunc' => 'content_577bcc01633a73_43255419',
   'file_dependency' => 
   array (
     '2e869092a532c4ecb779409fea2614c3dbbc91d5' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/common/header_admin.tpl',
-      1 => 1465474586,
+      1 => 1467724884,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_577b7f50117816_12124192 ($_smarty_tpl) {
+function content_577bcc01633a73_43255419 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -130,6 +130,7 @@ echo '<script'; ?>
 						</li>
 					</ul>
 
+					<!-- Left Nav Section -->
 					<ul class="left" style="">
 
 					      <li class="has-dropdown">
@@ -148,8 +149,16 @@ echo '<script'; ?>
 					        </ul>
 					      </li>
 
-
 					</ul>
+
+                    <!-- Left Nav Section but common to admin and Users -->
+                    <ul class="left" style="">
+
+                        <li class="has-dropdown">
+                           <a href="/users/projects">All My Projects</a></li>
+                            </ul>
+
+                    </ul>
 
 				</section>
 

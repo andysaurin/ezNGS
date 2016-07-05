@@ -74,6 +74,7 @@
 						</li>
 					</ul>
 
+					<!-- Left Nav Section -->
 					<ul class="left" style="">
 
 					      <li class="has-dropdown">
@@ -92,8 +93,16 @@
 					        </ul>
 					      </li>
 
-
 					</ul>
+
+                    <!-- Left Nav Section but common to admin and Users -->
+                    <ul class="left" style="">
+
+                        <li class="has-dropdown">
+                           <a href="/users/projects">All My Projects</a></li>
+                            </ul>
+
+                    </ul>
 
 				</section>
 

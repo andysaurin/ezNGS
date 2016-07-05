@@ -10,7 +10,7 @@
 
 		<div id="project{$project->id}" class="content">
 
-			{if $is_project_manager == true}<a href="/{$module}/{$class}/edit/?id={$project->id}" class="button tiny warning">Edit {$project->name}</a>{/if}
+			{if $is_admin == true}<a href="/{$module}/{$class}/edit/?id={$project->id}" class="button tiny warning">Edit {$project->name}</a>{/if}
 			{foreach $project as $k=>$v}
 
 			<div class="row">
@@ -25,8 +25,8 @@
 							<div class='noUsers'>No Assigned Users</div> {* this div will get hidden if we add a user *}
 						</div>
 
-						{*{if $is_project_manager == true}<div><a href="/{$module}/{$class}/edit/?id={$project->id}&add_user" class="button tiny radius success">Add new user</a></div>{/if}*}
-                        {if $is_project_manager == true}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Add new user</a></div>{/if}
+						{* 05/07/2016 {if is_admin == true}<div><a href="/{$module}/{$class}/edit/?id={$project->id}&add_user" class="button tiny radius success">Add new user</a></div>{/if}*}
+                        {if $is_admin == true}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Add new user</a></div>{/if}
 
 					{else}
 						<div class="small-10 columns">
@@ -35,14 +35,14 @@
 						{foreach $v as $user}
 
 								<div id="project{$project->id}_user{$user->id}" >
-									<span class="secondary radius label">{$user->name}</span> {if $is_project_manager == true}<a href="#" class="removeUser" id="removeProjectUser-{$project->id}-{$user->id}" userID="{$user->id}" projectID="{$project->id}"><span class="alert radius label"> Remove </span></a>{/if}
+									<span class="secondary radius label">{$user->name}</span> {if $is_admin == true}<a href="#" class="removeUser" id="removeProjectUser-{$project->id}-{$user->id}" userID="{$user->id}" projectID="{$project->id}"><span class="alert radius label"> Remove </span></a>{/if}
 								</div>
 
 						{/foreach}
 
 							</div>
 
-							{if $is_project_manager == true}<div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Invite a user to this project</a></div>{/if}
+							{if $is_admin == true}<div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Invite a user to this project</a></div>{/if}
 						</div>
 
 					{/if}

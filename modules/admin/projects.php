@@ -9,7 +9,7 @@ class projects extends NQ_Auth_Admin
 		$this->all_projects = $this->all_projects();
 
 		//we are in admin control panel, thus project manager for all
-		$this->set("is_project_manager", true);
+		$this->set("is_admin", true);
 
 		foreach($this->all_projects as $k => $project) {
 

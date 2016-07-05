@@ -12,5 +12,4 @@
 
 {include file="admin/index.tpl"}
 
-
 {/if}

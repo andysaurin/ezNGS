@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-05 17:02:25
-  from "/home/lucie/amidex/templates/default/templates/admin/index.tpl" */
+/* Smarty version 3.1.29, created on 2016-07-05 15:21:33
+  from "/home/lucie/amidex/templates/default/templates/users/index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_577bcc0167d7c3_12501955',
+  'unifunc' => 'content_577bb45da0f2d8_53782468',
   'file_dependency' => 
   array (
-    '296b19df94def446ecfd6b386b948224fbb2e766' => 
+    '2fd479e82b0def5d412a64836b431bec420d32b4' => 
     array (
-      0 => '/home/lucie/amidex/templates/default/templates/admin/index.tpl',
-      1 => 1467730186,
+      0 => '/home/lucie/amidex/templates/default/templates/users/index.tpl',
+      1 => 1467723856,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_577bcc0167d7c3_12501955 ($_smarty_tpl) {
+function content_577bb45da0f2d8_53782468 ($_smarty_tpl) {
 ?>
 
 
@@ -48,7 +48,7 @@ $__foreach_project_0_saved_local_item = $_smarty_tpl->tpl_vars['project'];
 		<div id="project<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 " class="content">
 
-			<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><a href="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
+			<?php if ($_smarty_tpl->tpl_vars['is_project_manager']->value == true) {?><a href="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['class']->value;?>
 /edit/?id=<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 " class="button tiny warning">Edit <?php echo $_smarty_tpl->tpl_vars['project']->value->name;?>
@@ -82,7 +82,7 @@ $__foreach_v_1_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 						</div>
 
 						
-                        <?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+                        <?php if ($_smarty_tpl->tpl_vars['is_project_manager']->value == true) {?><div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 ">Add new user</a></div><?php }?>
 
 					<?php } else { ?>
@@ -106,7 +106,7 @@ $__foreach_user_2_saved_local_item = $_smarty_tpl->tpl_vars['user'];
 _user<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
 " >
 									<span class="secondary radius label"><?php echo $_smarty_tpl->tpl_vars['user']->value->name;?>
-</span> <?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><a href="#" class="removeUser" id="removeProjectUser-<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+</span> <?php if ($_smarty_tpl->tpl_vars['is_project_manager']->value == true) {?><a href="#" class="removeUser" id="removeProjectUser-<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 -<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
 " userID="<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
 " projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
@@ -123,7 +123,7 @@ $_smarty_tpl->tpl_vars['user'] = $__foreach_user_2_saved_item;
 
 							</div>
 
-							<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+							<?php if ($_smarty_tpl->tpl_vars['is_project_manager']->value == true) {?><div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 ">Invite a user to this project</a></div><?php }?>
 						</div>
 
