@@ -25,7 +25,8 @@
 							<div class='noUsers'>No Assigned Users</div> {* this div will get hidden if we add a user *}
 						</div>
 
-						{if $is_project_manager == true}<div><a href="/{$module}/{$class}/edit/?id={$project->id}&add_user" class="button tiny radius success">Add new user</a></div>{/if}
+						{*{if $is_project_manager == true}<div><a href="/{$module}/{$class}/edit/?id={$project->id}&add_user" class="button tiny radius success">Add new user</a></div>{/if}*}
+                        {if $is_project_manager == true}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Add new user</a></div>{/if}
 
 					{else}
 						<div class="small-10 columns">

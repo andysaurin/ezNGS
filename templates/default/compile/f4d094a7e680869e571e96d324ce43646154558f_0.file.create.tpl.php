@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-06-16 08:58:14
+/* Smarty version 3.1.29, created on 2016-07-05 11:35:12
   from "/home/lucie/amidex/templates/default/templates/admin/projects/create.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57624e06c2a677_55837300',
+  'unifunc' => 'content_577b7f50124cb2_87076040',
   'file_dependency' => 
   array (
     'f4d094a7e680869e571e96d324ce43646154558f' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57624e06c2a677_55837300 ($_smarty_tpl) {
+function content_577b7f50124cb2_87076040 ($_smarty_tpl) {
 ?>
 
 <h1>Create New Project</h1>

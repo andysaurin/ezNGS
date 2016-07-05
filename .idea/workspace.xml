@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="">
+    <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sqlite/master.db" afterPath="$PROJECT_DIR$/data/sqlite/master.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/Module.php" afterPath="$PROJECT_DIR$/includes/Module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/admin/projects.php" afterPath="$PROJECT_DIR$/modules/admin/projects.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/00d470fd4684b8070def89cfeab3483b022d05cf_0.file.footer.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/00d470fd4684b8070def89cfeab3483b022d05cf_0.file.footer.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/296b19df94def446ecfd6b386b948224fbb2e766_0.file.index.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/296b19df94def446ecfd6b386b948224fbb2e766_0.file.index.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/2e869092a532c4ecb779409fea2614c3dbbc91d5_0.file.header_admin.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/2e869092a532c4ecb779409fea2614c3dbbc91d5_0.file.header_admin.tpl.php" />
@@ -15,8 +14,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/eb57149f96fb0035278ef3c96e46d78864bbd6ad_0.file.page.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/eb57149f96fb0035278ef3c96e46d78864bbd6ad_0.file.page.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/home/index.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/home/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
     </list>
     <ignored path="amidex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,28 +39,28 @@
       <file leaf-file-name="projects.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-9.375">
               <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl">
+      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.5809859">
+              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projects.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="projects.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/admin/projects.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.471831">
-              <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+            <state vertical-scroll-proportion="-13.375">
+              <caret line="46" column="40" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -71,20 +69,25 @@
       <file leaf-file-name="Module.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/Module.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.5">
-              <caret line="1129" column="24" selection-start-line="1129" selection-start-column="24" selection-end-line="1129" selection-end-column="24" />
+            <state vertical-scroll-proportion="-23.291666">
+              <caret line="1143" column="119" selection-start-line="1143" selection-start-column="119" selection-end-line="1143" selection-end-column="119" />
               <folding>
-                <marker date="1466060150000" expanded="true" signature="3176:3254" placeholder="..." />
-                <marker date="1466060150000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-                <marker date="1466060150000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-                <marker date="1466060150000" expanded="true" signature="18065:18073" placeholder="..." />
-                <marker date="1466060150000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-                <marker date="1466060150000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-                <marker date="1466060150000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-                <marker date="1466060150000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
-                <marker date="1466060150000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
-                <marker date="1466060150000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
-                <marker date="1466060150000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+                <marker date="1467710877000" expanded="true" signature="3176:3254" placeholder="..." />
+                <marker date="1467710877000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+                <marker date="1467710877000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+                <marker date="1467710877000" expanded="true" signature="18065:18073" placeholder="..." />
+                <marker date="1467710877000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+                <marker date="1467710877000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+                <marker date="1467710877000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+                <marker date="1467710877000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
+                <marker date="1467710877000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
+                <marker date="1467710877000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
+                <marker date="1467710877000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+                <marker date="1467710877000" expanded="true" signature="32057:32098" placeholder="SELECT `id` projects" />
+                <marker date="1467710877000" expanded="true" signature="32057:32114" placeholder="SELECT `id` projects" />
+                <marker date="1467710877000" expanded="true" signature="32057:32115" placeholder="SELECT `user... project_managers" />
+                <marker date="1467710877000" expanded="true" signature="32194:32295" placeholder="INSERT INTO `project_managers`... " />
+                <marker date="1467710877000" expanded="true" signature="32485:32584" placeholder="INSERT INTO `users_projects`... " />
               </folding>
             </state>
           </provider>
@@ -102,8 +105,9 @@
         <option value="$PROJECT_DIR$/templates/default/templates/projects/index.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/home/index.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl" />
-        <option value="$PROJECT_DIR$/includes/Module.php" />
         <option value="$PROJECT_DIR$/modules/admin/projects.php" />
+        <option value="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
+        <option value="$PROJECT_DIR$/includes/Module.php" />
       </list>
     </option>
   </component>
@@ -119,7 +123,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="1920" />
     <option name="y" value="144" />
-    <option name="width" value="1920" />
+    <option name="width" value="1993" />
     <option name="height" value="1032" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -221,32 +225,6 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -291,6 +269,36 @@
               <option name="myItemId" value="default" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -303,24 +311,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -339,6 +329,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -409,26 +413,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="144" width="1920" height="1032" extended-state="0" />
+    <frame x="1920" y="144" width="1993" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15064102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14807197" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -441,6 +446,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix function create new project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix function create new project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -474,19 +483,122 @@
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="1129" column="24" selection-start-line="1129" selection-start-column="24" selection-end-line="1129" selection-end-column="24" />
+          <folding>
+            <marker date="1467710877000" expanded="true" signature="3176:3254" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+            <marker date="1467710877000" expanded="true" signature="18065:18073" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+            <marker date="1467710877000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
+            <marker date="1467710877000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
+            <marker date="1467710877000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+            <marker date="1467710877000" expanded="true" signature="32057:32098" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32114" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32115" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="32194:32295" placeholder="INSERT INTO `project_managers`... " />
+            <marker date="1467710877000" expanded="true" signature="32485:32584" placeholder="INSERT INTO `users_projects`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/admin/projects.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1129" column="24" selection-start-line="1129" selection-start-column="24" selection-end-line="1129" selection-end-column="24" />
+          <folding>
+            <marker date="1467710877000" expanded="true" signature="3176:3254" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+            <marker date="1467710877000" expanded="true" signature="18065:18073" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+            <marker date="1467710877000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
+            <marker date="1467710877000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
+            <marker date="1467710877000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+            <marker date="1467710877000" expanded="true" signature="32057:32098" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32114" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32115" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="32194:32295" placeholder="INSERT INTO `project_managers`... " />
+            <marker date="1467710877000" expanded="true" signature="32485:32584" placeholder="INSERT INTO `users_projects`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/admin/projects.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1124" column="66" selection-start-line="1124" selection-start-column="62" selection-end-line="1124" selection-end-column="66" />
           <folding>
-            <marker date="1466060150000" expanded="true" signature="3176:3254" placeholder="..." />
-            <marker date="1466060150000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-            <marker date="1466060150000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-            <marker date="1466060150000" expanded="true" signature="18065:18073" placeholder="..." />
-            <marker date="1466060150000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-            <marker date="1466060150000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-            <marker date="1466060150000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-            <marker date="1466060150000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
-            <marker date="1466060150000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
-            <marker date="1466060150000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
-            <marker date="1466060150000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+            <marker date="1467710877000" expanded="true" signature="3176:3254" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+            <marker date="1467710877000" expanded="true" signature="18065:18073" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+            <marker date="1467710877000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
+            <marker date="1467710877000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
+            <marker date="1467710877000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+            <marker date="1467710877000" expanded="true" signature="32057:32098" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32114" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32115" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="32194:32295" placeholder="INSERT INTO `project_managers`... " />
+            <marker date="1467710877000" expanded="true" signature="32485:32584" placeholder="INSERT INTO `users_projects`... " />
           </folding>
         </state>
       </provider>
@@ -595,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -613,16 +724,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1091549">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.2112676">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding />
         </state>
@@ -630,36 +734,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-9.375">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/admin/projects.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.375">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5">
-          <caret line="1129" column="24" selection-start-line="1129" selection-start-column="24" selection-end-line="1129" selection-end-column="24" />
+        <state vertical-scroll-proportion="-23.291666">
+          <caret line="1143" column="119" selection-start-line="1143" selection-start-column="119" selection-end-line="1143" selection-end-column="119" />
           <folding>
-            <marker date="1466060150000" expanded="true" signature="3176:3254" placeholder="..." />
-            <marker date="1466060150000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-            <marker date="1466060150000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-            <marker date="1466060150000" expanded="true" signature="18065:18073" placeholder="..." />
-            <marker date="1466060150000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-            <marker date="1466060150000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-            <marker date="1466060150000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-            <marker date="1466060150000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
-            <marker date="1466060150000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
-            <marker date="1466060150000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
-            <marker date="1466060150000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+            <marker date="1467710877000" expanded="true" signature="3176:3254" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+            <marker date="1467710877000" expanded="true" signature="18065:18073" placeholder="..." />
+            <marker date="1467710877000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+            <marker date="1467710877000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+            <marker date="1467710877000" expanded="true" signature="29508:29644" placeholder="SELECT proje... projects" />
+            <marker date="1467710877000" expanded="true" signature="29953:30059" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="31028:31149" placeholder="SELECT users... users" />
+            <marker date="1467710877000" expanded="true" signature="31583:31761" placeholder="INSERT INTO `projects`... " />
+            <marker date="1467710877000" expanded="true" signature="32057:32098" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32114" placeholder="SELECT `id` projects" />
+            <marker date="1467710877000" expanded="true" signature="32057:32115" placeholder="SELECT `user... project_managers" />
+            <marker date="1467710877000" expanded="true" signature="32194:32295" placeholder="INSERT INTO `project_managers`... " />
+            <marker date="1467710877000" expanded="true" signature="32485:32584" placeholder="INSERT INTO `users_projects`... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/admin/projects.php">
+    <entry file="file://$PROJECT_DIR$/templates/default/compile/6f0b90fc7bc77feb8973786e093a98f104bdfce1_0.file.header_main_website.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.471831">
-          <caret line="50" column="43" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.3465704">
+          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5809859">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
           <folding />
         </state>
       </provider>

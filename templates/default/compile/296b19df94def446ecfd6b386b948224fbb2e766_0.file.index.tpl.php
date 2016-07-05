@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-06-15 11:51:56
+/* Smarty version 3.1.29, created on 2016-07-05 11:35:10
   from "/home/lucie/amidex/templates/default/templates/admin/index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5761253c51b205_09126692',
+  'unifunc' => 'content_577b7f4e8d7cd0_02845653',
   'file_dependency' => 
   array (
     '296b19df94def446ecfd6b386b948224fbb2e766' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/admin/index.tpl',
-      1 => 1465811078,
+      1 => 1467708203,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5761253c51b205_09126692 ($_smarty_tpl) {
+function content_577b7f4e8d7cd0_02845653 ($_smarty_tpl) {
 ?>
 
 
@@ -81,10 +81,9 @@ $__foreach_v_1_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 							<div class='noUsers'>No Assigned Users</div> 
 						</div>
 
-						<?php if ($_smarty_tpl->tpl_vars['is_project_manager']->value == true) {?><div><a href="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
-/<?php echo $_smarty_tpl->tpl_vars['class']->value;?>
-/edit/?id=<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
-&add_user" class="button tiny radius success">Add new user</a></div><?php }?>
+						
+                        <?php if ($_smarty_tpl->tpl_vars['is_project_manager']->value == true) {?><div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+">Add new user</a></div><?php }?>
 
 					<?php } else { ?>
 						<div class="small-10 columns">

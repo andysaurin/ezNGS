@@ -1124,15 +1124,28 @@ EOT;
         $modified_by = $this->user->id;
 		$this->db->master->query("INSERT INTO `projects` (id, name, md5sum, created, modified, uuid, modified_by) VALUES (NULL, '{$nameProject}', '{$md5sum}', {$created}, {$modified}, '{$uuid}', '{$modified_by}')");
 
-        $rowsAffected = $this->db->master->rows_affected;
+        //We check if insertion is ok
+        $rowsAffectedToCreateNewProject = $this->db->master->rows_affected;
 
-        if ($rowsAffected > 0){ //we inserted the new project
+        //We need to associated creator's project to this one
+        //First get the project of the new project created
+        $new_project_id = $this->db->master->get_var( "SELECT `id` FROM `projects` WHERE `name`='{$nameProject}' ");
+
+        //we create manager association
+        $this->db->master->query("INSERT INTO `project_managers` (`project_id`,`user_id`) VALUES ('{$new_project_id}','{$modified_by}')");
+        //We check if insertion is ok
+        $rowsAffectedToCreateNewManager = $this->db->master->rows_affected;
+
+        //We create user association
+        $this->db->master->query("INSERT INTO `users_projects` (`user_id`,`project_id`) VALUES ('{$modified_by}','{$new_project_id}')");
+        //We check if insertion is ok
+        $rowsAffectedToCreateNewUser = $this->db->master->rows_affected;
+
+        if ($rowsAffectedToCreateNewProject > 0 && $rowsAffectedToCreateNewManager > 0 && $rowsAffectedToCreateNewUser > 0){ //we inserted the new project
             return true;
         } else {
-            return $rowsAffected;
+            return $rowsAffectedToCreateNewProject . $rowsAffectedToCreateNewManager;
         }
-
-		//return $md5sum;
 
 		//return true; //if all went well
 
