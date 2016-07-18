@@ -99,7 +99,7 @@
                     <ul class="left" style="">
 
                         <li class="has-dropdown">
-                           <a href="/users/projects">All My Projects</a></li>
+                           <a href="/users/projects_users">All My Projects</a></li>
                             </ul>
 
                     </ul>

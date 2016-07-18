@@ -1049,7 +1049,8 @@ EOT;
 			return $this->db->master->get_results("SELECT * FROM `projects` ORDER BY `name` ASC");
 		}
 		// to do user-based projects
-		return $this->db->master->get_results("SELECT projects.* FROM `projects` INNER JOIN users_projects ON project_id=user_id  WHERE `user_id`={$this->user->id} ORDER BY `name` ASC");
+		//return $this->db->master->get_results("SELECT projects.* FROM `projects` INNER JOIN users_projects ON project_id=user_id  WHERE `user_id`={$this->user->id} ORDER BY `name` ASC");
+        return $this->db->master->get_results("SELECT projects.* FROM `projects` INNER JOIN users_projects ON project_id=user_id  WHERE `user_id`={$this->user->id} ORDER BY `name` ASC");
 
 	}
 
@@ -1065,7 +1066,7 @@ EOT;
 		if ( $this->db->master->get_var( "SELECT `user_id` FROM `project_managers` WHERE `project_id`={$project_id} AND `user_id`={$user_id} LIMIT 1" ) == $user_id )
 			return true;
 
-		return false;
+		//return false;
 
 	}
 
@@ -1120,34 +1121,64 @@ EOT;
         $md5sum = md5($nameProject);
         $created = time();
         $modified = $created;
-        $uuid = uniqid();
+        $uuid = $this->uuid(); //uniqid();
         $modified_by = $this->user->id;
 		$this->db->master->query("INSERT INTO `projects` (id, name, md5sum, created, modified, uuid, modified_by) VALUES (NULL, '{$nameProject}', '{$md5sum}', {$created}, {$modified}, '{$uuid}', '{$modified_by}')");
 
         //We check if insertion is ok
         $rowsAffectedToCreateNewProject = $this->db->master->rows_affected;
 
-        //We need to associated creator's project to this one
-        //First get the project of the new project created
-        $new_project_id = $this->db->master->get_var( "SELECT `id` FROM `projects` WHERE `name`='{$nameProject}' ");
+		if ($rowsAffectedToCreateNewProject > 0) { //we have to check if the project name are not already use
 
-        //we create manager association
-        $this->db->master->query("INSERT INTO `project_managers` (`project_id`,`user_id`) VALUES ('{$new_project_id}','{$modified_by}')");
-        //We check if insertion is ok
-        $rowsAffectedToCreateNewManager = $this->db->master->rows_affected;
+            //We need to associated creator's project to this one
+            //First get the project of the new project created
+            $new_project_id = $this->db->master->get_var( "SELECT `id` FROM `projects` WHERE `name`='{$nameProject}' ");
 
-        //We create user association
-        $this->db->master->query("INSERT INTO `users_projects` (`user_id`,`project_id`) VALUES ('{$modified_by}','{$new_project_id}')");
-        //We check if insertion is ok
-        $rowsAffectedToCreateNewUser = $this->db->master->rows_affected;
+            //we create manager association
+            $this->db->master->query("INSERT INTO `project_managers` (`project_id`,`user_id`) VALUES ('{$new_project_id}','{$modified_by}')");
+            //We check if insertion is ok
+            $rowsAffectedToCreateNewManager = $this->db->master->rows_affected;
 
-        if ($rowsAffectedToCreateNewProject > 0 && $rowsAffectedToCreateNewManager > 0 && $rowsAffectedToCreateNewUser > 0){ //we inserted the new project
-            return true;
-        } else {
-            return $rowsAffectedToCreateNewProject . $rowsAffectedToCreateNewManager;
+            //We create user association
+            $this->db->master->query("INSERT INTO `users_projects` (`user_id`,`project_id`) VALUES ('{$modified_by}','{$new_project_id}')");
+            //We check if insertion is ok
+            $rowsAffectedToCreateNewUser = $this->db->master->rows_affected;
+
+            /* 08/07/2016 if ($rowsAffectedToCreateNewProject > 0 && $rowsAffectedToCreateNewManager > 0 && $rowsAffectedToCreateNewUser > 0){ //we inserted the new project
+                return true;
+            } else {
+                return $rowsAffectedToCreateNewProject . $rowsAffectedToCreateNewManager;
+            }*/
+
+            //We create a variable to know if creating project is successful for the database side.
+            $creationNewProjectDbSide = false;
+
+            if ($rowsAffectedToCreateNewProject > 0 && $rowsAffectedToCreateNewManager > 0 && $rowsAffectedToCreateNewUser > 0){ //we inserted the new project in the sqlite database
+                $creationNewProjectDbSide =  true;
+            } else {
+                return $rowsAffectedToCreateNewProject . $rowsAffectedToCreateNewManager . " SQLITE issue with creating project";
+            }
+
+            //We need to create several folders for this new project.
+            $oldmask = umask(0); //store the value of the old mask apply by apache config and remove it
+            $pathFolder = SYSTEM_DATA_ROOT."/projects/" . $new_project_id;
+            mkdir($pathFolder, 0775);
+            $pathFolderSamples = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/samples";
+            mkdir($pathFolderSamples, 0775);
+            $pathFolderResults = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/results";
+            mkdir($pathFolderResults, 0775);
+            $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/metadata";
+            mkdir($pathFolderMetada, 0775);
+
+            umask($oldmask); //re-install the mask
+
+            return true;// testing not final one
+
+            //return true; //if all went well
+
+        }else{// error message show to the user if the project name are not available
+            return "this name project is already used, please choose another one";
         }
-
-		//return true; //if all went well
 
 	}
 

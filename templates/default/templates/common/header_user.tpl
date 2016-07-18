@@ -74,6 +74,15 @@
 						</li>
 					</ul>
 
+					<!-- Left Nav Section -->
+					<ul class="left" style="">
+
+						<li class="has-dropdown">
+							<a href="/users/projects_users">All My Projects</a></li>
+					</ul>
+
+					</ul>
+
 					<ul class="right" style="">
 
 					      <li class="has-dropdown">
@@ -90,6 +99,10 @@
 			</nav>
 
 		</div>
+
+
+<!-- Placeholder for user header //-->
+
 
 		<section id="main_body" style="margin:50px;padding:0px;">
 

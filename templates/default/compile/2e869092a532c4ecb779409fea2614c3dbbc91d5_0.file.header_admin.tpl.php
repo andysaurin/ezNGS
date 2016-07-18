@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-05 17:02:25
+/* Smarty version 3.1.29, created on 2016-07-18 11:18:13
   from "/home/lucie/amidex/templates/default/templates/common/header_admin.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_577bcc01633a73_43255419',
+  'unifunc' => 'content_578c9ed5425fd1_64628845',
   'file_dependency' => 
   array (
     '2e869092a532c4ecb779409fea2614c3dbbc91d5' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/common/header_admin.tpl',
-      1 => 1467724884,
+      1 => 1467895174,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_577bcc01633a73_43255419 ($_smarty_tpl) {
+function content_578c9ed5425fd1_64628845 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -155,7 +155,7 @@ echo '<script'; ?>
                     <ul class="left" style="">
 
                         <li class="has-dropdown">
-                           <a href="/users/projects">All My Projects</a></li>
+                           <a href="/users/projects_users">All My Projects</a></li>
                             </ul>
 
                     </ul>

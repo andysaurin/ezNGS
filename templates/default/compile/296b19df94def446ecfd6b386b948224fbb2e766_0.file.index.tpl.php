@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-05 17:02:25
+/* Smarty version 3.1.29, created on 2016-07-18 11:04:13
   from "/home/lucie/amidex/templates/default/templates/admin/index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_577bcc0167d7c3_12501955',
+  'unifunc' => 'content_578c9b8d9930b1_90436003',
   'file_dependency' => 
   array (
     '296b19df94def446ecfd6b386b948224fbb2e766' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/admin/index.tpl',
-      1 => 1467730186,
+      1 => 1467990371,
       2 => 'file',
     ),
   ),
@@ -19,14 +19,10 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_577bcc0167d7c3_12501955 ($_smarty_tpl) {
-?>
-
-
-<ul class="accordion" data-accordion>
-
-	<?php
-$_from = $_smarty_tpl->tpl_vars['projects']->value;
+function content_578c9b8d9930b1_90436003 ($_smarty_tpl) {
+if ($_smarty_tpl->tpl_vars['manager']->value) {?>
+    <?php
+$_from = $_smarty_tpl->tpl_vars['manager']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
 }
@@ -36,6 +32,30 @@ $_smarty_tpl->tpl_vars['project']->_loop = false;
 foreach ($_from as $_smarty_tpl->tpl_vars['project']->value) {
 $_smarty_tpl->tpl_vars['project']->_loop = true;
 $__foreach_project_0_saved_local_item = $_smarty_tpl->tpl_vars['project'];
+?>
+        <p><?php echo $_smarty_tpl->tpl_vars['project']->value;?>
+</p>
+    <?php
+$_smarty_tpl->tpl_vars['project'] = $__foreach_project_0_saved_local_item;
+}
+if ($__foreach_project_0_saved_item) {
+$_smarty_tpl->tpl_vars['project'] = $__foreach_project_0_saved_item;
+}
+}?>
+
+<ul class="accordion" data-accordion>
+
+	<?php
+$_from = $_smarty_tpl->tpl_vars['projects']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_project_1_saved_item = isset($_smarty_tpl->tpl_vars['project']) ? $_smarty_tpl->tpl_vars['project'] : false;
+$_smarty_tpl->tpl_vars['project'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['project']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['project']->value) {
+$_smarty_tpl->tpl_vars['project']->_loop = true;
+$__foreach_project_1_saved_local_item = $_smarty_tpl->tpl_vars['project'];
 ?>
 
 	<li id="accordion_project<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
@@ -58,19 +78,21 @@ $_from = $_smarty_tpl->tpl_vars['project']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
 }
-$__foreach_v_1_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
-$__foreach_v_1_saved_key = isset($_smarty_tpl->tpl_vars['k']) ? $_smarty_tpl->tpl_vars['k'] : false;
+$__foreach_v_2_saved_item = isset($_smarty_tpl->tpl_vars['v']) ? $_smarty_tpl->tpl_vars['v'] : false;
+$__foreach_v_2_saved_key = isset($_smarty_tpl->tpl_vars['k']) ? $_smarty_tpl->tpl_vars['k'] : false;
 $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable();
 $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable();
 $_smarty_tpl->tpl_vars['v']->_loop = false;
 foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['v']->value) {
 $_smarty_tpl->tpl_vars['v']->_loop = true;
-$__foreach_v_1_saved_local_item = $_smarty_tpl->tpl_vars['v'];
+$__foreach_v_2_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 ?>
 
 			<div class="row">
 
-				<?php if ($_smarty_tpl->tpl_vars['k']->value == 'users') {?>
+				<?php if ($_smarty_tpl->tpl_vars['k']->value == 'available_users') {?>
+
+				<?php } elseif ($_smarty_tpl->tpl_vars['k']->value == 'users') {?>
 
 					<div class="small-2 columns text-right subheader"><?php echo $_smarty_tpl->tpl_vars['k']->value;?>
 </div>
@@ -82,7 +104,12 @@ $__foreach_v_1_saved_local_item = $_smarty_tpl->tpl_vars['v'];
 						</div>
 
 						
-                        <?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+                        
+						<?php ob_start();
+echo $_smarty_tpl->tpl_vars['project']->value->name;
+$_tmp1=ob_get_clean();
+if ($_smarty_tpl->tpl_vars['is_admin']->value == true || in_array($_tmp1,$_smarty_tpl->tpl_vars['manager']->value)) {?><div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 ">Add new user</a></div><?php }?>
 
 					<?php } else { ?>
@@ -94,36 +121,43 @@ $_from = $_smarty_tpl->tpl_vars['v']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
 }
-$__foreach_user_2_saved_item = isset($_smarty_tpl->tpl_vars['user']) ? $_smarty_tpl->tpl_vars['user'] : false;
-$_smarty_tpl->tpl_vars['user'] = new Smarty_Variable();
-$_smarty_tpl->tpl_vars['user']->_loop = false;
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-$__foreach_user_2_saved_local_item = $_smarty_tpl->tpl_vars['user'];
+$__foreach_project_user_3_saved_item = isset($_smarty_tpl->tpl_vars['project_user']) ? $_smarty_tpl->tpl_vars['project_user'] : false;
+$_smarty_tpl->tpl_vars['project_user'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['project_user']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['project_user']->value) {
+$_smarty_tpl->tpl_vars['project_user']->_loop = true;
+$__foreach_project_user_3_saved_local_item = $_smarty_tpl->tpl_vars['project_user'];
 ?>
 
 								<div id="project<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
-_user<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
+_user<?php echo $_smarty_tpl->tpl_vars['project_user']->value->id;?>
 " >
-									<span class="secondary radius label"><?php echo $_smarty_tpl->tpl_vars['user']->value->name;?>
-</span> <?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><a href="#" class="removeUser" id="removeProjectUser-<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
--<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
-" userID="<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
+									<span class="secondary radius label"><?php echo $_smarty_tpl->tpl_vars['project_user']->value->name;?>
+</span> <?php ob_start();
+echo $_smarty_tpl->tpl_vars['project_user']->value->id;
+$_tmp2=ob_get_clean();
+ob_start();
+echo $_smarty_tpl->tpl_vars['user']->value->id;
+$_tmp3=ob_get_clean();
+if ($_smarty_tpl->tpl_vars['is_admin']->value == true && $_tmp2 != $_tmp3) {?><a href="#" class="removeUser" id="removeProjectUser-<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+-<?php echo $_smarty_tpl->tpl_vars['project_user']->value->id;?>
+" userID="<?php echo $_smarty_tpl->tpl_vars['project_user']->value->id;?>
 " projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 "><span class="alert radius label"> Remove </span></a><?php }?>
 								</div>
 
 						<?php
-$_smarty_tpl->tpl_vars['user'] = $__foreach_user_2_saved_local_item;
+$_smarty_tpl->tpl_vars['project_user'] = $__foreach_project_user_3_saved_local_item;
 }
-if ($__foreach_user_2_saved_item) {
-$_smarty_tpl->tpl_vars['user'] = $__foreach_user_2_saved_item;
+if ($__foreach_project_user_3_saved_item) {
+$_smarty_tpl->tpl_vars['project_user'] = $__foreach_project_user_3_saved_item;
 }
 ?>
 
 							</div>
 
-							<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+							<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true && count($_smarty_tpl->tpl_vars['project']->value->available_users) > 0) {?><div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 ">Invite a user to this project</a></div><?php }?>
 						</div>
 
@@ -139,14 +173,16 @@ $_smarty_tpl->tpl_vars['user'] = $__foreach_user_2_saved_item;
 
 			</div>
 
+
+
 			<?php
-$_smarty_tpl->tpl_vars['v'] = $__foreach_v_1_saved_local_item;
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_local_item;
 }
-if ($__foreach_v_1_saved_item) {
-$_smarty_tpl->tpl_vars['v'] = $__foreach_v_1_saved_item;
+if ($__foreach_v_2_saved_item) {
+$_smarty_tpl->tpl_vars['v'] = $__foreach_v_2_saved_item;
 }
-if ($__foreach_v_1_saved_key) {
-$_smarty_tpl->tpl_vars['k'] = $__foreach_v_1_saved_key;
+if ($__foreach_v_2_saved_key) {
+$_smarty_tpl->tpl_vars['k'] = $__foreach_v_2_saved_key;
 }
 ?>
 
@@ -154,11 +190,46 @@ $_smarty_tpl->tpl_vars['k'] = $__foreach_v_1_saved_key;
 		</div>
 	</li>
 
+<!-- available users for this project (project ID <?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+) -->
+<div id="addUserModal-projectID_<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+" class="login reveal-modal medium" data-reveal aria-labelledby="login-medium-title" aria-hidden="true" role="dialog">
 	<?php
-$_smarty_tpl->tpl_vars['project'] = $__foreach_project_0_saved_local_item;
+$_from = $_smarty_tpl->tpl_vars['project']->value->available_users;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
 }
-if ($__foreach_project_0_saved_item) {
-$_smarty_tpl->tpl_vars['project'] = $__foreach_project_0_saved_item;
+$__foreach_user_4_saved_item = isset($_smarty_tpl->tpl_vars['user']) ? $_smarty_tpl->tpl_vars['user'] : false;
+$_smarty_tpl->tpl_vars['user'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['user']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
+$_smarty_tpl->tpl_vars['user']->_loop = true;
+$__foreach_user_4_saved_local_item = $_smarty_tpl->tpl_vars['user'];
+?>
+		<div class="available_users"><a href="#" id="project_<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+_available_user_id_<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
+" class="addUser button small radius success" userID="<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
+" projectID="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+" userName="<?php echo $_smarty_tpl->tpl_vars['user']->value->name;?>
+"><?php echo $_smarty_tpl->tpl_vars['user']->value->name;?>
+</a></div>
+
+	<?php
+$_smarty_tpl->tpl_vars['user'] = $__foreach_user_4_saved_local_item;
+}
+if ($__foreach_user_4_saved_item) {
+$_smarty_tpl->tpl_vars['user'] = $__foreach_user_4_saved_item;
+}
+?>
+	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+	<?php
+$_smarty_tpl->tpl_vars['project'] = $__foreach_project_1_saved_local_item;
+}
+if ($__foreach_project_1_saved_item) {
+$_smarty_tpl->tpl_vars['project'] = $__foreach_project_1_saved_item;
 }
 ?>
 
@@ -166,37 +237,6 @@ $_smarty_tpl->tpl_vars['project'] = $__foreach_project_0_saved_item;
 </ul>
 
 
-<div id="addUserModal" projectID="" class="login reveal-modal medium" data-reveal aria-labelledby="login-medium-title" aria-hidden="true" role="dialog">
-	<div id="NewUserTitle" style="padding-bottom:50px;">Select a user to add to this project</div>
-
-	<?php
-$_from = $_smarty_tpl->tpl_vars['all_users']->value;
-if (!is_array($_from) && !is_object($_from)) {
-settype($_from, 'array');
-}
-$__foreach_user_3_saved_item = isset($_smarty_tpl->tpl_vars['user']) ? $_smarty_tpl->tpl_vars['user'] : false;
-$_smarty_tpl->tpl_vars['user'] = new Smarty_Variable();
-$_smarty_tpl->tpl_vars['user']->_loop = false;
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
-$_smarty_tpl->tpl_vars['user']->_loop = true;
-$__foreach_user_3_saved_local_item = $_smarty_tpl->tpl_vars['user'];
-?>
-		<div class="available_users"><a href="#" id="available_user_id_<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
-" class="addUser button small radius success" userID="<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
-" projectID="" userName="<?php echo $_smarty_tpl->tpl_vars['user']->value->name;?>
-"><?php echo $_smarty_tpl->tpl_vars['user']->value->name;?>
-</a></div>
-
-	<?php
-$_smarty_tpl->tpl_vars['user'] = $__foreach_user_3_saved_local_item;
-}
-if ($__foreach_user_3_saved_item) {
-$_smarty_tpl->tpl_vars['user'] = $__foreach_user_3_saved_item;
-}
-?>
-
-	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
 
 
 <?php echo '<script'; ?>
@@ -217,6 +257,7 @@ $(document).ready(function() {
 		$('.addUser').click(function (){
 
 			var user_id = $(this).attr('userID');
+			var project_id = $(this).attr('projectID');
 			var user_name = $(this).attr('userName');
 
 			$.ajax({
@@ -225,15 +266,16 @@ $(document).ready(function() {
 				data:{user_id: user_id, project_id: project_id}
 			})
 			.done(function( data ) {
-				//alert(data);
+				//alert(data+" : userID="+user_id);
 				if ( data == 'ok' ) { //user added to project in the database
 
 					// 1. hide the user from the modal window (so we can't click them a second time
-					$("#available_user_id_"+user_id).hide();
+					$("#project_"+project_id+"_available_user_id_"+user_id).hide();
 
 					// 2. refresh list of project users in the parent accordion user list
 					$("#project"+project_id+" .user_list").append( '<span class="secondary radius label">'+user_name+'</span> <a href="#" class="removeUser" id="removeProjectUser-'+project_id+'-'+user_id+'" userID="'+user_id+'" projectID="'+project_id+'"><span class="alert radius label"> Remove </span></a>' );
 
+					return false;
 
 					//$("#project"+project_id+"_user"+user_id).hide();
 				} else {
@@ -262,7 +304,7 @@ $(document).ready(function() {
 
 	$('.removeUser').click(function (){
 
-		
+
 		var user_id = $(this).attr('userID');
 		var project_id = $(this).attr('projectID');
 

@@ -9,7 +9,7 @@
                     <span class="prefix">Project name</span>
                 </div>
                 <div class="small-9 columns">
-                    <input type="text" name="project_name" placeholder="Enter the name project">
+                    <input type="text" name="project_name" placeholder="Enter the name project" required oninvalid="this.setCustomValidity('Please enter a name project for create it')" >
                 </div>
             </div>
            <input class="button success small round" type="submit" name="create_project" value="Create New Project" />

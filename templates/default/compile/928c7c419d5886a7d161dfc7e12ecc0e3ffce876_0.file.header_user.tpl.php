@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-18 10:09:44
-  from "/home/lucie/amidex/templates/default/templates/common/header_main_website.tpl" */
+/* Smarty version 3.1.29, created on 2016-07-18 10:06:11
+  from "/home/lucie/amidex/templates/default/templates/common/header_user.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578c8ec868b9f3_80379308',
+  'unifunc' => 'content_578c8df3e7aa61_50480790',
   'file_dependency' => 
   array (
-    '6f0b90fc7bc77feb8973786e093a98f104bdfce1' => 
+    '928c7c419d5886a7d161dfc7e12ecc0e3ffce876' => 
     array (
-      0 => '/home/lucie/amidex/templates/default/templates/common/header_main_website.tpl',
-      1 => 1465474052,
+      0 => '/home/lucie/amidex/templates/default/templates/common/header_user.tpl',
+      1 => 1467969614,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_578c8ec868b9f3_80379308 ($_smarty_tpl) {
+function content_578c8df3e7aa61_50480790 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -100,16 +100,43 @@ echo '<script'; ?>
 					<ul class="right show-for-small-only">
 						<li>
 							<a href="<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
-/login" data-reveal-id="login-small">Sign in</a>
+/" data-reveal-id="login-small"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</a>
 						</li>
 					</ul>
 					<ul class="nav right show-for-medium-up">
 						<li>
 							<a href="<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
-/login" class="show-for-medium-only" data-reveal-id="login-medium"><span class="tiny button radius default small" style="padding:5px;margin:0;">Sign in</span></a>
+/" class="show-for-medium-only" ><span class="tiny button radius default small" style="padding:5px;margin:0;"><?php echo $_SESSION['username'];?>
+</span></a>
 							<a href="<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
-/login" class="show-for-large-up" data-reveal-id="login-large"><span class="tiny button radius default"><i class="fi-torso"></i> Sign in</span></a>
+/" class="show-for-large-up" ><span class="tiny button radius default"><i class="fi-torso"></i> <?php echo $_SESSION['username'];?>
+</span></a>
 						</li>
+					</ul>
+
+					<ul class="right show-for-small-only">
+						<li>
+							<a href="<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+/logout" data-reveal-id="login-small">Logout</a>
+						</li>
+					</ul>
+					<ul class="nav right show-for-medium-up">
+						<li>
+							<a href="<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+/logout" class="show-for-medium-only" ><span class="tiny button radius warning small" style="padding:5px;margin:0;">Logout</span></a>
+							<a href="<?php echo $_smarty_tpl->tpl_vars['host']->value;?>
+/logout" class="show-for-large-up" ><span class="tiny button warning default"><i class="fi-torso"></i> Logout</span></a>
+						</li>
+					</ul>
+
+					<!-- Left Nav Section -->
+					<ul class="left" style="">
+
+						<li class="has-dropdown">
+							<a href="/users/projects_users">All My Projects</a></li>
+					</ul>
+
 					</ul>
 
 					<ul class="right" style="">
@@ -121,8 +148,6 @@ echo '<script'; ?>
 					          <li class="active"><a href="#">Active link in dropdown</a></li>
 					        </ul>
 					      </li>
-
-
 					</ul>
 
 				</section>
@@ -130,6 +155,10 @@ echo '<script'; ?>
 			</nav>
 
 		</div>
+
+
+<!-- Placeholder for user header //-->
+
 
 		<section id="main_body" style="margin:50px;padding:0px;">
 

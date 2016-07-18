@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-05 15:18:57
+/* Smarty version 3.1.29, created on 2016-07-18 09:41:10
   from "/home/lucie/amidex/templates/default/templates/admin/users.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_577bb3c1d34080_90373188',
+  'unifunc' => 'content_578c8816c19e97_64778536',
   'file_dependency' => 
   array (
     'f8295af0a231b1ca7fd44da969754c4b63afbfb5' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_577bb3c1d34080_90373188 ($_smarty_tpl) {
+function content_578c8816c19e97_64778536 ($_smarty_tpl) {
 ?>
 <h1>All Users TOTO</h1><?php }
 }

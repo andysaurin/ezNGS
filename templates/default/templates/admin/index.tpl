@@ -1,4 +1,8 @@
-
+{if $manager}
+    {foreach $manager as $project}
+        <p>{$project}</p>
+    {/foreach}
+{/if}
 
 <ul class="accordion" data-accordion>
 
@@ -15,7 +19,9 @@
 
 			<div class="row">
 
-				{if $k == 'users'}
+				{if $k == 'available_users'}
+
+				{elseif $k == 'users'}
 
 					<div class="small-2 columns text-right subheader">{$k}</div>
 
@@ -26,23 +32,24 @@
 						</div>
 
 						{* 05/07/2016 {if is_admin == true}<div><a href="/{$module}/{$class}/edit/?id={$project->id}&add_user" class="button tiny radius success">Add new user</a></div>{/if}*}
-                        {if $is_admin == true}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Add new user</a></div>{/if}
+                        {*{if $is_admin == true || in_array({$project->name},$manager)}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Add new user</a></div>{/if}*}
+						{if $is_admin == true || in_array({$project->name},$manager)}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_{$project->id}" projectID="{$project->id}">Add new user</a></div>{/if}
 
 					{else}
 						<div class="small-10 columns">
 
 							<div class="user_list">
-						{foreach $v as $user}
+						{foreach $v as $project_user}
 
-								<div id="project{$project->id}_user{$user->id}" >
-									<span class="secondary radius label">{$user->name}</span> {if $is_admin == true}<a href="#" class="removeUser" id="removeProjectUser-{$project->id}-{$user->id}" userID="{$user->id}" projectID="{$project->id}"><span class="alert radius label"> Remove </span></a>{/if}
+								<div id="project{$project->id}_user{$project_user->id}" >
+									<span class="secondary radius label">{$project_user->name}</span> {if $is_admin == true && {$project_user->id} != {$user->id} }<a href="#" class="removeUser" id="removeProjectUser-{$project->id}-{$project_user->id}" userID="{$project_user->id}" projectID="{$project->id}"><span class="alert radius label"> Remove </span></a>{/if}
 								</div>
 
 						{/foreach}
 
 							</div>
 
-							{if $is_admin == true}<div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Invite a user to this project</a></div>{/if}
+							{if $is_admin == true && $project->available_users|count > 0 }<div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_{$project->id}" projectID="{$project->id}">Invite a user to this project</a></div>{/if}
 						</div>
 
 					{/if}
@@ -55,11 +62,22 @@
 
 			</div>
 
+
+
 			{/foreach}
 
 
 		</div>
 	</li>
+
+<!-- available users for this project (project ID {$project->id}) -->
+<div id="addUserModal-projectID_{$project->id}" projectID="{$project->id}" class="login reveal-modal medium" data-reveal aria-labelledby="login-medium-title" aria-hidden="true" role="dialog">
+	{foreach $project->available_users as $user}
+		<div class="available_users"><a href="#" id="project_{$project->id}_available_user_id_{$user->id}" class="addUser button small radius success" userID="{$user->id}" projectID="{$project->id}" userName="{$user->name}">{$user->name}</a></div>
+
+	{/foreach}
+	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
 
 	{/foreach}
 
@@ -67,16 +85,6 @@
 </ul>
 
 
-<div id="addUserModal" projectID="" class="login reveal-modal medium" data-reveal aria-labelledby="login-medium-title" aria-hidden="true" role="dialog">
-	<div id="NewUserTitle" style="padding-bottom:50px;">Select a user to add to this project</div>
-
-	{foreach $all_users as $user}
-		<div class="available_users"><a href="#" id="available_user_id_{$user->id}" class="addUser button small radius success" userID="{$user->id}" projectID="" userName="{$user->name}">{$user->name}</a></div>
-
-	{/foreach}
-
-	<a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
 
 
 <script>
@@ -96,6 +104,7 @@ $(document).ready(function() {
 		$('.addUser').click(function (){
 
 			var user_id = $(this).attr('userID');
+			var project_id = $(this).attr('projectID');
 			var user_name = $(this).attr('userName');
 
 			$.ajax({
@@ -104,15 +113,16 @@ $(document).ready(function() {
 				data:{user_id: user_id, project_id: project_id}
 			})
 			.done(function( data ) {
-				//alert(data);
+				//alert(data+" : userID="+user_id);
 				if ( data == 'ok' ) { //user added to project in the database
 
 					// 1. hide the user from the modal window (so we can't click them a second time
-					$("#available_user_id_"+user_id).hide();
+					$("#project_"+project_id+"_available_user_id_"+user_id).hide();
 
 					// 2. refresh list of project users in the parent accordion user list
 					$("#project"+project_id+" .user_list").append( '<span class="secondary radius label">'+user_name+'</span> <a href="#" class="removeUser" id="removeProjectUser-'+project_id+'-'+user_id+'" userID="'+user_id+'" projectID="'+project_id+'"><span class="alert radius label"> Remove </span></a>' );
 
+					return false;
 
 					//$("#project"+project_id+"_user"+user_id).hide();
 				} else {
@@ -141,7 +151,7 @@ $(document).ready(function() {
 
 	$('.removeUser').click(function (){
 
-		
+
 		var user_id = $(this).attr('userID');
 		var project_id = $(this).attr('projectID');
 
