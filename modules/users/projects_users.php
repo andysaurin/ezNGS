@@ -13,6 +13,7 @@ class projects_users extends NQ_Auth_User
             $users = $this->project_users($project->id);
 
             $this->all_projects[$k]->users = $users;
+            $this->all_projects[$k]->available_users = $this->all_users($users);
 
         }
 

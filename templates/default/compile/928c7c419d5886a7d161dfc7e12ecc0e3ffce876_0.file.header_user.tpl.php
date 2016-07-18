@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-18 11:42:36
+/* Smarty version 3.1.29, created on 2016-07-18 16:00:07
   from "/home/lucie/amidex/templates/default/templates/common/header_user.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578ca48ca0b329_51358372',
+  'unifunc' => 'content_578ce0e7973464_57473623',
   'file_dependency' => 
   array (
     '928c7c419d5886a7d161dfc7e12ecc0e3ffce876' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_578ca48ca0b329_51358372 ($_smarty_tpl) {
+function content_578ce0e7973464_57473623 ($_smarty_tpl) {
 ?>
 <!doctype html>
 <html class="no-js" lang="en">

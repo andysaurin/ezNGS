@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-18 11:42:35
+/* Smarty version 3.1.29, created on 2016-07-18 15:51:07
   from "/home/lucie/amidex/templates/default/templates/home/login.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578ca48b2ed9a5_12766340',
+  'unifunc' => 'content_578cdecbc6ddb3_52967918',
   'file_dependency' => 
   array (
     'fbd29af1720f772a2de6a3f6a663be4fdbe51ab1' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_578ca48b2ed9a5_12766340 ($_smarty_tpl) {
+function content_578cdecbc6ddb3_52967918 ($_smarty_tpl) {
 if (!$_smarty_tpl->tpl_vars['modal']->value) {?><div class="row">&nbsp;</div><?php }?>
 
 			<div class="row">

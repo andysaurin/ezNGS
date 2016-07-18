@@ -1,8 +1,3 @@
-{if $manager}
-    {foreach $manager as $project}
-        <p>{$project}</p>
-    {/foreach}
-{/if}
 
 <ul class="accordion" data-accordion>
 
@@ -32,9 +27,8 @@
 						</div>
 
 						{* 05/07/2016 {if is_admin == true}<div><a href="/{$module}/{$class}/edit/?id={$project->id}&add_user" class="button tiny radius success">Add new user</a></div>{/if}*}
-                        {*{if $is_admin == true || in_array({$project->name},$manager)}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal" projectID="{$project->id}">Add new user</a></div>{/if}*}
-						{if $is_admin == true || in_array({$project->name},$manager)}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_{$project->id}" projectID="{$project->id}">Add new user</a></div>{/if}
-
+						{*{if $is_admin == true OR $project->name|in_array:$manager}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_{$project->id}" projectID="{$project->id}">Add new user</a></div>{/if}*}
+						{*{if $is_admin == true || {$project->name}|in_array:$manager}<p>OK !!!</p>{/if}*}
 					{else}
 						<div class="small-10 columns">
 
@@ -42,14 +36,13 @@
 						{foreach $v as $project_user}
 
 								<div id="project{$project->id}_user{$project_user->id}" >
-									<span class="secondary radius label">{$project_user->name}</span> {if $is_admin == true && {$project_user->id} != {$user->id} }<a href="#" class="removeUser" id="removeProjectUser-{$project->id}-{$project_user->id}" userID="{$project_user->id}" projectID="{$project->id}"><span class="alert radius label"> Remove </span></a>{/if}
+									<span class="secondary radius label">{$project_user->name}</span> {if $is_admin == true OR $project->name|in_array:$manager && {$project_user->id} != {$user->id} }<a href="#" class="removeUser" id="removeProjectUser-{$project->id}-{$project_user->id}" userID="{$project_user->id}" projectID="{$project->id}"><span class="alert radius label"> Remove </span></a>{/if}
 								</div>
 
 						{/foreach}
 
 							</div>
-
-							{if $is_admin == true && $project->available_users|count > 0 }<div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_{$project->id}" projectID="{$project->id}">Invite a user to this project</a></div>{/if}
+							{if $is_admin == true  OR $project->name|in_array:$manager && $project->available_users|count > 0 }<div style="padding: 50px;"><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_{$project->id}" projectID="{$project->id}">Invite a user to this project</a></div>{/if}
 						</div>
 
 					{/if}
@@ -61,8 +54,6 @@
 				{/if}
 
 			</div>
-
-
 
 			{/foreach}
 

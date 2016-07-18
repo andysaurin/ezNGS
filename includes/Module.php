@@ -1048,7 +1048,7 @@ EOT;
 		if ( $this->user->is_admin == 1 ) {
 			return $this->db->master->get_results("SELECT * FROM `projects` ORDER BY `name` ASC");
 		}
-		
+
         return $this->db->master->get_results("SELECT projects.* FROM `projects` JOIN `users_projects` ON projects.id=users_projects.project_id  WHERE `user_id`={$this->user->id} ORDER BY `name` ASC");
 
 	}
