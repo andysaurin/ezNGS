@@ -219,6 +219,26 @@ define('SYSTEM_ENGINE_ROOT', SYSTEM_DIRECTORY_ROOT );
 define ('SYSTEM_DATA_ROOT', SYSTEM_DIRECTORY_ROOT.'/data');
 
 /**
+* SYSTEM_UPLOAD_ROOT
+*
+* Path to the data upload directory
+*
+* @global constant SYSTEM_UPLOAD_ROOT
+**/
+define ('SYSTEM_UPLOAD_ROOT', SYSTEM_DIRECTORY_ROOT.'/uploads');
+
+/**
+* SYSTEM_UPLOAD_ROOT
+*
+* Path to the data upload directory
+*
+* @global constant SYSTEM_UPLOAD_ROOT
+**/
+define ('SYSTEM_PROJECTS_ROOT', SYSTEM_DATA_ROOT.'/projects');
+
+
+
+/**
 * SYSTEM_ERRORDOCS_PATH
 *
 * Path to error docs - error docs named eg 404.php

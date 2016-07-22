@@ -3,6 +3,9 @@
 
 {include file="admin/projects/create.tpl"}
 
+{elseif $event == 'go' && $smarty.get.id > 0}
+    <h1>Welcome to {$smarty.get.name} project</h1>
+    {include file="users/projects_users/go.tpl"}
 
 {else} {* $event not defined, therefore calling function __default() *}
 

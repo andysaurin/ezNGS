@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-18 16:00:07
+/* Smarty version 3.1.29, created on 2016-07-21 16:48:08
   from "/home/lucie/amidex/templates/default/templates/common/footer.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578ce0e79e68d0_95243668',
+  'unifunc' => 'content_5790e0a876e500_19527345',
   'file_dependency' => 
   array (
     '00d470fd4684b8070def89cfeab3483b022d05cf' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/common/footer.tpl',
-      1 => 1465541095,
+      1 => 1469112434,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_578ce0e79e68d0_95243668 ($_smarty_tpl) {
+function content_5790e0a876e500_19527345 ($_smarty_tpl) {
 ?>
 
 
@@ -88,6 +88,7 @@ function content_578ce0e79e68d0_95243668 ($_smarty_tpl) {
 
 		<?php echo '</script'; ?>
 >
+
 
 	</div>
 

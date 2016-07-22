@@ -1,26 +1,33 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-18 16:00:07
+/* Smarty version 3.1.29, created on 2016-07-21 14:56:06
   from "/home/lucie/amidex/templates/default/templates/admin/index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578ce0e79d5e38_89317734',
+  'unifunc' => 'content_5790c6665b1770_48956567',
   'file_dependency' => 
   array (
     '296b19df94def446ecfd6b386b948224fbb2e766' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/admin/index.tpl',
-      1 => 1468850404,
+      1 => 1469007402,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:users/projects_users/go.tpl' => 1,
   ),
 ),false)) {
-function content_578ce0e79d5e38_89317734 ($_smarty_tpl) {
+function content_5790c6665b1770_48956567 ($_smarty_tpl) {
+if ($_smarty_tpl->tpl_vars['event']->value == 'go') {?>
+
+<?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:users/projects_users/go.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
+
+<?php }?>
 
 <ul class="accordion" data-accordion>
 
@@ -46,7 +53,15 @@ $__foreach_project_0_saved_local_item = $_smarty_tpl->tpl_vars['project'];
 
 		<div id="project<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
 " class="content">
+			
+            <a href="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['class']->value;?>
+/go/?id=<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+&name=<?php echo $_smarty_tpl->tpl_vars['project']->value->name;?>
+" class="button tiny warning">Go <?php echo $_smarty_tpl->tpl_vars['project']->value->name;?>
+</a>
 
+			
 			<?php if ($_smarty_tpl->tpl_vars['is_admin']->value == true) {?><a href="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['class']->value;?>
 /edit/?id=<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>

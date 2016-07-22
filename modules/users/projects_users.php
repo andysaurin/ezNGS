@@ -40,6 +40,16 @@ class projects_users extends NQ_Auth_User
 
     }
 
+    public function go()
+    {
+	    if ( is_numeric($_GET['id']) && $_GET['id'] > 0 ) {
+	   	 //get information on project from DB
+
+	   	 	//$this->set('project',  $this->project_info( (int)$_GET['id'] ) );
+	    }
+
+    }
+
     public function __destruct()
     {
         parent::__destruct();

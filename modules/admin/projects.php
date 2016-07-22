@@ -42,6 +42,13 @@ class projects extends NQ_Auth_Admin
 
 	}
 
+	public function go()
+	{
+
+//perhaps todo
+
+	}
+
 	public function create()
 	{
 

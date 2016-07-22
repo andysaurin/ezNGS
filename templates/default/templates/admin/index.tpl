@@ -1,3 +1,8 @@
+{if $event == 'go'}
+
+{include file="users/projects_users/go.tpl"}
+
+{/if}
 
 <ul class="accordion" data-accordion>
 
@@ -8,7 +13,10 @@
 		<a href="#project{$project->id}">{$project->name}</a>
 
 		<div id="project{$project->id}" class="content">
+			{*button to enter in the project*}
+            <a href="/{$module}/{$class}/go/?id={$project->id}&name={$project->name}" class="button tiny warning">Go {$project->name}</a>
 
+			{*button to edit project only for admin*}
 			{if $is_admin == true}<a href="/{$module}/{$class}/edit/?id={$project->id}" class="button tiny warning">Edit {$project->name}</a>{/if}
 			{foreach $project as $k=>$v}
 
