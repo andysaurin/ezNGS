@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-21 16:48:08
+/* Smarty version 3.1.29, created on 2016-08-16 15:50:14
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/go.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5790e0a875ad73_20287430',
+  'unifunc' => 'content_57b31a16886911_04297177',
   'file_dependency' => 
   array (
     'fe172e69a9ac2dc9fb7b07742db234a256aed3c2' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/go.tpl',
-      1 => 1469107613,
+      1 => 1470924688,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:users/projects_users/file_browser.tpl' => 1,
+    'file:users/projects_users/samples.tpl' => 1,
   ),
 ),false)) {
-function content_5790e0a875ad73_20287430 ($_smarty_tpl) {
+function content_57b31a16886911_04297177 ($_smarty_tpl) {
 ?>
 
 <ul class="tabs" data-tab>
@@ -29,7 +30,6 @@ function content_5790e0a875ad73_20287430 ($_smarty_tpl) {
     <li class="tab-title"><a href="#panel3">ChIP-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel4">RNA-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>
-    <li class="tab-title"><a href="#panel6">Manage access users projects</a></li>
 </ul>
 <div class="tabs-content">
     <div class="content" id="fileBrowser">
@@ -38,7 +38,9 @@ function content_5790e0a875ad73_20287430 ($_smarty_tpl) {
 
     </div>
     <div class="content" id="panel2">
-        <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+        <?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:users/projects_users/samples.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
     </div>
     <div class="content" id="panel3">
         <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
@@ -48,9 +50,6 @@ function content_5790e0a875ad73_20287430 ($_smarty_tpl) {
     </div>
     <div class="content" id="panel5">
         <p>This is the five panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
-    </div>
-    <div class="content" id="panel6">
-        <p>This is the six panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
     </div>
 </div>
 

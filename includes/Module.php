@@ -1180,6 +1180,17 @@ EOT;
         }
 
 	}
+	public function project_info($project_id=0)
+    {
+        /*verification*/
+        if ( $project_id < 1 || $this->user->id < 1 ) {
+            return array();
+        }
+
+        /*Make a request to get all info about this project*/
+         return $this->db->master->get_results("SELECT * FROM `projects` WHERE `id`={$project_id}");
+
+    }
 
 	public function new_sqlite_db($name)
 	{

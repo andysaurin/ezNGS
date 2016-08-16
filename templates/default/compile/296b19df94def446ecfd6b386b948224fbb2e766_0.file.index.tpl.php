@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-21 14:56:06
+/* Smarty version 3.1.29, created on 2016-08-16 15:49:22
   from "/home/lucie/amidex/templates/default/templates/admin/index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5790c6665b1770_48956567',
+  'unifunc' => 'content_57b319e2e96f03_40073762',
   'file_dependency' => 
   array (
     '296b19df94def446ecfd6b386b948224fbb2e766' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/admin/index.tpl',
-      1 => 1469007402,
+      1 => 1471355195,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,12 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:users/projects_users/go.tpl' => 1,
   ),
 ),false)) {
-function content_5790c6665b1770_48956567 ($_smarty_tpl) {
-if ($_smarty_tpl->tpl_vars['event']->value == 'go') {?>
-
-<?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:users/projects_users/go.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_57b319e2e96f03_40073762 ($_smarty_tpl) {
+if ($_smarty_tpl->tpl_vars['event']->value == 'go') {
+$_smarty_debug = new Smarty_Internal_Debug;
+ $_smarty_debug->display_debug($_smarty_tpl);
+unset($_smarty_debug);
+$_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:users/projects_users/go.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 

@@ -31,12 +31,13 @@ class projects_users extends NQ_Auth_User
             }
 
         $this->set("manager",  $manager );
+        $this->set('projects',  $this->all_projects );
     }
 
     public function __default()
     {
 
-        $this->set('projects',  $this->all_projects );
+        //$this->set('projects',  $this->all_projects );
 
     }
 
@@ -44,8 +45,8 @@ class projects_users extends NQ_Auth_User
     {
 	    if ( is_numeric($_GET['id']) && $_GET['id'] > 0 ) {
 	   	 //get information on project from DB
-
-	   	 	//$this->set('project',  $this->project_info( (int)$_GET['id'] ) );
+            print_r($this->project_info( (int)$_GET['id'] ));
+	   	 	$this->set('project', $this->project_info( (int)$_GET['id'] ) );
 	    }
 
     }

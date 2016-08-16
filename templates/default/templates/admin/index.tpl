@@ -1,5 +1,5 @@
 {if $event == 'go'}
-
+{debug}
 {include file="users/projects_users/go.tpl"}
 
 {/if}
@@ -13,7 +13,7 @@
 		<a href="#project{$project->id}">{$project->name}</a>
 
 		<div id="project{$project->id}" class="content">
-			{*button to enter in the project*}
+			{*button to enter in the project with a GET request*}
             <a href="/{$module}/{$class}/go/?id={$project->id}&name={$project->name}" class="button tiny warning">Go {$project->name}</a>
 
 			{*button to edit project only for admin*}

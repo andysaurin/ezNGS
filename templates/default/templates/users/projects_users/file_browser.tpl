@@ -1,9 +1,9 @@
  <script type="text/javascript" src="/js/browser/ajax.js"></script>
  <script type="text/javascript" src="/js/browser/browser.js"></script>
-
+{debug}
 
 <script type="text/javascript">
-
+{literal}
 
 	function browser_init(){
 		browser({
@@ -16,7 +16,13 @@
 				if(item.type=="folder")
 					return true; //confirm("Do you want to open this Folder : "+item.path);
 				else {
-					confirm("Are you sure you want to import the file:\n"+item.path)
+					if (confirm("Are you sure you want to import the file:\n"+item.path)){
+                        $.ajax({
+                            type:"POST",
+                            url: " /api/import",
+                            data: {"path": utf8_to_b64(item.path), "project_id": {/literal} {$project->id} {literal} }//test with number value ok now how to use project id
+                        });
+                    }
 
 					alert(" POSTing to /api/import/?path="+utf8_to_b64(item.path) )
 
@@ -38,6 +44,7 @@
 //utf8_to_b64(' à la mode'); // "4pyTIMOgIGxhIG1vZGU="
 //b64_to_utf8('4pyTIMOgIGxhIG1vZGU='); // " à la mode"
 
+{/literal}
 </script>
 
 <div class="browser">

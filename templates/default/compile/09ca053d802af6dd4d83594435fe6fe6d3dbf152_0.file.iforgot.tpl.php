@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-05 14:42:59
+/* Smarty version 3.1.29, created on 2016-08-09 15:13:55
   from "/home/lucie/amidex/templates/default/templates/home/iforgot.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_577bab539928c4_40108333',
+  'unifunc' => 'content_57a9d7139d0c38_26555489',
   'file_dependency' => 
   array (
     '09ca053d802af6dd4d83594435fe6fe6d3dbf152' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_577bab539928c4_40108333 ($_smarty_tpl) {
+function content_57a9d7139d0c38_26555489 ($_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['email']->value && $_smarty_tpl->tpl_vars['who']->value) {?>
 
 <div class="row">

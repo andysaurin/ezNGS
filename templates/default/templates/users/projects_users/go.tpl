@@ -5,14 +5,13 @@
     <li class="tab-title"><a href="#panel3">ChIP-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel4">RNA-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>
-    <li class="tab-title"><a href="#panel6">Manage access users projects</a></li>
 </ul>
 <div class="tabs-content">
     <div class="content" id="fileBrowser">
 			{include file="users/projects_users/file_browser.tpl"}
     </div>
     <div class="content" id="panel2">
-        <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
+        {include file="users/projects_users/samples.tpl"}
     </div>
     <div class="content" id="panel3">
         <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
@@ -22,9 +21,6 @@
     </div>
     <div class="content" id="panel5">
         <p>This is the five panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
-    </div>
-    <div class="content" id="panel6">
-        <p>This is the six panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
     </div>
 </div>
 
