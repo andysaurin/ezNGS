@@ -1,5 +1,5 @@
 {if $event == 'go'}
-{debug}
+
 {include file="users/projects_users/go.tpl"}
 
 {/if}

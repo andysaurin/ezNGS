@@ -2,26 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_manager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/27/samples/60e4d06606fec94f78087f3bc34c3352/60e4d06606fec94f78087f3bc34c3352.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sqlite/master.db" afterPath="$PROJECT_DIR$/data/sqlite/master.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/Module.php" afterPath="$PROJECT_DIR$/includes/Module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/api/import.php" afterPath="$PROJECT_DIR$/modules/api/import.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/users/projects_users.php" afterPath="$PROJECT_DIR$/modules/users/projects_users.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/00d470fd4684b8070def89cfeab3483b022d05cf_0.file.footer.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/00d470fd4684b8070def89cfeab3483b022d05cf_0.file.footer.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/09ca053d802af6dd4d83594435fe6fe6d3dbf152_0.file.iforgot.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/09ca053d802af6dd4d83594435fe6fe6d3dbf152_0.file.iforgot.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/296b19df94def446ecfd6b386b948224fbb2e766_0.file.index.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/296b19df94def446ecfd6b386b948224fbb2e766_0.file.index.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/2e869092a532c4ecb779409fea2614c3dbbc91d5_0.file.header_admin.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/2e869092a532c4ecb779409fea2614c3dbbc91d5_0.file.header_admin.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/3c01a78566a3abd457374847413f9ffaff1d9146_0.file.file_browser.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/3c01a78566a3abd457374847413f9ffaff1d9146_0.file.file_browser.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/6f0b90fc7bc77feb8973786e093a98f104bdfce1_0.file.header_main_website.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/6f0b90fc7bc77feb8973786e093a98f104bdfce1_0.file.header_main_website.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/7a52c29ace6c30a162f3aec20a63c9110b2a474f_0.file.samples.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/7a52c29ace6c30a162f3aec20a63c9110b2a474f_0.file.samples.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/808b11508b9610d9198c34187ede48d4aee6b1f1_0.file.projects.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/808b11508b9610d9198c34187ede48d4aee6b1f1_0.file.projects.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/928c7c419d5886a7d161dfc7e12ecc0e3ffce876_0.file.header_user.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/928c7c419d5886a7d161dfc7e12ecc0e3ffce876_0.file.header_user.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/ae7cb4152b167ac816218cebe4012c2060472c35_0.file.index.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/ae7cb4152b167ac816218cebe4012c2060472c35_0.file.index.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/eb57149f96fb0035278ef3c96e46d78864bbd6ad_0.file.page.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/eb57149f96fb0035278ef3c96e46d78864bbd6ad_0.file.page.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/f43fdda0369fa2dc020f3827ea321f6f349e6f16_0.file.projects_users.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/f43fdda0369fa2dc020f3827ea321f6f349e6f16_0.file.projects_users.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/fe172e69a9ac2dc9fb7b07742db234a256aed3c2_0.file.go.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/fe172e69a9ac2dc9fb7b07742db234a256aed3c2_0.file.go.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploads/lucie/test/a.txt" afterPath="$PROJECT_DIR$/uploads/lucie/test/a.txt" />
     </list>
     <ignored path="amidex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,57 +57,56 @@
         <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-29.375">
-              <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+              <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="file_browser.tpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
+      <file leaf-file-name="import.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/api/import.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53333336">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="10" column="40" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="43" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Module.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Module.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/Module.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75">
-              <caret line="1190" column="96" selection-start-line="1190" selection-start-column="96" selection-end-line="1190" selection-end-column="96" />
+            <state vertical-scroll-proportion="0.39666668">
+              <caret line="1185" column="28" selection-start-line="1185" selection-start-column="28" selection-end-line="1185" selection-end-column="28" />
               <folding>
-                <marker date="1471354416000" expanded="true" signature="3176:3254" placeholder="..." />
-                <marker date="1471354416000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-                <marker date="1471354416000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-                <marker date="1471354416000" expanded="true" signature="18065:18073" placeholder="..." />
-                <marker date="1471354416000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-                <marker date="1471354416000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-                <marker date="1471354416000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-                <marker date="1471354416000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
-                <marker date="1471354416000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
-                <marker date="1471354416000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
-                <marker date="1471354416000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
-                <marker date="1471354416000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
-                <marker date="1471354416000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
-                <marker date="1471354416000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
-                <marker date="1471354416000" expanded="true" signature="35053:35089" placeholder="SELECT * FRO... projects" />
-                <marker date="1471354416000" expanded="true" signature="35053:35090" placeholder="SELECT proje... projects" />
+                <marker date="1471359768000" expanded="true" signature="3176:3254" placeholder="..." />
+                <marker date="1471359768000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+                <marker date="1471359768000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+                <marker date="1471359768000" expanded="true" signature="18065:18073" placeholder="..." />
+                <marker date="1471359768000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+                <marker date="1471359768000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+                <marker date="1471359768000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+                <marker date="1471359768000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
+                <marker date="1471359768000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
+                <marker date="1471359768000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
+                <marker date="1471359768000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
+                <marker date="1471359768000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
+                <marker date="1471359768000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
+                <marker date="1471359768000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
+                <marker date="1471359768000" expanded="true" signature="35049:35085" placeholder="SELECT * FRO... projects" />
+                <marker date="1471359768000" expanded="true" signature="35049:35086" placeholder="SELECT proje... projects" />
+                <marker date="1471359768000" expanded="true" signature="35049:35106" placeholder="SELECT * FRO... projects" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file_browser.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-31.25">
+              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,12 +140,14 @@
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_manager.php" />
         <option value="$PROJECT_DIR$/modules/api/browser.php" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
-        <option value="$PROJECT_DIR$/modules/api/import.php" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
-        <option value="$PROJECT_DIR$/includes/Module.php" />
         <option value="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
+        <option value="$PROJECT_DIR$/uploads/toto/fatal.txt" />
         <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/a.txt" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" />
+        <option value="$PROJECT_DIR$/modules/api/import.php" />
+        <option value="$PROJECT_DIR$/includes/Module.php" />
       </list>
     </option>
   </component>
@@ -208,7 +212,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,6 +227,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rna-seq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -485,7 +542,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="27" />
+              <option name="myItemId" value="28" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -511,7 +568,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="27" />
+              <option name="myItemId" value="28" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -536,6 +593,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -616,7 +674,7 @@
     <frame x="1920" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19337606" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19551282" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32809225" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -658,54 +716,135 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75">
-          <caret line="1190" column="96" selection-start-line="1190" selection-start-column="96" selection-end-line="1190" selection-end-column="96" />
-          <folding>
-            <marker date="1471354416000" expanded="true" signature="3176:3254" placeholder="..." />
-            <marker date="1471354416000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-            <marker date="1471354416000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-            <marker date="1471354416000" expanded="true" signature="18065:18073" placeholder="..." />
-            <marker date="1471354416000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-            <marker date="1471354416000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-            <marker date="1471354416000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-            <marker date="1471354416000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
-            <marker date="1471354416000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
-            <marker date="1471354416000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
-            <marker date="1471354416000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
-            <marker date="1471354416000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
-            <marker date="1471354416000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
-            <marker date="1471354416000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
-            <marker date="1471354416000" expanded="true" signature="35053:35089" placeholder="SELECT * FRO... projects" />
-            <marker date="1471354416000" expanded="true" signature="35053:35090" placeholder="SELECT proje... projects" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.375">
-          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53333336">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1190" column="46" selection-start-line="1190" selection-start-column="46" selection-end-line="1190" selection-end-column="46" />
+          <folding>
+            <marker date="1471359768000" expanded="true" signature="3176:3254" placeholder="..." />
+            <marker date="1471359768000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+            <marker date="1471359768000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+            <marker date="1471359768000" expanded="true" signature="18065:18073" placeholder="..." />
+            <marker date="1471359768000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+            <marker date="1471359768000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+            <marker date="1471359768000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+            <marker date="1471359768000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
+            <marker date="1471359768000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
+            <marker date="1471359768000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
+            <marker date="1471359768000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
+            <marker date="1471359768000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
+            <marker date="1471359768000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
+            <marker date="1471359768000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
+            <marker date="1471359768000" expanded="true" signature="35049:35085" placeholder="SELECT * FRO... projects" />
+            <marker date="1471359768000" expanded="true" signature="35049:35086" placeholder="SELECT proje... projects" />
+            <marker date="1471359768000" expanded="true" signature="35049:35106" placeholder="SELECT * FRO... projects" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8666667">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploads/lucie/test/a.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploads/toto/fatal.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploads/toto/rna-seq/essaie.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-31.25">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.375">
+          <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/api/import.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39666668">
+          <caret line="1185" column="28" selection-start-line="1185" selection-start-column="28" selection-end-line="1185" selection-end-column="28" />
+          <folding>
+            <marker date="1471359768000" expanded="true" signature="3176:3254" placeholder="..." />
+            <marker date="1471359768000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
+            <marker date="1471359768000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
+            <marker date="1471359768000" expanded="true" signature="18065:18073" placeholder="..." />
+            <marker date="1471359768000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
+            <marker date="1471359768000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
+            <marker date="1471359768000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
+            <marker date="1471359768000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
+            <marker date="1471359768000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
+            <marker date="1471359768000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
+            <marker date="1471359768000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
+            <marker date="1471359768000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
+            <marker date="1471359768000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
+            <marker date="1471359768000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
+            <marker date="1471359768000" expanded="true" signature="35049:35085" placeholder="SELECT * FRO... projects" />
+            <marker date="1471359768000" expanded="true" signature="35049:35086" placeholder="SELECT proje... projects" />
+            <marker date="1471359768000" expanded="true" signature="35049:35106" placeholder="SELECT * FRO... projects" />
+          </folding>
         </state>
       </provider>
     </entry>

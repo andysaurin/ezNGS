@@ -11,11 +11,10 @@ class import extends NQ_Auth_User
 	public function __default()
 	{
 
-
 		if ( !$_POST['path'] )
 			die("not_ok 1");
 
-		if ( !$_POST['project_id'] || !is_numeric($_POST['project_id']) || $_POST['project_id'] < 1)
+		if ( !$_POST['project_id'] || !is_numeric($_POST['project_id']) || $_POST['project_id'] < 0)
 			die("not_ok 2");
 
 

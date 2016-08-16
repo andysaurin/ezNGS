@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-20 15:40:31
+/* Smarty version 3.1.29, created on 2016-08-16 16:58:17
   from "/home/lucie/amidex/templates/default/templates/admin/projects.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_578f7f4fac9372_68585702',
+  'unifunc' => 'content_57b32a09c35512_93143717',
   'file_dependency' => 
   array (
     '808b11508b9610d9198c34187ede48d4aee6b1f1' => 
@@ -22,7 +22,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:admin/index.tpl' => 1,
   ),
 ),false)) {
-function content_578f7f4fac9372_68585702 ($_smarty_tpl) {
+function content_57b32a09c35512_93143717 ($_smarty_tpl) {
 ?>
 
 <?php if ($_smarty_tpl->tpl_vars['event']->value == 'create') {?>

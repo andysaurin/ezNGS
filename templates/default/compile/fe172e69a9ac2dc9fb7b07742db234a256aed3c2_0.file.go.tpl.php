@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-08-16 15:50:14
+/* Smarty version 3.1.29, created on 2016-08-16 17:02:59
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/go.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57b31a16886911_04297177',
+  'unifunc' => 'content_57b32b23133dc3_60950434',
   'file_dependency' => 
   array (
     'fe172e69a9ac2dc9fb7b07742db234a256aed3c2' => 
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:users/projects_users/samples.tpl' => 1,
   ),
 ),false)) {
-function content_57b31a16886911_04297177 ($_smarty_tpl) {
+function content_57b32b23133dc3_60950434 ($_smarty_tpl) {
 ?>
 
 <ul class="tabs" data-tab>

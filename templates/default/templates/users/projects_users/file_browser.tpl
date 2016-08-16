@@ -1,6 +1,5 @@
  <script type="text/javascript" src="/js/browser/ajax.js"></script>
  <script type="text/javascript" src="/js/browser/browser.js"></script>
-{debug}
 
 <script type="text/javascript">
 {literal}
@@ -20,11 +19,11 @@
                         $.ajax({
                             type:"POST",
                             url: " /api/import",
-                            data: {"path": utf8_to_b64(item.path), "project_id": {/literal} {$project->id} {literal} }//test with number value ok now how to use project id
+                            data: {"path": utf8_to_b64(item.path), "project_id":  {/literal} {$project->id} {literal} }//test with number value ok now how to use project id
                         });
                     }
 
-					alert(" POSTing to /api/import/?path="+utf8_to_b64(item.path) )
+					//alert(" POSTing to /api/import/?path="+utf8_to_b64(item.path) )
 
 				}
 			},

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-08-16 15:50:14
+/* Smarty version 3.1.29, created on 2016-08-16 17:02:59
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/file_browser.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57b31a1688faf1_80160849',
+  'unifunc' => 'content_57b32b2313c027_77387446',
   'file_dependency' => 
   array (
     '3c01a78566a3abd457374847413f9ffaff1d9146' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/file_browser.tpl',
-      1 => 1471355410,
+      1 => 1471359092,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57b31a1688faf1_80160849 ($_smarty_tpl) {
+function content_57b32b2313c027_77387446 ($_smarty_tpl) {
 ?>
  <?php echo '<script'; ?>
  type="text/javascript" src="/js/browser/ajax.js"><?php echo '</script'; ?>
@@ -27,10 +27,6 @@ function content_57b31a1688faf1_80160849 ($_smarty_tpl) {
  <?php echo '<script'; ?>
  type="text/javascript" src="/js/browser/browser.js"><?php echo '</script'; ?>
 >
-<?php $_smarty_debug = new Smarty_Internal_Debug;
- $_smarty_debug->display_debug($_smarty_tpl);
-unset($_smarty_debug);
-?>
 
 <?php echo '<script'; ?>
  type="text/javascript">
@@ -51,12 +47,12 @@ unset($_smarty_debug);
                         $.ajax({
                             type:"POST",
                             url: " /api/import",
-                            data: {"path": utf8_to_b64(item.path), "project_id":  <?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+                            data: {"path": utf8_to_b64(item.path), "project_id":   <?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
   }//test with number value ok now how to use project id
                         });
                     }
 
-					alert(" POSTing to /api/import/?path="+utf8_to_b64(item.path) )
+					//alert(" POSTing to /api/import/?path="+utf8_to_b64(item.path) )
 
 				}
 			},
