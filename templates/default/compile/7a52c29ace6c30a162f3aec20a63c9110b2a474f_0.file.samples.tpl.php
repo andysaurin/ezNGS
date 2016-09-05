@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-08-16 17:02:59
+/* Smarty version 3.1.29, created on 2016-09-05 17:43:45
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57b32b231612e9_33780465',
+  'unifunc' => 'content_57cd92b1241044_52250844',
   'file_dependency' => 
   array (
     '7a52c29ace6c30a162f3aec20a63c9110b2a474f' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl',
-      1 => 1471349776,
+      1 => 1473090211,
       2 => 'file',
     ),
   ),
@@ -19,9 +19,11 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57b32b231612e9_33780465 ($_smarty_tpl) {
+function content_57cd92b1241044_52250844 ($_smarty_tpl) {
 ?>
 <h2>Samples Descriptions</h2>
+
+
 
 <div>
     <form id="form-descriptions" action="write_yaml.php"  method="post">
@@ -125,7 +127,7 @@ function content_57b32b231612e9_33780465 ($_smarty_tpl) {
                 </thead>
 
                 <tbody>
-                <tr id="Data_clone" >
+                <tr id="Data_clone">
                     <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td>
                     <td class="Sample_name"><input id="Sample_name" type="text" name="Samples_information[Sample_name][]" readonly/></td>
                     <td class="Data_type"><input id="Data_type" type="text" name="Samples_information[Data_type][]" pattern="<?php echo '<?php ';?>echo $dataTypesSupportedPatternTrimmed <?php echo '?>';?>" placeholder="<?php echo '<?php ';?>echo $dataTypesSupportedPlaceholder <?php echo '?>';?>"/></td>
@@ -226,6 +228,7 @@ function content_57b32b231612e9_33780465 ($_smarty_tpl) {
 
 </div>
 
+
 <?php echo '<script'; ?>
 >
 
@@ -293,7 +296,60 @@ $indexContributor = 1;
     });
 
 
+function SetFileTable() {
+    $.ajax({
+        type:"POST",
+        url: " /api/annotation/load",
+        data: {"project_id":   <?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+  }
+    });
+
+}
+//loadFileIdUploaded();
+
+function loadFileIdUploaded(){
+
+    var tableId = <?php echo json_encode($_smarty_tpl->tpl_vars['filetable']->value);?>
+;
+    console.log(tableId.length);
+
+    /*//first create lines
+    var $numberOfLineToAdd = tableId.length -1 ;
+    while ($numberOfLineToAdd != 0) {
+        $indexSample++;
+        var $newTr = $("#sample_table tr:eq(1)").clone().attr("id", "Data" + $indexSample);
+        $newTr.find("input").each(function () {
+            $(this).val('').attr("id", function (_, id) {
+                return id + $indexSample
+            });
+        }).end().appendTo("#sample_table");
+
+        $numberOfLineToAdd--;
+}
+//Fill these lines
+var indexFile = 0;
+$("td.md5sum input:not(td.md5sum input:eq(0))").each(function(){
+    $(this).val(tableId[indexFile]["md5sum"]);
+    $(this).attr("placeholder",tableId[indexFile]["md5sum"]);
+    $(this).attr("value",tableId[indexFile]["md5sum"]);
+    indexFile++;
+});
+var indexFile = 0;
+$("td.Sample_name input:not(td.Sample_name input:eq(0))").each(function(){
+    $(this).val(tableId[indexFile]["name"]);
+    $(this).attr("value",tableId[indexFile]["name"]);
+    $(this).attr("placeholder",tableId[indexFile]["name"]);
+    indexFile++;
+});*/
+
+};
+
+
 
 <?php echo '</script'; ?>
-><?php }
+>
+<?php $_smarty_debug = new Smarty_Internal_Debug;
+ $_smarty_debug->display_debug($_smarty_tpl);
+unset($_smarty_debug);
+}
 }

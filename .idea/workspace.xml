@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/27/samples/60e4d06606fec94f78087f3bc34c3352/60e4d06606fec94f78087f3bc34c3352.txt" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/lucie/test/bob.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sqlite/master.db" afterPath="$PROJECT_DIR$/data/sqlite/master.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htdocs/stylesheets/main.css" afterPath="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/Module.php" afterPath="$PROJECT_DIR$/includes/Module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/api/import.php" afterPath="$PROJECT_DIR$/modules/api/import.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/users/projects_users.php" afterPath="$PROJECT_DIR$/modules/users/projects_users.php" />
@@ -22,9 +23,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/fe172e69a9ac2dc9fb7b07742db234a256aed3c2_0.file.go.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/fe172e69a9ac2dc9fb7b07742db234a256aed3c2_0.file.go.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploads/lucie/test/a.txt" afterPath="$PROJECT_DIR$/uploads/lucie/test/a.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploads/andy/untitled folder/untitled file" afterPath="$PROJECT_DIR$/uploads/andy/untitled folder/untitled file" />
     </list>
     <ignored path="amidex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +38,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -52,61 +53,105 @@
     <favorites_list name="amidex" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file leaf-file-name="projects_users.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="49" column="26" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="go.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="78" selection-start-line="3" selection-start-column="78" selection-end-line="3" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="samples.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="205" column="6" selection-start-line="205" selection-start-column="6" selection-end-line="205" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="annotation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/api/annotation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="31" selection-start-line="23" selection-start-column="8" selection-end-line="25" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.375">
-              <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+            <state relative-caret-position="659">
+              <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="import.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="import.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/api/import.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
-              <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+            <state relative-caret-position="465">
+              <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Module.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Module.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/Module.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39666668">
-              <caret line="1185" column="28" selection-start-line="1185" selection-start-column="28" selection-end-line="1185" selection-end-column="28" />
+            <state relative-caret-position="540">
+              <caret line="1301" column="60" selection-start-line="1301" selection-start-column="60" selection-end-line="1301" selection-end-column="60" />
               <folding>
-                <marker date="1471359768000" expanded="true" signature="3176:3254" placeholder="..." />
-                <marker date="1471359768000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-                <marker date="1471359768000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-                <marker date="1471359768000" expanded="true" signature="18065:18073" placeholder="..." />
-                <marker date="1471359768000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-                <marker date="1471359768000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-                <marker date="1471359768000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-                <marker date="1471359768000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
-                <marker date="1471359768000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
-                <marker date="1471359768000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
-                <marker date="1471359768000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
-                <marker date="1471359768000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
-                <marker date="1471359768000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
-                <marker date="1471359768000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
-                <marker date="1471359768000" expanded="true" signature="35049:35085" placeholder="SELECT * FRO... projects" />
-                <marker date="1471359768000" expanded="true" signature="35049:35086" placeholder="SELECT proje... projects" />
-                <marker date="1471359768000" expanded="true" signature="35049:35106" placeholder="SELECT * FRO... projects" />
+                <marker date="1473084612000" expanded="true" signature="3176:3254" ph="..." />
+                <marker date="1473084612000" expanded="true" signature="3526:3585" ph="SELECT * FRO... users" />
+                <marker date="1473084612000" expanded="true" signature="3781:3876" ph="SELECT count... users" />
+                <marker date="1473084612000" expanded="true" signature="18065:18073" ph="..." />
+                <marker date="1473084612000" expanded="true" signature="19129:19187" ph="SELECT * FRO... users" />
+                <marker date="1473084612000" expanded="true" signature="28910:28951" ph="SELECT * FRO... users" />
+                <marker date="1473084612000" expanded="true" signature="29384:29428" ph="SELECT * FRO... projects" />
+                <marker date="1473084612000" expanded="true" signature="29484:29635" ph="SELECT proje... projects" />
+                <marker date="1473084612000" expanded="true" signature="29944:30050" ph="SELECT `user... project_managers" />
+                <marker date="1473084612000" expanded="true" signature="31021:31142" ph="SELECT users... users" />
+                <marker date="1473084612000" expanded="true" signature="31593:31771" ph="INSERT INTO `projects`... " />
+                <marker date="1473084612000" expanded="true" signature="32184:32241" ph="SELECT `id` projects" />
+                <marker date="1473084612000" expanded="true" signature="32329:32430" ph="INSERT INTO `project_managers`... " />
+                <marker date="1473084612000" expanded="true" signature="32636:32735" ph="INSERT INTO `users_projects`... " />
+                <marker date="1473084612000" expanded="true" signature="35609:35666" ph="SELECT * FRO... projects" />
+                <marker date="1473084612000" expanded="true" signature="35952:36100" ph="INSERT INTO `files`... " />
+                <marker date="1473084612000" expanded="true" signature="36605:36661" ph="SELECT `file... files" />
+                <marker date="1473084612000" expanded="true" signature="36899:36991" ph="INSERT INTO `files_projects`... " />
+                <marker date="1473084612000" expanded="true" signature="37303:37329" ph="SELECT * FRO... data_types" />
+                <marker date="1473084612000" expanded="true" signature="37523:37616" ph="SELECT COUNT... files_projects" />
+                <marker date="1473084612000" expanded="true" signature="38134:38285" ph="SELECT files... files" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="file_browser.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.25">
-              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -139,22 +184,36 @@
         <option value="$PROJECT_DIR$/templates/default/templates/admin/projects.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_manager.php" />
         <option value="$PROJECT_DIR$/modules/api/browser.php" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
         <option value="$PROJECT_DIR$/uploads/toto/fatal.txt" />
-        <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
         <option value="$PROJECT_DIR$/uploads/lucie/test/a.txt" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" />
+        <option value="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
+        <option value="$PROJECT_DIR$/uploads/andy/untitled folder copy/tata.txt" />
+        <option value="$PROJECT_DIR$/uploads/andy/untitled folder/untitled file" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/lucie.txt" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/troy.txt" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/bob.txt" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/chocolat.txt" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/james_bond.txt" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/coco.txt" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/vador.txt" />
+        <option value="$PROJECT_DIR$/uploads/lucie/test/funk.txt" />
+        <option value="$PROJECT_DIR$/modules/api/annotaion.php" />
         <option value="$PROJECT_DIR$/modules/api/import.php" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
         <option value="$PROJECT_DIR$/includes/Module.php" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
+        <option value="$PROJECT_DIR$/modules/api/annotation.php" />
+        <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
     <servers />
@@ -212,6 +271,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -227,7 +287,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -237,65 +297,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="toto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="toto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rna-seq" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -305,23 +311,23 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -331,27 +337,27 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="projects_users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -361,23 +367,19 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -387,45 +389,23 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -435,15 +415,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -453,15 +433,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -471,11 +451,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -485,15 +465,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -503,11 +483,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -517,11 +497,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -531,23 +511,23 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="28" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="34" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="samples" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -557,19 +537,19 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="28" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="34" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -579,21 +559,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -616,7 +595,7 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -631,6 +610,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -641,10 +621,12 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
     <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter />
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
@@ -657,7 +639,9 @@
       <method />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -666,21 +650,36 @@
       <changelist id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="" />
       <created>1465806579985</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1465806579985</updated>
+      <workItem from="1473068944366" duration="985000" />
+      <workItem from="1473078856401" duration="10050000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11035000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19551282" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32809225" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22168803" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49786323" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.50641024" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32809225" sideWeight="0.4957265" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49358973" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1696905" sideWeight="0.5054602" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -716,51 +715,93 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/api/annotaion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
+    <entry file="file://$PROJECT_DIR$/data/projects/34/gene-regulation/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/api/browser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="-676">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/api/projects.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1465575573000" expanded="true" signature="474:534" ph="SELECT `id` projects" />
+            <marker date="1465575573000" expanded="true" signature="604:693" ph="INSERT INTO `users_projects`... " />
+            <marker date="1465575573000" expanded="true" signature="1128:1204" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1190" column="46" selection-start-line="1190" selection-start-column="46" selection-end-line="1190" selection-end-column="46" />
+        <state relative-caret-position="540">
+          <caret line="1301" column="60" selection-start-line="1301" selection-start-column="60" selection-end-line="1301" selection-end-column="60" />
           <folding>
-            <marker date="1471359768000" expanded="true" signature="3176:3254" placeholder="..." />
-            <marker date="1471359768000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-            <marker date="1471359768000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-            <marker date="1471359768000" expanded="true" signature="18065:18073" placeholder="..." />
-            <marker date="1471359768000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-            <marker date="1471359768000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-            <marker date="1471359768000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-            <marker date="1471359768000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
-            <marker date="1471359768000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
-            <marker date="1471359768000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
-            <marker date="1471359768000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
-            <marker date="1471359768000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
-            <marker date="1471359768000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
-            <marker date="1471359768000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
-            <marker date="1471359768000" expanded="true" signature="35049:35085" placeholder="SELECT * FRO... projects" />
-            <marker date="1471359768000" expanded="true" signature="35049:35086" placeholder="SELECT proje... projects" />
-            <marker date="1471359768000" expanded="true" signature="35049:35106" placeholder="SELECT * FRO... projects" />
+            <marker date="1473084612000" expanded="true" signature="3176:3254" ph="..." />
+            <marker date="1473084612000" expanded="true" signature="3526:3585" ph="SELECT * FRO... users" />
+            <marker date="1473084612000" expanded="true" signature="3781:3876" ph="SELECT count... users" />
+            <marker date="1473084612000" expanded="true" signature="18065:18073" ph="..." />
+            <marker date="1473084612000" expanded="true" signature="19129:19187" ph="SELECT * FRO... users" />
+            <marker date="1473084612000" expanded="true" signature="28910:28951" ph="SELECT * FRO... users" />
+            <marker date="1473084612000" expanded="true" signature="29384:29428" ph="SELECT * FRO... projects" />
+            <marker date="1473084612000" expanded="true" signature="29484:29635" ph="SELECT proje... projects" />
+            <marker date="1473084612000" expanded="true" signature="29944:30050" ph="SELECT `user... project_managers" />
+            <marker date="1473084612000" expanded="true" signature="31021:31142" ph="SELECT users... users" />
+            <marker date="1473084612000" expanded="true" signature="31593:31771" ph="INSERT INTO `projects`... " />
+            <marker date="1473084612000" expanded="true" signature="32184:32241" ph="SELECT `id` projects" />
+            <marker date="1473084612000" expanded="true" signature="32329:32430" ph="INSERT INTO `project_managers`... " />
+            <marker date="1473084612000" expanded="true" signature="32636:32735" ph="INSERT INTO `users_projects`... " />
+            <marker date="1473084612000" expanded="true" signature="35609:35666" ph="SELECT * FRO... projects" />
+            <marker date="1473084612000" expanded="true" signature="35952:36100" ph="INSERT INTO `files`... " />
+            <marker date="1473084612000" expanded="true" signature="36605:36661" ph="SELECT `file... files" />
+            <marker date="1473084612000" expanded="true" signature="36899:36991" ph="INSERT INTO `files_projects`... " />
+            <marker date="1473084612000" expanded="true" signature="37303:37329" ph="SELECT * FRO... data_types" />
+            <marker date="1473084612000" expanded="true" signature="37523:37616" ph="SELECT COUNT... files_projects" />
+            <marker date="1473084612000" expanded="true" signature="38134:38285" ph="SELECT files... files" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects.tpl">
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -768,83 +809,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8666667">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="735">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/lucie/test/a.txt">
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+        <state relative-caret-position="45">
+          <caret line="3" column="78" selection-start-line="3" selection-start-column="78" selection-end-line="3" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/toto/fatal.txt">
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+        <state relative-caret-position="315">
+          <caret line="205" column="6" selection-start-line="205" selection-start-column="6" selection-end-line="205" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploads/toto/rna-seq/essaie.txt">
+    <entry file="file://$PROJECT_DIR$/modules/api/annotation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.25">
-          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+        <state relative-caret-position="360">
+          <caret line="24" column="31" selection-start-line="23" selection-start-column="8" selection-end-line="25" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.375">
-          <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+        <state relative-caret-position="659">
+          <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/api/import.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+        <state relative-caret-position="465">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39666668">
-          <caret line="1185" column="28" selection-start-line="1185" selection-start-column="28" selection-end-line="1185" selection-end-column="28" />
-          <folding>
-            <marker date="1471359768000" expanded="true" signature="3176:3254" placeholder="..." />
-            <marker date="1471359768000" expanded="true" signature="3526:3585" placeholder="SELECT * FRO... users" />
-            <marker date="1471359768000" expanded="true" signature="3781:3876" placeholder="SELECT count... users" />
-            <marker date="1471359768000" expanded="true" signature="18065:18073" placeholder="..." />
-            <marker date="1471359768000" expanded="true" signature="19129:19187" placeholder="SELECT * FRO... users" />
-            <marker date="1471359768000" expanded="true" signature="28910:28951" placeholder="SELECT * FRO... users" />
-            <marker date="1471359768000" expanded="true" signature="29384:29428" placeholder="SELECT * FRO... projects" />
-            <marker date="1471359768000" expanded="true" signature="29484:29635" placeholder="SELECT proje... projects" />
-            <marker date="1471359768000" expanded="true" signature="29944:30050" placeholder="SELECT `user... project_managers" />
-            <marker date="1471359768000" expanded="true" signature="31021:31142" placeholder="SELECT users... users" />
-            <marker date="1471359768000" expanded="true" signature="31593:31771" placeholder="INSERT INTO `projects`... " />
-            <marker date="1471359768000" expanded="true" signature="32184:32241" placeholder="SELECT `id` projects" />
-            <marker date="1471359768000" expanded="true" signature="32329:32430" placeholder="INSERT INTO `project_managers`... " />
-            <marker date="1471359768000" expanded="true" signature="32636:32735" placeholder="INSERT INTO `users_projects`... " />
-            <marker date="1471359768000" expanded="true" signature="35049:35085" placeholder="SELECT * FRO... projects" />
-            <marker date="1471359768000" expanded="true" signature="35049:35086" placeholder="SELECT proje... projects" />
-            <marker date="1471359768000" expanded="true" signature="35049:35106" placeholder="SELECT * FRO... projects" />
-          </folding>
         </state>
       </provider>
     </entry>

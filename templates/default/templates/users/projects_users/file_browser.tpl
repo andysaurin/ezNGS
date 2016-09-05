@@ -15,12 +15,29 @@
 				if(item.type=="folder")
 					return true; //confirm("Do you want to open this Folder : "+item.path);
 				else {
-					if (confirm("Are you sure you want to import the file:\n"+item.path)){
+					if ( confirm("Are you sure you want to import the file:\n"+item.path) ) {
                         $.ajax({
                             type:"POST",
                             url: " /api/import",
-                            data: {"path": utf8_to_b64(item.path), "project_id":  {/literal} {$project->id} {literal} }//test with number value ok now how to use project id
-                        });
+                            data: {"path": utf8_to_b64(item.path), "project_id":  {/literal} {$project->id} {literal} } //test with number value ok now how to use project id
+
+						}).success( function( event, request, settings ) {
+
+							if ( event != 'ok' ) {
+
+								alert('The file could not be imported into this project.');
+
+
+							} else {
+
+								alert('The file was successfully imported');
+								location.reload();
+
+
+							}
+
+						});
+
                     }
 
 					//alert(" POSTing to /api/import/?path="+utf8_to_b64(item.path) )

@@ -1,5 +1,7 @@
 <h2>Samples Descriptions</h2>
 
+
+
 <div>
     <form id="form-descriptions" action="write_yaml.php"  method="post">
 
@@ -102,7 +104,7 @@
                 </thead>
 
                 <tbody>
-                <tr id="Data_clone" >
+                <tr id="Data_clone">
                     <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td>
                     <td class="Sample_name"><input id="Sample_name" type="text" name="Samples_information[Sample_name][]" readonly/></td>
                     <td class="Data_type"><input id="Data_type" type="text" name="Samples_information[Data_type][]" pattern="<?php echo $dataTypesSupportedPatternTrimmed ?>" placeholder="<?php echo $dataTypesSupportedPlaceholder ?>"/></td>
@@ -203,6 +205,7 @@
 
 </div>
 
+
 <script>
 {*javascript part*}
 {literal}
@@ -269,5 +272,53 @@ $indexContributor = 1;
     });
 
 
+function SetFileTable() {
+    $.ajax({
+        type:"POST",
+        url: " /api/annotation/load",
+        data: {"project_id":  {/literal} {$project->id} {literal} }
+    });
+
+}
+//loadFileIdUploaded();
+
+function loadFileIdUploaded(){
+
+    var tableId = {/literal}{$filetable|json_encode}{literal};
+    console.log(tableId.length);
+
+    /*//first create lines
+    var $numberOfLineToAdd = tableId.length -1 ;
+    while ($numberOfLineToAdd != 0) {
+        $indexSample++;
+        var $newTr = $("#sample_table tr:eq(1)").clone().attr("id", "Data" + $indexSample);
+        $newTr.find("input").each(function () {
+            $(this).val('').attr("id", function (_, id) {
+                return id + $indexSample
+            });
+        }).end().appendTo("#sample_table");
+
+        $numberOfLineToAdd--;
+}
+//Fill these lines
+var indexFile = 0;
+$("td.md5sum input:not(td.md5sum input:eq(0))").each(function(){
+    $(this).val(tableId[indexFile]["md5sum"]);
+    $(this).attr("placeholder",tableId[indexFile]["md5sum"]);
+    $(this).attr("value",tableId[indexFile]["md5sum"]);
+    indexFile++;
+});
+var indexFile = 0;
+$("td.Sample_name input:not(td.Sample_name input:eq(0))").each(function(){
+    $(this).val(tableId[indexFile]["name"]);
+    $(this).attr("value",tableId[indexFile]["name"]);
+    $(this).attr("placeholder",tableId[indexFile]["name"]);
+    indexFile++;
+});*/
+
+};
+
+
 {/literal}
 </script>
+{debug}

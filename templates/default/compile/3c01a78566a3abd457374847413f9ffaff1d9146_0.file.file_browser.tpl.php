@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-08-16 17:02:59
+/* Smarty version 3.1.29, created on 2016-09-05 17:43:45
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/file_browser.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57b32b2313c027_77387446',
+  'unifunc' => 'content_57cd92b12131c0_85305500',
   'file_dependency' => 
   array (
     '3c01a78566a3abd457374847413f9ffaff1d9146' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/file_browser.tpl',
-      1 => 1471359092,
+      1 => 1472822748,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57b32b2313c027_77387446 ($_smarty_tpl) {
+function content_57cd92b12131c0_85305500 ($_smarty_tpl) {
 ?>
  <?php echo '<script'; ?>
  type="text/javascript" src="/js/browser/ajax.js"><?php echo '</script'; ?>
@@ -43,13 +43,30 @@ function content_57b32b2313c027_77387446 ($_smarty_tpl) {
 				if(item.type=="folder")
 					return true; //confirm("Do you want to open this Folder : "+item.path);
 				else {
-					if (confirm("Are you sure you want to import the file:\n"+item.path)){
+					if ( confirm("Are you sure you want to import the file:\n"+item.path) ) {
                         $.ajax({
                             type:"POST",
                             url: " /api/import",
                             data: {"path": utf8_to_b64(item.path), "project_id":   <?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
-  }//test with number value ok now how to use project id
-                        });
+  } //test with number value ok now how to use project id
+
+						}).success( function( event, request, settings ) {
+
+							if ( event != 'ok' ) {
+
+								alert('The file could not be imported into this project.');
+
+
+							} else {
+
+								alert('The file was successfully imported');
+								location.reload();
+
+
+							}
+
+						});
+
                     }
 
 					//alert(" POSTing to /api/import/?path="+utf8_to_b64(item.path) )

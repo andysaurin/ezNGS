@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-08-16 17:02:59
+/* Smarty version 3.1.29, created on 2016-09-05 17:43:45
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/go.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57b32b23133dc3_60950434',
+  'unifunc' => 'content_57cd92b120ad88_13536372',
   'file_dependency' => 
   array (
     'fe172e69a9ac2dc9fb7b07742db234a256aed3c2' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/go.tpl',
-      1 => 1470924688,
+      1 => 1473086923,
       2 => 'file',
     ),
   ),
@@ -21,23 +21,24 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:users/projects_users/samples.tpl' => 1,
   ),
 ),false)) {
-function content_57b32b23133dc3_60950434 ($_smarty_tpl) {
+function content_57cd92b120ad88_13536372 ($_smarty_tpl) {
 ?>
 
 <ul class="tabs" data-tab>
     <li class="tab-title"><a href="#fileBrowser" onClick="browser_init();">Upload new sequence files</a></li>
-    <li class="tab-title"><a href="#panel2">Manage project descriptions</a></li>
+    <li class="tab-title"><a href="#sampleAnnotation" onClick="SetFileTable();">Manage project descriptions</a></li>
     <li class="tab-title"><a href="#panel3">ChIP-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel4">RNA-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>
 </ul>
+
 <div class="tabs-content">
     <div class="content" id="fileBrowser">
 			<?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:users/projects_users/file_browser.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
     </div>
-    <div class="content" id="panel2">
+    <div class="content" id="sampleAnnotation">
         <?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:users/projects_users/samples.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 

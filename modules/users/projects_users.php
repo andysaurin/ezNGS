@@ -5,6 +5,7 @@ class projects_users extends NQ_Auth_User
     public function __construct()
     {
         parent::__construct();
+
         $this->class_title = "Projects - Users Panel";
         $this->all_projects = $this->all_projects();
 
@@ -47,7 +48,11 @@ class projects_users extends NQ_Auth_User
 	   	 //get information on project from DB
             //print_r($this->project_info( (int)$_GET['id'] ));
 	   	 	$this->set('project', $this->project_info( (int)$_GET['id'] ) );
+            $this->all_files = $this->get_all_files_in_project($_GET['id']);
+            $this->set('filetable', $this->all_files);
 	    }
+
+		$this->set('data_types', $this->all_data_types() );
 
     }
 

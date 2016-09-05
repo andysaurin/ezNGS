@@ -135,3 +135,11 @@ browser{
 }
 
 /* file browser style end */
+/* perso value*/
+#Contributor_clone_td {
+    display: none;
+}
+
+#Data_clone {
+    display: none;
+}

@@ -1169,11 +1169,15 @@ EOT;
             $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/metadata";
             mkdir($pathFolderMetada, 0775);
 
+			//We need to make a gitclone of the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
+            $pathFolderGeneReg = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/gene-regulation";
+            mkdir($pathFolderGeneReg, 0775);//folder for scripts from the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
+            //command execute by php for make a clone of the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
+            $recup = shell_exec('git clone https://github.com/rioualen/gene-regulation.git ' . $pathFolderGeneReg );
+
             umask($oldmask); //re-install the mask
 
-            return true;// testing not final one
-
-            //return true; //if all went well
+            return true;
 
         }else{// error message show to the user if the project name are not available
             return "this name project is already used, please choose another one";
@@ -1191,6 +1195,98 @@ EOT;
          return $this->db->master->get_row("SELECT * FROM `projects` WHERE `id`={$project_id} LIMIT 1");
 
     }
+
+	public function addfile_db($md5sum, $user_id=0, $file_name)
+    {
+        /*verification*/
+        if ( $user_id < 0){
+            return false;
+        }
+        $updated = time();
+        //We insert file's information in the file table
+        $this->db->master->query("INSERT INTO `files` (`file_id`, `md5sum`,`user_id`, `date_uploaded`,`file_name`) VALUES (NULL,'{$md5sum}','{$user_id}','{$updated}', '{$file_name}')");
+        $rowsAffectedToCreateNewFile = $this->db->master->rows_affected;
+
+        if ($rowsAffectedToCreateNewFile > 0){
+            return true;
+        } else
+        	return false;
+    }
+
+	public function addfile_inproject_db($md5sum,$project_id=0)
+    {
+        /*Verification*/
+        if ($project_id < 0){
+            return false;
+        }
+
+        /*We need the file_id contain in the file table
+        So we make a resquest to get this one*/
+        $file_id = $this->db->master->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5sum}'");
+
+        /*We create the association between the file with the project in the files_projects table*/
+        if ( $this->file_in_project($file_id, $project_id) != true ) { // new file-project association
+
+			$this->db->master->query("INSERT INTO `files_projects` (`file_id`, `project_id`) VALUES ('{$file_id}','{$project_id}')");
+			$rowsAffectedToCreateNewFileProjectAsso = $this->db->master->rows_affected;
+
+			if ($rowsAffectedToCreateNewFileProjectAsso > 0) {
+				return true;
+
+			} else {
+				return false;
+			}
+		} else {
+
+			return false;
+
+		}
+
+    }
+
+	public function all_data_types()
+	{
+
+		return $this->db->master->get_results("SELECT * FROM `data_types`");
+
+	}
+
+    public function file_in_project($file_id=0, $project_id=0)
+    {
+        /*Verification*/
+		if($project_id < 0 || $file_id < 0){
+            return false;
+        }
+        $cmd = "SELECT COUNT(`file_id`) FROM `files_projects` WHERE `project_id`={$project_id} AND `file_id`={$file_id} ";
+        $assoAlreadyExist = $this->db->master->get_var( $cmd );
+
+        //die($cmd);
+
+        if(intval($assoAlreadyExist) > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+	public function get_all_files_in_project($project_id=0)
+	{
+        /*Verification*/
+        if($project_id < 0 ){
+            return array();
+        }
+
+        /*Make a request to obtain all information about all files in this project*/
+
+        $files =  $this->db->master->get_results("SELECT files.* FROM `files` INNER JOIN files_projects ON files.file_id=files_projects.file_id WHERE `project_id`={$project_id} ORDER BY `file_name` ASC");
+
+        if ( !count($files) )
+            return array();
+
+        return $files;
+
+	}
 
 	public function new_sqlite_db($name)
 	{
