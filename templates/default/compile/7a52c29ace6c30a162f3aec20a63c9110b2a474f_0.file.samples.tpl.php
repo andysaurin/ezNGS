@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-05 17:43:45
+/* Smarty version 3.1.29, created on 2016-09-07 17:29:03
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57cd92b1241044_52250844',
+  'unifunc' => 'content_57d0323fb67ce9_50424951',
   'file_dependency' => 
   array (
     '7a52c29ace6c30a162f3aec20a63c9110b2a474f' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl',
-      1 => 1473090211,
+      1 => 1473261310,
       2 => 'file',
     ),
   ),
@@ -19,20 +19,151 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57cd92b1241044_52250844 ($_smarty_tpl) {
+function content_57d0323fb67ce9_50424951 ($_smarty_tpl) {
 ?>
 <h2>Samples Descriptions</h2>
+
+<?php echo '<script'; ?>
+>
+    
+    
+
+    $indexContributor = 1;
+    $("#Contributor_table").on("click","#addContributor",function () {
+        $indexContributor++;
+        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        $newEle.find("input").each(function() {
+            $(this).val('').attr('id',"Contributor" + $indexContributor);
+        }).end().appendTo("#Contributor_table");
+    });
+
+    $("#Contributor_table").on("click","#deleteContributor",function () {
+        $(this).parents().eq(1).remove();
+    });
+
+
+    $("#sample_table ").on("click", "#addColButton" ,function () {
+
+        var $this = $(this), $table = $this.closest('table');
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if ($columnName == null){
+            return;
+        }
+        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
+            return;
+        }
+
+        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
+
+        var $lastTd = $table.find('tr:gt(0)').find('td:last');
+
+        var $compteur = 0;
+        $lastTd.each(function(){
+            if ($compteur == 0){
+                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+            else {
+                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+
+        });
+
+    });
+
+    $("#sample_table ").on("click", "#delColButton" ,function () {
+
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
+            return;
+        }
+        $("th").filter(function() {
+            return $(this).text() === $columnName;
+        }).remove(); //delete the title
+        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
+        $("." + $columnName +"").remove(); //delete the td element
+
+    });
+
+
+    /* 06/09/2016function SetFileTable() {
+     $.ajax({
+     type:"POST",
+     url: " /api/annotation/load",
+     {*data: {"project_id": }
+     });
+
+     }*/
+
+    function loadFileIdUploaded(){
+
+        var tableId = <?php echo json_encode($_smarty_tpl->tpl_vars['filetable']->value);?>
+;
+        //console.log(tableId.length);
+        var $indexSample = 0;
+        //first create lines
+        var $numberOfLineToAdd = tableId.length -1 ;
+        while ($numberOfLineToAdd != 0) {
+            $indexSample++;
+            var $newTr = $("#sample_table tr:eq(1)").clone().attr("id", "Data" + $indexSample);
+            $newTr.find("input").each(function () {
+                $(this).val('').attr("id", function (_, id) {
+                    return id + $indexSample
+                });
+            }).end().appendTo("#sample_table");
+
+            $numberOfLineToAdd--;
+        }
+        //Fill these lines
+        var indexFile = 0;
+        $("td.md5sum input:not(td.md5sum input:eq(0))").each(function(){
+            $(this).val(tableId[indexFile]["md5sum"]);
+            $(this).attr("placeholder",tableId[indexFile]["md5sum"]);
+            $(this).attr("value",tableId[indexFile]["md5sum"]);
+            indexFile++;
+        });
+        var indexFile = 0;
+        $("td.Sample_name input:not(td.Sample_name input:eq(0))").each(function(){
+            $(this).val(tableId[indexFile]["file_name"]);
+            $(this).attr("value",tableId[indexFile]["file_name"]);
+            $(this).attr("placeholder",tableId[indexFile]["file_name"]);
+            indexFile++;
+        });
+
+    };
+
+
+    
+<?php echo '</script'; ?>
+>
 
 
 
 <div>
-    <form id="form-descriptions" action="write_yaml.php"  method="post">
+    
+    <form id="form-descriptions" action="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['class']->value;?>
+/write_yaml"  method="POST">
 
         <fieldset>
             <legend>Series</legend>
             <p>This section describes the overall experiment</p>
 
             
+
+            <div class=" row left">
+                <div class="medium-2 columns">
+                    <label for="Project_id"class="right inline">Project_id</label>
+                </div>
+                <div class="small-3 columns">
+                    <input type="text" id="Project_id" name="project_id" value="<?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
+" readonly>
+                </div>
+            </div>
 
             <div class=" row left">
                 <div class="medium-2 columns">
@@ -103,78 +234,141 @@ function content_57cd92b1241044_52250844 ($_smarty_tpl) {
             </div>
 
         </fieldset>
+        <?php if (count($_smarty_tpl->tpl_vars['filetable']->value) > 0) {?>
+            <fieldset>
+                <legend>Samples</legend>
+                <p>This section lists and describes each of the biological Samples under investigation, as well as any protocols that are specific to individual Samples.</p>
+                <p>Additional "processed data file" or "raw file" columns may be included.</p>
 
-        <fieldset>
-            <legend>Samples</legend>
-            <p>This section lists and describes each of the biological Samples under investigation, as well as any protocols that are specific to individual Samples.</p>
-            <p>Additional "processed data file" or "raw file" columns may be included.</p>
+                <table class="dynatable" id="sample_table">
+                    <thead>
+                    <tr>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Is the MD5 footprint file">md5sum</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="An arbitrary and unique identifier for each sample. This information will not appear in the final records and is only used as an internal reference. Each row represents a GEO Sample record.">Sample_name</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Data from <?php echo '<?php ';?>echo $dataTypesSupportedPlaceholder ?">Data_type</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title that describes the Sample.">Title</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Briefly identify the biological material e.g., vastus lateralis muscle.">Source_name</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Identify the organism(s) from which the sequences were derived.">Organism</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Molecule</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Description</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Name of the file containing the processed data. Multiple 'processed data file' columns may be included when multiple processed data files exist for a Sample (as presented in EXAMPLE 1 worksheet).">Processed_data_file</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="The name of the files containing the raw data.Additional 'raw data file' columns may be included if more than 1 raw data file exist for a Sample">Raw_file</span></th>
+                        <th id="colRef">Actions</th>
+                    </tr>
+                    </thead>
 
-            <table class="dynatable" id="sample_table">
-                <thead>
-                <tr>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Is the MD5 footprint file">md5sum</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="An arbitrary and unique identifier for each sample. This information will not appear in the final records and is only used as an internal reference. Each row represents a GEO Sample record.">Sample_name</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Data from <?php echo '<?php ';?>echo $dataTypesSupportedPlaceholder ?">Data_type</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title that describes the Sample.">Title</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Briefly identify the biological material e.g., vastus lateralis muscle.">Source_name</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Identify the organism(s) from which the sequences were derived.">Organism</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Molecule</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Description</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Name of the file containing the processed data. Multiple 'processed data file' columns may be included when multiple processed data files exist for a Sample (as presented in EXAMPLE 1 worksheet).">Processed_data_file</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="The name of the files containing the raw data.Additional 'raw data file' columns may be included if more than 1 raw data file exist for a Sample">Raw_file</span></th>
-                    <th id="colRef">Actions</th>
-                </tr>
-                </thead>
+                    <tbody>
+                    <tr id="Data_clone">
+                        <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td>
+                        <td class="Sample_name"><input id="Sample_name" type="text" name="Samples_information[Sample_name][]" readonly/></td>
+                        <td class="small-1 Data_type">
+                            <select name="Samples_information[Data_type][]" class="large-12 columns ">
+                                <option value=" "> </option>
+                                <?php
+$_from = $_smarty_tpl->tpl_vars['data_types']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_type_0_saved_item = isset($_smarty_tpl->tpl_vars['type']) ? $_smarty_tpl->tpl_vars['type'] : false;
+$_smarty_tpl->tpl_vars['type'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['type']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['type']->value) {
+$_smarty_tpl->tpl_vars['type']->_loop = true;
+$__foreach_type_0_saved_local_item = $_smarty_tpl->tpl_vars['type'];
+?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['type']->value->type_name;?>
+"><?php echo $_smarty_tpl->tpl_vars['type']->value->type_name;?>
+</option>
+                                <?php
+$_smarty_tpl->tpl_vars['type'] = $__foreach_type_0_saved_local_item;
+}
+if ($__foreach_type_0_saved_item) {
+$_smarty_tpl->tpl_vars['type'] = $__foreach_type_0_saved_item;
+}
+?>
+                            </select>
+                        </td>
 
-                <tbody>
-                <tr id="Data_clone">
-                    <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td>
-                    <td class="Sample_name"><input id="Sample_name" type="text" name="Samples_information[Sample_name][]" readonly/></td>
-                    <td class="Data_type"><input id="Data_type" type="text" name="Samples_information[Data_type][]" pattern="<?php echo '<?php ';?>echo $dataTypesSupportedPatternTrimmed <?php echo '?>';?>" placeholder="<?php echo '<?php ';?>echo $dataTypesSupportedPlaceholder <?php echo '?>';?>"/></td>
-                    <td class="Title"><input id="Title" type="text" name="Samples_information[Title][]" /></td>
-                    <td class="Source"><input id="Source" type="text" name="Samples_information[Source][]" /></td>
-                    <td class="Organism"><input id="Organism" type="text" name="Samples_information[Organism][]" /></td>
-                    <td class="Molecule"><input id="Molecule" type="text" name="Samples_information[Molecule][]" /></td>
-                    <td class="Description"><input id="Description" type="text" name="Samples_information[Description][]" /></td>
-                    <td class="Processed_data_file"><input id="Processed_data_file" type="text" name="Samples_information[Processed_data_file][]" /></td>
-                    <td class="Raw_file"><input id="Raw_file" type="text" name="Samples_information[Raw_file][]" /></td>
-                    <!--                    <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
-                    <td id="action_function">
-                        <a href="#!" class="deleteFiles">Delete sample</a>
+                        <td class="Title"><input id="Title" type="text" name="Samples_information[Title][]" /></td>
+                        <td class="Source"><input id="Source" type="text" name="Samples_information[Source][]" /></td>
+                        <td class="Organism"><input id="Organism" type="text" name="Samples_information[Organism][]" /></td>
+                        <td class="Molecule"><input id="Molecule" type="text" name="Samples_information[Molecule][]" /></td>
+                        <td class="Description"><input id="Description" type="text" name="Samples_information[Description][]" /></td>
+                        <td class="Processed_data_file"><input id="Processed_data_file" type="text" name="Samples_information[Processed_data_file][]" /></td>
+                        <td class="Raw_file"><input id="Raw_file" type="text" name="Samples_information[Raw_file][]" /></td>
+                        <!--                    <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
+                        <td id="action_function">
+                            <a href="#!" class="deleteFiles">Delete sample</a>
 
-                        
-                        
+                            
+                            
 
-                        <a href="#" class="button tiny" id="addColButton">Add Column</a><br>
-                        <a href="#" class="button tiny" id="delColButton">Delete Column</a>
+                            <a href="#" class="button tiny" id="addColButton">Add Column</a><br>
+                            <a href="#" class="button tiny" id="delColButton">Delete Column</a>
 
-                    </td>
-                </tr>
-                <tr id="Data1" >
-                    <td class="md5sum"><input id="md5sum1" type="text" name="Samples_information[md5sum][]" readonly/></td>
-                    <td class="Sample_name" id="toto"><input id="Sample_name1" type="text" name="Samples_information[Sample_name][]" readonly/></td>
-                    <td class="Data_type"><input id="Data_type1" type="text" name="Samples_information[Data_type][]" pattern="<?php echo '<?php ';?>echo $dataTypesSupportedPatternTrimmed <?php echo '?>';?>" placeholder="<?php echo '<?php ';?>echo $dataTypesSupportedPlaceholder <?php echo '?>';?>" /></td>
-                    <td class="Title"><input id="Title1" type="text" name="Samples_information[Title][]" /></td>
-                    <td class="Source"><input id="Source1" type="text" name="Samples_information[Source][]" /></td>
-                    <td class="Organism"><input id="Organism1" type="text" name="Samples_information[Organism][]" /></td>
-                    <td class="Molecule"><input id="Molecule1" type="text" name="Samples_information[Molecule][]" /></td>
-                    <td class="Description"><input id="Description1" type="text" name="Samples_information[Description][]" /></td>
-                    <td class="Processed_data_file"><input id="Processed_data_file1" type="text" name="Samples_information[Processed_data_file][]" /></td>
-                    <td class="Raw_file"><input id="Raw_file1" type="text" name="Samples_information[Raw_file][]" /></td>
-                    <!--                        <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
-                    <td id="action_function">
-                        <a href="#!" class="deleteFiles">Delete sample</a><br>
-                        <a href="#" class="button tiny" id="addColButton">Add Column</a>
-                        <a href="#" class="button tiny" id="delColButton">Delete Column</a>
-                        
-                        
-                    </td>
-                </tr>
-                </tbody>
+                        </td>
+                    </tr>
+                    <tr id="Data1" >
+                        <td class="md5sum"><input id="md5sum1" type="text" name="Samples_information[md5sum][]" readonly/></td>
+                        <td class="Sample_name" id="Sample_name1"><input id="Sample_name1" type="text" name="Samples_information[Sample_name][]" readonly/></td>
+                        <td class="small-1 Data_type">
+                            <select name="Samples_information[Data_type][]" class="large-12 columns ">
+                                <option value=" "> </option>
+                                <?php
+$_from = $_smarty_tpl->tpl_vars['data_types']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_type_1_saved_item = isset($_smarty_tpl->tpl_vars['type']) ? $_smarty_tpl->tpl_vars['type'] : false;
+$_smarty_tpl->tpl_vars['type'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['type']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['type']->value) {
+$_smarty_tpl->tpl_vars['type']->_loop = true;
+$__foreach_type_1_saved_local_item = $_smarty_tpl->tpl_vars['type'];
+?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['type']->value->type_name;?>
+"><?php echo $_smarty_tpl->tpl_vars['type']->value->type_name;?>
+</option>
+                                <?php
+$_smarty_tpl->tpl_vars['type'] = $__foreach_type_1_saved_local_item;
+}
+if ($__foreach_type_1_saved_item) {
+$_smarty_tpl->tpl_vars['type'] = $__foreach_type_1_saved_item;
+}
+?>
+                            </select>
+                        </td>
 
-            </table>
+                        <td class="Title"><input id="Title1" type="text" name="Samples_information[Title][]" /></td>
+                        <td class="Source"><input id="Source1" type="text" name="Samples_information[Source][]" /></td>
+                        <td class="Organism"><input id="Organism1" type="text" name="Samples_information[Organism][]" /></td>
+                        <td class="Molecule"><input id="Molecule1" type="text" name="Samples_information[Molecule][]" /></td>
+                        <td class="Description"><input id="Description1" type="text" name="Samples_information[Description][]" /></td>
+                        <td class="Processed_data_file"><input id="Processed_data_file1" type="text" name="Samples_information[Processed_data_file][]" /></td>
+                        <td class="Raw_file"><input id="Raw_file1" type="text" name="Samples_information[Raw_file][]" /></td>
+                        <!--                        <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
+                        <td id="action_function">
+                            <a href="#!" class="deleteFiles">Delete sample</a><br>
+                            <a href="#" class="button tiny" id="addColButton">Add Column</a>
+                            <a href="#" class="button tiny" id="delColButton">Delete Column</a>
+                            
+                            
+                        </td>
+                    </tr>
+                    </tbody>
 
-        </fieldset>
+                </table>
+
+                <?php echo '<script'; ?>
+ type="text/javascript">loadFileIdUploaded()<?php echo '</script'; ?>
+>
+
+            </fieldset>
+        <?php } else { ?>
+
+            <h3>No sample in this project are upload.</h3>
+
+        <?php }?>
 
         <fieldset>
             <legend>Protocol</legend>
@@ -226,130 +420,13 @@ function content_57cd92b1241044_52250844 ($_smarty_tpl) {
             </div>
         </fieldset>
 
+        
+
+        <input class="button small round" type="submit" value="Validate" />
+        
+    </form>
+
 </div>
 
-
-<?php echo '<script'; ?>
->
-
-
-
-$indexContributor = 1;
-    $("#Contributor_table").on("click","#addContributor",function () {
-        $indexContributor++;
-        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        $newEle.find("input").each(function() {
-            $(this).val('').attr('id',"Contributor" + $indexContributor);
-        }).end().appendTo("#Contributor_table");
-    });
-
-    $("#Contributor_table").on("click","#deleteContributor",function () {
-        $(this).parents().eq(1).remove();
-    });
-
-
-	$("#sample_table ").on("click", "#addColButton" ,function () {
-
-        var $this = $(this), $table = $this.closest('table');
-		var $columnName = window.prompt("Enter Column name", "");
-
-         if ($columnName == null){
-            return;
-        }
-        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
-            return;
-        }
-
-        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
-
-        var $lastTd = $table.find('tr:gt(0)').find('td:last');
-
-        var $compteur = 0;
-        $lastTd.each(function(){
-            if ($compteur == 0){
-                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-            else {
-                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-
-        });
-
-    });
-
-    $("#sample_table ").on("click", "#delColButton" ,function () {
-
-        var $columnName = window.prompt("Enter Column name", "");
-
-        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
-            return;
-        }
-        $("th").filter(function() {
-            return $(this).text() === $columnName;
-        }).remove(); //delete the title
-        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
-        $("." + $columnName +"").remove(); //delete the td element
-
-    });
-
-
-function SetFileTable() {
-    $.ajax({
-        type:"POST",
-        url: " /api/annotation/load",
-        data: {"project_id":   <?php echo $_smarty_tpl->tpl_vars['project']->value->id;?>
-  }
-    });
-
-}
-//loadFileIdUploaded();
-
-function loadFileIdUploaded(){
-
-    var tableId = <?php echo json_encode($_smarty_tpl->tpl_vars['filetable']->value);?>
-;
-    console.log(tableId.length);
-
-    /*//first create lines
-    var $numberOfLineToAdd = tableId.length -1 ;
-    while ($numberOfLineToAdd != 0) {
-        $indexSample++;
-        var $newTr = $("#sample_table tr:eq(1)").clone().attr("id", "Data" + $indexSample);
-        $newTr.find("input").each(function () {
-            $(this).val('').attr("id", function (_, id) {
-                return id + $indexSample
-            });
-        }).end().appendTo("#sample_table");
-
-        $numberOfLineToAdd--;
-}
-//Fill these lines
-var indexFile = 0;
-$("td.md5sum input:not(td.md5sum input:eq(0))").each(function(){
-    $(this).val(tableId[indexFile]["md5sum"]);
-    $(this).attr("placeholder",tableId[indexFile]["md5sum"]);
-    $(this).attr("value",tableId[indexFile]["md5sum"]);
-    indexFile++;
-});
-var indexFile = 0;
-$("td.Sample_name input:not(td.Sample_name input:eq(0))").each(function(){
-    $(this).val(tableId[indexFile]["name"]);
-    $(this).attr("value",tableId[indexFile]["name"]);
-    $(this).attr("placeholder",tableId[indexFile]["name"]);
-    indexFile++;
-});*/
-
-};
-
-
-
-<?php echo '</script'; ?>
->
-<?php $_smarty_debug = new Smarty_Internal_Debug;
- $_smarty_debug->display_debug($_smarty_tpl);
-unset($_smarty_debug);
-}
+<?php }
 }

@@ -143,3 +143,11 @@ browser{
 #Data_clone {
     display: none;
 }
+
+#group_definition_clone {
+	display: none;
+}
+
+#group_available_clone {
+	display: none;
+}

@@ -6,6 +6,7 @@
     {include file="users/projects_users/go.tpl"}
 
 {else}
+
     <h1>All My Projects</h1>
 	{include file="admin/index.tpl"}
 

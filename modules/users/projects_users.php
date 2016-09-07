@@ -42,6 +42,32 @@ class projects_users extends NQ_Auth_User
 
     }
 
+    public function define_groups()
+    {
+        if (!empty($_POST)){//check if the array are empty
+            //we need the project_id so we save it and delete it in the array
+            $project_id=$_POST['project_id'];
+            array_shift($_POST);
+            //in the html table foreach sub array the first line is empty and is used like a "template"
+            //so we delete these lines before to save all information in the DB
+            array_shift($_POST["Group_name"]);
+            array_shift($_POST["Group_description"]);
+            if (!$this->rna_groups_in_db($_POST, $project_id)){
+                die("Error saving RNA group");
+            }
+        }
+    }
+
+    public function write_yaml()
+    {
+        if (!empty($_POST)){//check if this array is empty.
+            //Part for write all information in a YAML file.
+            $filename = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/" . "/description.yml";
+            array_shift($_POST);
+            $res = yaml_emit_file($filename, $_POST, $encoding = YAML_UTF8_ENCODING );
+        }
+    }
+
     public function go()
     {
 	    if ( is_numeric($_GET['id']) && $_GET['id'] > 0 ) {
@@ -50,6 +76,8 @@ class projects_users extends NQ_Auth_User
 	   	 	$this->set('project', $this->project_info( (int)$_GET['id'] ) );
             $this->all_files = $this->get_all_files_in_project($_GET['id']);
             $this->set('filetable', $this->all_files);
+            $this->all_rna_groups = $this->get_all_rna_groups_in_project($_GET['id']);
+            $this->set('rna_groups', $this->all_rna_groups);
 	    }
 
 		$this->set('data_types', $this->all_data_types() );

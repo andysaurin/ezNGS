@@ -1,15 +1,140 @@
 <h2>Samples Descriptions</h2>
 
+<script>
+    {*javascript part*}
+    {literal}
+
+    $indexContributor = 1;
+    $("#Contributor_table").on("click","#addContributor",function () {
+        $indexContributor++;
+        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        $newEle.find("input").each(function() {
+            $(this).val('').attr('id',"Contributor" + $indexContributor);
+        }).end().appendTo("#Contributor_table");
+    });
+
+    $("#Contributor_table").on("click","#deleteContributor",function () {
+        $(this).parents().eq(1).remove();
+    });
+
+
+    $("#sample_table ").on("click", "#addColButton" ,function () {
+
+        var $this = $(this), $table = $this.closest('table');
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if ($columnName == null){
+            return;
+        }
+        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
+            return;
+        }
+
+        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
+
+        var $lastTd = $table.find('tr:gt(0)').find('td:last');
+
+        var $compteur = 0;
+        $lastTd.each(function(){
+            if ($compteur == 0){
+                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+            else {
+                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+
+        });
+
+    });
+
+    $("#sample_table ").on("click", "#delColButton" ,function () {
+
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
+            return;
+        }
+        $("th").filter(function() {
+            return $(this).text() === $columnName;
+        }).remove(); //delete the title
+        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
+        $("." + $columnName +"").remove(); //delete the td element
+
+    });
+
+
+    /* 06/09/2016function SetFileTable() {
+     $.ajax({
+     type:"POST",
+     url: " /api/annotation/load",
+     {*data: {"project_id": }
+     });
+
+     }*/
+
+    function loadFileIdUploaded(){
+
+        var tableId = {/literal}{$filetable|json_encode}{literal};
+        //console.log(tableId.length);
+        var $indexSample = 0;
+        //first create lines
+        var $numberOfLineToAdd = tableId.length -1 ;
+        while ($numberOfLineToAdd != 0) {
+            $indexSample++;
+            var $newTr = $("#sample_table tr:eq(1)").clone().attr("id", "Data" + $indexSample);
+            $newTr.find("input").each(function () {
+                $(this).val('').attr("id", function (_, id) {
+                    return id + $indexSample
+                });
+            }).end().appendTo("#sample_table");
+
+            $numberOfLineToAdd--;
+        }
+        //Fill these lines
+        var indexFile = 0;
+        $("td.md5sum input:not(td.md5sum input:eq(0))").each(function(){
+            $(this).val(tableId[indexFile]["md5sum"]);
+            $(this).attr("placeholder",tableId[indexFile]["md5sum"]);
+            $(this).attr("value",tableId[indexFile]["md5sum"]);
+            indexFile++;
+        });
+        var indexFile = 0;
+        $("td.Sample_name input:not(td.Sample_name input:eq(0))").each(function(){
+            $(this).val(tableId[indexFile]["file_name"]);
+            $(this).attr("value",tableId[indexFile]["file_name"]);
+            $(this).attr("placeholder",tableId[indexFile]["file_name"]);
+            indexFile++;
+        });
+
+    };
+
+
+    {/literal}
+</script>
+
 
 
 <div>
-    <form id="form-descriptions" action="write_yaml.php"  method="post">
+    {*<form id="form-descriptions" action="write_yaml.php"  method="post">*}
+    <form id="form-descriptions" action="/{$module}/{$class}/write_yaml"  method="POST">
 
         <fieldset>
             <legend>Series</legend>
             <p>This section describes the overall experiment</p>
 
             {* 10/08/2016 for input sections class="input_with_space" we have to think about special character*}
+
+            <div class=" row left">
+                <div class="medium-2 columns">
+                    <label for="Project_id"class="right inline">Project_id</label>
+                </div>
+                <div class="small-3 columns">
+                    <input type="text" id="Project_id" name="project_id" value="{$project->id}" readonly>
+                </div>
+            </div>
 
             <div class=" row left">
                 <div class="medium-2 columns">
@@ -80,78 +205,101 @@
             </div>
 
         </fieldset>
+        {if $filetable|@count > 0 }
+            <fieldset>
+                <legend>Samples</legend>
+                <p>This section lists and describes each of the biological Samples under investigation, as well as any protocols that are specific to individual Samples.</p>
+                <p>Additional "processed data file" or "raw file" columns may be included.</p>
 
-        <fieldset>
-            <legend>Samples</legend>
-            <p>This section lists and describes each of the biological Samples under investigation, as well as any protocols that are specific to individual Samples.</p>
-            <p>Additional "processed data file" or "raw file" columns may be included.</p>
+                <table class="dynatable" id="sample_table">
+                    <thead>
+                    <tr>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Is the MD5 footprint file">md5sum</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="An arbitrary and unique identifier for each sample. This information will not appear in the final records and is only used as an internal reference. Each row represents a GEO Sample record.">Sample_name</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Data from <?php echo $dataTypesSupportedPlaceholder ?">Data_type</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title that describes the Sample.">Title</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Briefly identify the biological material e.g., vastus lateralis muscle.">Source_name</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Identify the organism(s) from which the sequences were derived.">Organism</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Molecule</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Description</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Name of the file containing the processed data. Multiple 'processed data file' columns may be included when multiple processed data files exist for a Sample (as presented in EXAMPLE 1 worksheet).">Processed_data_file</span></th>
+                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="The name of the files containing the raw data.Additional 'raw data file' columns may be included if more than 1 raw data file exist for a Sample">Raw_file</span></th>
+                        <th id="colRef">Actions</th>
+                    </tr>
+                    </thead>
 
-            <table class="dynatable" id="sample_table">
-                <thead>
-                <tr>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Is the MD5 footprint file">md5sum</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="An arbitrary and unique identifier for each sample. This information will not appear in the final records and is only used as an internal reference. Each row represents a GEO Sample record.">Sample_name</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Data from <?php echo $dataTypesSupportedPlaceholder ?">Data_type</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title that describes the Sample.">Title</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Briefly identify the biological material e.g., vastus lateralis muscle.">Source_name</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Identify the organism(s) from which the sequences were derived.">Organism</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Molecule</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Type of molecule that was extracted from the biological material. Include one of the following: total RNA, polyA RNA, cytoplasmic RNA, nuclear RNA, genomic DNA, protein, or other.">Description</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Name of the file containing the processed data. Multiple 'processed data file' columns may be included when multiple processed data files exist for a Sample (as presented in EXAMPLE 1 worksheet).">Processed_data_file</span></th>
-                    <th><span data-tooltip aria-haspopup="true" class="has-tip" title="The name of the files containing the raw data.Additional 'raw data file' columns may be included if more than 1 raw data file exist for a Sample">Raw_file</span></th>
-                    <th id="colRef">Actions</th>
-                </tr>
-                </thead>
+                    <tbody>
+                    <tr id="Data_clone">
+                        <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td>
+                        <td class="Sample_name"><input id="Sample_name" type="text" name="Samples_information[Sample_name][]" readonly/></td>
+                        <td class="small-1 Data_type">
+                            <select name="Samples_information[Data_type][]" class="large-12 columns ">
+                                <option value=" "> </option>
+                                {foreach $data_types as $type}
+                                    <option value="{$type->type_name}">{$type->type_name}</option>
+                                {/foreach}
+                            </select>
+                        </td>
 
-                <tbody>
-                <tr id="Data_clone">
-                    <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td>
-                    <td class="Sample_name"><input id="Sample_name" type="text" name="Samples_information[Sample_name][]" readonly/></td>
-                    <td class="Data_type"><input id="Data_type" type="text" name="Samples_information[Data_type][]" pattern="<?php echo $dataTypesSupportedPatternTrimmed ?>" placeholder="<?php echo $dataTypesSupportedPlaceholder ?>"/></td>
-                    <td class="Title"><input id="Title" type="text" name="Samples_information[Title][]" /></td>
-                    <td class="Source"><input id="Source" type="text" name="Samples_information[Source][]" /></td>
-                    <td class="Organism"><input id="Organism" type="text" name="Samples_information[Organism][]" /></td>
-                    <td class="Molecule"><input id="Molecule" type="text" name="Samples_information[Molecule][]" /></td>
-                    <td class="Description"><input id="Description" type="text" name="Samples_information[Description][]" /></td>
-                    <td class="Processed_data_file"><input id="Processed_data_file" type="text" name="Samples_information[Processed_data_file][]" /></td>
-                    <td class="Raw_file"><input id="Raw_file" type="text" name="Samples_information[Raw_file][]" /></td>
-                    <!--                    <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
-                    <td id="action_function">
-                        <a href="#!" class="deleteFiles">Delete sample</a>
+                        <td class="Title"><input id="Title" type="text" name="Samples_information[Title][]" /></td>
+                        <td class="Source"><input id="Source" type="text" name="Samples_information[Source][]" /></td>
+                        <td class="Organism"><input id="Organism" type="text" name="Samples_information[Organism][]" /></td>
+                        <td class="Molecule"><input id="Molecule" type="text" name="Samples_information[Molecule][]" /></td>
+                        <td class="Description"><input id="Description" type="text" name="Samples_information[Description][]" /></td>
+                        <td class="Processed_data_file"><input id="Processed_data_file" type="text" name="Samples_information[Processed_data_file][]" /></td>
+                        <td class="Raw_file"><input id="Raw_file" type="text" name="Samples_information[Raw_file][]" /></td>
+                        <!--                    <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
+                        <td id="action_function">
+                            <a href="#!" class="deleteFiles">Delete sample</a>
 
-                        {* 10/08/2016 <button form="form-descriptions" id="addColButton" type="button">Add Column</button>*}
-                        {* 10/08/2016 <button form="form-descriptions" id="delColButton" type="button">Delete Column</button>*}
+                            {* 10/08/2016 <button form="form-descriptions" id="addColButton" type="button">Add Column</button>*}
+                            {* 10/08/2016 <button form="form-descriptions" id="delColButton" type="button">Delete Column</button>*}
 
-                        <a href="#" class="button tiny" id="addColButton">Add Column</a><br>
-                        <a href="#" class="button tiny" id="delColButton">Delete Column</a>
+                            <a href="#" class="button tiny" id="addColButton">Add Column</a><br>
+                            <a href="#" class="button tiny" id="delColButton">Delete Column</a>
 
-                    </td>
-                </tr>
-                <tr id="Data1" >
-                    <td class="md5sum"><input id="md5sum1" type="text" name="Samples_information[md5sum][]" readonly/></td>
-                    <td class="Sample_name" id="toto"><input id="Sample_name1" type="text" name="Samples_information[Sample_name][]" readonly/></td>
-                    <td class="Data_type"><input id="Data_type1" type="text" name="Samples_information[Data_type][]" pattern="<?php echo $dataTypesSupportedPatternTrimmed ?>" placeholder="<?php echo $dataTypesSupportedPlaceholder ?>" /></td>
-                    <td class="Title"><input id="Title1" type="text" name="Samples_information[Title][]" /></td>
-                    <td class="Source"><input id="Source1" type="text" name="Samples_information[Source][]" /></td>
-                    <td class="Organism"><input id="Organism1" type="text" name="Samples_information[Organism][]" /></td>
-                    <td class="Molecule"><input id="Molecule1" type="text" name="Samples_information[Molecule][]" /></td>
-                    <td class="Description"><input id="Description1" type="text" name="Samples_information[Description][]" /></td>
-                    <td class="Processed_data_file"><input id="Processed_data_file1" type="text" name="Samples_information[Processed_data_file][]" /></td>
-                    <td class="Raw_file"><input id="Raw_file1" type="text" name="Samples_information[Raw_file][]" /></td>
-                    <!--                        <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
-                    <td id="action_function">
-                        <a href="#!" class="deleteFiles">Delete sample</a><br>
-                        <a href="#" class="button tiny" id="addColButton">Add Column</a>
-                        <a href="#" class="button tiny" id="delColButton">Delete Column</a>
-                        {* 10/08/2016<button form="form-descriptions" id="addColButton" type="button">Add Column</button>*}
-                        {* 10/08/2016<button form="form-descriptions" id="delColButton" type="button">Delete Column</button>*}
-                    </td>
-                </tr>
-                </tbody>
+                        </td>
+                    </tr>
+                    <tr id="Data1" >
+                        <td class="md5sum"><input id="md5sum1" type="text" name="Samples_information[md5sum][]" readonly/></td>
+                        <td class="Sample_name" id="Sample_name1"><input id="Sample_name1" type="text" name="Samples_information[Sample_name][]" readonly/></td>
+                        <td class="small-1 Data_type">
+                            <select name="Samples_information[Data_type][]" class="large-12 columns ">
+                                <option value=" "> </option>
+                                {foreach $data_types as $type}
+                                    <option value="{$type->type_name}">{$type->type_name}</option>
+                                {/foreach}
+                            </select>
+                        </td>
 
-            </table>
+                        <td class="Title"><input id="Title1" type="text" name="Samples_information[Title][]" /></td>
+                        <td class="Source"><input id="Source1" type="text" name="Samples_information[Source][]" /></td>
+                        <td class="Organism"><input id="Organism1" type="text" name="Samples_information[Organism][]" /></td>
+                        <td class="Molecule"><input id="Molecule1" type="text" name="Samples_information[Molecule][]" /></td>
+                        <td class="Description"><input id="Description1" type="text" name="Samples_information[Description][]" /></td>
+                        <td class="Processed_data_file"><input id="Processed_data_file1" type="text" name="Samples_information[Processed_data_file][]" /></td>
+                        <td class="Raw_file"><input id="Raw_file1" type="text" name="Samples_information[Raw_file][]" /></td>
+                        <!--                        <td id="action_function"><a href="#!" id="action_deleteLine">Delete sample</a>-->
+                        <td id="action_function">
+                            <a href="#!" class="deleteFiles">Delete sample</a><br>
+                            <a href="#" class="button tiny" id="addColButton">Add Column</a>
+                            <a href="#" class="button tiny" id="delColButton">Delete Column</a>
+                            {* 10/08/2016<button form="form-descriptions" id="addColButton" type="button">Add Column</button>*}
+                            {* 10/08/2016<button form="form-descriptions" id="delColButton" type="button">Delete Column</button>*}
+                        </td>
+                    </tr>
+                    </tbody>
 
-        </fieldset>
+                </table>
+
+                <script type="text/javascript">loadFileIdUploaded()</script>
+
+            </fieldset>
+        {else}
+
+            <h3>No sample in this project are upload.</h3>
+
+        {/if}
 
         <fieldset>
             <legend>Protocol</legend>
@@ -203,122 +351,11 @@
             </div>
         </fieldset>
 
+        {*<input type="submit" value="Valider">*}
+
+        <input class="button small round" type="submit" value="Validate" />
+        
+    </form>
+
 </div>
 
-
-<script>
-{*javascript part*}
-{literal}
-
-$indexContributor = 1;
-    $("#Contributor_table").on("click","#addContributor",function () {
-        $indexContributor++;
-        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        $newEle.find("input").each(function() {
-            $(this).val('').attr('id',"Contributor" + $indexContributor);
-        }).end().appendTo("#Contributor_table");
-    });
-
-    $("#Contributor_table").on("click","#deleteContributor",function () {
-        $(this).parents().eq(1).remove();
-    });
-
-
-	$("#sample_table ").on("click", "#addColButton" ,function () {
-
-        var $this = $(this), $table = $this.closest('table');
-		var $columnName = window.prompt("Enter Column name", "");
-
-         if ($columnName == null){
-            return;
-        }
-        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
-            return;
-        }
-
-        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
-
-        var $lastTd = $table.find('tr:gt(0)').find('td:last');
-
-        var $compteur = 0;
-        $lastTd.each(function(){
-            if ($compteur == 0){
-                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-            else {
-                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-
-        });
-
-    });
-
-    $("#sample_table ").on("click", "#delColButton" ,function () {
-
-        var $columnName = window.prompt("Enter Column name", "");
-
-        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
-            return;
-        }
-        $("th").filter(function() {
-            return $(this).text() === $columnName;
-        }).remove(); //delete the title
-        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
-        $("." + $columnName +"").remove(); //delete the td element
-
-    });
-
-
-function SetFileTable() {
-    $.ajax({
-        type:"POST",
-        url: " /api/annotation/load",
-        data: {"project_id":  {/literal} {$project->id} {literal} }
-    });
-
-}
-//loadFileIdUploaded();
-
-function loadFileIdUploaded(){
-
-    var tableId = {/literal}{$filetable|json_encode}{literal};
-    console.log(tableId.length);
-
-    /*//first create lines
-    var $numberOfLineToAdd = tableId.length -1 ;
-    while ($numberOfLineToAdd != 0) {
-        $indexSample++;
-        var $newTr = $("#sample_table tr:eq(1)").clone().attr("id", "Data" + $indexSample);
-        $newTr.find("input").each(function () {
-            $(this).val('').attr("id", function (_, id) {
-                return id + $indexSample
-            });
-        }).end().appendTo("#sample_table");
-
-        $numberOfLineToAdd--;
-}
-//Fill these lines
-var indexFile = 0;
-$("td.md5sum input:not(td.md5sum input:eq(0))").each(function(){
-    $(this).val(tableId[indexFile]["md5sum"]);
-    $(this).attr("placeholder",tableId[indexFile]["md5sum"]);
-    $(this).attr("value",tableId[indexFile]["md5sum"]);
-    indexFile++;
-});
-var indexFile = 0;
-$("td.Sample_name input:not(td.Sample_name input:eq(0))").each(function(){
-    $(this).val(tableId[indexFile]["name"]);
-    $(this).attr("value",tableId[indexFile]["name"]);
-    $(this).attr("placeholder",tableId[indexFile]["name"]);
-    indexFile++;
-});*/
-
-};
-
-
-{/literal}
-</script>
-{debug}

@@ -1,9 +1,9 @@
 
 <ul class="tabs" data-tab>
     <li class="tab-title"><a href="#fileBrowser" onClick="browser_init();">Upload new sequence files</a></li>
-    <li class="tab-title"><a href="#sampleAnnotation" onClick="SetFileTable();">Manage project descriptions</a></li>
+    <li class="tab-title"><a href="#sampleAnnotation">Manage project descriptions</a></li>
     <li class="tab-title"><a href="#panel3">ChIP-seq Workflow</a></li>
-    <li class="tab-title"><a href="#panel4">RNA-seq Workflow</a></li>
+    <li class="tab-title"><a href="#RNA-seq">RNA-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>
 </ul>
 
@@ -17,8 +17,8 @@
     <div class="content" id="panel3">
         <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
     </div>
-    <div class="content" id="panel4">
-        <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
+    <div class="content" id="RNA-seq">
+        {include file="users/projects_users/RNA-seq.tpl"}
     </div>
     <div class="content" id="panel5">
         <p>This is the five panel of the basic tab example. This is the fourth panel of the basic tab example.</p>

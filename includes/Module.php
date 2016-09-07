@@ -1287,6 +1287,22 @@ EOT;
         return $files;
 
 	}
+	public  function get_all_rna_groups_in_project($project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return array();
+        }
+
+        /*Make a request to obtain all rna groups in this project*/
+
+        $rnaGroups =  $this->db->master->get_results("SELECT * FROM `rna_group` WHERE `project_id`={$project_id} ORDER BY `group_name` ASC");
+
+        if ( !count($rnaGroups) )
+            return array();
+
+        return $rnaGroups;
+    }
 
 	public function new_sqlite_db($name)
 	{
@@ -1303,6 +1319,19 @@ EOT;
 */
 
 	}
+
+	public function rna_groups_in_db($array, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+
+        for ($i=0;$i<count($array["Group_name"]);$i++){
+            $this->db->master->query("INSERT INTO `rna_group` (`group_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL,'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
+        }
+        return true;
+    }
 
 
 	public function searchDir($base_dir=SYSTEM_UPLOAD_ROOT,$p="",$f="",$allowed_depth=-1){
