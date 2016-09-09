@@ -49,6 +49,40 @@
 
     };
 
+    /*function loadFileIdUploaded(){
+
+        var tableId2 = ;
+        var $indexSample2 = 1;
+        //first create lines
+        var $numberOfLineToAdd = tableId2.length -1 ;
+        while ($numberOfLineToAdd != 0) {
+            $indexSample2++;
+            var $newTr = $("#group_assignation tr:eq(1)").clone().attr("id", "group_assignation" + $indexSample2);
+            $newTr.find("input").each(function () {
+                $(this).val('').attr("id", function (_, id) {
+                    return id + $indexSample2
+                });
+            }).end().appendTo("#group_assignation");
+
+            $numberOfLineToAdd--;
+        }
+        //Fill these lines
+        var indexFile = 0;
+        $("td.md5sum2 input:not(td.md5sum2 input:eq(0))").each(function(){
+            $(this).val(tableId2[indexFile]["md5sum"]);
+            $(this).attr("placeholder",tableId2[indexFile]["md5sum"]);
+            $(this).attr("value",tableId2[indexFile]["md5sum"]);
+            indexFile++;
+        });
+        var indexFile = 0;
+        $("td.Sample_name2 input:not(td.Sample_name2 input:eq(0))").each(function(){
+            $(this).val(tableId2[indexFile]["name"]);
+            $(this).attr("value",tableId2[indexFile]["name"]);
+            $(this).attr("placeholder",tableId2[indexFile]["name"]);
+            indexFile++;
+        });
+    };*/
+
     {/literal}
 </script>
 
@@ -125,5 +159,35 @@
         </div>
     </fieldset>
 {/if}
+{if $filetable|@count > 0 }
+<form id="form-assignation-groups" action="rna_groups_assignation" method="post">
+    <fieldset>
+        <legend>Sample-Group assignation</legend>
 
-{debug}
+        <table id="group_assignation">
+            <tr>
+                <th>md5sum</th>
+                <th>Sample_name</th>
+                <th>Groups_available</th>
+            </tr>
+            <tr id="group_assignation_clone">
+                <td class="md5sum"><input id="md5sum" type="text" name="rna_groups_assignation[md5sum][]" readonly/></td>
+                <td class="Sample_name"><input id="Sample_name" type="text" name="rna_groups_assignation[Sample_name][]" readonly/></td>
+                <td class="Groups_available2"></td>
+            </tr>
+            <tr id="group_assignation1">
+                <td class="md5sum"><input id="md5sum1" type="text" name="rna_groups_assignation[md5sum][]" readonly/></td>
+                <td class="Sample_name"><input id="Sample_name1" type="text" name="rna_groups_assignation[Sample_name][]" readonly/></td>
+                <td class="Groups_available2"></td>
+            </tr>
+
+        </table>
+
+{*
+        <script type="text/javascript">loadFileIdUploaded()</script>
+*}
+
+    </fieldset>
+    <input type="submit" value="Valider">
+</form>
+{/if}

@@ -4,77 +4,6 @@
     {*javascript part*}
     {literal}
 
-    $indexContributor = 1;
-    $("#Contributor_table").on("click","#addContributor",function () {
-        $indexContributor++;
-        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        $newEle.find("input").each(function() {
-            $(this).val('').attr('id',"Contributor" + $indexContributor);
-        }).end().appendTo("#Contributor_table");
-    });
-
-    $("#Contributor_table").on("click","#deleteContributor",function () {
-        $(this).parents().eq(1).remove();
-    });
-
-
-    $("#sample_table ").on("click", "#addColButton" ,function () {
-
-        var $this = $(this), $table = $this.closest('table');
-        var $columnName = window.prompt("Enter Column name", "");
-
-        if ($columnName == null){
-            return;
-        }
-        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
-            return;
-        }
-
-        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
-
-        var $lastTd = $table.find('tr:gt(0)').find('td:last');
-
-        var $compteur = 0;
-        $lastTd.each(function(){
-            if ($compteur == 0){
-                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-            else {
-                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-
-        });
-
-    });
-
-    $("#sample_table ").on("click", "#delColButton" ,function () {
-
-        var $columnName = window.prompt("Enter Column name", "");
-
-        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
-            return;
-        }
-        $("th").filter(function() {
-            return $(this).text() === $columnName;
-        }).remove(); //delete the title
-        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
-        $("." + $columnName +"").remove(); //delete the td element
-
-    });
-
-
-    /* 06/09/2016function SetFileTable() {
-     $.ajax({
-     type:"POST",
-     url: " /api/annotation/load",
-     {*data: {"project_id": }
-     });
-
-     }*/
-
     function loadFileIdUploaded(){
 
         var tableId = {/literal}{$filetable|json_encode}{literal};
@@ -114,12 +43,9 @@
 
     {/literal}
 </script>
-
-
-
 <div>
     {*<form id="form-descriptions" action="write_yaml.php"  method="post">*}
-    <form id="form-descriptions" action="/{$module}/{$class}/write_yaml"  method="POST">
+    <form id="form-descriptions" action="/{$module}/{$class}/save_annotations"  method="POST">
 
         <fieldset>
             <legend>Series</legend>
@@ -359,3 +285,70 @@
 
 </div>
 
+<script>
+    {*javascript part*}
+    {literal}
+
+    $indexContributor = 1;
+    $("#Contributor_table").on("click","#addContributor",function () {
+        $indexContributor++;
+        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        $newEle.find("input").each(function() {
+            $(this).val('').attr('id',"Contributor" + $indexContributor);
+        }).end().appendTo("#Contributor_table");
+    });
+
+    $("#Contributor_table").on("click","#deleteContributor",function () {
+        $(this).parents().eq(1).remove();
+    });
+
+
+    $("#sample_table ").on("click", "#addColButton" ,function () {
+
+        var $this = $(this), $table = $this.closest('table');
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if ($columnName == null){
+            return;
+        }
+        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
+            return;
+        }
+
+        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
+
+        var $lastTd = $table.find('tr:gt(0)').find('td:last');
+
+        var $compteur = 0;
+        $lastTd.each(function(){
+            if ($compteur == 0){
+                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+            else {
+                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+
+        });
+
+    });
+
+    $("#sample_table ").on("click", "#delColButton" ,function () {
+
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
+            return;
+        }
+        $("th").filter(function() {
+            return $(this).text() === $columnName;
+        }).remove(); //delete the title
+        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
+        $("." + $columnName +"").remove(); //delete the td element
+
+    });
+
+    {/literal}
+</script>

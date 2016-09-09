@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-07 17:29:03
+/* Smarty version 3.1.29, created on 2016-09-09 15:03:04
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/RNA-seq.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57d0323fb7de86_00474418',
+  'unifunc' => 'content_57d2b308509683_66343740',
   'file_dependency' => 
   array (
     'c11ebdacf7df01dc792394224975c26e487e8793' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/RNA-seq.tpl',
-      1 => 1473262108,
+      1 => 1473338707,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57d0323fb7de86_00474418 ($_smarty_tpl) {
+function content_57d2b308509683_66343740 ($_smarty_tpl) {
 ?>
 <h2>Sample grouping</h2>
 
@@ -73,6 +73,40 @@ function content_57d0323fb7de86_00474418 ($_smarty_tpl) {
         });
 
     };
+
+    /*function loadFileIdUploaded(){
+
+        var tableId2 = ;
+        var $indexSample2 = 1;
+        //first create lines
+        var $numberOfLineToAdd = tableId2.length -1 ;
+        while ($numberOfLineToAdd != 0) {
+            $indexSample2++;
+            var $newTr = $("#group_assignation tr:eq(1)").clone().attr("id", "group_assignation" + $indexSample2);
+            $newTr.find("input").each(function () {
+                $(this).val('').attr("id", function (_, id) {
+                    return id + $indexSample2
+                });
+            }).end().appendTo("#group_assignation");
+
+            $numberOfLineToAdd--;
+        }
+        //Fill these lines
+        var indexFile = 0;
+        $("td.md5sum2 input:not(td.md5sum2 input:eq(0))").each(function(){
+            $(this).val(tableId2[indexFile]["md5sum"]);
+            $(this).attr("placeholder",tableId2[indexFile]["md5sum"]);
+            $(this).attr("value",tableId2[indexFile]["md5sum"]);
+            indexFile++;
+        });
+        var indexFile = 0;
+        $("td.Sample_name2 input:not(td.Sample_name2 input:eq(0))").each(function(){
+            $(this).val(tableId2[indexFile]["name"]);
+            $(this).attr("value",tableId2[indexFile]["name"]);
+            $(this).attr("placeholder",tableId2[indexFile]["name"]);
+            indexFile++;
+        });
+    };*/
 
     
 <?php echo '</script'; ?>
@@ -155,9 +189,38 @@ function content_57d0323fb7de86_00474418 ($_smarty_tpl) {
 
         </div>
     </fieldset>
-<?php }?>
+<?php }
+if (count($_smarty_tpl->tpl_vars['filetable']->value) > 0) {?>
+<form id="form-assignation-groups" action="rna_groups_assignation" method="post">
+    <fieldset>
+        <legend>Sample-Group assignation</legend>
 
-<?php $_smarty_debug = new Smarty_Internal_Debug;
+        <table id="group_assignation">
+            <tr>
+                <th>md5sum</th>
+                <th>Sample_name</th>
+                <th>Groups_available</th>
+            </tr>
+            <tr id="group_assignation_clone">
+                <td class="md5sum"><input id="md5sum" type="text" name="rna_groups_assignation[md5sum][]" readonly/></td>
+                <td class="Sample_name"><input id="Sample_name" type="text" name="rna_groups_assignation[Sample_name][]" readonly/></td>
+                <td class="Groups_available2"></td>
+            </tr>
+            <tr id="group_assignation1">
+                <td class="md5sum"><input id="md5sum1" type="text" name="rna_groups_assignation[md5sum][]" readonly/></td>
+                <td class="Sample_name"><input id="Sample_name1" type="text" name="rna_groups_assignation[Sample_name][]" readonly/></td>
+                <td class="Groups_available2"></td>
+            </tr>
+
+        </table>
+
+
+
+    </fieldset>
+    <input type="submit" value="Valider">
+</form>
+<?php }
+$_smarty_debug = new Smarty_Internal_Debug;
  $_smarty_debug->display_debug($_smarty_tpl);
 unset($_smarty_debug);
 }

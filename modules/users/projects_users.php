@@ -58,7 +58,7 @@ class projects_users extends NQ_Auth_User
         }
     }
 
-    public function write_yaml()
+    public function save_annotations()
     {
         if (!empty($_POST)){//check if this array is empty.
             //Part for write all information in a YAML file.

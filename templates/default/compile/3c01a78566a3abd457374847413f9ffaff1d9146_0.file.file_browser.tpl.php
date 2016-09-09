@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-07 17:29:03
+/* Smarty version 3.1.29, created on 2016-09-09 15:03:04
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/file_browser.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57d0323fb2bfa1_39465550',
+  'unifunc' => 'content_57d2b3084af745_93677956',
   'file_dependency' => 
   array (
     '3c01a78566a3abd457374847413f9ffaff1d9146' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57d0323fb2bfa1_39465550 ($_smarty_tpl) {
+function content_57d2b3084af745_93677956 ($_smarty_tpl) {
 ?>
  <?php echo '<script'; ?>
  type="text/javascript" src="/js/browser/ajax.js"><?php echo '</script'; ?>

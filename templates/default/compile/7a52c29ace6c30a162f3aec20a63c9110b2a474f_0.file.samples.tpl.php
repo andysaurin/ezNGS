@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-07 17:29:03
+/* Smarty version 3.1.29, created on 2016-09-09 15:03:04
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57d0323fb67ce9_50424951',
+  'unifunc' => 'content_57d2b3084ed2c8_57471245',
   'file_dependency' => 
   array (
     '7a52c29ace6c30a162f3aec20a63c9110b2a474f' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl',
-      1 => 1473261310,
+      1 => 1473425973,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57d0323fb67ce9_50424951 ($_smarty_tpl) {
+function content_57d2b3084ed2c8_57471245 ($_smarty_tpl) {
 ?>
 <h2>Samples Descriptions</h2>
 
@@ -27,77 +27,6 @@ function content_57d0323fb67ce9_50424951 ($_smarty_tpl) {
 >
     
     
-
-    $indexContributor = 1;
-    $("#Contributor_table").on("click","#addContributor",function () {
-        $indexContributor++;
-        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
-        $newEle.find("input").each(function() {
-            $(this).val('').attr('id',"Contributor" + $indexContributor);
-        }).end().appendTo("#Contributor_table");
-    });
-
-    $("#Contributor_table").on("click","#deleteContributor",function () {
-        $(this).parents().eq(1).remove();
-    });
-
-
-    $("#sample_table ").on("click", "#addColButton" ,function () {
-
-        var $this = $(this), $table = $this.closest('table');
-        var $columnName = window.prompt("Enter Column name", "");
-
-        if ($columnName == null){
-            return;
-        }
-        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
-            return;
-        }
-
-        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
-
-        var $lastTd = $table.find('tr:gt(0)').find('td:last');
-
-        var $compteur = 0;
-        $lastTd.each(function(){
-            if ($compteur == 0){
-                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-            else {
-                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
-                $compteur++;
-            }
-
-        });
-
-    });
-
-    $("#sample_table ").on("click", "#delColButton" ,function () {
-
-        var $columnName = window.prompt("Enter Column name", "");
-
-        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
-            return;
-        }
-        $("th").filter(function() {
-            return $(this).text() === $columnName;
-        }).remove(); //delete the title
-        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
-        $("." + $columnName +"").remove(); //delete the td element
-
-    });
-
-
-    /* 06/09/2016function SetFileTable() {
-     $.ajax({
-     type:"POST",
-     url: " /api/annotation/load",
-     {*data: {"project_id": }
-     });
-
-     }*/
 
     function loadFileIdUploaded(){
 
@@ -140,9 +69,6 @@ function content_57d0323fb67ce9_50424951 ($_smarty_tpl) {
     
 <?php echo '</script'; ?>
 >
-
-
-
 <div>
     
     <form id="form-descriptions" action="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
@@ -428,5 +354,73 @@ $_smarty_tpl->tpl_vars['type'] = $__foreach_type_1_saved_item;
 
 </div>
 
-<?php }
+<?php echo '<script'; ?>
+>
+    
+    
+
+    $indexContributor = 1;
+    $("#Contributor_table").on("click","#addContributor",function () {
+        $indexContributor++;
+        //var $newEle = $("#Contributor_table tr:eq(0)").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        var $newEle = $("#Contributor_clone_td").clone().attr("id", "tr_Contributor"+ $indexContributor);
+        $newEle.find("input").each(function() {
+            $(this).val('').attr('id',"Contributor" + $indexContributor);
+        }).end().appendTo("#Contributor_table");
+    });
+
+    $("#Contributor_table").on("click","#deleteContributor",function () {
+        $(this).parents().eq(1).remove();
+    });
+
+
+    $("#sample_table ").on("click", "#addColButton" ,function () {
+
+        var $this = $(this), $table = $this.closest('table');
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if ($columnName == null){
+            return;
+        }
+        if (! /^[a-zA-Z0-9_-]+$/.test($columnName)) { // check if the string write by user is available
+            return;
+        }
+
+        $('<th>' + $columnName + '</th>').insertBefore($table.find('tr').first().find('th:last'));
+
+        var $lastTd = $table.find('tr:gt(0)').find('td:last');
+
+        var $compteur = 0;
+        $lastTd.each(function(){
+            if ($compteur == 0){
+                $('<td class= ' + $columnName +'><input id="'+ $columnName +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+            else {
+                $('<td class= ' + $columnName +'><input id="'+ $columnName+$compteur +'" class= "' + $columnName + '"type="text" name="Samples_information['+ $columnName + '][]" value="" ></td>').insertBefore($(this));
+                $compteur++;
+            }
+
+        });
+
+    });
+
+    $("#sample_table ").on("click", "#delColButton" ,function () {
+
+        var $columnName = window.prompt("Enter Column name", "");
+
+        if (! /^[a-zA-Z0-9]+$/.test($columnName)){ // check if the string write by user is available
+            return;
+        }
+        $("th").filter(function() {
+            return $(this).text() === $columnName;
+        }).remove(); //delete the title
+        $("td").find('input[name="' + $columnName + '[]"]').remove(); // delete the input element
+        $("." + $columnName +"").remove(); //delete the td element
+
+    });
+
+    
+<?php echo '</script'; ?>
+><?php }
 }

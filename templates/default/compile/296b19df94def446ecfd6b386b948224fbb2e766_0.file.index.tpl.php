@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-07 17:29:14
+/* Smarty version 3.1.29, created on 2016-09-09 13:57:34
   from "/home/lucie/amidex/templates/default/templates/admin/index.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57d0324a317427_21992841',
+  'unifunc' => 'content_57d2a3ae42a019_44511734',
   'file_dependency' => 
   array (
     '296b19df94def446ecfd6b386b948224fbb2e766' => 
@@ -20,7 +20,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:users/projects_users/go.tpl' => 1,
   ),
 ),false)) {
-function content_57d0324a317427_21992841 ($_smarty_tpl) {
+function content_57d2a3ae42a019_44511734 ($_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['event']->value == 'go') {?>
 
 <?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:users/projects_users/go.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
