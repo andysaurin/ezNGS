@@ -61,8 +61,19 @@ class projects_users extends NQ_Auth_User
     public function save_annotations()
     {
         if (!empty($_POST)){//check if this array is empty.
-            //Part for write all information in a YAML file.
+            //We store the location of the YAML file
             $filename = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/" . "/description.yml";
+            //array_shift($_POST);
+
+            /*First step fill the metadata table, so need to obtain all column name*/
+            $all_col_name_array = array_keys($_POST["Samples_information"]);
+            if (!$this->metadata_in_db($all_col_name_array, $_POST['project_id'])){
+                die("Error saving metadata header");
+            }
+            if (!$this->metadata_value_in_db($_POST["Samples_information"])){
+                die("Error saving metadata value");
+            }
+
             array_shift($_POST);
             $res = yaml_emit_file($filename, $_POST, $encoding = YAML_UTF8_ENCODING );
         }

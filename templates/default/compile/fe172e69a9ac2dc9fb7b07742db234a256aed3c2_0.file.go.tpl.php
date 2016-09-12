@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-09 15:03:04
+/* Smarty version 3.1.29, created on 2016-09-12 10:59:53
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/go.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57d2b3084a7437_33968826',
+  'unifunc' => 'content_57d66e89744268_66737699',
   'file_dependency' => 
   array (
     'fe172e69a9ac2dc9fb7b07742db234a256aed3c2' => 
@@ -22,7 +22,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:users/projects_users/RNA-seq.tpl' => 1,
   ),
 ),false)) {
-function content_57d2b3084a7437_33968826 ($_smarty_tpl) {
+function content_57d66e89744268_66737699 ($_smarty_tpl) {
 ?>
 
 <ul class="tabs" data-tab>

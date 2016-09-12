@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-09 15:03:04
+/* Smarty version 3.1.29, created on 2016-09-12 10:59:53
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/RNA-seq.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57d2b308509683_66343740',
+  'unifunc' => 'content_57d66e897a7090_73306974',
   'file_dependency' => 
   array (
     'c11ebdacf7df01dc792394224975c26e487e8793' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/RNA-seq.tpl',
-      1 => 1473338707,
+      1 => 1473426226,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57d2b308509683_66343740 ($_smarty_tpl) {
+function content_57d66e897a7090_73306974 ($_smarty_tpl) {
 ?>
 <h2>Sample grouping</h2>
 
@@ -220,8 +220,5 @@ if (count($_smarty_tpl->tpl_vars['filetable']->value) > 0) {?>
     <input type="submit" value="Valider">
 </form>
 <?php }
-$_smarty_debug = new Smarty_Internal_Debug;
- $_smarty_debug->display_debug($_smarty_tpl);
-unset($_smarty_debug);
 }
 }

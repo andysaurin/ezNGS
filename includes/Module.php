@@ -1287,7 +1287,77 @@ EOT;
         return $files;
 
 	}
-	public  function get_all_rna_groups_in_project($project_id=0)
+
+
+	public function metadata_in_db($all_col_name_array, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+
+        if(!is_array($all_col_name_array)){
+            return false;
+        }
+        /*insert if the association don't already exist column name with the project in the metadata table*/
+        foreach ($all_col_name_array as $col_name){
+            if($this->metadata_in_project($col_name, $project_id) != true){//Check if the association already exist
+                $this->db->master->query("INSERT INTO `metadata` (`metadata_id`, `project_id`, `column_name`) VALUES (NULL,'{$project_id}','{$col_name}')");
+            }
+
+            $metadata_id = $this->db->master->get_var("SELECT `metadata_id` FROM `metadata` WHERE `column_name`='{$col_name}'");
+            if ($this->metadata_project_asso($metadata_id, $project_id) != true) {//Check if the association already exist
+                $this->db->master->query("INSERT INTO `project_metadata` (`project_id`, `metadata_id`) VALUES ('{$project_id}','{$metadata_id}')");
+            }
+        }
+/*
+        insert in the project_metadata table the association between the project and the metadata
+        foreach ($all_col_name_array as $col_name){
+
+        }*/
+
+        return true;
+    }
+
+    public function metadata_in_project($col_name, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+        $cmd = "SELECT COUNT(`project_id`) FROM `metadata` WHERE `project_id`={$project_id} AND `column_name`='{$col_name}' ";
+        $assoAlreadyExistMetadataProjectInMetadataTable = $this->db->master->get_var( $cmd );
+
+        //die($cmd);
+
+        if(intval($assoAlreadyExistMetadataProjectInMetadataTable) > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function metadata_project_asso($metadata_id, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+        $cmd = "SELECT COUNT(`project_id`) FROM `project_metadata` WHERE `project_id`={$project_id} AND `metadata_id`='{$metadata_id}' ";
+        $assoAlreadyExistMetadataProjectInProjectMetadataTable = $this->db->master->get_var( $cmd );
+
+        //die($cmd);
+
+        if(intval($assoAlreadyExistMetadataProjectInProjectMetadataTable) > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public  function get_all_rna_groups_in_project($project_id=0)
     {
         /*Verification*/
         if($project_id < 0 ){
@@ -1302,6 +1372,32 @@ EOT;
             return array();
 
         return $rnaGroups;
+    }
+
+    public function metadata_value_in_db($arraySampleAnnotations)
+    {
+        /*Verification*/
+        if(!is_array($arraySampleAnnotations)){
+            return false;
+        }
+
+        $all_col_name = array_keys($arraySampleAnnotations);
+        //first line is empty used like a template
+		echo count($arraySampleAnnotations["md5sum"]);
+        for($sample = 1; $sample < count($arraySampleAnnotations["md5sum"]); $sample++){
+            $md5sum = $arraySampleAnnotations["md5sum"][$sample];
+            $file_id = $this->db->master->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5sum}'");
+
+            $col_number = 0;
+            foreach ($arraySampleAnnotations as $key => $value){
+                $col_name = $all_col_name[$col_number];
+                $metadata_id = $this->db->master->get_var("SELECT `metadata_id` FROM `metadata` WHERE `column_name`='{$col_name}'");
+                $this->db->master->query("INSERT INTO `files_metadata` (`metadata_id`, `file_id`, `metadata_value` ) VALUES ('{$metadata_id}','{$file_id}','{$value[$sample]}')");
+
+                $col_number++;
+            }
+        }
+        return true; 
     }
 
 	public function new_sqlite_db($name)

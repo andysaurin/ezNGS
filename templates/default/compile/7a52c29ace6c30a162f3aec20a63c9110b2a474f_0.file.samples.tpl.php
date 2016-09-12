@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-09-09 15:03:04
+/* Smarty version 3.1.29, created on 2016-09-12 10:59:53
   from "/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_57d2b3084ed2c8_57471245',
+  'unifunc' => 'content_57d66e8978aed6_30450326',
   'file_dependency' => 
   array (
     '7a52c29ace6c30a162f3aec20a63c9110b2a474f' => 
     array (
       0 => '/home/lucie/amidex/templates/default/templates/users/projects_users/samples.tpl',
-      1 => 1473425973,
+      1 => 1473426184,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57d2b3084ed2c8_57471245 ($_smarty_tpl) {
+function content_57d66e8978aed6_30450326 ($_smarty_tpl) {
 ?>
 <h2>Samples Descriptions</h2>
 
@@ -73,7 +73,7 @@ function content_57d2b3084ed2c8_57471245 ($_smarty_tpl) {
     
     <form id="form-descriptions" action="/<?php echo $_smarty_tpl->tpl_vars['module']->value;?>
 /<?php echo $_smarty_tpl->tpl_vars['class']->value;?>
-/write_yaml"  method="POST">
+/save_annotations"  method="POST">
 
         <fieldset>
             <legend>Series</legend>
