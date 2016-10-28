@@ -151,3 +151,17 @@ browser{
 #group_available_clone {
 	display: none;
 }
+
+#group_assignation_clone {
+	display: none;
+}
+#group_available_design_clone {
+    display: none;
+}
+#rna_design_clone{
+	display: none;
+}
+
+#sample_to_analyse_clone{
+    display: none;
+}

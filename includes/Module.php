@@ -1169,6 +1169,13 @@ EOT;
             $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/metadata";
             mkdir($pathFolderMetada, 0775);
 
+            //We want to be free about the config file's structure. So we need to create one and this one will be modified.
+            $config = array(
+                "project_name" => $nameProject
+            );
+            //Write the config file
+            $res = yaml_emit_file($pathFolderMetada . "/config.yml", $config, $encoding = YAML_UTF8_ENCODING );
+
 			//We need to make a gitclone of the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
             $pathFolderGeneReg = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/gene-regulation";
             mkdir($pathFolderGeneReg, 0775);//folder for scripts from the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
@@ -1255,8 +1262,9 @@ EOT;
     {
         /*Verification*/
 		if($project_id < 0 || $file_id < 0){
-            return false;
-        }
+            return true;
+		}
+
         $cmd = "SELECT COUNT(`file_id`) FROM `files_projects` WHERE `project_id`={$project_id} AND `file_id`={$file_id} ";
         $assoAlreadyExist = $this->db->master->get_var( $cmd );
 
@@ -1310,11 +1318,6 @@ EOT;
                 $this->db->master->query("INSERT INTO `project_metadata` (`project_id`, `metadata_id`) VALUES ('{$project_id}','{$metadata_id}')");
             }
         }
-/*
-        insert in the project_metadata table the association between the project and the metadata
-        foreach ($all_col_name_array as $col_name){
-
-        }*/
 
         return true;
     }
@@ -1323,7 +1326,7 @@ EOT;
     {
         /*Verification*/
         if($project_id < 0 ){
-            return false;
+            return true;
         }
         $cmd = "SELECT COUNT(`project_id`) FROM `metadata` WHERE `project_id`={$project_id} AND `column_name`='{$col_name}' ";
         $assoAlreadyExistMetadataProjectInMetadataTable = $this->db->master->get_var( $cmd );
@@ -1342,7 +1345,7 @@ EOT;
     {
         /*Verification*/
         if($project_id < 0 ){
-            return false;
+            return true;
         }
         $cmd = "SELECT COUNT(`project_id`) FROM `project_metadata` WHERE `project_id`={$project_id} AND `metadata_id`='{$metadata_id}' ";
         $assoAlreadyExistMetadataProjectInProjectMetadataTable = $this->db->master->get_var( $cmd );
@@ -1383,7 +1386,7 @@ EOT;
 
         $all_col_name = array_keys($arraySampleAnnotations);
         //first line is empty used like a template
-		echo count($arraySampleAnnotations["md5sum"]);
+		//echo count($arraySampleAnnotations["md5sum"]);
         for($sample = 1; $sample < count($arraySampleAnnotations["md5sum"]); $sample++){
             $md5sum = $arraySampleAnnotations["md5sum"][$sample];
             $file_id = $this->db->master->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5sum}'");
@@ -1392,7 +1395,12 @@ EOT;
             foreach ($arraySampleAnnotations as $key => $value){
                 $col_name = $all_col_name[$col_number];
                 $metadata_id = $this->db->master->get_var("SELECT `metadata_id` FROM `metadata` WHERE `column_name`='{$col_name}'");
-                $this->db->master->query("INSERT INTO `files_metadata` (`metadata_id`, `file_id`, `metadata_value` ) VALUES ('{$metadata_id}','{$file_id}','{$value[$sample]}')");
+				//Create a function to check if mid/fid already exist
+                if ($this->metadata_file_asso($metadata_id, $file_id) != true) {//Check if the association already exist
+                    $this->db->master->query("INSERT INTO `files_metadata` (`metadata_id`, `file_id`, `metadata_value` ) VALUES ('{$metadata_id}','{$file_id}','{$value[$sample]}')");
+                }else{
+                   return false;
+                }
 
                 $col_number++;
             }
@@ -1400,21 +1408,82 @@ EOT;
         return true; 
     }
 
-	public function new_sqlite_db($name)
-	{
+    public function metadata_file_asso($metadata_id=0, $file_id=0)
+    {
+        /*Verification*/
+        if($file_id < 0 ){
+            return true;
+        }
+        if($metadata_id < 0 ){
+            return true;
+        }
 
-//		$this->db
-/*
-	            $db = new SQLite3( $pathFolder . "/" . $_POST["Name_project"] .".db");
+        $cmd = "SELECT COUNT(`metadata_id`) FROM `files_metadata` WHERE `file_id`={$file_id} AND `metadata_id`='{$metadata_id}' ";
+        $assoAlreadyExistMetadataFileInFileMetadataTable = $this->db->master->get_var( $cmd );
 
-            $db->exec('CREATE TABLE files (md5sum STRING, name STRING)');
+		if(intval($assoAlreadyExistMetadataFileInFileMetadataTable) == 0){
+			return false;
+		}elseif(intval($assoAlreadyExistMetadataFileInFileMetadataTable) == 1){
+			//we allowed value's modification so we first delete previous data
+            $this->db->master->query("DELETE FROM `files_metadata` WHERE `file_id`={$file_id} AND `metadata_id`='{$metadata_id}'");
+            return false;
+        }else{
+            return true;
+        }
 
-            $db->exec('CREATE UNIQUE INDEX md5sum_index ON files (md5sum)');
+    }
 
-            echo "Database and table has been created <br>";
-*/
+	public function add_rna_assignation_in_db($array_rna_assignation_files, $project_id=0)
+    {
 
-	}
+        /*Verification part*/
+        if($project_id < 0 ){
+            return false;
+        }
+
+        if (empty($array_rna_assignation_files)){
+            return false;
+        }
+        /*Verification part end */
+
+        for($sample = 1; $sample < count($_POST["rna_groups_assignation"]["md5sum"]); $sample++) {
+            $md5 = $_POST["rna_groups_assignation"]["md5sum"][$sample];
+            $Sample_name = $_POST["rna_groups_assignation"]["Sample_name"][$sample];
+
+            $file_id = $this->db->master->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5}'");
+
+            $this->db->master->query("DELETE FROM `rna_group_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' ");
+
+            foreach ($_POST["rna_groups_assignation"][$md5] as $group => $groupName) {
+
+                $rna_group_id = $this->db->master->get_var("SELECT `group_id` FROM `rna_group` WHERE `group_name`='{$groupName}' AND `project_id`='{$project_id}'");
+
+                $this->db->master->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
+
+                /*29/09/2016  if ($this->rna_assignation_asso($rna_group_id, $file_id, $project_id) != true) {//Check if the association already exist
+                    $this->db->master->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
+                }*/
+
+            }
+
+        }
+
+        return true;
+    }
+
+    public function rna_assignation_asso($rna_group_id, $file_id, $project_id)
+    {
+        $cmd = "SELECT COUNT(`file_id`) FROM `rna_group_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' AND `rna_group_id`='{$rna_group_id}' ";
+        $assoAlreadyExistRnaAssignation = $this->db->master->get_var( $cmd );
+
+        if(intval($assoAlreadyExistRnaAssignation) > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
 
 	public function rna_groups_in_db($array, $project_id=0)
     {
@@ -1427,6 +1496,123 @@ EOT;
             $this->db->master->query("INSERT INTO `rna_group` (`group_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL,'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
         }
         return true;
+    }
+
+    public function rna_group_already_assigned_in_db($project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return array();
+        }
+
+        //$all_asso = $this->db->master->get_results("SELECT * FROM `rna_group_files` WHERE `project_id`='{$project_id}'");
+		//$all_asso[0]->file_id;
+
+		//return $all_asso[0];
+
+        //$rna_group_already_assignated =  $this->db->master->get_results("SELECT files.* FROM `files` INNER JOIN files_projects ON files.file_id=files_projects.file_id WHERE `project_id`={$project_id} ORDER BY `file_name` ASC");
+
+        $rna_group_already_assignated =  $this->db->master->get_results("SELECT files.file_id, files.file_name, files.md5sum, rna_group.group_id, rna_group.group_name FROM `rna_group_files` CROSS JOIN `files`, `rna_group` WHERE files.file_id=rna_group_files.file_id AND rna_group_files.rna_group_id=rna_group.group_id AND rna_group_files.project_id='{$project_id}'");
+        return $rna_group_already_assignated;
+    }
+
+    public function write_rna_design($array, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+        /*We need to check if the group name write by the user are defined and available*/
+        //Group_reference part
+        for ($i=0;$i<count($array["Group_reference"]);$i++){
+
+            if (!in_array($array["Group_reference"][$i],$array["Group_name_available"])){
+                unset($array["Group_reference"][$i]);
+                unset($array["Group_test"][$i]);
+            }
+
+        }
+        //Group_test part
+        for ($i=0;$i<count($array["Group_test"]);$i++) {
+
+            if (!in_array($array["Group_test"][$i], $array["Group_name_available"])) {
+                unset($array["Group_reference"][$i]);
+                unset($array["Group_test"][$i]);
+            }
+        }
+
+        /*Part about create/write the design.tab file*/
+
+        $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $project_id. "/metadata";
+
+
+        if(file_exists($pathFolderMetada . "/design.tab")) {
+            unlink($pathFolderMetada . "/design.tab");
+        }
+
+        $handle = fopen($pathFolderMetada . "/design.tab", "a+");
+        fwrite($handle, "group1"."\t" . "group2" . "\n");
+
+        for ($i=0;$i<count($array["Group_reference"]);$i++){
+            fwrite($handle,$array["Group_reference"][$i] . "\t" . $array["Group_test"][$i] . "\n");
+        }
+
+        fclose($handle);
+
+		return true;
+
+        //print_r($array);
+    }
+
+    public function delete_rna_group_already_define($group_id=0, $project_id=0)
+    {
+        /*Verification*/
+        if($group_id < 0 ){
+            return false;
+        }
+
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+
+//        echo $group_id;
+
+        $this->db->master->query("DELETE FROM `rna_group` WHERE `group_id`={$group_id} ");
+
+        return true;
+    }
+
+    public function Write_tab_file($array, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+
+        /*Part about create/write the samples.tab file*/
+
+        $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $project_id. "/metadata";
+
+        if(file_exists($pathFolderMetada . "/samples.tab")) {
+            unlink($pathFolderMetada . "/samples.tab");
+        }
+
+        $handle = fopen($pathFolderMetada . "/samples.tab", "a+");
+        fwrite($handle, "ID"."\t" . "name" . "\t" . "condition" . "\n");
+
+        foreach ($array as $line) {
+            fputcsv($handle, $line, "\t");
+        }
+
+        /*for ($i=0;$i<count($array["Group_reference"]);$i++){
+            fwrite($handle,$array["Group_reference"][$i] . "\t" . $array["Group_test"][$i] . "\n");
+        }*/
+
+        fclose($handle);
+
+        return true;
+
     }
 
 

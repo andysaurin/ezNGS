@@ -1,0 +1,17 @@
+---
+RNA-seq:
+  Quality_control:
+  - "FastQC"
+  Trimming:
+  - "sickle"
+  Mapping:
+  - "bowtie2"
+  - "subread-align"
+  diffexpr:
+  - "edgeR"
+  - "DESeq2"
+
+ChIP-seq:
+  Quality_control:
+  - "FastQC"
+...

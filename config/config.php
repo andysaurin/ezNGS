@@ -282,6 +282,13 @@ define('SMARTY_SYSPLUGINS_DIR', SMARTY_DIR.'sysplugins/'); //version 3.1.29
 */
 define('SYSTEM_CONFIG_DIR', dirname( __FILE__ ) );
 
+/**
+ * SYSTEM_CONFIG_TOOLS_DIR
+ *
+ * @global constant SYSTEM_CONFIG_TOOLS_DIR Path to Config_tools directory
+ */
+define('SYSTEM_CONFIG_TOOLS_DIR', SYSTEM_CONFIG_DIR."/config_tools/" );
+
 
 /**
 * SYSTEM_PRESENTER
