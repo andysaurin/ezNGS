@@ -1,3 +1,3 @@
-./data/project/*
-./uploads
-./data/genomes
+data/project/*
+uploads
+data/genomes
