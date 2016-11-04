@@ -219,13 +219,6 @@ class projects_users extends NQ_Auth_User
 
             `iconv -f utf-16be -t utf8 "{$temp}" > "{$filenameYaml}"`;
 
-            //file_put_contents($filenameJson, json_encode($configinit));
-
-
-            /* 27/10/2016 $yaml = Yaml::dump($configinit);
-
-            file_put_contents($filename, $yaml);*/
-
             //we need to touch all the data files before to run the analysis
             $pathToSamples =$pathToProject . "/samples";
             `find "{$pathToSamples}" -exec touch {} \;`;

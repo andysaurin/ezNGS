@@ -50,7 +50,7 @@ define('SMTP_PASSWORD', '123456');
 *
 * @global constant SMTP_HOST SMTP password
 */
-define('SMTP_HOST', 'mailer-daemon.fr');
+define('SMTP_HOST', '');
 
 /**
 * SENDMAIL_PATH

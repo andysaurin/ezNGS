@@ -1,72 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/22/samples/d41d8cd98f00b204e9800998ecf8427e/d41d8cd98f00b204e9800998ecf8427e.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/27/samples/a727d1290a16a566d6946b4a040128b7/a727d1290a16a566d6946b4a040128b7.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/27/samples/ac0ddf9e65d57b6a56b2453386cd5db5/ac0ddf9e65d57b6a56b2453386cd5db5.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/27/samples/d41d8cd98f00b204e9800998ecf8427e/d41d8cd98f00b204e9800998ecf8427e.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/27/samples/d813d654ccd22a8513172f5ba82901cf/d813d654ccd22a8513172f5ba82901cf.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/28/samples/60e4d06606fec94f78087f3bc34c3352/60e4d06606fec94f78087f3bc34c3352.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/28/samples/a727d1290a16a566d6946b4a040128b7/a727d1290a16a566d6946b4a040128b7.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/28/samples/d41d8cd98f00b204e9800998ecf8427e/d41d8cd98f00b204e9800998ecf8427e." afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/28/samples/d41d8cd98f00b204e9800998ecf8427e/d41d8cd98f00b204e9800998ecf8427e.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/0f14563d785e82409fed6ee11da6af32/0f14563d785e82409fed6ee11da6af32.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/1fa10a204701cffe557dbc0b98f6a774/1fa10a204701cffe557dbc0b98f6a774.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/45b99811b38d75e51a286b81d7d4d457/45b99811b38d75e51a286b81d7d4d457.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/60e4d06606fec94f78087f3bc34c3352/60e4d06606fec94f78087f3bc34c3352.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/61bfee279f0e534bdc1ffbc6700e322e/61bfee279f0e534bdc1ffbc6700e322e." afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/6ccef1b25ea58fb8be3ca1a1a744ea53/6ccef1b25ea58fb8be3ca1a1a744ea53.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/93f00da9381b691979e8adb8e57a5a2c/93f00da9381b691979e8adb8e57a5a2c.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/9e94b15ed312fa42232fd87a55db0d39/9e94b15ed312fa42232fd87a55db0d39.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/a727d1290a16a566d6946b4a040128b7/a727d1290a16a566d6946b4a040128b7.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/ac0ddf9e65d57b6a56b2453386cd5db5/ac0ddf9e65d57b6a56b2453386cd5db5.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/d813d654ccd22a8513172f5ba82901cf/d813d654ccd22a8513172f5ba82901cf.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/29/samples/e92d0d46ea2a1db0282f1cbd66350070/e92d0d46ea2a1db0282f1cbd66350070.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/30/samples/0f14563d785e82409fed6ee11da6af32/0f14563d785e82409fed6ee11da6af32.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/30/samples/45b99811b38d75e51a286b81d7d4d457/45b99811b38d75e51a286b81d7d4d457.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/30/samples/9e94b15ed312fa42232fd87a55db0d39/9e94b15ed312fa42232fd87a55db0d39.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/30/samples/a727d1290a16a566d6946b4a040128b7/a727d1290a16a566d6946b4a040128b7.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/30/samples/ac0ddf9e65d57b6a56b2453386cd5db5/ac0ddf9e65d57b6a56b2453386cd5db5.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/30/samples/d813d654ccd22a8513172f5ba82901cf/d813d654ccd22a8513172f5ba82901cf.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/30/samples/e92d0d46ea2a1db0282f1cbd66350070/e92d0d46ea2a1db0282f1cbd66350070.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/0f14563d785e82409fed6ee11da6af32/0f14563d785e82409fed6ee11da6af32.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/1fa10a204701cffe557dbc0b98f6a774/1fa10a204701cffe557dbc0b98f6a774.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/45b99811b38d75e51a286b81d7d4d457/45b99811b38d75e51a286b81d7d4d457.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/9e94b15ed312fa42232fd87a55db0d39/9e94b15ed312fa42232fd87a55db0d39.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/a727d1290a16a566d6946b4a040128b7/a727d1290a16a566d6946b4a040128b7.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/ac0ddf9e65d57b6a56b2453386cd5db5/ac0ddf9e65d57b6a56b2453386cd5db5.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/d813d654ccd22a8513172f5ba82901cf/d813d654ccd22a8513172f5ba82901cf.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/31/samples/e92d0d46ea2a1db0282f1cbd66350070/e92d0d46ea2a1db0282f1cbd66350070.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/33/gene-regulation" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/34/gene-regulation" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/34/metadata/description.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/34/samples/45b99811b38d75e51a286b81d7d4d457/45b99811b38d75e51a286b81d7d4d457.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/projects/34/samples/a727d1290a16a566d6946b4a040128b7/a727d1290a16a566d6946b4a040128b7.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/sqlite/master.db" afterPath="$PROJECT_DIR$/data/sqlite/master.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htdocs/stylesheets/main.css" afterPath="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/Module.php" afterPath="$PROJECT_DIR$/includes/Module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/users/projects_users.php" afterPath="$PROJECT_DIR$/modules/users/projects_users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/00d470fd4684b8070def89cfeab3483b022d05cf_0.file.footer.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/00d470fd4684b8070def89cfeab3483b022d05cf_0.file.footer.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/296b19df94def446ecfd6b386b948224fbb2e766_0.file.index.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/296b19df94def446ecfd6b386b948224fbb2e766_0.file.index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/2e869092a532c4ecb779409fea2614c3dbbc91d5_0.file.header_admin.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/2e869092a532c4ecb779409fea2614c3dbbc91d5_0.file.header_admin.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/3c01a78566a3abd457374847413f9ffaff1d9146_0.file.file_browser.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/3c01a78566a3abd457374847413f9ffaff1d9146_0.file.file_browser.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/6f0b90fc7bc77feb8973786e093a98f104bdfce1_0.file.header_main_website.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/6f0b90fc7bc77feb8973786e093a98f104bdfce1_0.file.header_main_website.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/7a52c29ace6c30a162f3aec20a63c9110b2a474f_0.file.samples.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/7a52c29ace6c30a162f3aec20a63c9110b2a474f_0.file.samples.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/808b11508b9610d9198c34187ede48d4aee6b1f1_0.file.projects.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/808b11508b9610d9198c34187ede48d4aee6b1f1_0.file.projects.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/928c7c419d5886a7d161dfc7e12ecc0e3ffce876_0.file.header_user.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/928c7c419d5886a7d161dfc7e12ecc0e3ffce876_0.file.header_user.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/ae7cb4152b167ac816218cebe4012c2060472c35_0.file.index.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/ae7cb4152b167ac816218cebe4012c2060472c35_0.file.index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/c11ebdacf7df01dc792394224975c26e487e8793_0.file.RNA-seq.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/c11ebdacf7df01dc792394224975c26e487e8793_0.file.RNA-seq.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/eb57149f96fb0035278ef3c96e46d78864bbd6ad_0.file.page.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/eb57149f96fb0035278ef3c96e46d78864bbd6ad_0.file.page.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/f43fdda0369fa2dc020f3827ea321f6f349e6f16_0.file.projects_users.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/f43fdda0369fa2dc020f3827ea321f6f349e6f16_0.file.projects_users.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/f4d094a7e680869e571e96d324ce43646154558f_0.file.create.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/fbd29af1720f772a2de6a3f6a663be4fdbe51ab1_0.file.login.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/compile/fe172e69a9ac2dc9fb7b07742db234a256aed3c2_0.file.go.tpl.php" afterPath="$PROJECT_DIR$/templates/default/compile/fe172e69a9ac2dc9fb7b07742db234a256aed3c2_0.file.go.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
-    </list>
+    <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project" />
     <ignored path="amidex.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -92,11 +27,11 @@
     <favorites_list name="amidex" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="RNA-seq.tpl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1374">
+            <state relative-caret-position="845">
               <caret line="222" column="79" selection-start-line="222" selection-start-column="64" selection-end-line="222" selection-end-column="79" />
               <folding />
             </state>
@@ -106,18 +41,8 @@
       <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="219" column="70" selection-start-line="219" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="import.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/api/import.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="219" column="70" selection-start-line="219" selection-start-column="70" selection-end-line="219" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -197,8 +122,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1920" />
+    <option name="y" value="144" />
     <option name="width" value="1914" />
-    <option name="height" value="1079" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -247,10 +173,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files" />
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -435,61 +361,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="genomes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -681,11 +553,13 @@
       <workItem from="1477486104032" duration="1425000" />
       <workItem from="1477574932407" duration="674000" />
       <workItem from="1477578268655" duration="6628000" />
+      <workItem from="1477664286936" duration="107000" />
+      <workItem from="1477666749739" duration="135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228748000" />
+    <option name="totallyTimeSpent" value="228990000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -697,10 +571,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1914" height="1079" extended-state="0" />
-    <editor active="true" />
+    <frame x="1920" y="144" width="1914" height="1032" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16023579" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16345124" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49786323" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273906" sideWeight="0.50641024" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -790,26 +664,25 @@
     <entry file="file://$PROJECT_DIR$/config/config.php" />
     <entry file="file://$PROJECT_DIR$/config/config_tools/tools_available.yml" />
     <entry file="file://$PROJECT_DIR$/data/projects/41/metadata/samples.tab" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1374">
-          <caret line="222" column="79" selection-start-line="222" selection-start-column="64" selection-end-line="222" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/api/import.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="222" column="79" selection-start-line="222" selection-start-column="64" selection-end-line="222" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="219" column="70" selection-start-line="219" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="219" column="70" selection-start-line="219" selection-start-column="70" selection-end-line="219" selection-end-column="70" />
           <folding />
         </state>
       </provider>
