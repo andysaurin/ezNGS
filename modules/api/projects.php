@@ -26,14 +26,14 @@ class projects extends NQ_Auth_User
 		$project_id = (int)$_POST['project_id'];
 
 		//check to make sure this project ID exists
-		if ( !$this->db->master->get_var( "SELECT `id` FROM `projects` WHERE `id`={$project_id} LIMIT 1" ) ) {
+		if ( !$this->db->get_var( "SELECT `id` FROM `projects` WHERE `id`={$project_id} LIMIT 1" ) ) {
 
 			echo "not ok";
 
 		} else {
 
-			$this->db->master->query( "INSERT INTO `users_projects` (`user_id`, `project_id`) VALUES ({$user_id}, {$project_id})" );
-			$rowsAffected = $this->db->master->rows_affected;
+			$this->db->query( "INSERT INTO `users_projects` (`user_id`, `project_id`) VALUES ({$user_id}, {$project_id})" );
+			$rowsAffected = $this->db->rows_affected;
 
 			if ($rowsAffected > 0){ //we inserted the user
 				echo 'ok';
@@ -51,9 +51,9 @@ class projects extends NQ_Auth_User
 		$user_id = (int)$_POST['user_id'];
 		$project_id = (int)$_POST['project_id'];
 
-		//$this->db->master->query(" DELETE FROM `users_projects` WHERE project_id={$project_id} AND `user_id`={$user_id} ");
-		$this->db->master->query( "DELETE FROM `users_projects` WHERE `project_id`={$project_id} AND `user_id`={$user_id}" );
-		$rowsAffected = $this->db->master->rows_affected;
+		//$this->db->query(" DELETE FROM `users_projects` WHERE project_id={$project_id} AND `user_id`={$user_id} ");
+		$this->db->query( "DELETE FROM `users_projects` WHERE `project_id`={$project_id} AND `user_id`={$user_id}" );
+		$rowsAffected = $this->db->rows_affected;
 
 		if ($rowsAffected > 0){
 			echo 'ok';

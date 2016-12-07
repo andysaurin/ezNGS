@@ -83,7 +83,7 @@ class create extends NQ_Auth_Admin
 
 					$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
-					$user = $this->db->master->get_row( "SELECT `id` FROM `users` WHERE `email` LIKE '{$email}' LIMIT 1" );
+					$user = $this->db->get_row( "SELECT `id` FROM `users` WHERE `email` LIKE '{$email}' LIMIT 1" );
 
 					if ( $user->id > 0 ) {
 						if ($_GET['ret'])
@@ -119,12 +119,12 @@ class create extends NQ_Auth_Admin
 						$email_body = str_ireplace("##KEY##", $md5, $email_body);
 
 						//create the new user
-						$this->db->master->query("
+						$this->db->query("
 							INSERT INTO `users`
 								(`name`, `username`, `password`, `email`, `dateRegistered`, `dateUpdated`)
 							VALUES
 								('{$name}', '{$email}', '{$pass}', '{$email}', NOW(), NOW())");
-						$uid = $this->db->master->insert_id;
+						$uid = $this->db->insert_id;
 
 						if ( $uid < 1 ) {
 
@@ -133,7 +133,7 @@ class create extends NQ_Auth_Admin
 
 						} else {
 
-							$this->db->master->query("UPDATE `users` SET `client_id`={$client_id} WHERE `id`={$uid}");
+							$this->db->query("UPDATE `users` SET `client_id`={$client_id} WHERE `id`={$uid}");
 
 							$message['text'] = "Your account has been created.<br />Login: {$email}";
 							$message['type'] = 'success';
@@ -143,7 +143,7 @@ class create extends NQ_Auth_Admin
 									FROM users u
 									WHERE u.email = '".$username."' AND u.password = '".$password."' LIMIT 1";
 
-							$user = $this->db->master->get_row($sql);
+							$user = $this->db->get_row($sql);
 
 							if ( !is_object($session) )
 								$session = NQ_Session::singleton();
@@ -156,7 +156,7 @@ class create extends NQ_Auth_Admin
 							$session->ip = $_SERVER['REMOTE_ADDR'];
 
 							//now update the time they logged in.
-							$this->db->master->query("UPDATE `users SET lastLogin='".time()."' WHERE id='".$user->id."'");
+							$this->db->query("UPDATE `users SET lastLogin='".time()."' WHERE id='".$user->id."'");
 
 							foreach ($user as $key=>$val) { //session vars
 								$session->$key = $val;

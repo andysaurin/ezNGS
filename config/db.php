@@ -14,17 +14,9 @@
 */
 define ('DB_CLASS', 'ezSQL');
 
-/**
-* DB driver
-* Which DB driver to use - the corresponding ezSQL file must be available in includes/DB
-* e.g. for DB_DRIVER 'mysql', the file ezSQL_mysql.php will be used
-* @global string DB_DRIVER database driver to use
-* @link ezSQL: https://github.com/ezSQL/ezSQL
-*/
-//define ('DB_DRIVER', 'mysql');
-define ('DB_DRIVER', 'sqlite3');
+define ('DB_DRIVER', 'mysql');
 
-define ('DB_DIR', SYSTEM_DATA_ROOT . '/sqlite');
+
 
 /**
 * DB connection params
@@ -32,6 +24,23 @@ define ('DB_DIR', SYSTEM_DATA_ROOT . '/sqlite');
 *
 * @global mixed $_DB array where keys become the connection hook (see NQ_Obect_DB)
 */
+
+$_DB = array (
+
+	'db' => array (
+		'DB_USER' => 'ezNGS',
+		'DB_PASS' => 'EKLe6Hl8AOnZztqb',
+		'DB_HOST' => 'localhost',
+		'DB_NAME' => 'ezNGS'
+	),
+
+);
+
+/*
+//	sqlite support
+define ('DB_DRIVER', 'sqlite3');
+
+define ('DB_DIR', SYSTEM_DATA_ROOT . '/sqlite');
 
 $files = scandir(DB_DIR);
 
@@ -49,23 +58,7 @@ if ( is_array($files) ) {
 	}
 }
 
-
-
-//$_DB = array ( 'db' => $databases );
-//print_r($_DB);
-
-//exit;
 /*
-
-	'db' => array (
-		'DB_USER' => 'dbuser',
-		'DB_PASS' => 'dbpass',
-		'DB_HOST' => 'localhost',
-		'DB_NAME' => 'amidex'
-	),
-
-);
-*/
 
 /**
 * ezSQL cache params

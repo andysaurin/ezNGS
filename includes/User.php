@@ -62,7 +62,7 @@ class NQ_User extends NQ_Object_DB
 					FROM users
 					WHERE username = '".$username."' AND password = '".$password."' LIMIT 1";
 
-			$user = $this->db->master->get_row($sql);
+			$user = $this->db->get_row($sql);
 
 //print_r($user);
 			if ($user->id < 1) {

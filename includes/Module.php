@@ -181,7 +181,7 @@ abstract class NQ_Module extends NQ_Object_Web
 		$sql = "SELECT *
 			FROM users u
 			WHERE u.id = {$user_id} LIMIT 1";
-		$user = $this->db->master->get_row($sql);
+		$user = $this->db->get_row($sql);
 
 		return $user;
 
@@ -1022,7 +1022,7 @@ EOT;
 	//all users in the system
 	public function all_users( $exclude_users=false )
 	{
-		$all_users = $this->db->master->get_results("SELECT * FROM `users` ORDER BY `name` ASC");
+		$all_users = $this->db->get_results("SELECT * FROM `users` ORDER BY `name` ASC");
 
 		if ( !$exclude_users )
 			return $all_users;
@@ -1046,10 +1046,10 @@ EOT;
 	{
 
 		if ( $this->user->is_admin == 1 ) {
-			return $this->db->master->get_results("SELECT * FROM `projects` ORDER BY `name` ASC");
+			return $this->db->get_results("SELECT * FROM `projects` ORDER BY `name` ASC");
 		}
 
-        return $this->db->master->get_results("SELECT projects.* FROM `projects` JOIN `users_projects` ON projects.id=users_projects.project_id  WHERE `user_id`={$this->user->id} ORDER BY `name` ASC");
+        return $this->db->get_results("SELECT projects.* FROM `projects` JOIN `users_projects` ON projects.id=users_projects.project_id  WHERE `user_id`={$this->user->id} ORDER BY `name` ASC");
 
 	}
 
@@ -1062,7 +1062,7 @@ EOT;
 		if ( $user_id == $this->user->id && $this->user->is_admin == 1 )
 			return true;
 
-		if ( $this->db->master->get_var( "SELECT `user_id` FROM `project_managers` WHERE `project_id`={$project_id} AND `user_id`={$user_id} LIMIT 1" ) == $user_id )
+		if ( $this->db->get_var( "SELECT `user_id` FROM `project_managers` WHERE `project_id`={$project_id} AND `user_id`={$user_id} LIMIT 1" ) == $user_id )
 			return true;
 
 		//return false;
@@ -1104,7 +1104,7 @@ EOT;
 			return array();
 		}
 
-		$users =  $this->db->master->get_results("SELECT users.* FROM `users` INNER JOIN users_projects ON id=user_id  WHERE `project_id`={$project_id} ORDER BY `name` ASC");
+		$users =  $this->db->get_results("SELECT users.* FROM `users` INNER JOIN users_projects ON id=user_id  WHERE `project_id`={$project_id} ORDER BY `name` ASC");
 
 		if ( !count($users) )
 			return array();
@@ -1122,26 +1122,26 @@ EOT;
         $modified = $created;
         $uuid = $this->uuid(); //uniqid();
         $modified_by = $this->user->id;
-		$this->db->master->query("INSERT INTO `projects` (id, name, md5sum, created, modified, uuid, modified_by) VALUES (NULL, '{$nameProject}', '{$md5sum}', {$created}, {$modified}, '{$uuid}', '{$modified_by}')");
+		$this->db->query("INSERT INTO `projects` (id, name, md5sum, created, modified, uuid, modified_by) VALUES (NULL, '{$nameProject}', '{$md5sum}', {$created}, {$modified}, '{$uuid}', '{$modified_by}')");
 
         //We check if insertion is ok
-        $rowsAffectedToCreateNewProject = $this->db->master->rows_affected;
+        $rowsAffectedToCreateNewProject = $this->db->rows_affected;
 
 		if ($rowsAffectedToCreateNewProject > 0) { //we have to check if the project name are not already use
 
             //We need to associated creator's project to this one
             //First get the project of the new project created
-            $new_project_id = $this->db->master->get_var( "SELECT `id` FROM `projects` WHERE `name`='{$nameProject}' ");
+            $new_project_id = $this->db->get_var( "SELECT `id` FROM `projects` WHERE `name`='{$nameProject}' ");
 
             //we create manager association
-            $this->db->master->query("INSERT INTO `project_managers` (`project_id`,`user_id`) VALUES ('{$new_project_id}','{$modified_by}')");
+            $this->db->query("INSERT INTO `project_managers` (`project_id`,`user_id`) VALUES ('{$new_project_id}','{$modified_by}')");
             //We check if insertion is ok
-            $rowsAffectedToCreateNewManager = $this->db->master->rows_affected;
+            $rowsAffectedToCreateNewManager = $this->db->rows_affected;
 
             //We create user association
-            $this->db->master->query("INSERT INTO `users_projects` (`user_id`,`project_id`) VALUES ('{$modified_by}','{$new_project_id}')");
+            $this->db->query("INSERT INTO `users_projects` (`user_id`,`project_id`) VALUES ('{$modified_by}','{$new_project_id}')");
             //We check if insertion is ok
-            $rowsAffectedToCreateNewUser = $this->db->master->rows_affected;
+            $rowsAffectedToCreateNewUser = $this->db->rows_affected;
 
             /* 08/07/2016 if ($rowsAffectedToCreateNewProject > 0 && $rowsAffectedToCreateNewManager > 0 && $rowsAffectedToCreateNewUser > 0){ //we inserted the new project
                 return true;
@@ -1199,7 +1199,7 @@ EOT;
         }
 
         /*Make a request to get all info about this project*/
-         return $this->db->master->get_row("SELECT * FROM `projects` WHERE `id`={$project_id} LIMIT 1");
+         return $this->db->get_row("SELECT * FROM `projects` WHERE `id`={$project_id} LIMIT 1");
 
     }
 
@@ -1211,8 +1211,8 @@ EOT;
         }
         $updated = time();
         //We insert file's information in the file table
-        $this->db->master->query("INSERT INTO `files` (`file_id`, `md5sum`,`user_id`, `date_uploaded`,`file_name`) VALUES (NULL,'{$md5sum}','{$user_id}','{$updated}', '{$file_name}')");
-        $rowsAffectedToCreateNewFile = $this->db->master->rows_affected;
+        $this->db->query("INSERT INTO `files` (`file_id`, `md5sum`,`user_id`, `date_uploaded`,`file_name`) VALUES (NULL,'{$md5sum}','{$user_id}','{$updated}', '{$file_name}')");
+        $rowsAffectedToCreateNewFile = $this->db->rows_affected;
 
         if ($rowsAffectedToCreateNewFile > 0){
             return true;
@@ -1229,13 +1229,13 @@ EOT;
 
         /*We need the file_id contain in the file table
         So we make a resquest to get this one*/
-        $file_id = $this->db->master->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5sum}'");
+        $file_id = $this->db->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5sum}'");
 
         /*We create the association between the file with the project in the files_projects table*/
         if ( $this->file_in_project($file_id, $project_id) != true ) { // new file-project association
 
-			$this->db->master->query("INSERT INTO `files_projects` (`file_id`, `project_id`) VALUES ('{$file_id}','{$project_id}')");
-			$rowsAffectedToCreateNewFileProjectAsso = $this->db->master->rows_affected;
+			$this->db->query("INSERT INTO `files_projects` (`file_id`, `project_id`) VALUES ('{$file_id}','{$project_id}')");
+			$rowsAffectedToCreateNewFileProjectAsso = $this->db->rows_affected;
 
 			if ($rowsAffectedToCreateNewFileProjectAsso > 0) {
 				return true;
@@ -1254,7 +1254,7 @@ EOT;
 	public function all_data_types()
 	{
 
-		return $this->db->master->get_results("SELECT * FROM `data_types`");
+		return $this->db->get_results("SELECT * FROM `data_types`");
 
 	}
 
@@ -1266,7 +1266,7 @@ EOT;
 		}
 
         $cmd = "SELECT COUNT(`file_id`) FROM `files_projects` WHERE `project_id`={$project_id} AND `file_id`={$file_id} ";
-        $assoAlreadyExist = $this->db->master->get_var( $cmd );
+        $assoAlreadyExist = $this->db->get_var( $cmd );
 
         //die($cmd);
 
@@ -1287,7 +1287,7 @@ EOT;
 
         /*Make a request to obtain all information about all files in this project*/
 
-        $files =  $this->db->master->get_results("SELECT files.* FROM `files` INNER JOIN files_projects ON files.file_id=files_projects.file_id WHERE `project_id`={$project_id} ORDER BY `file_name` ASC");
+        $files =  $this->db->get_results("SELECT files.* FROM `files` INNER JOIN files_projects ON files.file_id=files_projects.file_id WHERE `project_id`={$project_id} ORDER BY `file_name` ASC");
 
         if ( !count($files) )
             return array();
@@ -1310,12 +1310,12 @@ EOT;
         /*insert if the association don't already exist column name with the project in the metadata table*/
         foreach ($all_col_name_array as $col_name){
             if($this->metadata_in_project($col_name, $project_id) != true){//Check if the association already exist
-                $this->db->master->query("INSERT INTO `metadata` (`metadata_id`, `project_id`, `column_name`) VALUES (NULL,'{$project_id}','{$col_name}')");
+                $this->db->query("INSERT INTO `metadata` (`metadata_id`, `project_id`, `column_name`) VALUES (NULL,'{$project_id}','{$col_name}')");
             }
 
-            $metadata_id = $this->db->master->get_var("SELECT `metadata_id` FROM `metadata` WHERE `column_name`='{$col_name}'");
+            $metadata_id = $this->db->get_var("SELECT `metadata_id` FROM `metadata` WHERE `column_name`='{$col_name}'");
             if ($this->metadata_project_asso($metadata_id, $project_id) != true) {//Check if the association already exist
-                $this->db->master->query("INSERT INTO `project_metadata` (`project_id`, `metadata_id`) VALUES ('{$project_id}','{$metadata_id}')");
+                $this->db->query("INSERT INTO `project_metadata` (`project_id`, `metadata_id`) VALUES ('{$project_id}','{$metadata_id}')");
             }
         }
 
@@ -1329,7 +1329,7 @@ EOT;
             return true;
         }
         $cmd = "SELECT COUNT(`project_id`) FROM `metadata` WHERE `project_id`={$project_id} AND `column_name`='{$col_name}' ";
-        $assoAlreadyExistMetadataProjectInMetadataTable = $this->db->master->get_var( $cmd );
+        $assoAlreadyExistMetadataProjectInMetadataTable = $this->db->get_var( $cmd );
 
         //die($cmd);
 
@@ -1348,7 +1348,7 @@ EOT;
             return true;
         }
         $cmd = "SELECT COUNT(`project_id`) FROM `project_metadata` WHERE `project_id`={$project_id} AND `metadata_id`='{$metadata_id}' ";
-        $assoAlreadyExistMetadataProjectInProjectMetadataTable = $this->db->master->get_var( $cmd );
+        $assoAlreadyExistMetadataProjectInProjectMetadataTable = $this->db->get_var( $cmd );
 
         //die($cmd);
 
@@ -1369,7 +1369,7 @@ EOT;
 
         /*Make a request to obtain all rna groups in this project*/
 
-        $rnaGroups =  $this->db->master->get_results("SELECT * FROM `rna_group` WHERE `project_id`={$project_id} ORDER BY `group_name` ASC");
+        $rnaGroups =  $this->db->get_results("SELECT * FROM `rna_group` WHERE `project_id`={$project_id} ORDER BY `group_name` ASC");
 
         if ( !count($rnaGroups) )
             return array();
@@ -1389,15 +1389,15 @@ EOT;
 		//echo count($arraySampleAnnotations["md5sum"]);
         for($sample = 1; $sample < count($arraySampleAnnotations["md5sum"]); $sample++){
             $md5sum = $arraySampleAnnotations["md5sum"][$sample];
-            $file_id = $this->db->master->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5sum}'");
+            $file_id = $this->db->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5sum}'");
 
             $col_number = 0;
             foreach ($arraySampleAnnotations as $key => $value){
                 $col_name = $all_col_name[$col_number];
-                $metadata_id = $this->db->master->get_var("SELECT `metadata_id` FROM `metadata` WHERE `column_name`='{$col_name}'");
+                $metadata_id = $this->db->get_var("SELECT `metadata_id` FROM `metadata` WHERE `column_name`='{$col_name}'");
 				//Create a function to check if mid/fid already exist
                 if ($this->metadata_file_asso($metadata_id, $file_id) != true) {//Check if the association already exist
-                    $this->db->master->query("INSERT INTO `files_metadata` (`metadata_id`, `file_id`, `metadata_value` ) VALUES ('{$metadata_id}','{$file_id}','{$value[$sample]}')");
+                    $this->db->query("INSERT INTO `files_metadata` (`metadata_id`, `file_id`, `metadata_value` ) VALUES ('{$metadata_id}','{$file_id}','{$value[$sample]}')");
                 }else{
                    return false;
                 }
@@ -1419,13 +1419,13 @@ EOT;
         }
 
         $cmd = "SELECT COUNT(`metadata_id`) FROM `files_metadata` WHERE `file_id`={$file_id} AND `metadata_id`='{$metadata_id}' ";
-        $assoAlreadyExistMetadataFileInFileMetadataTable = $this->db->master->get_var( $cmd );
+        $assoAlreadyExistMetadataFileInFileMetadataTable = $this->db->get_var( $cmd );
 
 		if(intval($assoAlreadyExistMetadataFileInFileMetadataTable) == 0){
 			return false;
 		}elseif(intval($assoAlreadyExistMetadataFileInFileMetadataTable) == 1){
 			//we allowed value's modification so we first delete previous data
-            $this->db->master->query("DELETE FROM `files_metadata` WHERE `file_id`={$file_id} AND `metadata_id`='{$metadata_id}'");
+            $this->db->query("DELETE FROM `files_metadata` WHERE `file_id`={$file_id} AND `metadata_id`='{$metadata_id}'");
             return false;
         }else{
             return true;
@@ -1450,18 +1450,18 @@ EOT;
             $md5 = $_POST["rna_groups_assignation"]["md5sum"][$sample];
             $Sample_name = $_POST["rna_groups_assignation"]["Sample_name"][$sample];
 
-            $file_id = $this->db->master->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5}'");
+            $file_id = $this->db->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5}'");
 
-            $this->db->master->query("DELETE FROM `rna_group_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' ");
+            $this->db->query("DELETE FROM `rna_group_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' ");
 
             foreach ($_POST["rna_groups_assignation"][$md5] as $group => $groupName) {
 
-                $rna_group_id = $this->db->master->get_var("SELECT `group_id` FROM `rna_group` WHERE `group_name`='{$groupName}' AND `project_id`='{$project_id}'");
+                $rna_group_id = $this->db->get_var("SELECT `group_id` FROM `rna_group` WHERE `group_name`='{$groupName}' AND `project_id`='{$project_id}'");
 
-                $this->db->master->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
+                $this->db->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
 
                 /*29/09/2016  if ($this->rna_assignation_asso($rna_group_id, $file_id, $project_id) != true) {//Check if the association already exist
-                    $this->db->master->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
+                    $this->db->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
                 }*/
 
             }
@@ -1474,7 +1474,7 @@ EOT;
     public function rna_assignation_asso($rna_group_id, $file_id, $project_id)
     {
         $cmd = "SELECT COUNT(`file_id`) FROM `rna_group_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' AND `rna_group_id`='{$rna_group_id}' ";
-        $assoAlreadyExistRnaAssignation = $this->db->master->get_var( $cmd );
+        $assoAlreadyExistRnaAssignation = $this->db->get_var( $cmd );
 
         if(intval($assoAlreadyExistRnaAssignation) > 0){
             return true;
@@ -1493,7 +1493,7 @@ EOT;
         }
 
         for ($i=0;$i<count($array["Group_name"]);$i++){
-            $this->db->master->query("INSERT INTO `rna_group` (`group_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL,'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
+            $this->db->query("INSERT INTO `rna_group` (`group_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL,'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
         }
         return true;
     }
@@ -1505,14 +1505,14 @@ EOT;
             return array();
         }
 
-        //$all_asso = $this->db->master->get_results("SELECT * FROM `rna_group_files` WHERE `project_id`='{$project_id}'");
+        //$all_asso = $this->db->get_results("SELECT * FROM `rna_group_files` WHERE `project_id`='{$project_id}'");
 		//$all_asso[0]->file_id;
 
 		//return $all_asso[0];
 
-        //$rna_group_already_assignated =  $this->db->master->get_results("SELECT files.* FROM `files` INNER JOIN files_projects ON files.file_id=files_projects.file_id WHERE `project_id`={$project_id} ORDER BY `file_name` ASC");
+        //$rna_group_already_assignated =  $this->db->get_results("SELECT files.* FROM `files` INNER JOIN files_projects ON files.file_id=files_projects.file_id WHERE `project_id`={$project_id} ORDER BY `file_name` ASC");
 
-        $rna_group_already_assignated =  $this->db->master->get_results("SELECT files.file_id, files.file_name, files.md5sum, rna_group.group_id, rna_group.group_name FROM `rna_group_files` CROSS JOIN `files`, `rna_group` WHERE files.file_id=rna_group_files.file_id AND rna_group_files.rna_group_id=rna_group.group_id AND rna_group_files.project_id='{$project_id}'");
+        $rna_group_already_assignated =  $this->db->get_results("SELECT files.file_id, files.file_name, files.md5sum, rna_group.group_id, rna_group.group_name FROM `rna_group_files` CROSS JOIN `files`, `rna_group` WHERE files.file_id=rna_group_files.file_id AND rna_group_files.rna_group_id=rna_group.group_id AND rna_group_files.project_id='{$project_id}'");
         return $rna_group_already_assignated;
     }
 
@@ -1578,7 +1578,7 @@ EOT;
 
 //        echo $group_id;
 
-        $this->db->master->query("DELETE FROM `rna_group` WHERE `group_id`={$group_id} ");
+        $this->db->query("DELETE FROM `rna_group` WHERE `group_id`={$group_id} ");
 
         return true;
     }

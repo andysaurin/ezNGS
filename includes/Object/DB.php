@@ -38,7 +38,8 @@ abstract class NQ_Object_DB extends NQ_Object
 		parent::__construct();
 		global $_DB;
 //die(print_r($_DB));
-		foreach ($_DB['db'] as $db => $params) {
+
+		foreach ($_DB as $db => $params) {
 			/**
 			* dbconn
 			* provides a hook to multiple database connections set in array $_DB
@@ -46,18 +47,12 @@ abstract class NQ_Object_DB extends NQ_Object
 			* Connections are accessed using the $_DB[$key] key value:
 			* 	eg $this->{$key}
 			*
-			* The first connection provided in $_DB ($_DB[0]) can be accessed with $this->db
-			* This provides backwards compatability with previous framework versions
-			*
 			*
 			* @package Framework
 			*/
 
 			$connection = $this->dbConnect($params);
-			if ( !is_object($this->db) ) {
-				$this->db = new stdClass;
-			}
-			$this->db->$db = $connection;
+			$this->$db = $connection;
 
 		}
 	}

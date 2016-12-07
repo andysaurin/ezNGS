@@ -48,8 +48,8 @@ class login extends NQ_Auth_No
 
 				//turn off mysql disk caching if it's on for all the function
 				if (DB_USECACHE == true) {
-					$this->db->master->cache_queries = false;
-					$this->db->master->use_disk_cache = false;
+					$this->db->cache_queries = false;
+					$this->db->use_disk_cache = false;
 				}
 
 
@@ -57,7 +57,8 @@ class login extends NQ_Auth_No
 						FROM `users`
 						WHERE username = '".$username."' AND password = '".$password."' LIMIT 1";
 
-				$user = $this->db->master->get_row($sql);
+
+				$user = $this->db->get_row($sql);
 
 				if( $user->status == 'Suspended' ) {
 
@@ -78,7 +79,7 @@ class login extends NQ_Auth_No
 					$session->ip = $_SERVER['REMOTE_ADDR'];
 
 					//now update the time they logged in.
-					$this->db->master->query("UPDATE `users` SET lastLogin=".time()." WHERE id=".$user->id."");
+					$this->db->query("UPDATE `users` SET lastLogin=".time()." WHERE id=".$user->id."");
 
 					foreach ($user as $key=>$val) { //session vars
 						$session->$key = $val;
@@ -86,8 +87,8 @@ class login extends NQ_Auth_No
 
 					//turn disk caching back on if default is to cache
 					if (DB_USECACHE == true) {
-						$this->db->master->cache_queries = true;
-						$this->db->master->use_disk_cache = true;
+						$this->db->cache_queries = true;
+						$this->db->use_disk_cache = true;
 					}
 
 
@@ -117,8 +118,8 @@ class login extends NQ_Auth_No
 
 				//turn disk caching back on if default is to cache
 				if (DB_USECACHE == true) {
-					$this->db->master->cache_queries = true;
-					$this->db->master->use_disk_cache = true;
+					$this->db->cache_queries = true;
+					$this->db->use_disk_cache = true;
 				}
 
 			} else {
