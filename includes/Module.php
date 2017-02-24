@@ -1161,24 +1161,24 @@ EOT;
             //We need to create several folders for this new project.
             $oldmask = umask(0); //store the value of the old mask apply by apache config and remove it
             $pathFolder = SYSTEM_DATA_ROOT."/projects/" . $new_project_id;
-            mkdir($pathFolder, 0775);
+            mkdir($pathFolder, 0777);
             $pathFolderSamples = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/samples";
-            mkdir($pathFolderSamples, 0775);
+            mkdir($pathFolderSamples, 0777);
             $pathFolderResults = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/results";
-            mkdir($pathFolderResults, 0775);
+            mkdir($pathFolderResults, 0777);
             $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/metadata";
-            mkdir($pathFolderMetada, 0775);
+            mkdir($pathFolderMetada, 0777);
 
-            //We want to be free about the config file's structure. So we need to create one and this one will be modified.
+            /*//We want to be free about the config file's structure. So we need to create one and this one will be modified.
             $config = array(
                 "project_name" => $nameProject
             );
             //Write the config file
-            $res = yaml_emit_file($pathFolderMetada . "/config.yml", $config, $encoding = YAML_UTF8_ENCODING );
+            $res = yaml_emit_file($pathFolderMetada . "/config.yml", $config, $encoding = YAML_UTF8_ENCODING );*/
 
 			//We need to make a gitclone of the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
             $pathFolderGeneReg = SYSTEM_DATA_ROOT."/projects/" . $new_project_id. "/gene-regulation";
-            mkdir($pathFolderGeneReg, 0775);//folder for scripts from the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
+            mkdir($pathFolderGeneReg, 0777);//folder for scripts from the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
             //command execute by php for make a clone of the git repository gene-regulation https://github.com/rioualen/gene-regulation.git
             $recup = shell_exec('git clone https://github.com/rioualen/gene-regulation.git ' . $pathFolderGeneReg );
 
@@ -1203,7 +1203,13 @@ EOT;
 
     }
 
-	public function addfile_db($md5sum, $user_id=0, $file_name)
+    //Get all information about data supported
+    public function get_all_data_type()
+    {
+        return $this->db->get_results("SELECT * FROM `data_types`");
+    }
+
+    public function addfile_db($md5sum, $user_id=0, $file_name)
     {
         /*verification*/
         if ( $user_id < 0){
@@ -1234,7 +1240,7 @@ EOT;
         /*We create the association between the file with the project in the files_projects table*/
         if ( $this->file_in_project($file_id, $project_id) != true ) { // new file-project association
 
-			$this->db->query("INSERT INTO `files_projects` (`file_id`, `project_id`) VALUES ('{$file_id}','{$project_id}')");
+			$this->db->query("INSERT INTO `files_projects` (`file_id`, `project_id`, `md5sum`) VALUES ('{$file_id}','{$project_id}','{$md5sum}')");
 			$rowsAffectedToCreateNewFileProjectAsso = $this->db->rows_affected;
 
 			if ($rowsAffectedToCreateNewFileProjectAsso > 0) {
@@ -1278,7 +1284,22 @@ EOT;
 
     }
 
-	public function get_all_files_in_project($project_id=0)
+    public function get_name_and_md5sum_by_file_id($file_id=0)
+    {
+        /*Verification*/
+        if($file_id < 0 ){
+            return array();
+        }
+
+        $info =  $this->db->get_results("SELECT files.file_name, files.md5sum FROM `files` WHERE `file_id`='{$file_id}'");
+
+        if ( !count($info) )
+            return array();
+
+        return $info;
+    }
+
+    public function get_all_files_in_project($project_id=0)
 	{
         /*Verification*/
         if($project_id < 0 ){
@@ -1369,12 +1390,28 @@ EOT;
 
         /*Make a request to obtain all rna groups in this project*/
 
-        $rnaGroups =  $this->db->get_results("SELECT * FROM `rna_group` WHERE `project_id`={$project_id} ORDER BY `group_name` ASC");
+        $rnaGroups =  $this->db->get_results("SELECT * FROM `groups` WHERE `project_id`={$project_id} AND `data_type_id`= 2 ORDER BY `group_name` ASC");
 
         if ( !count($rnaGroups) )
             return array();
 
         return $rnaGroups;
+    }
+    public  function get_all_chip_groups_in_project($project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return array();
+        }
+
+        /*Make a request to obtain all rna groups in this project*/
+
+        $chipGroups =  $this->db->get_results("SELECT * FROM `groups` WHERE `project_id`={$project_id} AND `data_type_id`= 1  ORDER BY `group_name` ASC");
+
+        if ( !count($chipGroups) )
+            return array();
+
+        return $chipGroups;
     }
 
     public function metadata_value_in_db($arraySampleAnnotations)
@@ -1446,22 +1483,22 @@ EOT;
         }
         /*Verification part end */
 
-        for($sample = 1; $sample < count($_POST["rna_groups_assignation"]["md5sum"]); $sample++) {
-            $md5 = $_POST["rna_groups_assignation"]["md5sum"][$sample];
-            $Sample_name = $_POST["rna_groups_assignation"]["Sample_name"][$sample];
+        for($sample = 1; $sample < count($array_rna_assignation_files["rna_groups_assignation"]["md5sum"]); $sample++) {
+            $md5 = $array_rna_assignation_files["rna_groups_assignation"]["md5sum"][$sample];
+            $Sample_name = $array_rna_assignation_files["rna_groups_assignation"]["Sample_name"][$sample];
 
             $file_id = $this->db->get_var("SELECT `file_id` FROM `files` WHERE `md5sum`='{$md5}'");
 
-            $this->db->query("DELETE FROM `rna_group_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' ");
+            $this->db->query("DELETE FROM `groups_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' ");
 
-            foreach ($_POST["rna_groups_assignation"][$md5] as $group => $groupName) {
+            foreach ($array_rna_assignation_files["rna_groups_assignation"][$md5] as $group => $groupName) {
 
-                $rna_group_id = $this->db->get_var("SELECT `group_id` FROM `rna_group` WHERE `group_name`='{$groupName}' AND `project_id`='{$project_id}'");
+                $rna_group_id = $this->db->get_var("SELECT `group_id` FROM `groups` WHERE `group_name`='{$groupName}' AND `project_id`='{$project_id}'");
 
-                $this->db->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
+                $this->db->query("INSERT INTO `groups_files` (`group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
 
-                /*29/09/2016  if ($this->rna_assignation_asso($rna_group_id, $file_id, $project_id) != true) {//Check if the association already exist
-                    $this->db->query("INSERT INTO `rna_group_files` (`rna_group_id`, `file_id`, `project_id` ) VALUES ({$rna_group_id},{$file_id},{$project_id})");
+                /*29/09/2016  if ($this->rna_assignation_asso($group_id, $file_id, $project_id) != true) {//Check if the association already exist
+                    $this->db->query("INSERT INTO `groups_files` (`group_id`, `file_id`, `project_id` ) VALUES ({$group_id},{$file_id},{$project_id})");
                 }*/
 
             }
@@ -1471,9 +1508,189 @@ EOT;
         return true;
     }
 
+    public function add_chip_assignation_in_db($array_chip_assignation_files, $project_id=0)
+    {
+
+        /*Verification part*/
+        if($project_id < 0 ){
+            return false;
+        }
+
+        if (empty($array_chip_assignation_files)){
+            return false;
+        }
+        /*Verification part end */
+
+        $pair_ids = array_keys($array_chip_assignation_files["group_association_chip"]); //Array ( [0] => 0 [1] => 1 [2] => 9 )
+        for ($i=1; $i < count($pair_ids); $i ++){
+            //return $array_chip_assignation_files["group_association_chip"][$pair_id[$i]]; //Array ( [0] => condA )
+            if(is_array($array_chip_assignation_files["group_association_chip"][$pair_ids[$i]])){
+                //The global idea it's to delete everything about an association for this pair_id and to rewrite it after
+                //to make it we need two steps
+                //step one get file_id by the pair_id
+                $pair_id=$pair_ids[$i];
+
+                //we need the input_file_id and treated_file_id we can get these with the pair_id
+                $treated_file_id = $this->db->get_var("SELECT `treated_file_id` FROM `chip_sample_pair` WHERE `project_id`={$project_id} AND `chip_pair_id`={$pair_id}");
+                $input_file_id = $this->db->get_var("SELECT `input_file_id` FROM `chip_sample_pair` WHERE `project_id`={$project_id} AND `chip_pair_id`={$pair_id}");
+
+                //step two delete record
+                $this->db->query("DELETE FROM `groups_files` WHERE `project_id`={$project_id} AND `file_id`='{$treated_file_id}' ");
+                $this->db->query("DELETE FROM `groups_files` WHERE `project_id`={$project_id} AND `file_id`='{$input_file_id}' ");
+
+
+                for ($group=0; $group < count($array_chip_assignation_files["group_association_chip"][$pair_ids[$i]]); $group ++){
+                    //return $pair_ids[$i] . " et " . $array_chip_assignation_files["group_association_chip"][$pair_id[$i]][$group];// get pair_id and group_name
+
+                    $group_name = $array_chip_assignation_files["group_association_chip"][$pair_ids[$i]][$group];
+
+                    //we need to get the group_id
+                    $group_id = $this->db->get_var("SELECT `group_id` FROM `groups` WHERE `project_id`={$project_id} AND `group_name`='{$group_name}' AND `data_type_id`=1");
+
+                    $this->db->query("INSERT INTO `groups_files` (`group_id`, `file_id`, `project_id` ) VALUES ({$group_id},{$treated_file_id},{$project_id})");
+                    $this->db->query("INSERT INTO `groups_files` (`group_id`, `file_id`, `project_id` ) VALUES ({$group_id},{$input_file_id},{$project_id})");
+
+                }
+            }
+        }
+
+        return true;
+    }
+
+        public function add_chip_sample_type_in_db($array_chip_assignation_files, $project_id=0)
+        {
+
+            /*Verification part*/
+            if ($project_id < 0) {
+                return false;
+            }
+
+            if (empty($array_chip_assignation_files)) {
+                return false;
+            }
+            /*Verification part end */
+
+            for ($sample = 1; $sample < count($array_chip_assignation_files["chip_groups_assignation"]["md5sum"]); $sample++) {
+                $md5 = $array_chip_assignation_files["chip_groups_assignation"]["md5sum"][$sample];
+                $Sample_name = $array_chip_assignation_files["chip_groups_assignation"]["Sample_name"][$sample];
+                $data_type = $array_chip_assignation_files["chip_groups_assignation"]["Sample_type"][$sample];
+
+
+                $file_id = $this->db->get_var("SELECT `file_id` FROM `files_projects` WHERE `md5sum`='{$md5}' AND `project_id`='{$project_id}'");
+
+                if ($this->chip_sample_type_asso($file_id, $project_id) != true) { //Check if the association already exist
+                    $this->db->query("INSERT INTO `chip_sample_type` (`file_id`, `project_id`, `sample_type` ) VALUES ({$file_id},{$project_id},'{$data_type}')");
+                } else {
+                    $this->db->query("DELETE FROM `chip_sample_type` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' ");
+                    $this->db->query("INSERT INTO `chip_sample_type` (`file_id`, `project_id`, `sample_type` ) VALUES ({$file_id},{$project_id},'{$data_type}')");
+                }
+                //$this->db->query("INSERT INTO `chip_sample_type` (`file_id`, `project_id`, `sample_type` ) VALUES ({$file_id},{$project_id},'{$data_type}')");
+
+            }
+
+            return true;
+        }
+
+    public function add_chip_sample_pair_in_db($array_chip_sample_pair, $project_id=0)
+    {
+
+        /*Verification part*/
+        if ($project_id < 0) {
+            return false;
+        }
+
+        if (empty($array_chip_sample_pair)) {
+            return false;
+        }
+        /*Verification part end */
+
+        //un system ici de foreach car format type Array(array1())
+		foreach ($array_chip_sample_pair as $pair){
+		    //$pair[0] == "treated" md5sum
+            //$pair[1] == "input" md5sum
+			//return $pair[0];
+
+            //We need the treated_file_id
+            $treatedFileId = $this->db->get_var("SELECT `file_id` FROM `files_projects` WHERE `md5sum`='{$pair[0]}' AND `project_id`='{$project_id}'");
+
+            //We need the input_file_id
+            $inputFileId = $this->db->get_var("SELECT `file_id` FROM `files_projects` WHERE `md5sum`='{$pair[1]}' AND `project_id`='{$project_id}'");
+
+            $this->db->query("INSERT INTO `chip_sample_pair` (`chip_pair_id`,`input_file_id`, `treated_file_id`, `project_id`) VALUES (NULL, {$inputFileId},{$treatedFileId},{$project_id})");
+
+        }
+
+        return true;
+    }
+
+
+    public function  get_all_chip_sample_type_asso($project_id= 0)
+    {
+
+        $allChipSampleTypeAsso = $this->db->get_results("SELECT chip_sample_type.*, files.md5sum FROM `chip_sample_type` INNER JOIN `files` ON files.file_id=chip_sample_type.file_id WHERE `project_id`={$project_id}");
+
+        if ( !count($allChipSampleTypeAsso) )
+            return array();
+        return $allChipSampleTypeAsso;
+    }
+
+    public function get_all_chip_sample_type_input($project_id= 0)
+	{
+        $allChipSampleTypeInput = $this->db->get_results("SELECT files.file_name, files.md5sum FROM `files` INNER JOIN `chip_sample_type` ON files.file_id=chip_sample_type.file_id WHERE chip_sample_type.project_id={$project_id}  and chip_sample_type.sample_type = 'input'");
+
+        if ( !count($allChipSampleTypeInput) )
+            return array();
+        return $allChipSampleTypeInput;
+    }
+
+	public function get_all_chip_sample_type_treated($project_id= 0)
+	{
+		$allChipSampleTypeTreated = $this->db->get_results("SELECT files.file_name, files.md5sum FROM `files` INNER JOIN `chip_sample_type` ON files.file_id=chip_sample_type.file_id WHERE chip_sample_type.project_id={$project_id}  and chip_sample_type.sample_type = 'treated'");
+
+		if ( !count($allChipSampleTypeTreated) )
+			return array();
+		return $allChipSampleTypeTreated;
+	}
+
+	public function delete_chip_pair_already_define($md5sum_treated_sample,$md5sum_input_sample,$project_id)
+    {
+        /*Verification part*/
+        if ($project_id < 0) {
+            return false;
+        }
+        //we have only md5sum we need the file_id to delete this pair in the chip_sample_pair table
+        $treatedFileId = $this->db->get_var("SELECT `file_id` FROM `files_projects` WHERE `md5sum`='{$md5sum_treated_sample}' AND `project_id`='{$project_id}'");
+
+        $inputFileId = $this->db->get_var("SELECT `file_id` FROM `files_projects` WHERE `md5sum`='{$md5sum_input_sample}' AND `project_id`='{$project_id}'");
+
+        $this->db->query("DELETE FROM `chip_sample_pair` WHERE `project_id`={$project_id} AND `input_file_id`='{$inputFileId}' AND `treated_file_id`='{$treatedFileId}'");
+
+        return true;
+    }
+    public function get_all_chip_pair_already_defined($project_id = 0)
+    {
+        $allChipPairAlreadyDefined = $this->db->get_results("SELECT * FROM `chip_sample_pair` WHERE project_id={$project_id}");
+
+        if ( !count($allChipPairAlreadyDefined) )
+            return array();
+        return $allChipPairAlreadyDefined;
+    }
+
+    public function chip_sample_type_asso($file_id, $project_id)
+    {
+        $cmd = "SELECT COUNT(`file_id`) FROM `chip_sample_type` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' ";
+        $assoAlreadyExistChipSampleType = $this->db->get_var( $cmd );
+
+        if(intval($assoAlreadyExistChipSampleType) > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public function rna_assignation_asso($rna_group_id, $file_id, $project_id)
     {
-        $cmd = "SELECT COUNT(`file_id`) FROM `rna_group_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' AND `rna_group_id`='{$rna_group_id}' ";
+        $cmd = "SELECT COUNT(`file_id`) FROM `groups_files` WHERE `project_id`={$project_id} AND `file_id`='{$file_id}' AND `group_id`='{$rna_group_id}' ";
         $assoAlreadyExistRnaAssignation = $this->db->get_var( $cmd );
 
         if(intval($assoAlreadyExistRnaAssignation) > 0){
@@ -1485,7 +1702,8 @@ EOT;
 
     }
 
-	public function rna_groups_in_db($array, $project_id=0)
+	public function groups_in_db($array, $project_id=0,$data_type)
+
     {
         /*Verification*/
         if($project_id < 0 ){
@@ -1493,28 +1711,142 @@ EOT;
         }
 
         for ($i=0;$i<count($array["Group_name"]);$i++){
-            $this->db->query("INSERT INTO `rna_group` (`group_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL,'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
+            $this->db->query("INSERT INTO `groups` (`group_id`,`data_type_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL, {$data_type},'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
         }
         return true;
     }
 
-    public function rna_group_already_assigned_in_db($project_id=0)
+    public function chip_group_already_assigned_in_db($project_id=0)
     {
         /*Verification*/
         if($project_id < 0 ){
             return array();
         }
 
-        //$all_asso = $this->db->get_results("SELECT * FROM `rna_group_files` WHERE `project_id`='{$project_id}'");
+        $chip_group_already_assignated =  $this->db->get_results("SELECT chip_sample_pair.chip_pair_id,groups.group_name FROM `groups_files` CROSS JOIN `chip_sample_pair`, `groups` WHERE chip_sample_pair.project_id=groups_files.project_id AND groups_files.group_id=groups.group_id AND groups_files.file_id=chip_sample_pair.treated_file_id AND groups_files.project_id='{$project_id}'");
+
+        if ( !count($chip_group_already_assignated) )
+            return array();
+        return $chip_group_already_assignated;
+
+    }
+
+    public function rna_group_already_assigned_in_db($project_id=0)
+    { //not used
+        /*Verification*/
+        if($project_id < 0 ){
+            return array();
+        }
+
+        //$all_asso = $this->db->get_results("SELECT * FROM `groups_files` WHERE `project_id`='{$project_id}'");
 		//$all_asso[0]->file_id;
 
 		//return $all_asso[0];
 
         //$rna_group_already_assignated =  $this->db->get_results("SELECT files.* FROM `files` INNER JOIN files_projects ON files.file_id=files_projects.file_id WHERE `project_id`={$project_id} ORDER BY `file_name` ASC");
 
-        $rna_group_already_assignated =  $this->db->get_results("SELECT files.file_id, files.file_name, files.md5sum, rna_group.group_id, rna_group.group_name FROM `rna_group_files` CROSS JOIN `files`, `rna_group` WHERE files.file_id=rna_group_files.file_id AND rna_group_files.rna_group_id=rna_group.group_id AND rna_group_files.project_id='{$project_id}'");
+        $rna_group_already_assignated =  $this->db->get_results("SELECT files.file_id, files.file_name, files.md5sum, groups.group_id, groups.group_name FROM `groups_files` CROSS JOIN `files`, `groups` WHERE files.file_id=groups_files.file_id AND groups_files.group_id=groups.group_id AND groups_files.project_id='{$project_id}'");
         return $rna_group_already_assignated;
     }
+
+    public function group_already_assigned_in_db($project_id=0, $data_type=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return array();
+        }
+        /*Verification*/
+        if($data_type < 0 ){
+            return array();
+        }
+
+        $group_already_assignated =  $this->db->get_results("SELECT files.file_id, files.file_name, files.md5sum, groups.group_id, groups.group_name FROM `groups_files` CROSS JOIN `files`, `groups` WHERE files.file_id=groups_files.file_id AND groups_files.group_id=groups.group_id AND groups_files.project_id={$project_id} AND groups.data_type_id ={$data_type} ");
+        return $group_already_assignated;
+    }
+
+    public function write_chip_design($array, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+        //in $array there are only the group_name
+        //Get the file name by the group_name
+        //Get 2 array one for only treated_file the other for input_file
+
+
+        $treatment = array();
+        $control = array();
+        $group = array();
+
+        foreach ($array as $key => $value) {
+
+            $group_id = $this->db->get_var("SELECT `group_id` FROM `groups` WHERE `group_name`='{$key}' AND `project_id`='{$project_id}' AND `data_type_id`=1");
+
+            //Select all file_id link to this group_id
+            $file_ids = $this->db->get_results("SELECT `file_id` FROM `groups_files` WHERE `group_id`='{$group_id}' AND `project_id`='{$project_id}'");
+
+            //take all information about all sample_pair from this project
+            $input_file_ids = $this->db->get_results("SELECT `input_file_id` FROM `chip_sample_pair` WHERE `project_id`='{$project_id}'");
+            $treated_file_ids = $this->db->get_results("SELECT `treated_file_id` FROM `chip_sample_pair` WHERE `project_id`='{$project_id}'");
+
+            foreach ($file_ids as $file) {
+                //return $file->file_id get file_id
+                foreach ($input_file_ids as $input_file_id) {
+
+                    if ($file->file_id == $input_file_id->input_file_id) {
+                        //requête pour obtenir le nom
+
+                        $md5sum_input = $this->db->get_var("SELECT `md5sum` FROM `files` WHERE `file_id`='{$file->file_id}'");
+
+                        array_push($control, $md5sum_input);
+                        //add colone group in the design file in order to reload design on GUI when it's already defined
+                        array_push($group,$key);
+                    }
+                }
+
+                foreach ($treated_file_ids as $treated_file_id) {
+
+                    if ($file->file_id == $treated_file_id->treated_file_id) {
+
+                        $md5sum_treatment = $this->db->get_var("SELECT `md5sum` FROM `files` WHERE `file_id`='{$file->file_id}'");
+
+                        array_push($treatment, $md5sum_treatment);
+                    }
+
+                }
+
+            }
+        }
+
+
+
+        $control = array_unique($control);
+
+        $treatment = array_unique($treatment);
+
+            /*Part about create/write the design.tab file*/
+
+        $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $project_id. "/metadata";
+
+
+        if(file_exists($pathFolderMetada . "/ChIP/design.tab")) {
+            unlink($pathFolderMetada . "/ChIP/design.tab");
+        }
+
+        $handle = fopen($pathFolderMetada . "/ChIP/design.tab", "a+");
+        fwrite($handle, "treatment"."\t" . "control" ."\t" . "group" ."\n");
+
+        for ($i=0;$i<count($control);$i++){
+            fwrite($handle,$treatment[$i] . "\t" . $control[$i] . "\t" . $group[$i] . "\n");
+        }
+
+        fclose($handle);
+
+        return true;
+
+    }
+
 
     public function write_rna_design($array, $project_id=0)
     {
@@ -1546,11 +1878,11 @@ EOT;
         $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $project_id. "/metadata";
 
 
-        if(file_exists($pathFolderMetada . "/design.tab")) {
-            unlink($pathFolderMetada . "/design.tab");
+        if(file_exists($pathFolderMetada . "/RNA/design.tab")) {
+            unlink($pathFolderMetada . "/RNA/design.tab");
         }
 
-        $handle = fopen($pathFolderMetada . "/design.tab", "a+");
+        $handle = fopen($pathFolderMetada . "/RNA/design.tab", "a+");
         fwrite($handle, "group1"."\t" . "group2" . "\n");
 
         for ($i=0;$i<count($array["Group_reference"]);$i++){
@@ -1564,7 +1896,7 @@ EOT;
         //print_r($array);
     }
 
-    public function delete_rna_group_already_define($group_id=0, $project_id=0)
+    public function delete_group_already_define($group_id=0, $project_id=0)
     {
         /*Verification*/
         if($group_id < 0 ){
@@ -1578,7 +1910,7 @@ EOT;
 
 //        echo $group_id;
 
-        $this->db->query("DELETE FROM `rna_group` WHERE `group_id`={$group_id} ");
+        $this->db->query("DELETE FROM `groups` WHERE `group_id`={$group_id} ");
 
         return true;
     }
@@ -1599,7 +1931,7 @@ EOT;
         }
 
         $handle = fopen($pathFolderMetada . "/samples.tab", "a+");
-        fwrite($handle, "ID"."\t" . "name" . "\t" . "condition" . "\n");
+        fwrite($handle, "ID"."\t" . "name" . "\t" . "Condition" . "\n");
 
         foreach ($array as $line) {
             fputcsv($handle, $line, "\t");

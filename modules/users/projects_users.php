@@ -33,23 +33,35 @@ class projects_users extends NQ_Auth_User
 
         $this->set("manager",  $manager );
         $this->set('projects',  $this->all_projects );
+        $this->set("is_rna_ok", false);
     }
 
     public function __default()
     {
         if (!empty($_POST)) {//check if this array is empty.
-            echo $_POST['group_id'];
-            if (!$this->delete_rna_group_already_define($_POST['group_id'],$_POST['project_id'] )){
-                die("Error De la muerta");
+            //echo $_POST['group_id'];
+            if (!$this->delete_group_already_define($_POST['group_id'],$_POST['project_id'] )){
+
             }
         }
         //$this->set('projects',  $this->all_projects );
 
     }
 
-    public function define_groups()
+    public function delete_pair()
+    {
+        if (!empty($_POST)) {//check if this array is empty.
+            if (!$this->delete_chip_pair_already_define($_POST["md5sum_treated_sample"],$_POST["md5sum_input_sample"],$_POST['project_id'])){
+                die("Fatal toto!");
+            }
+        }
+
+    }
+
+    public function rna_define_groups()
     {
         if (!empty($_POST)){//check if the array are empty
+            $data_type = 2;
             //we need the project_id so we save it and delete it in the array
             $project_id=$_POST['project_id'];
             array_shift($_POST);
@@ -57,8 +69,37 @@ class projects_users extends NQ_Auth_User
             //so we delete these lines before to save all information in the DB
             array_shift($_POST["Group_name"]);
             array_shift($_POST["Group_description"]);
-            if (!$this->rna_groups_in_db($_POST, $project_id)){
+            if (!$this->groups_in_db($_POST, $project_id,$data_type)){
                 die("Error saving RNA group");
+            }
+        }
+    }
+
+    public function ChIP_define_groups()
+    {
+        if (!empty($_POST)){//check if the array are empty
+            $data_type = 1;
+            //we need the project_id so we save it and delete it in the array
+            $project_id=$_POST['project_id'];
+            array_shift($_POST);
+            //in the html table foreach sub array the first line is empty and is used like a "template"
+            //so we delete these lines before to save all information in the DB
+            array_shift($_POST["Group_name"]);
+            array_shift($_POST["Group_description"]);
+            if (!$this->groups_in_db($_POST, $project_id,$data_type)){
+                die("Error saving ChIP group");
+            }
+        }
+    }
+
+    public function save_chip_design()
+    {
+        if (!empty($_POST)) {//check if this array is empty.
+            $project_id=$_POST['project_id'];
+            unset($_POST['project_id']);
+            //print_r($this->write_chip_design($_POST, $project_id));
+            if (!$this->write_chip_design($_POST, $project_id)){
+                die("Error saving ChIP design.tab");
             }
         }
     }
@@ -107,7 +148,7 @@ class projects_users extends NQ_Auth_User
         }
     }
 
-    public function save_assignation()
+    public function save_rna_assignation()
     {
         //print_r($_POST);
         /* 18/09/2016 for($sample = 1; $sample < count($_POST["rna_groups_assignation"]["md5sum"]); $sample++) {
@@ -130,6 +171,70 @@ class projects_users extends NQ_Auth_User
         }
 
 
+    }
+
+    public function save_chip_assignation()
+    {
+        //print_r($_POST);
+//        /* 18/09/2016 for($sample = 1; $sample < count($_POST["rna_groups_assignation"]["md5sum"]); $sample++) {
+//            $md5 = $_POST["rna_groups_assignation"]["md5sum"][$sample];
+//            $Sample_name = $_POST["rna_groups_assignation"]["Sample_name"][$sample];
+//            $groups = "";
+//            foreach ($_POST["rna_groups_assignation"][$md5] as $group => $groupName) {
+//                $groups = $groups . $groupName . ", ";
+//            }
+//            echo "MD5sum: ". $md5 . "Sample_name: " . $Sample_name . "Group: " . $groups;
+//        }*/
+//
+        if (!empty($_POST)) {//check if this array is empty.
+            $project_id = $_POST['project_id'];
+            array_shift($_POST);//delete file_id array
+            //print_r($_POST);
+            //print_r($this->add_chip_assignation_in_db($_POST, $project_id));
+            if (!$this->add_chip_assignation_in_db($_POST, $project_id)){
+                die("Error saving chip assignation");
+            }
+
+        }
+
+
+    }
+
+    public function save_chip_sample_type()
+    {//we store if the sample are treated or an input genomic
+
+        if (!empty($_POST)) {//check if this array is empty.
+            //print_r($_POST);
+            $project_id = $_POST['project_id'];
+            array_shift($_POST);
+            if (!$this->add_chip_sample_type_in_db($_POST, $project_id)){
+                die("Error saving chip sample_type");
+            }
+            //print_r($this->add_chip_sample_type_in_db($_POST, $project_id));
+
+        }
+
+
+    }
+
+    public function save_chip_sample_pair()
+    {
+        //En construction
+        if (!empty($_POST)) {//check if this array is empty.
+            //print_r($_POST);
+            $project_id = $_POST['project_id'];
+            array_shift($_POST);//Delete the project_id
+            array_shift($_POST);//delete the template line
+            //print_r($_POST);
+            //print_r($this->add_chip_sample_pair_in_db($_POST, $project_id));
+
+            if (!$this->add_chip_sample_pair_in_db($_POST, $project_id)){
+                die("Error saving chip sample pair");
+            }
+
+            //print_r($this->add_chip_sample_type_in_db($_POST, $project_id));
+
+        }
     }
 
     public function save_annotations()
@@ -157,29 +262,29 @@ class projects_users extends NQ_Auth_User
     {
         if (!empty($_POST)) {//check if this array is empty.
             $pathToProject = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'];
-            $filenameYaml = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata" . "/config.yml";
+            $filenameYaml = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/RNA" . "/config.yml";
             #$filenameJson = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata" . "/config.json";
-            $temp = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata" . "/configtemp.yml";
+            //$temp = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata" . "/configtemp.yml";
             $configinit = yaml_parse_file($filenameYaml);
             //print_r($configinit);
 
             /*Part about some parameters set by the server*/
             $_POST["author"] = $this->user->username;
             $_POST["qsub"]="-q biotools -V -m a -d . ";
-            $_POST["metadata"]["samples"] = $pathToProject . "/metadata/samples.tab";
-            $_POST["metadata"]["design"] = $pathToProject . "/metadata/design.tab";
-            $_POST["metadata"]["configfile"] = $pathToProject . "/metadata/config.yml";
+            $_POST["metadata"]["samples"] = $pathToProject . "/metadata/RNA/samples.tab";
+            $_POST["metadata"]["design"] = $pathToProject . "/metadata/RNA/design.tab";
+            $_POST["metadata"]["configfile"] = $pathToProject . "/metadata/RNA/config.yml";
 
             $_POST["dir"]["base"] = $pathToProject;
             $_POST["dir"]["reads_source"] = $pathToProject . "/samples";
             $_POST["dir"]["fastq"] = $pathToProject . "/samples";
             $_POST["dir"]["genome"] = SYSTEM_DATA_ROOT .  "/genomes/Ecoli_K12"; //WARNING HARD CODE to chage after test !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            $_POST["dir"]["results"] = $pathToProject . "/results";
+            $_POST["dir"]["results"] = $pathToProject . "/results/RNA";
             $_POST["dir"]["gene_regulation"] = $pathToProject . "/gene-regulation";
 
-            $_POST["dir"]["samples"] = $pathToProject . "/results/samples";
-            $_POST["dir"]["diffexpr"] = $pathToProject . "/results/diffexpr";
-            $_POST["dir"]["reports"] = $pathToProject . "/results/reports";
+            $_POST["dir"]["samples"] = $pathToProject . "/results/RNA/samples";
+            $_POST["dir"]["diffexpr"] = $pathToProject . "/results/RNA/diffexpr";
+            $_POST["dir"]["reports"] = $pathToProject . "/results/RNA/reports";
 
             //echo implode(" ",$_POST["Mapping"]);
 
@@ -214,17 +319,107 @@ class projects_users extends NQ_Auth_User
                 }
             }
 
+            //We need to define for the Diffexpr step the condRef in the config file
+            $designFile = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/RNA" . "/design.tab";
+            $fh = fopen($designFile, 'r');
+            $i = 0;
+            $cols = array();
+            $condRef = "";
+
+            while (($line = fgetcsv($fh,0,"\t")) !== false) {
+                $cols[] = $line;
+
+                if($i == 1)
+                {   $condRef = $line[0];
+                    break;
+                }
+                $i++;
+            }
+            //print_r($_POST["diffexpr"]);
+            foreach ($_POST["diffexpr"] as $tool) {
+                $configinit[$tool]["condRef"]=$condRef;
+            }
+
+
             //Write the config file
-            $res = yaml_emit_file($temp, $configinit, $encoding = YAML_UTF8_ENCODING );
-
-            `iconv -f utf-16be -t utf8 "{$temp}" > "{$filenameYaml}"`;
-
-            //we need to touch all the data files before to run the analysis
-            $pathToSamples =$pathToProject . "/samples";
-            `find "{$pathToSamples}" -exec touch {} \;`;
-
+            $res = yaml_emit_file($filenameYaml, $configinit);
         }
     }
+
+    public function execute_rna_workflow_default()
+    {
+        if (!empty($_POST)) {//check if this array is empty.
+            //define the path
+            $pathToProject = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'];
+            //echo $pathToProject;
+
+            //we need to touch all the data files before to run the analysis
+            $pathToSamples = $pathToProject . "/samples";
+            `find "{$pathToSamples}" -exec touch {} \;`;
+
+            //Run the analysis with the workflow
+            $cmd = '/usr/bin/snakemake -s ' . SYSTEM_DATA_ROOT . '/workflows/RNA-seq_workflow_SE.py -j 8 --configfile ' . $pathToProject . '/metadata/RNA/config.yml 2>' . $pathToProject . '/RNA_stdout.txt';
+            shell_exec($cmd);
+            //echo $cmd;
+        }
+    }
+
+    public function execute_rna_workflow_custom_parameters()
+    {
+        //print_r($_POST);
+        if (!empty($_POST)) {//check if this array is empty.
+            //step 1 rewrite config.yml
+            $pathToProject = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'];
+            $filenameYaml = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/RNA" . "/config.yml";
+            unset($_POST['project_id']);
+            $configinit = yaml_parse_file($filenameYaml);
+
+            //step 1.1 store in an array tools choose before
+            $tools_selected = array();
+            //$configinit["tools"];
+
+            foreach ($configinit["tools"] as $key => $value1){
+                //$value1 == tool list separated by one blank space
+                foreach (explode(" ", $value1) as $tool){
+                    array_push($tools_selected,$tool);
+                }
+
+            }
+            //print_r($tools_selected);
+
+            //step 1.2 compare this array with key in the form
+
+            foreach ($_POST as $key => $value1){
+                if (in_array($key,$tools_selected)){
+                    if (is_array($value1)){
+                        //print_r($key."  ".$value1);
+                        foreach ($value1 as $key2 => $value2) {
+                            //print_r($key2."  ".$value2);
+                            if (!empty($value2)){
+                                $configinit[$key][$key2]=$value2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Write the config file
+            $res = yaml_emit_file($filenameYaml, $configinit);
+
+            //step 2 run the analysis with the workflow
+
+            //we need to touch all the data files before to run the analysis
+            $pathToSamples = $pathToProject . "/samples";
+            `find "{$pathToSamples}" -exec touch {} \;`;
+
+            $cmd = '/usr/bin/snakemake -s ' . SYSTEM_DATA_ROOT . '/workflows/RNA-seq_workflow_SE.py -j 8 --configfile ' . $pathToProject . '/metadata/RNA/config.yml 2>' . $pathToProject . '/boum.txt';
+            shell_exec($cmd);
+            echo $cmd;
+
+        }
+
+    }
+
 
     public function go()
     {
@@ -234,24 +429,133 @@ class projects_users extends NQ_Auth_User
 	   	 	$this->set('project', $this->project_info( (int)$_GET['id'] ) );
             $this->all_files = $this->get_all_files_in_project($_GET['id']);
             $this->set('filetable', $this->all_files);
+
             $this->all_rna_groups = $this->get_all_rna_groups_in_project($_GET['id']);
             $this->set('rna_groups', $this->all_rna_groups);
+
+            $this->all_chip_groups = $this->get_all_chip_groups_in_project($_GET['id']);
+            $this->set('chip_groups', $this->all_chip_groups);
+            $this->set('chip_type', array("treated","input"));
+
             //Before to load this YAML file we need to check if it exist
             $filename = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata/" . "/description.yml";
+            $this->data_type_used = array();
+
             if (file_exists($filename)){
                 $this->all_annotations = json_encode(yaml_parse_file($filename));
+
+                $all_annotations = yaml_parse_file($filename);
+
+                foreach ($all_annotations["Samples_information"]["Data_type"] as $data_type){
+                    array_push($this->data_type_used, $data_type);
+                }
             }else{
                 $this->all_annotations = array();
             }
             $this->set('all_annotations', $this->all_annotations);
+            $this->data_type_used = array_unique($this->data_type_used);
+            $this->set('data_type_used', $this->data_type_used);
 
-            $this->rna_group_already_assignated = $this->rna_group_already_assigned_in_db($_GET['id']);
-            $this->set('rna_group_already_assignated', $this->rna_group_already_assignated);
+            $pathFolderMetada = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata" ;
 
-            //print_r($this->rna_group_already_assignated);
+            if (in_array("ChIP-seq",$this->data_type_used) ) {
+                if (!file_exists($pathFolderMetada . "/ChIP/")){
+                    $pathFolderMetadaChIP = $pathFolderMetada . "/ChIP/";
+                    mkdir($pathFolderMetadaChIP, 0777);
+                }
+            }
+
+            if (in_array("RNA-seq",$this->data_type_used) ) {
+                if (!file_exists($pathFolderMetada . "/RNA/")){
+                    $pathFolderMetadaChIP = $pathFolderMetada . "/RNA/";
+                    mkdir($pathFolderMetadaChIP, 0777);
+                }
+            }
+
+            if (!file_exists($pathFolderMetada . "/ChIP/config.yml")){
+                if (in_array("ChIP-seq",$this->data_type_used)){
+                    //We want to be free about the config file's structure. So we need to create one and this one will be modified.
+                    $config = array(
+                        "project_name" => $_GET['id']
+                    );
+                    //Write the config file /metadata/RNA
+                    $res = yaml_emit_file($pathFolderMetada . "/ChIP/config.yml", $config, $encoding = YAML_UTF8_ENCODING );
+                }
+            }
+
+
+            if (!file_exists($pathFolderMetada . "/RNA/config.yml")){
+                if (in_array("RNA-seq",$this->data_type_used)){
+                    //We want to be free about the config file's structure. So we need to create one and this one will be modified.
+                    $config = array(
+                        "project_name" => $_GET['id']
+                    );
+                    //Write the config file /metadata/RNA
+                    $res = yaml_emit_file($pathFolderMetada . "/RNA/config.yml", $config, $encoding = YAML_UTF8_ENCODING );
+                }
+            }
+
+
+
+
+            /*$this->rna_group_already_assignated = $this->rna_group_already_assigned_in_db($_GET['id']);
+            $this->set('rna_group_already_assignated', $this->rna_group_already_assignated);*/
+
+            $all_data_types = $this->get_all_data_type();
+
+            foreach ($all_data_types as $data_type) {
+                //print_r($data_type->type_id);
+                $this->group_already_assignated = $this->group_already_assigned_in_db($_GET['id'], $data_type->type_id);
+               if ($data_type->type_id == 1){
+                   $this->set('chip_group_already_assignated', $this->group_already_assignated);
+               } elseif ($data_type->type_id == 2){
+                   $this->set('rna_group_already_assignated', $this->group_already_assignated);
+               } else { // maybe error message not sure to be discussed with Andy
+
+               }
+            }
+
+            //If the user already define if a chip sample is "treated" or "input"
+            //print_r($this->get_all_chip_sample_type_asso($_GET['id']));
+            $this->all_chip_sample_type = $this->get_all_chip_sample_type_asso($_GET['id']);
+            $this->set('all_chip_sample_type',  $this->all_chip_sample_type);
+
+            //print_r($this->get_all_chip_sample_type_input($_GET['id']));
+            $this->all_chip_sample_type_input = $this->get_all_chip_sample_type_input($_GET['id']);
+            $this->set('all_chip_sample_type_input',  $this->all_chip_sample_type_input);
+
+            $this->all_chip_sample_type_treated = $this->get_all_chip_sample_type_treated($_GET['id']);
+            $this->set('all_chip_sample_type_treated',  $this->all_chip_sample_type_treated);
+
+
+            //If the user already define chip pair (one treated with one input)
+            $this->all_chip_pair_already_defined = $this->get_all_chip_pair_already_defined($_GET['id']);
+            //print_r($this->all_chip_pair_already_defined);
+            //we get an array like one line by pair (object)
+            $index = 1;
+            $chip_pair = array();
+            foreach ($this->all_chip_pair_already_defined as $pair){
+                //print_r($pair->input_file_id);
+                //get_name_and_md5sum_by_file_id
+                //print_r($this->get_name_and_md5sum_by_file_id($pair->input_file_id));
+                $input_file_info = $this->get_name_and_md5sum_by_file_id($pair->input_file_id);
+                $treated_file_info = $this->get_name_and_md5sum_by_file_id($pair->treated_file_id);
+                $array_name = "coupling_samples".$index;
+                $chip_pair[$array_name] = array();
+                array_push($chip_pair[$array_name],$treated_file_info );
+                array_push($chip_pair[$array_name],$input_file_info );
+                array_push($chip_pair[$array_name], $pair->chip_pair_id);
+                $index ++;
+            }
+            $this->set('all_chip_pair_already_defined', $chip_pair);
+
+            //If an association between a chip sample pair and a group is already defined load it
+            //print_r($this->chip_group_already_assigned_in_db($_GET['id']));
+            $this->set('chip_group_already_assigned', $this->chip_group_already_assigned_in_db($_GET['id']));
 
             /*If in this project a design.tab file exist load it*/
-            $filenameDesign = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata/" . "/design.tab";
+            //RNA part
+            $filenameDesign = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata/RNA" . "/design.tab";
             $design_rna = array();
             if (file_exists($filenameDesign)) {//check if file exist
                 $handle = fopen($filenameDesign, "r");//open a flux
@@ -263,6 +567,33 @@ class projects_users extends NQ_Auth_User
                 $this->set("design_rna",$design_rna);
             }
 
+            //ChIP part
+            $filenameDesign = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata/ChIP" . "/design.tab";
+            $design_chip = array();
+            if (file_exists($filenameDesign)) {//check if file exist
+                $handle = fopen($filenameDesign, "r");//open a flux
+                while (($data = fgetcsv($handle,  0, "\t")) !== FALSE) {//read line by line
+                    array_push($design_chip,$data);//store every lines in a table
+                }
+                array_shift($design_chip);
+                //print_r($design_rna);
+                $this->set("design_chip",$design_chip);
+            }
+
+
+            /*If in this project a samples.tab file exist load it*/
+            $filenameSamples = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata/" . "/RNA/samples.tab";
+            $samples_rna = array();
+            if (file_exists($filenameSamples)) {//check if file exist
+                $handle = fopen($filenameSamples, "r");//open a flux
+                while (($data = fgetcsv($handle,  0, "\t")) !== FALSE) {//read line by line
+                    array_push($samples_rna,$data);//store every lines in a table
+                }
+                array_shift($samples_rna);
+                //print_r($design_rna);
+                $this->set("samples_rna",$samples_rna);
+            }
+
             /*Part about load all tools's name available to make analysis*/
             $filenameToolsAvailable = SYSTEM_CONFIG_TOOLS_DIR . "tools_available.yml";
             //$configToolsAvailable = json_encode(yaml_parse_file($filenameToolsAvailable));
@@ -270,9 +601,27 @@ class projects_users extends NQ_Auth_User
             //print_r($configToolsAvailable);
             $this->set("tools_available",$configToolsAvailable);
 
+            //print_r($configToolsAvailable["RNA-seq"]);
+            $customConfigToolsRna = array();
+
+            foreach ($configToolsAvailable["RNA-seq"] as $key => $value) {
+                //print_r($value); return Array
+                if (is_array($value)){
+                    foreach ($value as $key2 => $item) {
+                        //print_r($item); return only tool's name
+                        $configFileByTool = SYSTEM_CONFIG_TOOLS_DIR . $item . ".yml";
+                        if (file_exists($configFileByTool)){ // check if file tool.yml exist
+                            array_push($customConfigToolsRna,yaml_parse_file($configFileByTool));// read and store customizable options by tool
+                        }
+                    }
+                }
+            }
+
+            $this->set("custom_config_tools_rna", $customConfigToolsRna);
 
             //we need a global variable path_project NOT SURE 19/10/2016
             //$this->set('path_project', SYSTEM_PROJECTS_ROOT . "/" . $_GET['id']);
+
 
             }
 

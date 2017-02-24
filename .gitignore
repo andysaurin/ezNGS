@@ -1,7 +1,12 @@
 data/projects
+data/db_c
+data/logs
+tmp
+.idea
 uploads
 data/genomes
 templates/default/compile
 data/sqlite/master.db
 data/sqlite/phpliteadmin.config.php
 data/sqlite/phpliteadmin.php
+htdocs/.snakemake

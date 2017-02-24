@@ -152,14 +152,31 @@ browser{
 	display: none;
 }
 
+#group_available_clone_chip {
+	display: none;
+}
+#group_sample_type_clone {
+	display: none;
+}
+
+#coupling_samples_clone {
+    display: none;
+}
+
 #group_assignation_clone {
 	display: none;
 }
+
 #group_available_design_clone {
     display: none;
 }
+
 #rna_design_clone{
 	display: none;
+}
+
+#group_association_chip_clone {
+    display: none;
 }
 
 #sample_to_analyse_clone{

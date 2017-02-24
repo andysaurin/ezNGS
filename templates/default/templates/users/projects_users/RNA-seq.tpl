@@ -1,7 +1,6 @@
-<h2>Sample grouping</h2>
-{debug}
+<h2 xmlns="http://www.w3.org/1999/html">Sample grouping</h2>
 
-<form id="form-define-groups" action="/{$module}/{$class}/define_groups" method="POST">
+<form id="form-define-groups" action="/{$module}/{$class}/rna_define_groups" method="POST">
 
     <fieldset>
         <legend>Group definitions</legend>
@@ -79,8 +78,8 @@
         </div>
     </fieldset>
 {/if}
-{if $all_annotations && $rna_groups|@count > 0}
-<form id="form-assignation-groups" action="/{$module}/{$class}/save_assignation" method="POST">
+{if $all_annotations && $rna_groups|@count > 0 && in_array("RNA-seq",$data_type_used)}
+<form id="form-assignation-groups" action="/{$module}/{$class}/save_rna_assignation" method="POST">
     <fieldset>
         <legend>Sample-Group assignation</legend>
 
@@ -218,7 +217,7 @@
 </form>
 {/if}
 
-{if $design_rna|@count > 0}
+{if $samples_rna && $design_rna|@count > 0}
 
 <form id="form-rna_Workflow_design" action="/{$module}/{$class}/save_rna_config"  method="POST">
     <fieldset>
@@ -250,7 +249,7 @@
                     <label for="organism" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Organism's name">Organism</span></label>
                 </div>
                 <div class="large-11 columns">
-                    <input type="text" id="organism" name="genome[organism]" value="">
+                    <input type="text" id="organism" name="genome[organism]" value="" required>
                 </div>
             </div>
 
@@ -259,7 +258,7 @@
                     <label for="version" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="version's name">Version</span></label>
                 </div>
                 <div class="large-11 columns">
-                    <input type="text" id="version" name="genome[version]" value="">
+                    <input type="text" id="version" name="genome[version]" value="" required>
                 </div>
             </div>
 
@@ -268,7 +267,7 @@
                     <label for="size" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="genome's size">Size</span></label>
                 </div>
                 <div class="large-11 columns">
-                    <input type="text" id="size" name="genome[size]" value="">
+                    <input type="text" id="size" name="genome[size]" value="" required>
                 </div>
             </div>
 
@@ -277,7 +276,7 @@
                     <label for="fasta_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="fasta_file's name">fasta_file</span></label>
                 </div>
                 <div class="large-11 columns">
-                    <input type="text" id="fasta_file" name="genome[fasta_file]" value="">
+                    <input type="text" id="fasta_file" name="genome[fasta_file]" value="" required>
                 </div>
             </div>
 
@@ -286,7 +285,7 @@
                     <label for="gff3_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gff3_file's name">gff3_file</span></label>
                 </div>
                 <div class="large-11 columns">
-                    <input type="text" id="gff3_file" name="genome[gff3_file]" value="">
+                    <input type="text" id="gff3_file" name="genome[gff3_file]" value="" required>
                 </div>
             </div>
 
@@ -295,7 +294,7 @@
                     <label for="gtf_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gtf_file's name">gtf_file</span></label>
                 </div>
                 <div class="large-11 columns">
-                    <input type="text" id="gtf_file" name="genome[gtf_file]" value="">
+                    <input type="text" id="gtf_file" name="genome[gtf_file]" value="" required>
                 </div>
             </div>
 
@@ -310,7 +309,7 @@
                 </div>
                 <div class="large-11 columns">
 
-                    <select id="seq_type" name="metadata[seq_type]">
+                    <select id="seq_type" name="metadata[seq_type]" required>
                         <option id="Single-end" value="se">Single-End</option>
                         <option id="Paired-end" value="pe">Paired-End</option>
                     </select>
@@ -325,17 +324,31 @@
             <legend>Tools Available</legend>
         </fieldset>
 {/if}
-
-        <fieldset class="large-12" id="tools_available">
-            <legend>Set parameters</legend>
-            {*<a href="#" class="button large" >Use default parameters</a>*}
-            <input class="button large" type="submit" value="Use default parameters" />
-            <a href="#" class="button large">set parameters</a>
-
-        </fieldset>
-
         <input class="button small round" type="submit" value="Validate" />
 </form>
+    </fieldset>
+
+{*
+    faut mettre un if du style si config existe
+*}
+    <fieldset class="large-12" id="set_parameters">
+        <legend>Set parameters</legend>
+        <form id="form_execute_rna_Workflow_default" action="/{$module}/{$class}/execute_rna_workflow_default"  method="POST">
+            <input type="hidden" id="Project_id" name="project_id" value="{$project->id}">
+            <input class="button large" type="submit" value="Use default parameters" />
+        </form>
+        <form id="form_execute_rna_Workflow_custom_parameters" action="/{$module}/{$class}/execute_rna_workflow_custom_parameters"  method="POST">
+            <input type="hidden" id="Project_id" name="project_id" value="{$project->id}">
+            <a href="#!" class="button large" id="SetCustomParam">Set custom parameter for workflow steps</a>
+
+            <div id="CustomParam">
+
+            </div>
+
+        </form>
+
+
+
     </fieldset>
 {/if}
 <script>
@@ -363,7 +376,7 @@
 
             $.ajax({
                 type:"POST",
-                url: " /users/projects_users",
+                url: " /users/projects_users",//these info are send to the default function
                 data: {"group_id": $Group_id, "project_id":  {/literal} {$project->id} {literal} }
             });
             $(this).parents().eq(1).remove();
@@ -390,7 +403,33 @@
             }).end().appendTo("#design_rna");
         });
 
-        function loadGroupAvailable(){
+//        16/01/2016 $("#SetCustomParam").on("click",function() {
+//            //$(this).css("background-color","red");
+//            $("#CustomParam").append("<strong>Hello</strong>" );
+//        })
+//Write a function to fill CustomParam section automatically for each tools from tool.yaml file
+        $("#SetCustomParam").one( "click", function() {
+            var $customConfigToolsRna = {/literal}{$custom_config_tools_rna|json_encode}{literal};
+            //$("#CustomParam").append("<strong>Hello</strong>" );
+            //$("#CustomParam").append($customConfigToolsRna );
+
+            for (var $key1 in $customConfigToolsRna) {
+                for (var $key2 in $customConfigToolsRna[$key1]) {
+                    //console.log($key2);
+                    for (var $key3 in $customConfigToolsRna[$key1][$key2]) {
+                        $("#CustomParam").append("<div class='large columns'><h3>" + $key2 + "</h3></div>" );
+                        $("#CustomParam").append("<div class='large-1 columns'><label class='left inline' for=" + $key3 +">" + $key3 + "</label></div>" );
+                        $("#CustomParam").append("<div class='large-11 columns'><input type=text id=" + $key3 + " name=" + $key2 + "[" + $key3 +"]" + " value=''></div>");
+                    }
+                }
+            }
+
+            $("#CustomParam").after("<div class='large columns'><input class='button small round '  type='submit' value='Validate' /></div>");
+
+        });
+
+
+        function loadGroupAvailableRna(){
 
             var tableId = {/literal}{$rna_groups|json_encode}{literal};
             var $indexSample = 0;
@@ -696,22 +735,22 @@
 
         {/literal}
         {if $rna_groups|@count > 0}
-            loadGroupAvailable();
+        loadGroupAvailableRna();
         {/if}
-        {if $all_annotations && $rna_groups|@count > 0}
+        {if $all_annotations && $rna_groups|@count > 0 && in_array("RNA-seq",$data_type_used)}
             loadFileRNA();
             loadAndPushGroupsAvailable();
         {/if}
         {if $rna_group_already_assignated|@count > 0}
-        loadAssignation();
-        loadAssignationAndSetDesign();
+            loadAssignation();
+            loadAssignationAndSetDesign();
         {/if}
         {if $design_rna|@count > 0}
-        loadDesignRnaAlreadyDefined();
-        loadSummaryDesign();
+            loadDesignRnaAlreadyDefined();
+            loadSummaryDesign();
         {/if}
         {if $tools_available|@count > 0}
-        load_tools_available_RNA();
+            load_tools_available_RNA();
         {/if}
 
         {literal}

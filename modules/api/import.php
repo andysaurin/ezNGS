@@ -40,7 +40,7 @@ class import extends NQ_Auth_User
 
 		$to_dir = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/samples/" . $md5;
 
-		`mkdir -m 775 "{$to_dir}"`;
+		`mkdir -m 777 "{$to_dir}"`;
 
 		if ( !is_dir($to_dir) || !is_writeable($to_dir) )
 			die("not_ok 5");
@@ -52,6 +52,8 @@ class import extends NQ_Auth_User
 		/*File transfer part*/
         //File copy
 		`cp "{$from_path}" "{$to_filepath}"`;
+
+        `chmod 777 "{$to_filepath}"`;
 
         //request to insert information in file table
         if (!$this->addfile_db($md5, $this->user->id, $file_name)){
