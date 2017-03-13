@@ -10,3 +10,4 @@ data/sqlite/master.db
 data/sqlite/phpliteadmin.config.php
 data/sqlite/phpliteadmin.php
 htdocs/.snakemake
+.Rproj.user
