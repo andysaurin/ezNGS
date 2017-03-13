@@ -1915,7 +1915,7 @@ EOT;
         return true;
     }
 
-    public function Write_tab_file($array, $project_id=0)
+    public function Write_tab_file_rna($array, $project_id=0)
     {
         /*Verification*/
         if($project_id < 0 ){
@@ -1924,22 +1924,52 @@ EOT;
 
         /*Part about create/write the samples.tab file*/
 
-        $pathFolderMetada = SYSTEM_DATA_ROOT."/projects/" . $project_id. "/metadata";
+        $pathFolderMetadaRna = SYSTEM_DATA_ROOT."/projects/" . $project_id. "/metadata/RNA";
 
-        if(file_exists($pathFolderMetada . "/samples.tab")) {
-            unlink($pathFolderMetada . "/samples.tab");
+        if(file_exists($pathFolderMetadaRna . "/samples.tab")) {
+            unlink($pathFolderMetadaRna . "/samples.tab");
         }
 
-        $handle = fopen($pathFolderMetada . "/samples.tab", "a+");
+        $handle = fopen($pathFolderMetadaRna . "/samples.tab", "a+");
         fwrite($handle, "ID"."\t" . "name" . "\t" . "Condition" . "\n");
 
         foreach ($array as $line) {
             fputcsv($handle, $line, "\t");
         }
 
-        /*for ($i=0;$i<count($array["Group_reference"]);$i++){
-            fwrite($handle,$array["Group_reference"][$i] . "\t" . $array["Group_test"][$i] . "\n");
+        fclose($handle);
+
+        return true;
+
+    }
+
+    public function Write_tab_file_chip($array, $project_id=0)
+    {
+        /*Verification*/
+        if($project_id < 0 ){
+            return false;
+        }
+
+        /*Part about create/write the samples.tab file*/
+
+        $pathFolderMetadaChIP = SYSTEM_DATA_ROOT."/projects/" . $project_id. "/metadata/ChIP";
+
+        if(file_exists($pathFolderMetadaChIP . "/samples.tab")) {
+            unlink($pathFolderMetadaChIP . "/samples.tab");
+        }
+
+        $handle = fopen($pathFolderMetadaChIP . "/samples.tab", "a+");
+        fwrite($handle, "ID"."\t" . "type" . "\t" . "Condition" . "\n");
+
+        foreach ($array as $line){
+            fwrite($handle,$line[0]. "\t" . "treated" . "\t" . $line[2]. "\n");
+            fwrite($handle,$line[1]. "\t" . "input" . "\t" . $line[2]. "\n");
+        }
+
+        /*foreach ($array as $line) {
+            fputcsv($handle, $line, "\t");
         }*/
+
 
         fclose($handle);
 

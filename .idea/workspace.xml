@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/Module.php" afterPath="$PROJECT_DIR$/includes/Module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config_tools/tools_available.yml" afterPath="$PROJECT_DIR$/config/config_tools/tools_available.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htdocs/stylesheets/main.css" afterPath="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/Module.php" afterPath="$PROJECT_DIR$/includes/Module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/api/import.php" afterPath="$PROJECT_DIR$/modules/api/import.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/users/projects_users.php" afterPath="$PROJECT_DIR$/modules/users/projects_users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
     </list>
     <ignored path="amidex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,66 +35,10 @@
     <favorites_list name="amidex" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Module.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/Module.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1849" column="0" selection-start-line="1849" selection-start-column="0" selection-end-line="1849" selection-end-column="0" />
-              <folding>
-                <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-                <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-                <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-                <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="362" column="14" selection-start-line="362" selection-start-column="14" selection-end-line="362" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChIP-seq.tpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="275" column="95" selection-start-line="275" selection-start-column="95" selection-end-line="275" selection-end-column="95" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RNA-seq.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="202" column="30" selection-start-line="187" selection-start-column="0" selection-end-line="217" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add_chip_sample_type_in_db</find>
-      <find>get</find>
-      <find>delete_chip_pair_already_define</find>
-      <find>chip_pair_already_define</find>
-      <find>Sample_name2_chip</find>
-      <find>Groups_available</find>
-      <find>group_assignation_chip</find>
-      <find>group_association_chip</find>
-      <find>coupling_samples</find>
-      <find>loadAndPushGroupsAvailableChip</find>
       <find>Groups_available2_chip</find>
       <find>Groups_available_chip</find>
       <find>add_chip_assignation_in_db</find>
@@ -116,6 +59,16 @@
       <find>samples.tab</find>
       <find>new_p</find>
       <find>design</find>
+      <find>v</find>
+      <find>write_sample_rna</find>
+      <find>Write_tab_file</find>
+      <find>sample_to_analyse</find>
+      <find>$design_chip</find>
+      <find>if</find>
+      <find>write_sample_chip</find>
+      <find>tools_available</find>
+      <find>tools_available_chip</find>
+      <find>load_tools_available_RNA</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,12 +122,12 @@
         <option value="$PROJECT_DIR$/modules/api/import.php" />
         <option value="$PROJECT_DIR$/data/projects/49/boum.txt" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq_old.tpl" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-        <option value="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
+        <option value="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/includes/Module.php" />
-        <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+        <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
       </list>
     </option>
   </component>
@@ -190,8 +143,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1919" />
+    <option name="y" value="144" />
     <option name="width" value="1922" />
-    <option name="height" value="1080" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -240,7 +194,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -423,9 +376,98 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="56" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="metadata" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="56" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="metadata" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ChIP" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config_tools" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -655,11 +697,20 @@
       <workItem from="1487843762445" duration="123000" />
       <workItem from="1487855362744" duration="13003000" />
       <workItem from="1487931156903" duration="2308000" />
+      <workItem from="1488274293170" duration="3791000" />
+      <workItem from="1488288228311" duration="5669000" />
+      <workItem from="1488296319281" duration="1946000" />
+      <workItem from="1488361666288" duration="3515000" />
+      <workItem from="1488376101674" duration="1715000" />
+      <workItem from="1488385952993" duration="840000" />
+      <workItem from="1488811822671" duration="838000" />
+      <workItem from="1489152964815" duration="2085000" />
+      <workItem from="1489160783661" duration="9000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="473066000" />
+    <option name="totallyTimeSpent" value="493474000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -671,27 +722,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="0" width="1922" height="1080" extended-state="6" />
+    <frame x="1919" y="144" width="1922" height="1032" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.122732125" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1664888" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49786323" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.50641024" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738718" sideWeight="0.4957265" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49358973" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1696905" sideWeight="0.5054602" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277311" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,430 +770,117 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14212">
-          <caret line="646" column="36" selection-start-line="646" selection-start-column="36" selection-end-line="646" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9690">
-          <caret line="646" column="36" selection-start-line="646" selection-start-column="36" selection-end-line="646" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2200">
-          <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14212">
-          <caret line="646" column="36" selection-start-line="646" selection-start-column="36" selection-end-line="646" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39226">
           <caret line="1788" column="2" selection-start-line="1788" selection-start-column="2" selection-end-line="1788" selection-end-column="2" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2200">
-          <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14212">
-          <caret line="646" column="36" selection-start-line="646" selection-start-column="36" selection-end-line="646" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3810">
-          <caret line="254" column="18" selection-start-line="254" selection-start-column="18" selection-end-line="254" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9690">
-          <caret line="646" column="36" selection-start-line="646" selection-start-column="36" selection-end-line="646" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4026">
-          <caret line="183" column="50" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10956">
-          <caret line="498" column="0" selection-start-line="498" selection-start-column="0" selection-end-line="498" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15268">
-          <caret line="694" column="0" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33506">
           <caret line="1528" column="97" selection-start-line="1528" selection-start-column="97" selection-end-line="1528" selection-end-column="97" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4026">
-          <caret line="183" column="50" selection-start-line="183" selection-start-column="24" selection-end-line="183" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10956">
-          <caret line="498" column="0" selection-start-line="498" selection-start-column="0" selection-end-line="498" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15268">
-          <caret line="694" column="0" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34034">
           <caret line="1547" column="20" selection-start-line="1547" selection-start-column="20" selection-end-line="1547" selection-end-column="20" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4136">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15268">
-          <caret line="694" column="0" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36388">
           <caret line="1654" column="20" selection-start-line="1654" selection-start-column="20" selection-end-line="1654" selection-end-column="20" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4730">
-          <caret line="215" column="14" selection-start-line="215" selection-start-column="14" selection-end-line="215" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16302">
-          <caret line="741" column="38" selection-start-line="741" selection-start-column="12" selection-end-line="741" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6534">
-          <caret line="297" column="0" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8294">
-          <caret line="377" column="28" selection-start-line="376" selection-start-column="12" selection-end-line="380" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/api/projects.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htdocs/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/admin/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/admin/projects.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1103">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/modules/api/projects.php" />
+    <entry file="file://$PROJECT_DIR$/modules/admin/create.php" />
+    <entry file="file://$PROJECT_DIR$/modules/admin/projects.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/config.yml" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/design.tab" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/description.yml" />
     <entry file="file://$PROJECT_DIR$/data/workflows/RNA-seq_workflow_SE.py" />
+    <entry file="file://$PROJECT_DIR$/htdocs/stylesheets/main.css" />
+    <entry file="file://$PROJECT_DIR$/config/config_tools/tools_available.yml" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1849" column="0" selection-start-line="1849" selection-start-column="0" selection-end-line="1849" selection-end-column="0" />
-          <folding>
-            <marker date="1487866928000" expanded="true" signature="31871:34349" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="32769:33081" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33361:33478" ph="..." />
-            <marker date="1487866928000" expanded="true" signature="33486:33629" ph="..." />
-          </folding>
+          <caret line="1994" column="0" selection-start-line="1994" selection-start-column="0" selection-end-line="1994" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="362" column="14" selection-start-line="362" selection-start-column="14" selection-end-line="362" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="202" column="30" selection-start-line="187" selection-start-column="0" selection-end-line="217" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="275" column="95" selection-start-line="275" selection-start-column="95" selection-end-line="275" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
   </component>
   <component name="masterDetails">
     <states>

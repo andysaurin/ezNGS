@@ -232,15 +232,6 @@
             </div>
         </div>
 
-       {*19/102016 doit être écrit par le serveur donc passe pas part GUI <div class="row left">
-            <div class="medium-2 columns">
-                <label for="qsub-command" class="right inline">Qsub-command</label>
-            </div>
-            <div class="small-10 columns">
-                <input type="text" id="qsub-command" name="qsub-command[]" value="-q biotools -V -m a -d . " readonly>
-            </div>
-        </div>*}
-
         <fieldset class="large-12">
             <legend>Genome</legend>
 
@@ -320,7 +311,7 @@
         </fieldset>
 
 {if $tools_available|@count > 0}
-        <fieldset class="large-12" id="tools_available">
+        <fieldset class="large-12" id="tools_available_rna">
             <legend>Tools Available</legend>
         </fieldset>
 {/if}
@@ -618,7 +609,7 @@
 //                console.log($key1);
                     for (var $key2 in toolsAvailableRNATable[$key1]){
 //                        console.log($key2);
-                        $("#tools_available").append("<div id='" + $key2 +"'></div>" );
+                        $("#tools_available_rna").append("<div id='" + $key2 +"'></div>" );
                         $("#" + $key2).append("<h3>" + $key2 + "</h3>");
                         for (var $key3 in toolsAvailableRNATable[$key1][$key2]){
                             var nameTool = toolsAvailableRNATable[$key1][$key2][$key3]

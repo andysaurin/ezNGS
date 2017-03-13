@@ -14,4 +14,11 @@ RNA-seq:
 ChIP-seq:
   Quality_control:
   - "FastQC"
+  Trimming:
+  - "sickle"
+  Mapping:
+  - "bowtie2"
+  - "subread-align"
+  peakcalling:
+  - "macs2"
 ...

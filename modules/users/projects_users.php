@@ -141,12 +141,28 @@ class projects_users extends NQ_Auth_User
             array_shift($_POST);
             //print_r($_POST);
 
-            if (!$this->Write_tab_file($_POST,$project_id)){
+            if (!$this->Write_tab_file_rna($_POST,$project_id)){
                 die("Error saving RNA samples.tab");
             }
 
         }
     }
+
+    public function write_sample_chip()
+    {
+        if (!empty($_POST)) {//check if this array is empty.
+            $project_id=$_POST['project_id'];
+            unset($_POST['project_id']);
+            array_shift($_POST);
+            //print_r($_POST);
+
+            if (!$this->Write_tab_file_chip($_POST,$project_id)){
+                die("Error saving ChIP samples.tab");
+            }
+
+        }
+    }
+
 
     public function save_rna_assignation()
     {
@@ -345,6 +361,90 @@ class projects_users extends NQ_Auth_User
             $res = yaml_emit_file($filenameYaml, $configinit);
         }
     }
+
+    public function save_chip_config()
+    {
+        if (!empty($_POST)) {//check if this array is empty.
+            $pathToProject = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'];
+            $filenameYaml = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/ChIP" . "/config.yml";
+            #$filenameJson = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata" . "/config.json";
+            //$temp = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata" . "/configtemp.yml";
+            $configinit = yaml_parse_file($filenameYaml);
+            //print_r($configinit);
+
+            /*Part about some parameters set by the server*/
+            $_POST["author"] = $this->user->username;
+            $_POST["qsub"]="-q biotools -V -m a -d . ";
+            $_POST["metadata"]["samples"] = $pathToProject . "/metadata/ChIP/samples.tab";
+            $_POST["metadata"]["design"] = $pathToProject . "/metadata/ChIP/design.tab";
+            $_POST["metadata"]["configfile"] = $pathToProject . "/metadata/ChIP/config.yml";
+
+            $_POST["dir"]["base"] = $pathToProject;
+            $_POST["dir"]["reads_source"] = $pathToProject . "/samples";
+            $_POST["dir"]["fastq"] = $pathToProject . "/samples";
+            $_POST["dir"]["genome"] = SYSTEM_DATA_ROOT .  "/genomes/Ecoli_K12"; //WARNING HARD CODE to chage after test !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            $_POST["dir"]["results"] = $pathToProject . "/results/ChIP";
+            $_POST["dir"]["gene_regulation"] = $pathToProject . "/gene-regulation";
+
+            $_POST["dir"]["samples"] = $pathToProject . "/results/ChIP/samples";
+            $_POST["dir"]["peaks"] = $pathToProject . "/results/ChIP/peaks";
+            $_POST["dir"]["reports"] = $pathToProject . "/results/ChIP/reports";
+
+            $filenameToolsAvailable = SYSTEM_CONFIG_TOOLS_DIR . "tools_available.yml";
+            $configToolsAvailable = yaml_parse_file($filenameToolsAvailable);
+            $stepsOfAnalysis = array_keys($configToolsAvailable["ChIP-seq"]);
+
+            foreach ($_POST as $key => $value){
+                if (is_array($value)){
+                    //echo $value;
+                    foreach ($value as $key2 => $item) {
+//                        if (isset($_POST["Mapping"])){
+                        //if ($key == "Mapping"){
+                        if (in_array($key,$stepsOfAnalysis)){
+                            $stepName = strtolower($key);
+                            //echo $value;
+                            //echo $_POST[$key];
+                            //echo $key;
+                            $configinit["tools"]["$stepName"]=implode(" ",$_POST[$key]);
+                            //unset($key);
+                        }else{
+                            $configinit[$key][$key2]=trim($item);
+                        }
+                    }
+                }else{
+                    $configinit[$key]=trim($value);
+                }
+            }
+
+            /*//We need to define for the Diffexpr step the condRef in the config file
+            $designFile = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/ChIP" . "/design.tab";
+            $fh = fopen($designFile, 'r');
+            $i = 0;
+            $cols = array();
+            $condRef = "";
+
+            while (($line = fgetcsv($fh,0,"\t")) !== false) {
+                $cols[] = $line;
+
+                if($i == 1)
+                {   $condRef = $line[0];
+                    break;
+                }
+                $i++;
+            }
+            //pas encore adapter
+            //print_r($_POST["diffexpr"]);
+            foreach ($_POST["diffexpr"] as $tool) {
+                $configinit[$tool]["condRef"]=$condRef;
+            }*/
+
+
+            //Write the config file
+            $res = yaml_emit_file($filenameYaml, $configinit);
+        }
+    }
+
+
 
     public function execute_rna_workflow_default()
     {

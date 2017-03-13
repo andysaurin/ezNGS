@@ -285,16 +285,21 @@
                 <input type="text" id="Project_id" name="project_id" value="{$project->id}" readonly>
             </div>
 
-            <table id="sample_to_analyse">
+            <table id="sample_to_analyse_chip">
                 <tr>
-                    <th>md5sum/ID</th>
-                    <th>Sample_name</th>
-                    <th>Groups_associated</th>
+                    <th>treated samples</th>
+                    <th>input samples</th>
+                    <th>Group_associated</th>
                 </tr>
-                <tr id="sample_to_analyse_clone">
-                    <td class="md5sum3"><input id="md5sum_sample_to_analyse" type="text" name="sample_to_analyse[]" readonly/></td>
-                    <td class="Sample_name3"><input id="Sample_name_sample_to_analyse" type="text" name="sample_to_analyse[]" readonly/></td>
-                    <td class="Groups_associated"><input id="Groups_associated_sample_to_analyse" type="text" name="sample_to_analyse[]" readonly/></td>
+                <tr id="sample_to_analyse_chip_clone">
+                    <td class="treated_sample_to_analyse_chip"><input id="treated_sample_to_analyse_chip" type="text" name="sample_to_analyse_chip[]" readonly/></td>
+                    <td class="input_sample_to_analyse_chip"><input id="input_sample_to_analyse_chip" type="text" name="sample_to_analyse_chip[]" readonly/></td>
+                    <td class="group_associated_chip"><input id="group_associated_sample_to_analyse" type="text" name="sample_to_analyse_chip[]" readonly/></td>
+                </tr>
+                <tr id="group_association_chip1">
+                    <td class="treated_sample_to_analyse_chip"><input id="treated_sample_to_analyse_chip1" type="text" name="sample_to_analyse_chip1[]" readonly/></td>
+                    <td class="input_sample_to_analyse_chip"><input id="input_sample_to_analyse_chip1" type="text" name="sample_to_analyse_chip1[]" readonly/></td>
+                    <td class="group_associated_chip"><input id="group_associated_sample_to_analyse1" type="text" name="sample_to_analyse_chip1[]" readonly/></td>
                 </tr>
 
             </table>
@@ -303,6 +308,145 @@
         <input class="button small round" type="submit" value="Validate" />
     </form>
 {/if}
+
+{*Insertion partie rna concernant config*}
+
+{if $chip_group_already_assigned && $design_chip|@count > 0}
+
+    <form id="form-chip_Workflow_design" action="/{$module}/{$class}/save_chip_config"  method="POST">
+        <fieldset>
+            <legend>Design the workflow</legend>
+
+            <div class="row left">
+                <div class="medium-2 columns">
+                    <label for="Project_id"class="right inline">Project_id</label>
+                </div>
+                <div class="small-3 columns">
+                    <input type="text" id="Project_id" name="project_id" value="{$project->id}" readonly>
+                </div>
+            </div>
+
+            <fieldset class="large-12">
+                <legend>Genome</legend>
+
+                <div class="row left">
+                    <div class="large-1 columns">
+                        <label for="organism" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Organism's name">Organism</span></label>
+                    </div>
+                    <div class="large-11 columns">
+                        <input type="text" id="organism" name="genome[organism]" value="" required>
+                    </div>
+                </div>
+
+                <div class=" row left">
+                    <div class="large-1 columns">
+                        <label for="version" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="version's name">Version</span></label>
+                    </div>
+                    <div class="large-11 columns">
+                        <input type="text" id="version" name="genome[version]" value="" required>
+                    </div>
+                </div>
+
+                <div class=" row left">
+                    <div class="large-1 columns">
+                        <label for="size" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="genome's size">Size</span></label>
+                    </div>
+                    <div class="large-11 columns">
+                        <input type="text" id="size" name="genome[size]" value="" required>
+                    </div>
+                </div>
+
+                <div class=" row left">
+                    <div class="large-1 columns">
+                        <label for="fasta_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="fasta_file's name">fasta_file</span></label>
+                    </div>
+                    <div class="large-11 columns">
+                        <input type="text" id="fasta_file" name="genome[fasta_file]" value="" required>
+                    </div>
+                </div>
+
+                <div class=" row left">
+                    <div class="large-1 columns">
+                        <label for="gff3_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gff3_file's name">gff3_file</span></label>
+                    </div>
+                    <div class="large-11 columns">
+                        <input type="text" id="gff3_file" name="genome[gff3_file]" value="" required>
+                    </div>
+                </div>
+
+                <div class=" row left">
+                    <div class="large-1 columns">
+                        <label for="gtf_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gtf_file's name">gtf_file</span></label>
+                    </div>
+                    <div class="large-11 columns">
+                        <input type="text" id="gtf_file" name="genome[gtf_file]" value="" required>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="large-12">
+                <legend>Metadata</legend>
+
+                <div class=" row left">
+                    <div class="large-1 columns">
+                        <label for="seq_type" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="seq_type's name">seq_type</span></label>
+                    </div>
+                    <div class="large-11 columns">
+
+                        <select id="seq_type" name="metadata[seq_type]" required>
+                            <option id="Single-end" value="se">Single-End</option>
+                            <option id="Paired-end" value="pe">Paired-End</option>
+                        </select>
+
+                    </div>
+                </div>
+
+            </fieldset>
+
+            {if $tools_available|@count > 0}
+                <fieldset class="large-12" id="tools_available_chip">
+                    <legend>Tools Available</legend>
+                </fieldset>
+            {/if}
+            <input class="button small round" type="submit" value="Validate" />
+    </form>
+    </fieldset>
+
+    {*
+        faut mettre un if du style si config existe
+    *}
+    <fieldset class="large-12" id="set_parameters">
+        <legend>Set parameters</legend>
+        <form id="form_execute_rna_Workflow_default" action="/{$module}/{$class}/execute_rna_workflow_default"  method="POST">
+            <input type="hidden" id="Project_id" name="project_id" value="{$project->id}">
+            <input class="button large" type="submit" value="Use default parameters" />
+        </form>
+        <form id="form_execute_rna_Workflow_custom_parameters" action="/{$module}/{$class}/execute_rna_workflow_custom_parameters"  method="POST">
+            <input type="hidden" id="Project_id" name="project_id" value="{$project->id}">
+            <a href="#!" class="button large" id="SetCustomParam">Set custom parameter for workflow steps</a>
+
+            <div id="CustomParam">
+
+            </div>
+
+        </form>
+
+
+
+    </fieldset>
+{/if}
+
+
+
+{*END*}
+
+
+
+
+
+
+
 
 <script>
     {*javascript part*}
@@ -596,7 +740,7 @@
             })
         }
 
-        function loadAssignationAndSetDesignChIP() {
+        /*function loadAssignationAndSetDesignChIP() {
             //$("#desing_rna")
             var AllFileAlreadyAssigned = {/literal}{$chip_group_already_assignated|json_encode}{literal};
             var AllGroupsAssigned = new Array;
@@ -632,6 +776,75 @@
                 indexFile++;
             });
 
+        }*/
+
+        function loadSummaryDesignChIP() {
+            var all_chip_pair_already_defined = {/literal}{$all_chip_pair_already_defined|json_encode}{literal};
+
+            var $indexSample = 1;
+            var $indexGroup = 1;
+            //first create lines
+            var $numberOfLineToAdd = Object.keys(all_chip_pair_already_defined).length -1 ;
+            while ($numberOfLineToAdd != 0) {
+                $indexSample++;
+                $indexGroup++;
+                var $newTr = $("#sample_to_analyse_chip tr:eq(1)").clone().attr("id", "group_associated_chip" + $indexSample);
+                $newTr.find("input").each(function() {
+                    $(this).val('').attr("id",function(_, id) { return id + $indexGroup });
+                    //$(this).val('').attr("name",function(_, id) { return id + $indexGroup });
+                    $(this).val('').attr("name",function(_, id) {
+                        var $name = id.split("[");
+                        var $newId = $name[0] + $indexGroup + "[]";
+                        return $newId;
+                    });
+                }).end().appendTo("#sample_to_analyse_chip");
+
+                $numberOfLineToAdd--;
+            }
+
+            //Fill these lines
+            //treated samples and input samples
+            {/literal}
+            var $line = 1;
+            {foreach from=$all_chip_pair_already_defined key=$name item=$pair}
+            {*console.log("{$pair[0][0]->file_name}"); Get treated sample name*}
+
+            var $treated = "#treated_sample_to_analyse_chip" + $line;
+
+            //$("#treated_sample_to_analyse_chip1").css("background-color","red");
+            $($treated).val("{$pair[0][0]->md5sum}");
+            $($treated).hide();
+            $($treated).parent().append("{$pair[0][0]->file_name}");
+
+            var $input = "#input_sample_to_analyse_chip" + $line;
+            $($input).val("{$pair[1][0]->md5sum}");
+            $($input).hide();
+            $($input).parent().append("{$pair[1][0]->file_name}");
+
+            $line++;
+            {/foreach}
+
+            var $couple = 1;
+            {foreach from=$design_chip key=$name item=$pair}
+            //$("[name ='" + '{$pair[2]}' + "'][value='"+'{$pair[2]}'+"']").prop( "checked", true );
+                var $treated = "#treated_sample_to_analyse_chip" + $couple;
+                var $value = $($treated).val();
+                if ("{$pair[0]}" == $value){
+                    //console.log("toto");
+                    var $name = "#group_associated_sample_to_analyse" + $couple;
+                    //console.log($name);
+                    $($name).val("{$pair[2]}");
+                    $($name).hide();
+                    $($name).parent().append("{$pair[2]}");
+                }
+
+
+            $couple++;
+            {/foreach}
+
+
+            {literal}
+
         }
 
         function loadChipSampleType(){
@@ -647,6 +860,31 @@
                 });
             }
         }
+
+        function load_tools_available_ChIP() {
+            var toolsAvailableRNATable = {/literal}{$tools_available|json_encode}{literal};
+            //console.log(toolsAvailableRNATable["RNA-seq"]);
+
+            for (var $key1 in toolsAvailableRNATable){
+                //console.log($key1);
+                if ($key1 == "ChIP-seq"){
+                //console.log($key1);
+                    for (var $key2 in toolsAvailableRNATable[$key1]){
+                        console.log($key2);
+                        $("#tools_available_chip").append("<div id='" + $key2 +"ChIP'></div>" );
+                        $("#" + $key2+"ChIP").append("<h3>" + $key2 + "</h3>");
+                        
+                        for (var $key3 in toolsAvailableRNATable[$key1][$key2]){
+                            var nameTool = toolsAvailableRNATable[$key1][$key2][$key3]
+                            $("#" + $key2+"ChIP").append("<input type=checkbox name=" + $key2 + "[]" + " value=" + nameTool + ">" + nameTool );
+                        }
+
+                    }
+
+                }
+            }
+        }
+
 
         function loadChipPairs() {
             var all_chip_pair_already_defined = {/literal}{$all_chip_pair_already_defined|json_encode}{literal};
@@ -700,7 +938,6 @@
         {/if}
         {if $all_annotations && chip_groups|@count > 0 && in_array("ChIP-seq",$data_type_used)}
             loadFileCHIP();
-        //sampleType();
         {/if}
 
         {if $all_chip_sample_type|@count > 0}
@@ -722,6 +959,10 @@
 
         {if $all_chip_sample_type|@count > 0 && $all_chip_pair_already_defined|@count > 0 && $chip_groups|@count > 0 && $chip_group_already_assigned|@count > 0 && $design_chip|@count > 0}
         loadDesignChIPAlreadyDefined();
+        loadSummaryDesignChIP();
+        {/if}
+        {if $chip_group_already_assigned && $design_chip|@count > 0}
+        load_tools_available_ChIP();
         {/if}
 
         {*{if $design_rna|@count > 0}

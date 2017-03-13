@@ -179,6 +179,10 @@ browser{
     display: none;
 }
 
+#sample_to_analyse_chip_clone {
+    display: none;
+}
+
 #sample_to_analyse_clone{
     display: none;
 }
