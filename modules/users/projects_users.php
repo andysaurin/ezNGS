@@ -97,6 +97,7 @@ class projects_users extends NQ_Auth_User
         if (!empty($_POST)) {//check if this array is empty.
             $project_id=$_POST['project_id'];
             unset($_POST['project_id']);
+            //print_r($_POST);
             //print_r($this->write_chip_design($_POST, $project_id));
             if (!$this->write_chip_design($_POST, $project_id)){
                 die("Error saving ChIP design.tab");
@@ -416,28 +417,6 @@ class projects_users extends NQ_Auth_User
                 }
             }
 
-            /*//We need to define for the Diffexpr step the condRef in the config file
-            $designFile = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/ChIP" . "/design.tab";
-            $fh = fopen($designFile, 'r');
-            $i = 0;
-            $cols = array();
-            $condRef = "";
-
-            while (($line = fgetcsv($fh,0,"\t")) !== false) {
-                $cols[] = $line;
-
-                if($i == 1)
-                {   $condRef = $line[0];
-                    break;
-                }
-                $i++;
-            }
-            //pas encore adapter
-            //print_r($_POST["diffexpr"]);
-            foreach ($_POST["diffexpr"] as $tool) {
-                $configinit[$tool]["condRef"]=$condRef;
-            }*/
-
 
             //Write the config file
             $res = yaml_emit_file($filenameYaml, $configinit);
@@ -463,6 +442,25 @@ class projects_users extends NQ_Auth_User
             //echo $cmd;
         }
     }
+
+    public function execute_chip_workflow_default()
+    {
+        if (!empty($_POST)) {//check if this array is empty.
+            //define the path
+            $pathToProject = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'];
+            //echo $pathToProject;
+
+            //we need to touch all the data files before to run the analysis
+            $pathToSamples = $pathToProject . "/samples";
+            `find "{$pathToSamples}" -exec touch {} \;`;
+
+            //Run the analysis with the workflow
+            $cmd = '/usr/bin/snakemake -s ' . SYSTEM_DATA_ROOT . '/workflows/ChIP-seq_workflow_SE.py -j 8 --configfile ' . $pathToProject . '/metadata/ChIP/config.yml 2>' . $pathToProject . '/ChIP_stdout.txt';
+            shell_exec($cmd);
+            //echo $cmd;
+        }
+    }
+
 
     public function execute_rna_workflow_custom_parameters()
     {
@@ -513,6 +511,63 @@ class projects_users extends NQ_Auth_User
             `find "{$pathToSamples}" -exec touch {} \;`;
 
             $cmd = '/usr/bin/snakemake -s ' . SYSTEM_DATA_ROOT . '/workflows/RNA-seq_workflow_SE.py -j 8 --configfile ' . $pathToProject . '/metadata/RNA/config.yml 2>' . $pathToProject . '/boum.txt';
+            shell_exec($cmd);
+            echo $cmd;
+
+        }
+
+    }
+
+
+    public function execute_chip_workflow_custom_parameters()
+    {
+        //print_r($_POST);
+        if (!empty($_POST)) {//check if this array is empty.
+            //step 1 rewrite config.yml
+            $pathToProject = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'];
+            $filenameYaml = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/ChIP" . "/config.yml";
+            unset($_POST['project_id']);
+            $configinit = yaml_parse_file($filenameYaml);
+
+            //step 1.1 store in an array tools choose before
+            $tools_selected = array();
+            //$configinit["tools"];
+
+            foreach ($configinit["tools"] as $key => $value1){
+                //$value1 == tool list separated by one blank space
+                foreach (explode(" ", $value1) as $tool){
+                    array_push($tools_selected,$tool);
+                }
+
+            }
+            //print_r($tools_selected);
+
+            //step 1.2 compare this array with key in the form
+
+            foreach ($_POST as $key => $value1){
+                if (in_array($key,$tools_selected)){
+                    if (is_array($value1)){
+                        //print_r($key."  ".$value1);
+                        foreach ($value1 as $key2 => $value2) {
+                            //print_r($key2."  ".$value2);
+                            if (!empty($value2)){
+                                $configinit[$key][$key2]=$value2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Write the config file
+            $res = yaml_emit_file($filenameYaml, $configinit);
+
+            //step 2 run the analysis with the workflow
+
+            //we need to touch all the data files before to run the analysis
+            $pathToSamples = $pathToProject . "/samples";
+            `find "{$pathToSamples}" -exec touch {} \;`;
+
+            $cmd = '/usr/bin/snakemake -s ' . SYSTEM_DATA_ROOT . '/workflows/ChIP-seq_workflow_SE.py -j 8 --configfile ' . $pathToProject . '/metadata/ChIP/config.yml 2>' . $pathToProject . '/ChIP_stdout.txt';
             shell_exec($cmd);
             echo $cmd;
 
@@ -595,7 +650,20 @@ class projects_users extends NQ_Auth_User
                 }
             }
 
+            /*Part about if the config file exist we need to read it and fill the corresponding form*/
+            //ChIP Data side
+            if (file_exists($pathFolderMetada . "/ChIP/config.yml")){
+                $configChIP = yaml_parse_file($pathFolderMetada . "/ChIP/config.yml");
+                //print_r(array_keys($configChIP));
+                if (in_array("tools",array_keys($configChIP)) && in_array("metadata",array_keys($configChIP)) && in_array("genome",array_keys($configChIP))){
+                    //print_r("toto");
+                    $this->set('config_chip', $configChIP);
+                }
 
+            }
+
+            /*Test to change input on select option for the genome part on the custom config*/
+            //print_r(scandir(SYSTEM_DATA_ROOT .  "/genomes"));
 
 
             /*$this->rna_group_already_assignated = $this->rna_group_already_assigned_in_db($_GET['id']);
@@ -718,6 +786,23 @@ class projects_users extends NQ_Auth_User
             }
 
             $this->set("custom_config_tools_rna", $customConfigToolsRna);
+
+            $customConfigToolsChip = array();
+
+            foreach ($configToolsAvailable["ChIP-seq"] as $key => $value) {
+                //print_r($value); return Array
+                if (is_array($value)){
+                    foreach ($value as $key2 => $item) {
+                        //print_r($item); return only tool's name
+                        $configFileByTool = SYSTEM_CONFIG_TOOLS_DIR . $item . ".yml";
+                        if (file_exists($configFileByTool)){ // check if file tool.yml exist
+                            array_push($customConfigToolsChip,yaml_parse_file($configFileByTool));// read and store customizable options by tool
+                        }
+                    }
+                }
+            }
+
+            $this->set("custom_config_tools_chip", $customConfigToolsChip);
 
             //we need a global variable path_project NOT SURE 19/10/2016
             //$this->set('path_project', SYSTEM_PROJECTS_ROOT . "/" . $_GET['id']);

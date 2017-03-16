@@ -1778,6 +1778,7 @@ EOT;
         $treatment = array();
         $control = array();
         $group = array();
+		//return count($array);
 
         foreach ($array as $key => $value) {
 
@@ -1791,7 +1792,7 @@ EOT;
             $treated_file_ids = $this->db->get_results("SELECT `treated_file_id` FROM `chip_sample_pair` WHERE `project_id`='{$project_id}'");
 
             foreach ($file_ids as $file) {
-                //return $file->file_id get file_id
+                //return $file->file_id ;
                 foreach ($input_file_ids as $input_file_id) {
 
                     if ($file->file_id == $input_file_id->input_file_id) {
@@ -1821,9 +1822,9 @@ EOT;
 
 
 
-        $control = array_unique($control);
+        //$control = array_unique($control);
 
-        $treatment = array_unique($treatment);
+        //$treatment = array_unique($treatment);
 
             /*Part about create/write the design.tab file*/
 
@@ -1837,7 +1838,7 @@ EOT;
         $handle = fopen($pathFolderMetada . "/ChIP/design.tab", "a+");
         fwrite($handle, "treatment"."\t" . "control" ."\t" . "group" ."\n");
 
-        for ($i=0;$i<count($control);$i++){
+        for ($i=0;$i<max(count($control),count($treatment));$i++){
             fwrite($handle,$treatment[$i] . "\t" . $control[$i] . "\t" . $group[$i] . "\n");
         }
 

@@ -133,8 +133,8 @@
 
 
 
-{*Il faut mettre une condition du style si data_type_used est présent*}
-
+{*Il faut mettre une condition du style si data_type_used est présent   $all_chip_sample_type*}
+{if $all_chip_sample_type|@count > 0 && in_array("ChIP-seq",$data_type_used)}
 <form id="form_chip_coupling_samples" action="/{$module}/{$class}/save_chip_sample_pair" method="POST">
     <fieldset>
         <legend>Coupling samples</legend>
@@ -203,8 +203,10 @@
 </form>
 </fieldset>
 
+{/if}
 
-{if $all_annotations && $chip_groups|@count > 0}
+
+{if $all_chip_pair_already_defined|@count > 0 && $chip_groups|@count > 0}
     <form id="form-group_association_chip" action="/{$module}/{$class}/save_chip_assignation" method="POST">
         <fieldset>
             <legend>Sample-Group assignation</legend>
@@ -418,15 +420,15 @@
     *}
     <fieldset class="large-12" id="set_parameters">
         <legend>Set parameters</legend>
-        <form id="form_execute_rna_Workflow_default" action="/{$module}/{$class}/execute_rna_workflow_default"  method="POST">
+        <form id="form_execute_rna_Workflow_default" action="/{$module}/{$class}/execute_chip_workflow_default"  method="POST">
             <input type="hidden" id="Project_id" name="project_id" value="{$project->id}">
             <input class="button large" type="submit" value="Use default parameters" />
         </form>
-        <form id="form_execute_rna_Workflow_custom_parameters" action="/{$module}/{$class}/execute_rna_workflow_custom_parameters"  method="POST">
+        <form id="form_execute_rna_Workflow_custom_parameters" action="/{$module}/{$class}/execute_chip_workflow_custom_parameters"  method="POST">
             <input type="hidden" id="Project_id" name="project_id" value="{$project->id}">
-            <a href="#!" class="button large" id="SetCustomParam">Set custom parameter for workflow steps</a>
+            <a href="#!" class="button large" id="SetCustomParamChIP">Set custom parameter for workflow steps</a>
 
-            <div id="CustomParam">
+            <div id="CustomParamChIP">
 
             </div>
 
@@ -504,6 +506,28 @@
             $(this).parents().eq(1).remove();
 
         });
+
+
+        $("#SetCustomParamChIP").one( "click", function() {
+            var $customConfigToolsRna = {/literal}{$custom_config_tools_chip|json_encode}{literal};
+            //$("#CustomParam").append("<strong>Hello</strong>" );
+            //$("#CustomParam").append($customConfigToolsRna );
+
+            for (var $key1 in $customConfigToolsRna) {
+                for (var $key2 in $customConfigToolsRna[$key1]) {
+                    //console.log($key2);
+                    for (var $key3 in $customConfigToolsRna[$key1][$key2]) {
+                        $("#CustomParamChIP").append("<div class='large columns'><h3>" + $key2 + "</h3></div>" );
+                        $("#CustomParamChIP").append("<div class='large-1 columns'><label class='left inline' for=" + $key3 +">" + $key3 + "</label></div>" );
+                        $("#CustomParamChIP").append("<div class='large-11 columns'><input type=text id=" + $key3 + " name=" + $key2 + "[" + $key3 +"]" + " value=''></div>");
+                    }
+                }
+            }
+
+            $("#CustomParamChIP").after("<div class='large columns'><input class='button small round '  type='submit' value='Validate' /></div>");
+
+        });
+
 
         function loadGroupAvailableChIP(){
 
@@ -832,7 +856,7 @@
                 if ("{$pair[0]}" == $value){
                     //console.log("toto");
                     var $name = "#group_associated_sample_to_analyse" + $couple;
-                    //console.log($name);
+                    console.log("{$pair[2]}");
                     $($name).val("{$pair[2]}");
                     $($name).hide();
                     $($name).parent().append("{$pair[2]}");
@@ -870,7 +894,7 @@
                 if ($key1 == "ChIP-seq"){
                 //console.log($key1);
                     for (var $key2 in toolsAvailableRNATable[$key1]){
-                        console.log($key2);
+                        //console.log($key2);
                         $("#tools_available_chip").append("<div id='" + $key2 +"ChIP'></div>" );
                         $("#" + $key2+"ChIP").append("<h3>" + $key2 + "</h3>");
                         
@@ -961,8 +985,13 @@
         loadDesignChIPAlreadyDefined();
         loadSummaryDesignChIP();
         {/if}
+
         {if $chip_group_already_assigned && $design_chip|@count > 0}
         load_tools_available_ChIP();
+        {/if}
+
+        {if $design_chip && $chip_group_already_assigned && $design_chip|@count > 0}
+        //loadDesignChipFile();
         {/if}
 
         {*{if $design_rna|@count > 0}

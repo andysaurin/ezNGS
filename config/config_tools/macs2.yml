@@ -1,4 +1,9 @@
 ---
 macs2: 
-  max_mismatches: 
+  qval:
+  keep_dup: 
+  band_width:
+  mfold_min:
+  mfold_max:
+  other_options:
 ...

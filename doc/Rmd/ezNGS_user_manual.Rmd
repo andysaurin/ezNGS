@@ -1,8 +1,13 @@
 ---
 title: "ezNGS User Manual"
 author: "Lucie Khamvongsa, Andrew J. Saurin and Jacques van Helden"
-date: "2/24/2017; Last update: `r Sys.Date()`"
+date: '2/24/2017; Last update: `r Sys.Date()`'
 output:
+  pdf_document:
+    fig_caption: yes
+    highlight: zenburn
+    toc: yes
+    toc_depth: 3
   html_document:
     fig_caption: yes
     highlight: zenburn
@@ -10,11 +15,6 @@ output:
     toc: yes
     toc_depth: 3
     toc_float: yes
-  pdf_document:
-    fig_caption: yes
-    highlight: zenburn
-    toc: yes
-    toc_depth: 3
   word_document: default
 ---
 
