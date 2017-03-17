@@ -3,11 +3,6 @@ title: "ezNGS User Manual"
 author: "Lucie Khamvongsa, Andrew J. Saurin and Jacques van Helden"
 date: '2/24/2017; Last update: `r Sys.Date()`'
 output:
-  pdf_document:
-    fig_caption: yes
-    highlight: zenburn
-    toc: yes
-    toc_depth: 3
   html_document:
     fig_caption: yes
     highlight: zenburn
@@ -15,6 +10,11 @@ output:
     toc: yes
     toc_depth: 3
     toc_float: yes
+  pdf_document:
+    fig_caption: yes
+    highlight: zenburn
+    toc: yes
+    toc_depth: 3
   word_document: default
 ---
 
@@ -22,102 +22,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE, fig.align = "center", out.width = "80%")
 ```
 
-# To do
-
-
-## Interface
-
-### All my projects
-
-- All my projects: un triangle apparaît mais il n'y a rien en-dessous -> remplacer menu drop down par un menu normal. Alternative: all the project would appear under the menu when clicking on the triangle. 
-- The project summary displayed on the page "All my projects" could include some additional fields, in particular the number of samples, and the short description string. 
-
-- "Go Abda" -> "Open project Abda"
-
-### Project access
-
-- L'URL d'accès à un projet ne devrait contenir que l'ID.
-
-  <http://amidex.biotools.fr/users/projects_users/go/?id=56&name=Abda>
-
-devrait être:
-
-  <http://amidex.biotools.fr/users/projects_users/go/?id=56>
-
-Par contre le nom de projet doit systématiquement apparaître sur le titre de la page de projet. 
-
-
-Actuellement si l'utilisateur change le nom dans l'URL le site affiche le nom que l'utilsateur a entré, ce qui peut provoquer des incohérences entre le nom affihé et le nom réel. Le vrai nom de projet (stocké dans la DB) doit être affiché, pas le nom entré dans l'URL. 
-
-- Si on fournir un URL non valide, il faut afficher un message d'erreur "No such project" ou tout au moins une erreur 404. Par exemple
-
-  <http://amidex.biotools.fr/users/projects_users/go/?id=0980>
-
-affiche "Welcome to project" alors qu'il n'existe pas de projet avec cet ID. 
-
-### Affichage des projets
-
-Quand on ouvre la page d'un projet (à partir de All My Projects) il faudrait afficher la page de description du projet. Pour le moment cette page contiendra la même info que le résumé affiché avec "All my Projects" mais on devrait aussi y ajouter
-
-- le nom de projet
-- une description du projet  
-
-En gros cela devrait ressembler à la page d'une série GEO. 
-
-
-### Import new sequence files
-
-- This form should be renamed "Add sequence files"
-
-- la boîte de filtres ne fonctionne pas comme on s'y attendrait. Cette fonctionnalité fait partie de la classe prédéfinie php, mais on peut la masquer pour éviter la confusion, via le css. 
-
-### Manage project descriptions
-
-- Title_series: vérifier si c'est bien le nom, a priori on dirait "Series title"
-
-- Le champ "Summary" doit être une textarea (plusieurs lignes) plutôt qu'une textbox (une ligne). 
-
-- Overal design: textarea plutôt que textbox. 
-
-- Ajouter le champ "Organism"
-
-- Les boutons "Delete sample" ne fonctionnent pas. Il faudrait évaluer si l'on permet à l'utilisateur d'effacer les échantillons d'un projet. Ceci n'est pas évident car il se peut que l'échantillon ait déjà été traité, et u'il y ait un tas d'autres fichiers liés (bam, fastqc, ...). De plus il se peut que les résultats (par exemple tables de comptages, résultats d'analyse différentielle) soient basés sur cet échantillon -> en l'effaçant on casse la cohérence entre les données et les résultats. 
-
-- Sample description form: once a sequence file has been used in a workflow, its type cannot be change anymore, since an RNA-seq cannot become a ChIP-seq and reciprocally.
-
-### Exécution des workflows
-
-- il faudrait avoir une trace du statut de chaque workflow
-
-- il fadurait qu'on définisse une règle "Done" qui génère un fichier quand le workflow est fini, ce qui permettra de connaître le statut de chaque workflow. A voir avec Claire. 
-
-
-### RNA-seq workflows
-
-- the multiple assignation samples - groups may pose some problems of consistency: if in the design we compare two groups and a same sample belongs to the two groups the back-end (snakemake) should complain. 
-
-
-#### Group definitions
-
-- The addition of a new group should appear as a row at the end of the list of existing groups. 
-
-- The button "Add new group" is not necessary (especially if the "Save new group" section comes at the end of the existing groups). 
-
-- The fields "Group description" and "Group name" should be editable even during the project. 
-
-- The function "Delete this group" est dangereuse: si le group a déjà été utilisé dans un workflow on casse l'intégrité entre les données et les résultats. 
-
-### Sample-group assignation
-
-- Sample-Group assignation: the blue button should be inside the gray rectangle. 
-
-### Design description
-
-- the groups should be selected with a drop-down menu (HTML select) rather than as free text, to ensure consistency between the groups to be compared and those defined and assigned to samples .
-
-- actually the design should b ebased on the group IDs, not their names. The group name is a matter of display (this is displayed in the menu) but the design file should contain the unique ID of the group. This is also necessary if one wants to allow user to edit the group names (which is a good thing) without detroying the consistency between the design, the data (sample/group assignations) and the results. 
-
-- The button "Save Design" should be inside the  Design description rectangle, not below it. 
 
 # Introduction
 
@@ -208,7 +112,20 @@ knitr::include_graphics('../images/project_description.png')
 ```
 
 
-Note that this form enables you to provide a lot of details about the project itself, as well as about each sample. The fields of the sample descriptiojn form were defined in concordance with the specifications required to submit the results to the Gene Expression Omnibus database. 
+Note that this form enables you to provide a lot of details about the project itself, as well as about each sample. The fields of the sample descriptiojn form were defined in concordance with the specifications required to submit the results to the Gene Expression Omnibus database (GEO). 
+
+<https://www.ncbi.nlm.nih.gov/geo/info/submission.html>
+
+<font color='red'>
+**TODO:**
+
+- add link to the excel document
+- Button "Add a contributor" should be under "SRA_center_name_code", rather than in the topright corner.
+- When a form is validated, the user should be redirected to the same form, or at least to the home page of the same project, but not to her/his general home page. 
+</font>
+
+In this form, we restricted the fields to those that need to be filled in by the biologist. 
+Other fields of the GEO submission form describe the steps of the bioinformatics workflow. Rather than typing these fields manually, our system **(will, in a future release)** automatically pre-fills these fields with the tools and parameters selected on the workflow-specific forms (ChIP-seq, RNA-seq).  
 
 It may be cumbersome to fill in all the fields before even starting the analyses. At this stage, the only required information is the type of each sample (ChIP-seq or RNA-seq). You will still be able to fulfill sample annotations at any further phase of the project. 
 
@@ -269,6 +186,157 @@ knitr::include_graphics('../images/rna-seq_design_description.png')
 ```
 
 
+<font color="red">
+TODO:
+
+- Sample-Group assignation: replace checkboxes by radio buttons (so far the snakemake workflows only support one condition per sample, since it is a single column of the sample.tab file). Add a "none" button to enable deselecting samples for the current analysis. 
+
+- When there is an empty group, a checkbox currently appears. After adaptation, radio bxes should only appear for groups having a name. 
+
+- "Complete the table with RNA-seq analysis you want to perform. Example: CondA/CondB write "CondA" in Group reference and "CondB" in Group test."
+
+    -> Indicate the groups to be compared for differential analysis. The left column indicates the test group (e.g. mutant, treated) and the right column the reference group (wild-type, untreated). Additional test versus reference comparisons can be done by clicking "Add analysis".
+
+- In the design box, swap  Reference and Test: Test should come before reference (Test versus Reference). 
+- Group test -> Test group (e.g. mutant, treated)
+- Group reference -> Reference group (e.g. wild-type, untreated)
+- "Sample To analyse" -> "Summary of the analysis"
+- the "Genome" section should be moved to the project form
+</font>
+
+
+## Design the workflow
+
+- **seq_type**: this parameter enables to choose whether the analysis should be done in single-end or paired-ends mode. Note that in some circumstances paired-ends sequences can be analysed as if they were single-end. 
+
+<font color='red'>
+TODO
+
+- The sample import does not handle the coupling of fastq files when sequencing is done in paired-ends. This has to be rethought. Andy should look for a solution, which may require Ajax: once a sample is labeled as paired end, a second box must present the samples to select the paired fastq file. When a file is selected as paired, its row must disappear from the remaining samples.  
+
+- 
+
+- "Metadata" currently contain a single parameter. This is a bit strange to have a section for a single parameter. 
+
+- Genome size should be computed automatically
+
+    ````grep -v '^>' /workspace/rsat/data/genomes/Drosophila_melanogaster/genome/Drosophila_melanogaster.dna.genome.fa | perl -pe 's|\s||g' | wc -c````
+    
+
+- Can we include a way to select automatically the genomes from UCSC    
+
+</font>
 
 
 
+# FAQ
+
+
+## I have several runs par sample
+
+The current interface assumes that each fastq file corresponds to one sample.  If several runs have been done per sample, the run-specific fastq files should be merged by samples before transferring the files to the system. 
+
+
+
+# To do
+
+
+## Interface
+
+### All my projects
+
+- All my projects: un triangle apparaît mais il n'y a rien en-dessous -> remplacer menu drop down par un menu normal. Alternative: all the project would appear under the menu when clicking on the triangle. 
+- The project summary displayed on the page "All my projects" could include some additional fields, in particular the number of samples, and the short description string. 
+
+- "Go Abda" -> "Open project Abda"
+
+### Project access
+
+- L'URL d'accès à un projet ne devrait contenir que l'ID.
+
+  <http://amidex.biotools.fr/users/projects_users/go/?id=56&name=Abda>
+
+devrait être:
+
+  <http://amidex.biotools.fr/users/projects_users/go/?id=56>
+
+Par contre le nom de projet doit systématiquement apparaître sur le titre de la page de projet. 
+
+
+Actuellement si l'utilisateur change le nom dans l'URL le site affiche le nom que l'utilsateur a entré, ce qui peut provoquer des incohérences entre le nom affihé et le nom réel. Le vrai nom de projet (stocké dans la DB) doit être affiché, pas le nom entré dans l'URL. 
+
+- Si on fournir un URL non valide, il faut afficher un message d'erreur "No such project" ou tout au moins une erreur 404. Par exemple
+
+  <http://amidex.biotools.fr/users/projects_users/go/?id=0980>
+
+affiche "Welcome to project" alors qu'il n'existe pas de projet avec cet ID. 
+
+### Affichage des projets
+
+Quand on ouvre la page d'un projet (à partir de All My Projects) il faudrait afficher la page de description du projet. Pour le moment cette page contiendra la même info que le résumé affiché avec "All my Projects" mais on devrait aussi y ajouter
+
+- le nom de projet
+- une description du projet  
+
+En gros cela devrait ressembler à la page d'une série GEO. 
+
+
+### Import new sequence files
+
+- This form should be renamed "Add sequence files"
+
+- la boîte de filtres ne fonctionne pas comme on s'y attendrait. Cette fonctionnalité fait partie de la classe prédéfinie php, mais on peut la masquer pour éviter la confusion, via le css. 
+
+### Manage project descriptions
+
+
+- Title_series: vérifier si c'est bien le nom, a priori on dirait "Series title"
+
+- Le champ "Summary" doit être une textarea (plusieurs lignes) plutôt qu'une textbox (une ligne). 
+
+- Overal design: textarea plutôt que textbox. 
+
+- Ajouter le champ "Organism"
+
+- Supplementary file: this field should not be a textbox but an upload button.  If this feature of GEO submissions is not really used, we can also suppress this field from our form.  To evaluate. 
+
+- Les boutons "Delete sample" ne fonctionnent pas. Il faudrait évaluer si l'on permet à l'utilisateur d'effacer les échantillons d'un projet. Ceci n'est pas évident car il se peut que l'échantillon ait déjà été traité, et u'il y ait un tas d'autres fichiers liés (bam, fastqc, ...). De plus il se peut que les résultats (par exemple tables de comptages, résultats d'analyse différentielle) soient basés sur cet échantillon -> en l'effaçant on casse la cohérence entre les données et les résultats. 
+
+- Sample description form: once a sequence file has been used in a workflow, its type cannot be change anymore, since an RNA-seq cannot become a ChIP-seq and reciprocally.
+
+
+- Add a button "validate" after each section of the form. 
+
+### Exécution des workflows
+
+- il faudrait avoir une trace du statut de chaque workflow
+
+- il fadurait qu'on définisse une règle "Done" qui génère un fichier quand le workflow est fini, ce qui permettra de connaître le statut de chaque workflow. A voir avec Claire. 
+
+
+### RNA-seq workflows
+
+- the multiple assignation samples - groups may pose some problems of consistency: if in the design we compare two groups and a same sample belongs to the two groups the back-end (snakemake) should complain. 
+
+
+#### Group definitions
+
+- The addition of a new group should appear as a row at the end of the list of existing groups. 
+
+- The button "Add new group" is not necessary (especially if the "Save new group" section comes at the end of the existing groups). 
+
+- The fields "Group description" and "Group name" should be editable even during the project. 
+
+- The function "Delete this group" est dangereuse: si le group a déjà été utilisé dans un workflow on casse l'intégrité entre les données et les résultats. 
+
+### Sample-group assignation
+
+- Sample-Group assignation: the blue button should be inside the gray rectangle. 
+
+### Design description
+
+- the groups should be selected with a drop-down menu (HTML select) rather than as free text, to ensure consistency between the groups to be compared and those defined and assigned to samples .
+
+- actually the design should b ebased on the group IDs, not their names. The group name is a matter of display (this is displayed in the menu) but the design file should contain the unique ID of the group. This is also necessary if one wants to allow user to edit the group names (which is a good thing) without detroying the consistency between the design, the data (sample/group assignations) and the results. 
+
+- The button "Save Design" should be inside the  Design description rectangle, not below it. 
