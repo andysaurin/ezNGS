@@ -335,8 +335,15 @@
                     <div class="large-1 columns">
                         <label for="organism" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Organism's name">Organism</span></label>
                     </div>
-                    <div class="large-11 columns">
-                        <input type="text" id="organism" name="genome[organism]" value="" required>
+                    <div id="genome_organism" class="large-11 columns">
+                        {*<input type="text" id="organism" name="genome[organism]" value="" required>*}
+
+                        <select id="chip_organism" name="genome[organism]" required>
+                            <option id="Empty" value=" "> </option>
+                            {foreach from=$all_genome key=$name item=$pair}
+                                <option id="{$name}" value="{$name}">{$name}</option>
+                            {/foreach}
+                        </select>
                     </div>
                 </div>
 
@@ -345,7 +352,13 @@
                         <label for="version" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="version's name">Version</span></label>
                     </div>
                     <div class="large-11 columns">
-                        <input type="text" id="version" name="genome[version]" value="" required>
+                        {*<input type="text" id="version" name="genome[version]" value="" required>*}
+                        <select id="chip_version" name=genome[version]" required>
+                            <option id="Empty" value=" "> </option>
+                            {foreach from=$all_genome key=$name item=$pair}
+                                <option id="{$name}" value="{$name}">{$name}</option>
+                            {/foreach}
+                        </select>
                     </div>
                 </div>
 
@@ -363,7 +376,12 @@
                         <label for="fasta_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="fasta_file's name">fasta_file</span></label>
                     </div>
                     <div class="large-11 columns">
-                        <input type="text" id="fasta_file" name="genome[fasta_file]" value="" required>
+                        {*<input type="text" id="fasta_file" name="genome[fasta_file]" value="" required>*}
+
+                        <select id="chip_fasta_file" name=genome[fasta_file]" required>
+                            <option id="Empty" value=" "> </option>
+
+                        </select>
                     </div>
                 </div>
 
@@ -372,7 +390,12 @@
                         <label for="gff3_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gff3_file's name">gff3_file</span></label>
                     </div>
                     <div class="large-11 columns">
-                        <input type="text" id="gff3_file" name="genome[gff3_file]" value="" required>
+                        {*<input type="text" id="chip_gff3_file" name="genome[gff3_file]" value="" required>*}
+
+                        <select id="chip_gff3_file" name=genome[gff3_file]" required>
+                            <option id="Empty" value=" "> </option>
+
+                        </select>
                     </div>
                 </div>
 
@@ -736,6 +759,52 @@
 
         }
 
+        /*test part input to select for the genome section*/
+        function loadGenomes() {
+            {/literal}
+            {foreach from=$all_genome key=$name item=$pair}
+            /*//console.log("{$name}");*/
+            {/foreach}
+            {literal}
+
+            {/literal}
+            /*//console.log("{$all_genome["dm3"][1]}");*/
+            {literal}
+
+        }
+        $("#chip_organism").change(function () {
+            var val = $(this).val();
+            //no if we are sur of the value
+            var AllGenome = {/literal}{$all_genome|json_encode}{literal};
+            //console.log(AllGenome[val][1]);
+            for(var item in AllGenome[val] ){
+                if($.isNumeric(item)){//if is numeric this correpond to a file not a folder
+                    //console.log( AllGenome[val][item]);
+                    var ext = AllGenome[val][item].split(".");
+                    //console.log(ext[ext.length -1]);
+
+                    //Test extension file to create the good option at the good place on the genome config file
+                    //chip_fasta_file
+
+                    if(ext[ext.length -1] == "fa"){
+                        $("#chip_fasta_file option").remove();
+                        //$("#chip_fasta_file").append("<option id= 'empty' value=' '></option>");
+                        $("#chip_fasta_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
+                    }
+                    //exploiter le else pour le cas ou ya pas
+
+
+                    if(ext[ext.length -1] == "gff3"){
+                        $("#chip_gff3_file option").remove();
+                        $("#chip_gff3_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
+                    }
+
+
+                }
+            }
+
+        });
+
         function loadDesignChIPAlreadyDefined() {
             {/literal}
             {foreach from=$design_chip key=$name item=$pair}
@@ -988,6 +1057,7 @@
 
         {if $chip_group_already_assigned && $design_chip|@count > 0}
         load_tools_available_ChIP();
+        loadGenomes();
         {/if}
 
         {if $design_chip && $chip_group_already_assigned && $design_chip|@count > 0}

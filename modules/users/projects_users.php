@@ -665,6 +665,32 @@ class projects_users extends NQ_Auth_User
             /*Test to change input on select option for the genome part on the custom config*/
             //print_r(scandir(SYSTEM_DATA_ROOT .  "/genomes"));
 
+            function dirToArray($dir) {// find on
+
+                $result = array();
+
+                $cdir = scandir($dir);
+                foreach ($cdir as $key => $value)
+                {
+                    if (!in_array($value,array(".","..")))
+                    {
+                        if (is_dir($dir . DIRECTORY_SEPARATOR . $value))
+                        {
+                            $result[$value] = dirToArray($dir . DIRECTORY_SEPARATOR . $value);
+                        }
+                        else
+                        {
+                            $result[] = $value;
+                        }
+                    }
+                }
+
+                return $result;
+            }
+
+            $all_genome = dirToArray(SYSTEM_DATA_ROOT .  "/genomes");
+            $this->set('all_genome', $all_genome);
+
 
             /*$this->rna_group_already_assignated = $this->rna_group_already_assigned_in_db($_GET['id']);
             $this->set('rna_group_already_assignated', $this->rna_group_already_assignated);*/

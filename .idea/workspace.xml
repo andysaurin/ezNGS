@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config_tools/macs2.yml" afterPath="$PROJECT_DIR$/config/config_tools/macs2.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/Rmd/ezNGS_user_manual.Rmd" afterPath="$PROJECT_DIR$/doc/Rmd/ezNGS_user_manual.Rmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/Module.php" afterPath="$PROJECT_DIR$/includes/Module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/users/projects_users.php" afterPath="$PROJECT_DIR$/modules/users/projects_users.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     </list>
@@ -35,116 +32,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RNA-seq.tpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="437" column="37" selection-start-line="437" selection-start-column="37" selection-end-line="437" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChIP-seq.tpl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChIP-seq.tpl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1160">
-              <caret line="734" column="21" selection-start-line="734" selection-start-column="21" selection-end-line="734" selection-end-column="21" />
+            <state relative-caret-position="303">
+              <caret line="784" column="0" selection-start-line="784" selection-start-column="0" selection-end-line="784" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="665" column="14" selection-start-line="665" selection-start-column="14" selection-end-line="665" selection-end-column="14" />
+            <state relative-caret-position="845">
+              <caret line="691" column="50" selection-start-line="691" selection-start-column="50" selection-end-line="691" selection-end-column="50" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Module.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/Module.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27315">
-              <caret line="1826" column="48" selection-start-line="1826" selection-start-column="48" selection-end-line="1826" selection-end-column="48" />
-              <folding>
-                <marker date="1489486515000" expanded="true" signature="3176:3254" ph="..." />
-                <marker date="1489486515000" expanded="true" signature="3526:3585" ph="SELECT * FRO... users" />
-                <marker date="1489486515000" expanded="true" signature="3773:3868" ph="SELECT count... users" />
-                <marker date="1489486515000" expanded="true" signature="18057:18065" ph="..." />
-                <marker date="1489486515000" expanded="true" signature="19121:19179" ph="SELECT * FRO... users" />
-                <marker date="1489486515000" expanded="true" signature="28894:28935" ph="SELECT * FRO... users" />
-                <marker date="1489486515000" expanded="true" signature="29360:29404" ph="SELECT * FRO... projects" />
-                <marker date="1489486515000" expanded="true" signature="29452:29603" ph="SELECT proje... projects" />
-                <marker date="1489486515000" expanded="true" signature="29904:30010" ph="SELECT `user... project_managers" />
-                <marker date="1489486515000" expanded="true" signature="30973:31094" ph="SELECT users... users" />
-                <marker date="1489486515000" expanded="true" signature="31537:31715" ph="INSERT INTO `projects`... " />
-                <marker date="1489486515000" expanded="true" signature="32112:32169" ph="SELECT `id` projects" />
-                <marker date="1489486515000" expanded="true" signature="32249:32350" ph="INSERT INTO `project_managers`... " />
-                <marker date="1489486515000" expanded="true" signature="32540:32639" ph="INSERT INTO `users_projects`... " />
-                <marker date="1489486515000" expanded="true" signature="35865:35922" ph="SELECT * FRO... projects" />
-                <marker date="1489486515000" expanded="true" signature="36066:36092" ph="SELECT * FRO... data_types" />
-                <marker date="1489486515000" expanded="true" signature="36372:36520" ph="INSERT INTO `files`... " />
-                <marker date="1489486515000" expanded="true" signature="37009:37065" ph="SELECT `file... files" />
-                <marker date="1489486515000" expanded="true" signature="37295:37409" ph="INSERT INTO `files_projects`... " />
-                <marker date="1489486515000" expanded="true" signature="37705:37731" ph="SELECT * FRO... data_types" />
-                <marker date="1489486515000" expanded="true" signature="37919:38012" ph="SELECT COUNT... files_projects" />
-                <marker date="1489486515000" expanded="true" signature="38433:38511" ph="SELECT files... files" />
-                <marker date="1489486515000" expanded="true" signature="38888:39039" ph="SELECT files... files" />
-                <marker date="1489486515000" expanded="true" signature="39689:39800" ph="INSERT INTO `metadata`... " />
-                <marker date="1489486515000" expanded="true" signature="39866:39936" ph="SELECT `meta... metadata" />
-                <marker date="1489486515000" expanded="true" signature="40097:40199" ph="INSERT INTO `project_metadata`... " />
-                <marker date="1489486515000" expanded="true" signature="40434:40541" ph="SELECT COUNT... metadata" />
-                <marker date="1489486515000" expanded="true" signature="40994:41112" ph="SELECT COUNT... project_metadata" />
-                <marker date="1489486515000" expanded="true" signature="41677:41780" ph="SELECT * FRO... groups" />
-                <marker date="1489486515000" expanded="true" signature="42164:42268" ph="SELECT * FRO... groups" />
-                <marker date="1489486515000" expanded="true" signature="42915:42971" ph="SELECT `file... files" />
-                <marker date="1489486515000" expanded="true" signature="43177:43247" ph="SELECT `meta... metadata" />
-                <marker date="1489486515000" expanded="true" signature="43468:43601" ph="INSERT INTO `files_metadata`... " />
-                <marker date="1489486515000" expanded="true" signature="44007:44118" ph="SELECT COUNT... files_metadata" />
-                <marker date="1489486515000" expanded="true" signature="44470:44560" ph="DELETE FROM " />
-                <marker date="1489486515000" expanded="true" signature="45328:45381" ph="SELECT `file... files" />
-                <marker date="1489486515000" expanded="true" signature="45416:45502" ph="DELETE FROM " />
-                <marker date="1489486515000" expanded="true" signature="45670:45768" ph="SELECT `grou... groups" />
-                <marker date="1489486515000" expanded="true" signature="45807:45922" ph="INSERT INTO `groups_files`... " />
-                <marker date="1489486515000" expanded="true" signature="47432:47533" ph="SELECT `trea... chip_sample_pair" />
-                <marker date="1489486515000" expanded="true" signature="47600:47699" ph="SELECT `inpu... chip_sample_pair" />
-                <marker date="1489486515000" expanded="true" signature="47789:47883" ph="DELETE FROM " />
-                <marker date="1489486515000" expanded="true" signature="47922:48014" ph="DELETE FROM " />
-                <marker date="1489486515000" expanded="true" signature="48532:48650" ph="SELECT `grou... groups" />
-                <marker date="1489486515000" expanded="true" signature="48693:48812" ph="INSERT INTO `groups_files`... " />
-                <marker date="1489486515000" expanded="true" signature="48854:48971" ph="INSERT INTO `groups_files`... " />
-                <marker date="1489486515000" expanded="true" signature="49910:50005" ph="SELECT `file... files_projects" />
-                <marker date="1489486515000" expanded="true" signature="50172:50293" ph="INSERT INTO `chip_sample_type`... " />
-                <marker date="1489486515000" expanded="true" signature="50360:50450" ph="DELETE FROM " />
-                <marker date="1489486515000" expanded="true" signature="50493:50614" ph="INSERT INTO `chip_sample_type`... " />
-                <marker date="1489486515000" expanded="true" signature="51464:51563" ph="SELECT `file... files_projects" />
-                <marker date="1489486515000" expanded="true" signature="51655:51754" ph="SELECT `file... files_projects" />
-                <marker date="1489486515000" expanded="true" signature="51789:51946" ph="INSERT INTO `chip_sample_pair`... " />
-                <marker date="1489486515000" expanded="true" signature="52122:52266" ph="SELECT chip_... chip_sample_type" />
-                <marker date="1489486515000" expanded="true" signature="52532:52745" ph="SELECT files... files" />
-                <marker date="1489486515000" expanded="true" signature="52995:53210" ph="SELECT files... files" />
-                <marker date="1489486515000" expanded="true" signature="53671:53784" ph="SELECT `file... files_projects" />
-                <marker date="1489486515000" expanded="true" signature="53832:53943" ph="SELECT `file... files_projects" />
-                <marker date="1489486515000" expanded="true" signature="53974:54115" ph="DELETE FROM " />
-                <marker date="1489486515000" expanded="true" signature="54285:54335" ph="SELECT * FRO... chip_sample_pair" />
-                <marker date="1489486515000" expanded="true" signature="54568:54675" ph="SELECT COUNT... chip_sample_type" />
-                <marker date="1489486515000" expanded="true" signature="54991:55127" ph="SELECT COUNT... groups_files" />
-                <marker date="1489486515000" expanded="true" signature="55593:55834" ph="INSERT INTO `groups`... " />
-                <marker date="1489486515000" expanded="true" signature="56111:56427" ph="SELECT chip_... groups_files" />
-                <marker date="1489486515000" expanded="true" signature="57203:57466" ph="SELECT files... groups_files" />
-                <marker date="1489486515000" expanded="true" signature="57854:58141" ph="SELECT files... groups_files" />
-                <marker date="1489486515000" expanded="true" signature="58737:58850" ph="SELECT `grou... groups" />
-                <marker date="1489486515000" expanded="true" signature="58958:59058" ph="SELECT `file... groups_files" />
-                <marker date="1489486515000" expanded="true" signature="59192:59273" ph="SELECT `inpu... chip_sample_pair" />
-                <marker date="1489486515000" expanded="true" signature="59333:59416" ph="SELECT `trea... chip_sample_pair" />
-                <marker date="1489486515000" expanded="true" signature="59759:59822" ph="SELECT `md5s... files" />
-                <marker date="1489486515000" expanded="true" signature="60310:60373" ph="SELECT `md5s... files" />
-                <marker date="1489486515000" expanded="true" signature="63104:63142" ph="DELETE FROM " />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -240,8 +143,8 @@
         <option value="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
         <option value="$PROJECT_DIR$/includes/Module.php" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
         <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
       </list>
     </option>
   </component>
@@ -308,8 +211,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -339,6 +242,134 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="projects_users" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -686,12 +717,16 @@
       <workItem from="1489568203404" duration="834000" />
       <workItem from="1489573044527" duration="1818000" />
       <workItem from="1489584070768" duration="5208000" />
-      <workItem from="1489653550389" duration="1566000" />
+      <workItem from="1489653550389" duration="2758000" />
+      <workItem from="1489659272060" duration="1656000" />
+      <workItem from="1489671024402" duration="5426000" />
+      <workItem from="1489741985120" duration="2701000" />
+      <workItem from="1489757322510" duration="4593000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="514058000" />
+    <option name="totallyTimeSpent" value="529626000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -704,9 +739,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="24" width="1922" height="1032" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.178762" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18729989" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49786323" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.50641024" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -751,89 +786,39 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39226">
-          <caret line="1788" column="2" selection-start-line="1788" selection-start-column="2" selection-end-line="1788" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33506">
-          <caret line="1528" column="97" selection-start-line="1528" selection-start-column="97" selection-end-line="1528" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34034">
-          <caret line="1547" column="20" selection-start-line="1547" selection-start-column="20" selection-end-line="1547" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36388">
-          <caret line="1654" column="20" selection-start-line="1654" selection-start-column="20" selection-end-line="1654" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/modules/api/projects.php" />
     <entry file="file://$PROJECT_DIR$/modules/admin/create.php" />
@@ -844,122 +829,42 @@
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/description.yml" />
     <entry file="file://$PROJECT_DIR$/data/workflows/RNA-seq_workflow_SE.py" />
     <entry file="file://$PROJECT_DIR$/htdocs/stylesheets/main.css" />
-    <entry file="file://$PROJECT_DIR$/config/config_tools/tools_available.yml">
+    <entry file="file://$PROJECT_DIR$/config/config_tools/tools_available.yml" />
+    <entry file="file://$PROJECT_DIR$/config/config_tools/macs2.yml" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="437" column="37" selection-start-line="437" selection-start-column="37" selection-end-line="437" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config_tools/macs2.yml">
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="-2970">
+          <caret line="53" column="120" selection-start-line="53" selection-start-column="120" selection-end-line="53" selection-end-column="120" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27315">
-          <caret line="1826" column="48" selection-start-line="1826" selection-start-column="48" selection-end-line="1826" selection-end-column="48" />
-          <folding>
-            <marker date="1489486515000" expanded="true" signature="3176:3254" ph="..." />
-            <marker date="1489486515000" expanded="true" signature="3526:3585" ph="SELECT * FRO... users" />
-            <marker date="1489486515000" expanded="true" signature="3773:3868" ph="SELECT count... users" />
-            <marker date="1489486515000" expanded="true" signature="18057:18065" ph="..." />
-            <marker date="1489486515000" expanded="true" signature="19121:19179" ph="SELECT * FRO... users" />
-            <marker date="1489486515000" expanded="true" signature="28894:28935" ph="SELECT * FRO... users" />
-            <marker date="1489486515000" expanded="true" signature="29360:29404" ph="SELECT * FRO... projects" />
-            <marker date="1489486515000" expanded="true" signature="29452:29603" ph="SELECT proje... projects" />
-            <marker date="1489486515000" expanded="true" signature="29904:30010" ph="SELECT `user... project_managers" />
-            <marker date="1489486515000" expanded="true" signature="30973:31094" ph="SELECT users... users" />
-            <marker date="1489486515000" expanded="true" signature="31537:31715" ph="INSERT INTO `projects`... " />
-            <marker date="1489486515000" expanded="true" signature="32112:32169" ph="SELECT `id` projects" />
-            <marker date="1489486515000" expanded="true" signature="32249:32350" ph="INSERT INTO `project_managers`... " />
-            <marker date="1489486515000" expanded="true" signature="32540:32639" ph="INSERT INTO `users_projects`... " />
-            <marker date="1489486515000" expanded="true" signature="35865:35922" ph="SELECT * FRO... projects" />
-            <marker date="1489486515000" expanded="true" signature="36066:36092" ph="SELECT * FRO... data_types" />
-            <marker date="1489486515000" expanded="true" signature="36372:36520" ph="INSERT INTO `files`... " />
-            <marker date="1489486515000" expanded="true" signature="37009:37065" ph="SELECT `file... files" />
-            <marker date="1489486515000" expanded="true" signature="37295:37409" ph="INSERT INTO `files_projects`... " />
-            <marker date="1489486515000" expanded="true" signature="37705:37731" ph="SELECT * FRO... data_types" />
-            <marker date="1489486515000" expanded="true" signature="37919:38012" ph="SELECT COUNT... files_projects" />
-            <marker date="1489486515000" expanded="true" signature="38433:38511" ph="SELECT files... files" />
-            <marker date="1489486515000" expanded="true" signature="38888:39039" ph="SELECT files... files" />
-            <marker date="1489486515000" expanded="true" signature="39689:39800" ph="INSERT INTO `metadata`... " />
-            <marker date="1489486515000" expanded="true" signature="39866:39936" ph="SELECT `meta... metadata" />
-            <marker date="1489486515000" expanded="true" signature="40097:40199" ph="INSERT INTO `project_metadata`... " />
-            <marker date="1489486515000" expanded="true" signature="40434:40541" ph="SELECT COUNT... metadata" />
-            <marker date="1489486515000" expanded="true" signature="40994:41112" ph="SELECT COUNT... project_metadata" />
-            <marker date="1489486515000" expanded="true" signature="41677:41780" ph="SELECT * FRO... groups" />
-            <marker date="1489486515000" expanded="true" signature="42164:42268" ph="SELECT * FRO... groups" />
-            <marker date="1489486515000" expanded="true" signature="42915:42971" ph="SELECT `file... files" />
-            <marker date="1489486515000" expanded="true" signature="43177:43247" ph="SELECT `meta... metadata" />
-            <marker date="1489486515000" expanded="true" signature="43468:43601" ph="INSERT INTO `files_metadata`... " />
-            <marker date="1489486515000" expanded="true" signature="44007:44118" ph="SELECT COUNT... files_metadata" />
-            <marker date="1489486515000" expanded="true" signature="44470:44560" ph="DELETE FROM " />
-            <marker date="1489486515000" expanded="true" signature="45328:45381" ph="SELECT `file... files" />
-            <marker date="1489486515000" expanded="true" signature="45416:45502" ph="DELETE FROM " />
-            <marker date="1489486515000" expanded="true" signature="45670:45768" ph="SELECT `grou... groups" />
-            <marker date="1489486515000" expanded="true" signature="45807:45922" ph="INSERT INTO `groups_files`... " />
-            <marker date="1489486515000" expanded="true" signature="47432:47533" ph="SELECT `trea... chip_sample_pair" />
-            <marker date="1489486515000" expanded="true" signature="47600:47699" ph="SELECT `inpu... chip_sample_pair" />
-            <marker date="1489486515000" expanded="true" signature="47789:47883" ph="DELETE FROM " />
-            <marker date="1489486515000" expanded="true" signature="47922:48014" ph="DELETE FROM " />
-            <marker date="1489486515000" expanded="true" signature="48532:48650" ph="SELECT `grou... groups" />
-            <marker date="1489486515000" expanded="true" signature="48693:48812" ph="INSERT INTO `groups_files`... " />
-            <marker date="1489486515000" expanded="true" signature="48854:48971" ph="INSERT INTO `groups_files`... " />
-            <marker date="1489486515000" expanded="true" signature="49910:50005" ph="SELECT `file... files_projects" />
-            <marker date="1489486515000" expanded="true" signature="50172:50293" ph="INSERT INTO `chip_sample_type`... " />
-            <marker date="1489486515000" expanded="true" signature="50360:50450" ph="DELETE FROM " />
-            <marker date="1489486515000" expanded="true" signature="50493:50614" ph="INSERT INTO `chip_sample_type`... " />
-            <marker date="1489486515000" expanded="true" signature="51464:51563" ph="SELECT `file... files_projects" />
-            <marker date="1489486515000" expanded="true" signature="51655:51754" ph="SELECT `file... files_projects" />
-            <marker date="1489486515000" expanded="true" signature="51789:51946" ph="INSERT INTO `chip_sample_pair`... " />
-            <marker date="1489486515000" expanded="true" signature="52122:52266" ph="SELECT chip_... chip_sample_type" />
-            <marker date="1489486515000" expanded="true" signature="52532:52745" ph="SELECT files... files" />
-            <marker date="1489486515000" expanded="true" signature="52995:53210" ph="SELECT files... files" />
-            <marker date="1489486515000" expanded="true" signature="53671:53784" ph="SELECT `file... files_projects" />
-            <marker date="1489486515000" expanded="true" signature="53832:53943" ph="SELECT `file... files_projects" />
-            <marker date="1489486515000" expanded="true" signature="53974:54115" ph="DELETE FROM " />
-            <marker date="1489486515000" expanded="true" signature="54285:54335" ph="SELECT * FRO... chip_sample_pair" />
-            <marker date="1489486515000" expanded="true" signature="54568:54675" ph="SELECT COUNT... chip_sample_type" />
-            <marker date="1489486515000" expanded="true" signature="54991:55127" ph="SELECT COUNT... groups_files" />
-            <marker date="1489486515000" expanded="true" signature="55593:55834" ph="INSERT INTO `groups`... " />
-            <marker date="1489486515000" expanded="true" signature="56111:56427" ph="SELECT chip_... groups_files" />
-            <marker date="1489486515000" expanded="true" signature="57203:57466" ph="SELECT files... groups_files" />
-            <marker date="1489486515000" expanded="true" signature="57854:58141" ph="SELECT files... groups_files" />
-            <marker date="1489486515000" expanded="true" signature="58737:58850" ph="SELECT `grou... groups" />
-            <marker date="1489486515000" expanded="true" signature="58958:59058" ph="SELECT `file... groups_files" />
-            <marker date="1489486515000" expanded="true" signature="59192:59273" ph="SELECT `inpu... chip_sample_pair" />
-            <marker date="1489486515000" expanded="true" signature="59333:59416" ph="SELECT `trea... chip_sample_pair" />
-            <marker date="1489486515000" expanded="true" signature="59759:59822" ph="SELECT `md5s... files" />
-            <marker date="1489486515000" expanded="true" signature="60310:60373" ph="SELECT `md5s... files" />
-            <marker date="1489486515000" expanded="true" signature="63104:63142" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="437" column="37" selection-start-line="437" selection-start-column="37" selection-end-line="437" selection-end-column="37" />
+        <state relative-caret-position="845">
+          <caret line="691" column="50" selection-start-line="691" selection-start-column="50" selection-end-line="691" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="734" column="21" selection-start-line="734" selection-start-column="21" selection-end-line="734" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="665" column="14" selection-start-line="665" selection-start-column="14" selection-end-line="665" selection-end-column="14" />
+        <state relative-caret-position="303">
+          <caret line="784" column="0" selection-start-line="784" selection-start-column="0" selection-end-line="784" selection-end-column="0" />
           <folding />
         </state>
       </provider>
