@@ -1,8 +1,8 @@
 <ul class="tabs" data-tab>
     <li class="tab-title"><a href="#fileBrowser" onClick="browser_init();">Import new sequence files</a></li>
-    <li class="tab-title{if $smarty.get.active == 'sampleAnnotation'} active{/if}"><a href="#sampleAnnotation">Manage project descriptions</a></li>
-    <li class="tab-title{if $smarty.get.active == 'ChIP-seq'} active{/if}"><a href="#ChIP-seq">ChIP-seq Workflow</a></li>
-    <li class="tab-title{if $smarty.get.active == 'RNA-seq'} active{/if}"><a href="#RNA-seq">RNA-seq Workflow</a></li>
+    <li class="tab-title"><a href="#sampleAnnotation">Manage project descriptions</a></li>
+    <li class="tab-title"><a href="#ChIP-seq">ChIP-seq Workflow</a></li>
+    <li class="tab-title"><a href="#RNA-seq">RNA-seq Workflow</a></li>
     <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>
 </ul>
 
@@ -10,13 +10,13 @@
     <div class="content" id="fileBrowser">
 			{include file="users/projects_users/file_browser.tpl"}
     </div>
-    <div class="content{if $smarty.get.active == 'sampleAnnotation'} active{/if}" id="sampleAnnotation">
+    <div class="content" id="sampleAnnotation">
         {include file="users/projects_users/samples.tpl"}
     </div>
-    <div class="content{if $smarty.get.active == 'ChIP-seq'} active{/if}" id="ChIP-seq">
+    <div class="content" id="ChIP-seq">
         {include file="users/projects_users/ChIP-seq.tpl"}
     </div>
-    <div class="content{if $smarty.get.active == 'RNA-seq'} active{/if}" id="RNA-seq">
+    <div class="content" id="RNA-seq">
         {include file="users/projects_users/RNA-seq.tpl"}
     </div>
     <div class="content" id="panel5">

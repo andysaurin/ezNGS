@@ -1053,6 +1053,22 @@ EOT;
 
 	}
 
+	public function get_project($id)
+	{
+
+		if ( !is_numeric($id) || $id < 1 ) {
+			return false;
+		}
+
+		$project = $this->db->get_row("SELECT projects.* FROM `projects` JOIN `users_projects` ON projects.id=users_projects.project_id  WHERE projects.id={$id} AND `user_id`={$this->user->id} ORDER BY `name` ASC");
+
+		if ( $project->id != $id )
+			return false;
+
+		return $project;
+
+	}
+
 	// test if a user is a project manager of a project
 	public function is_project_manager( $user_id=0, $project_id=0 )
 	{
@@ -1442,7 +1458,7 @@ EOT;
                 $col_number++;
             }
         }
-        return true; 
+        return true;
     }
 
     public function metadata_file_asso($metadata_id=0, $file_id=0)

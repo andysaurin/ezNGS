@@ -2,7 +2,7 @@
 
 
 {if $event == 'go' && $smarty.get.id > 0}
-    <h1>Welcome to {$smarty.get.name} project</h1>
+    <h1>Welcome to the {$project->name} project</h1>
     {include file="users/projects_users/go.tpl"}
 
 {else}

@@ -46,6 +46,9 @@ class projects_users extends NQ_Auth_User
         }
         //$this->set('projects',  $this->all_projects );
 
+
+
+
     }
 
     public function delete_pair()
@@ -256,6 +259,9 @@ class projects_users extends NQ_Auth_User
 
     public function save_annotations()
     {
+
+		$project_id = $_POST['project_id'];
+
         if (!empty($_POST)){//check if this array is empty.
             //We store the location of the YAML file
             $filename = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/" . "/description.yml";
@@ -273,6 +279,16 @@ class projects_users extends NQ_Auth_User
             array_shift($_POST);
             $res = yaml_emit_file($filename, $_POST, $encoding = YAML_UTF8_ENCODING );
         }
+
+
+		$message['text'] = 'Changes to the annotations have been made';
+		$message['type'] = 'success';
+		$message['delay'] = '3000';
+
+		$this->session->message = $message;
+
+       header("Location: go/?id={$project_id}&active=sampleAnnotation" );
+	   exit;
     }
 
     public function save_rna_config()
@@ -578,6 +594,33 @@ class projects_users extends NQ_Auth_User
 
     public function go()
     {
+
+		if ( !is_numeric($_GET['id']) || $_GET['id'] < 1 ) {
+
+			$message['text'] = 'The requested project does not exist.';
+			$message['type'] = 'alert';
+
+			$this->session->message = $message;
+			header("Location: /users/projects_users/");
+			exit;
+
+		}
+
+		$this->project = $this->get_project($_GET['id']);
+
+		if ( !$this->project->id || $this->project->id != $_GET['id'] ) {
+
+			$message['text'] = 'The requested project does not exist (errno)';
+			$message['type'] = 'alert';
+
+			$this->session->message = $message;
+			header("Location: /users/projects_users/");
+			exit;
+
+		}
+
+		$this->set("project", $this->project);
+
 	    if ( is_numeric($_GET['id']) && $_GET['id'] > 0 ) {
 	   	 //get information on project from DB
             //print_r($this->project_info( (int)$_GET['id'] ));
