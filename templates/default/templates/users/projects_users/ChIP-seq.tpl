@@ -328,7 +328,7 @@
                 </div>
             </div>
 
-            <fieldset class="large-12">
+            <fieldset id="genome_config" class="large-12">
                 <legend>Genome</legend>
 
                 <div class="row left">
@@ -379,7 +379,7 @@
                         {*<input type="text" id="fasta_file" name="genome[fasta_file]" value="" required>*}
 
                         <select id="chip_fasta_file" name=genome[fasta_file]" required>
-                            <option id="Empty" value=" "> </option>
+                            <option class="Empty" value=" "> </option>
 
                         </select>
                     </div>
@@ -393,7 +393,7 @@
                         {*<input type="text" id="chip_gff3_file" name="genome[gff3_file]" value="" required>*}
 
                         <select id="chip_gff3_file" name=genome[gff3_file]" required>
-                            <option id="Empty" value=" "> </option>
+                            <option class="Empty" value=" "> </option>
 
                         </select>
                     </div>
@@ -404,7 +404,12 @@
                         <label for="gtf_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gtf_file's name">gtf_file</span></label>
                     </div>
                     <div class="large-11 columns">
-                        <input type="text" id="gtf_file" name="genome[gtf_file]" value="" required>
+                        {*<input type="text" id="gtf_file" name="genome[gtf_file]" value="" required>*}
+                        <select id="chip_gtf_file" name=genome[gtf_file]" required>
+                            <option class="Empty" value=" "> </option>
+
+                        </select>
+
                     </div>
                 </div>
 
@@ -777,6 +782,15 @@
             //no if we are sur of the value
             var AllGenome = {/literal}{$all_genome|json_encode}{literal};
             //console.log(AllGenome[val][1]);
+
+            //$("#genome_config select:not('#chip_organism #chip_version') option").remove();
+            //<option id="Empty" value=" "> </option>
+            //$("#genome_config select:not('#chip_organism #chip_version') option").append('<option id="Empty" value=" "> </option>');
+
+            $("#genome_config select:not('#chip_organism'):not('#chip_version') option").remove();
+            $("#genome_config select:not('#chip_organism'):not('#chip_version')").append('<option class="Empty" value=" "> </option>');
+
+
             for(var item in AllGenome[val] ){
                 if($.isNumeric(item)){//if is numeric this correpond to a file not a folder
                     //console.log( AllGenome[val][item]);
@@ -791,12 +805,16 @@
                         //$("#chip_fasta_file").append("<option id= 'empty' value=' '></option>");
                         $("#chip_fasta_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
                     }
-                    //exploiter le else pour le cas ou ya pas
 
 
                     if(ext[ext.length -1] == "gff3"){
                         $("#chip_gff3_file option").remove();
                         $("#chip_gff3_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
+                    }
+
+                    if(ext[ext.length -1] == "gtf"){
+                        $("#chip_gtf_file option").remove();
+                        $("#chip_gtf_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
                     }
 
 
