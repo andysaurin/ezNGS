@@ -232,7 +232,7 @@
             </div>
         </div>
 
-        <fieldset class="large-12">
+        {*<fieldset class="large-12">
             <legend>Genome</legend>
 
             <div class="row left">
@@ -289,7 +289,95 @@
                 </div>
             </div>
 
+        </fieldset>*}
+
+        <fieldset id="rna_genome_config" class="large-12">
+            <legend>Genome</legend>
+
+            <div class="row left">
+                <div class="large-1 columns">
+                    <label for="organism" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Organism's name">Organism</span></label>
+                </div>
+                <div id="genome_organism" class="large-11 columns">
+                    {*<input type="text" id="organism" name="genome[organism]" value="" required>*}
+
+                    <select id="rna_organism" name="genome[organism]" required>
+                        <option id="Empty" value=" "> </option>
+                        {foreach from=$all_genome key=$name item=$pair}
+                            <option id="{$name}" value="{$name}">{$name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row left">
+                <div class="large-1 columns">
+                    <label for="version" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="version's name">Version</span></label>
+                </div>
+                <div class="large-11 columns">
+                    {*<input type="text" id="version" name="genome[version]" value="" required>*}
+                    <select id="rna_version" name=genome[version]" required>
+                        <option id="Empty" value=" "> </option>
+                        {foreach from=$all_genome key=$name item=$pair}
+                            <option id="{$name}" value="{$name}">{$name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row left">
+                <div class="large-1 columns">
+                    <label for="size" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="genome's size">Size</span></label>
+                </div>
+                <div class="large-11 columns">
+                    <input type="text" id="size" name="genome[size]" value="" required>
+                </div>
+            </div>
+
+            <div class=" row left">
+                <div class="large-1 columns">
+                    <label for="fasta_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="fasta_file's name">fasta_file</span></label>
+                </div>
+                <div class="large-11 columns">
+                    {*<input type="text" id="fasta_file" name="genome[fasta_file]" value="" required>*}
+
+                    <select id="rna_fasta_file" name=genome[fasta_file]" required>
+                        <option class="Empty" value=" "> </option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row left">
+                <div class="large-1 columns">
+                    <label for="gff3_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gff3_file's name">gff3_file</span></label>
+                </div>
+                <div class="large-11 columns">
+                    {*<input type="text" id="chip_gff3_file" name="genome[gff3_file]" value="" required>*}
+
+                    <select id="rna_gff3_file" name=genome[gff3_file]" required>
+                        <option class="Empty" value=" "> </option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class=" row left">
+                <div class="large-1 columns">
+                    <label for="gtf_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gtf_file's name">gtf_file</span></label>
+                </div>
+                <div class="large-11 columns">
+                    {*<input type="text" id="gtf_file" name="genome[gtf_file]" value="" required>*}
+                    <select id="rna_gtf_file" name=genome[gtf_file]" required>
+                        <option class="Empty" value=" "> </option>
+
+                    </select>
+
+                </div>
+            </div>
+
         </fieldset>
+
 
         <fieldset class="large-12">
             <legend>Metadata</legend>
@@ -416,6 +504,52 @@
             }
 
             $("#CustomParam").after("<div class='large columns'><input class='button small round '  type='submit' value='Validate' /></div>");
+
+        });
+
+        $("#rna_organism").change(function () {
+            var val = $(this).val();
+            //no if we are sur of the value
+            var AllGenome = {/literal}{$all_genome|json_encode}{literal};
+            //console.log(AllGenome[val][1]);
+            //chip_genome_config
+            //$("#genome_config select:not('#chip_organism #chip_version') option").remove();
+            //<option id="Empty" value=" "> </option>
+            //$("#genome_config select:not('#chip_organism #chip_version') option").append('<option id="Empty" value=" "> </option>');
+
+            $("#rna_genome_config select:not('#rna_organism'):not('#rna_version') option").remove();
+            $("#rna_genome_config select:not('#rna_organism'):not('#rna_version')").append('<option class="Empty" value=" "> </option>');
+
+
+            for(var item in AllGenome[val] ){
+                if($.isNumeric(item)){//if is numeric this correpond to a file not a folder
+                    //console.log( AllGenome[val][item]);
+                    var ext = AllGenome[val][item].split(".");
+                    //console.log(ext[ext.length -1]);
+
+                    //Test extension file to create the good option at the good place on the genome config file
+                    //chip_fasta_file
+
+                    if(ext[ext.length -1] == "fa"){
+                        $("#rna_fasta_file option").remove();
+                        //$("#chip_fasta_file").append("<option id= 'empty' value=' '></option>");
+                        $("#rna_fasta_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
+                    }
+
+
+                    if(ext[ext.length -1] == "gff3"){
+                        $("#rna_gff3_file option").remove();
+                        $("#rna_gff3_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
+                    }
+
+                    if(ext[ext.length -1] == "gtf"){
+                        $("#rna_gtf_file option").remove();
+                        $("#rna_gtf_file").append("<option id= '"+ AllGenome[val][item] +" value='" + AllGenome[val][item] +" > "+ AllGenome[val][item]+ "</option>");
+                    }
+
+
+                }
+            }
 
         });
 

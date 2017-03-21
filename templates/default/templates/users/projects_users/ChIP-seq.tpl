@@ -328,7 +328,7 @@
                 </div>
             </div>
 
-            <fieldset id="genome_config" class="large-12">
+            <fieldset id="chip_genome_config" class="large-12">
                 <legend>Genome</legend>
 
                 <div class="row left">
@@ -782,13 +782,13 @@
             //no if we are sur of the value
             var AllGenome = {/literal}{$all_genome|json_encode}{literal};
             //console.log(AllGenome[val][1]);
-
+            //chip_genome_config
             //$("#genome_config select:not('#chip_organism #chip_version') option").remove();
             //<option id="Empty" value=" "> </option>
             //$("#genome_config select:not('#chip_organism #chip_version') option").append('<option id="Empty" value=" "> </option>');
 
-            $("#genome_config select:not('#chip_organism'):not('#chip_version') option").remove();
-            $("#genome_config select:not('#chip_organism'):not('#chip_version')").append('<option class="Empty" value=" "> </option>');
+            $("#chip_genome_config select:not('#chip_organism'):not('#chip_version') option").remove();
+            $("#chip_genome_config select:not('#chip_organism'):not('#chip_version')").append('<option class="Empty" value=" "> </option>');
 
 
             for(var item in AllGenome[val] ){
