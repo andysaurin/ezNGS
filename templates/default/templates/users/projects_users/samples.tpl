@@ -10,17 +10,10 @@
 
             {* 10/08/2016 for input sections class="input_with_space" we have to think about special character*}
 
-            <div class=" row left">
-                <div class="medium-2 columns">
-                    <label for="Project_id"class="right inline">Project_id</label>
-                </div>
-                <div class="small-3 columns">
-                    <input type="text" id="Project_id" name="project_id" value="{$project->id}" readonly>
-                </div>
-            </div>
+            <input type="hidden" id="Project_id" name="project_id" value="{$project->id}">
 
             <div class=" row left">
-                <div class="medium-2 columns">
+                <div class="small-2 columns">
                     <label for="Title_series" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title (less than 255 characters) that describes the overall study.">Title_series</span></label>
                 </div>
                 <div class="small-10 columns">
@@ -29,34 +22,38 @@
             </div>
 
             <div class="row left">
-                <div class="medium-2 columns">
+                <div class="small-2 columns">
                     <label for="Summary" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Thorough description of the goals and objectives of this study. The abstract from the associated publication may be suitable. Include as much text as necessary.">Summary</span></label>
                 </div>
                 <div class="small-10 columns">
-                    <input type="text" id="Summary" name="Series_information[Summary]" value="" >
+                    <textarea id="Summary" name="Series_information[Summary]"></textarea>
+{*                     <input type="textarea" id="Summary" name="Series_information[Summary]" value="" > *}
                 </div>
             </div>
 
             <div class="row left">
-                <div class="medium-2 columns">
+                <div class="small-2 columns">
                     <label for="Overall_design" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Indicate how many Samples are analyzed, if replicates are included, are there control and/or reference Samples, etc...">Overall_design</span></label>
                 </div>
                 <div class="small-10 columns">
-                    <input type="text" id="Overall_design" name="Series_information[Overall_design]" value="" >
+{*                     <input type="text" id="Overall_design" name="Series_information[Overall_design]" value="" > *}
+					<textarea id="Overall_design" name="Series_information[Overall_design]"></textarea>
                 </div>
             </div>
 
+{*
             <div class="row left">
-                <div class="medium-2 columns">
+                <div class="small-2 columns">
                     <label for= "Supplementary_file"><span data-tooltip aria-haspopup="true" class="has-tip" title="[optional] If you submit a matrix table containing processed data for all samples, include the file name here.">Supplementary file</span></label>
                 </div>
                 <div class="small-10 columns">
                     <input type='text'  name="Series_information[Supplementary_file]" id="Supplementary_file" value="" >
                 </div>
             </div>
+*}
 
             <div class="row left">
-                <div class="medium-2 columns">
+                <div class="small-2 columns">
                     <label for= "SRA_center_name_code"><span data-tooltip aria-haspopup="true" class="has-tip" title="[optional] If you submit a matrix table containing processed data for all samples, include the file name here.">SRA_center_name_code</span></label>
                 </div>
                 <div class="small-10 columns">
@@ -65,26 +62,32 @@
             </div>
 
             {* 10/08/2016 a copy/adaptation Lucie's code to create the possibility to add/delete contributor's name in informations saved*}
-            <div class="row rigth ">
-                <table class="dTable " id='Contributor_table'>
-                    <tbody>
-                    <tr id="Contributor_clone_td" class="">
-                        <td  class="Contributor "><label for= "Contributor_clone"  ><span data-tooltip aria-haspopup="true" class="has-tip" title='"Firstname,Initial,Lastname".Example: "John,H,Smith" or "Jane,Doe". Each contributor on a separate case, add as many contributor cases as required.'>Contributor</span></label> <input type='text' name="Series_information[Contributor][]" id="Contributor_clone" value="" ></td>
-                        <td id="action"><a href="#!" id="deleteContributor" class="inline">Delete this contributor</a>
-                    </tr>
-                    <tr id="tr_Contributor1">
-                        <td class="Contributor"><label for= "Contributor1" ><span data-tooltip aria-haspopup="true" class="has-tip" title='"Firstname,Initial,Lastname".Example: "John,H,Smith" or "Jane,Doe". Each contributor on a separate case, add as many contributor cases as required.'>Contributor</span></a></label> <input type='text' name="Series_information[Contributor][]" id="Contributor1" value="" ></td>
-                        <td id="action"><a href="#!" id="deleteContributor" class="inline">Delete this contributor</a>
-                    </tr>
-                    </tbody>
+            <div class="row left">
+	            <div class="small-2 columns text-right">
+                   <label for= "Contributors"><span data-tooltip aria-haspopup="true" class="has-tip" title="Add contributors (authors) of the project here">Contributors</span></label>
 
-                    <tfoot>
-                    <tr>
-                        <th colspan="5"><a href="#!" id="addContributor">Add a contributor</a></th>
-                    </tr>
-                    </tfoot>
+	            </div>
+	            <div class="small-10 columns" id="Contributors">
+	                <table class="dTable " id='Contributor_table'>
+	                    <tbody>
+	                    <tr id="Contributor_clone_td" class="">
+	                        <td  class="Contributor "><label for= "Contributor_clone"  ><span data-tooltip aria-haspopup="true" class="has-tip" title='"Firstname,Initial,Lastname".Example: "John,H,Smith" or "Jane,Doe". Each contributor on a separate case, add as many contributor cases as required.'>Contributor</span></label> <input type='text' name="Series_information[Contributor][]" id="Contributor_clone" value="" ></td>
+	                        <td id="action"><a href="#!" id="deleteContributor" class="inline">Delete this contributor</a>
+	                    </tr>
+	                    <tr id="tr_Contributor1">
+	                        <td class="Contributor"><label for= "Contributor1" ><span data-tooltip aria-haspopup="true" class="has-tip" title='"Firstname,Initial,Lastname".Example: "John,H,Smith" or "Jane,Doe". Each contributor on a separate case, add as many contributor cases as required.'>Contributor</span></a></label> <input type='text' name="Series_information[Contributor][]" id="Contributor1" value="" ></td>
+	                        <td id="action"><a href="#!" id="deleteContributor" class="inline">Delete this contributor</a>
+	                    </tr>
+	                    </tbody>
 
-                </table>
+	                    <tfoot>
+	                    <tr>
+	                        <th colspan="5"><a href="#!" id="addContributor">Add a contributor</a></th>
+	                    </tr>
+	                    </tfoot>
+
+	                </table>
+                </div>
             </div>
 
         </fieldset>
@@ -97,7 +100,7 @@
                 <table class="dynatable" id="sample_table">
                     <thead>
                     <tr>
-                        <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Is the MD5 footprint file">md5sum</span></th>
+{*                         <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Is the MD5 footprint file">md5sum</span></th> *}
                         <th><span data-tooltip aria-haspopup="true" class="has-tip" title="An arbitrary and unique identifier for each sample. This information will not appear in the final records and is only used as an internal reference. Each row represents a GEO Sample record.">Sample_name</span></th>
                         <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Data from <?php echo $dataTypesSupportedPlaceholder ?">Data_type</span></th>
                         <th><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title that describes the Sample.">Title</span></th>
@@ -113,7 +116,8 @@
 
                     <tbody>
                     <tr id="Data_clone">
-                        <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td>
+{*                         <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td> *}
+						<input id="md5sum" type="hidden" name="Samples_information[md5sum][]" />
                         <td class="Sample_name"><input id="Sample_name" type="text" name="Samples_information[Sample_name][]" readonly/></td>
                         <td class="small-1 Data_type">
                             <select id="Data_type" name="Samples_information[Data_type][]" class="large-12 columns ">
@@ -144,8 +148,9 @@
                         </td>
                     </tr>
                     <tr id="Data1" >
-                        <td class="md5sum"><input id="md5sum1" type="text" name="Samples_information[md5sum][]" readonly/></td>
-                        <td class="Sample_name" id="Sample_name1"><input id="Sample_name1" type="text" name="Samples_information[Sample_name][]" readonly/></td>
+{*                         <td class="md5sum"><input id="md5sum" type="text" name="Samples_information[md5sum][]" readonly/></td> *}
+						<input id="md5sum" type="hidden" name="Samples_information[md5sum][]" />
+						<td class="Sample_name" id="Sample_name1"><input id="Sample_name1" type="text" name="Samples_information[Sample_name][]" readonly/></td>
                         <td class="small-1 Data_type">
                             <select id="Data_type1" name="Samples_information[Data_type][]" class="large-12 columns ">
                                 <option id="Empty1" value=" "> </option>
