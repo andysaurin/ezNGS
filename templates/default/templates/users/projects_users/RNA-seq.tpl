@@ -109,9 +109,9 @@
 
         </table>
 
-
+        <input class="button small round" type="submit" value="Save Assignation" />
     </fieldset>
-    <input class="button small round" type="submit" value="Save Assignation" />
+
 </form>
 {/if}
 
@@ -179,9 +179,10 @@
             </table>
 
         </div>
-
+    <div class="left small-3">
+        <input class="button small round " type="submit" value="Save Design" />
+    </div>
 </fieldset>
-<input class="button small round" type="submit" value="Save Design" />
     </form>
 {/if}
 
@@ -211,9 +212,9 @@
         </tr>
 
     </table>
+    <input class="button small round" type="submit" value="Validate" />
 
 </fieldset>
-    <input class="button small round" type="submit" value="Validate" />
 </form>
 {/if}
 

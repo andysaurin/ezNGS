@@ -1,9 +1,10 @@
 <ul class="tabs" data-tab>
-    <li class="tab-title"><a href="#fileBrowser" onClick="browser_init();">Import new sequence files</a></li>
+    {*not used*}
+    <li class="tab-title"><a href="#fileBrowser" onClick="browser_init();">Add sequence files</a></li>
     <li class="tab-title"><a href="#sampleAnnotation">Manage project descriptions</a></li>
     <li class="tab-title"><a href="#ChIP-seq">ChIP-seq Workflow</a></li>
     <li class="tab-title"><a href="#RNA-seq">RNA-seq Workflow</a></li>
-    <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>
+    {*<li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>*}
 </ul>
 
 <div class="tabs-content">
@@ -19,9 +20,7 @@
     <div class="content" id="RNA-seq">
         {include file="users/projects_users/RNA-seq.tpl"}
     </div>
-    <div class="content" id="panel5">
-        <p>Empty</p>
-    </div>
+
 </div>
 
 

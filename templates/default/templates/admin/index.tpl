@@ -14,7 +14,7 @@
 
 		<div id="project{$project->id}" class="content">
 			{*button to enter in the project with a GET request*}
-            <a href="/{$module}/{$class}/go/?id={$project->id}&name={$project->name}" class="button tiny warning">Go {$project->name}</a>
+            <a href="/{$module}/{$class}/go/?id={$project->id}&name={$project->name}" class="button tiny warning">Open project {$project->name}</a>
 
 			{*button to edit project only for admin*}
 			{if $is_admin == true}<a href="/{$module}/{$class}/edit/?id={$project->id}" class="button tiny warning">Edit {$project->name}</a>{/if}
@@ -34,9 +34,6 @@
 							<div class='noUsers'>No Assigned Users</div> {* this div will get hidden if we add a user *}
 						</div>
 
-						{* 05/07/2016 {if is_admin == true}<div><a href="/{$module}/{$class}/edit/?id={$project->id}&add_user" class="button tiny radius success">Add new user</a></div>{/if}*}
-						{*{if $is_admin == true OR $project->name|in_array:$manager}<div><a href="#" class="addProjectUser button small info" data-reveal-id="addUserModal-projectID_{$project->id}" projectID="{$project->id}">Add new user</a></div>{/if}*}
-						{*{if $is_admin == true || {$project->name}|in_array:$manager}<p>OK !!!</p>{/if}*}
 					{else}
 						<div class="small-10 columns">
 
