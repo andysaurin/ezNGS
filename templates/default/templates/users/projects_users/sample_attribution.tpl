@@ -161,7 +161,7 @@
 
 			    </div>
 			    <div class="small-3 columns" id="dropzone_no" >
-					<div class="drop" id="sample_{$sample_number}_file_1_dropzone" style="padding:5px;" sample_number="{$sample_number}" >
+					<div class="drop text-center" id="sample_{$sample_number}_file_1_dropzone" style="padding:5px;" sample_number="{$sample_number}" >
 				    	<input id="sample_{$sample_number}_file_1_id" name="sample[{$sample_number}][file_1_id]" value="{$file_1_id}" type=hidden />
 {if $sampletable[$sample_number]->file_1_info->file_id > 0} {*only show the green label if we have an assigned file*}
 <a id="file_id_{$file_1_id}" fileID="{$file_1_id}" class="file assigned-draggable round label success" style="margin-left:10px"><i class="fi-page-export size-16"> {$file_1_name}</i></a>
@@ -170,7 +170,7 @@
 				    </div>
 			    </div>
 			    <div class="small-3 columns">
-					<div class="drop" id="sample_{$sample_number}_file_2_dropzone" style="padding:5px;" sample_number="{$sample_number}" >
+					<div class="drop text-center" id="sample_{$sample_number}_file_2_dropzone" style="padding:5px;" sample_number="{$sample_number}" >
 				    	<input id="sample_{$sample_number}_file_2_id" name="sample[{$sample_number}][file_2_id]" value="{$file_2_id}" type=hidden />
 {if $sampletable[$sample_number]->file_2_info->file_id > 0} {*only show the green label if we have an assigned file*}
 <a id="file_id_{$file_2_id}" fileID="{$file_2_id}" class="file assigned-draggable round label success" style="margin-left:10px"><i class="fi-page-export size-16"> {$file_2_name}</i></a>
@@ -191,7 +191,6 @@
 {for $real_sample_number=1 to $unassigned_files|@count}
 
 {assign var="sample_number" value=($num_assigned_samples+$real_sample_number)}{* human readable sample number - if we already have  *}
-{assign var="new_sample_number" value=($sample_number+$i-1)}
 
 {* 			<div class="row" style="margin: 1px; padding:10px 0 0 0; border:1px solid rgba(226, 223, 223, 0.89);background:rgba(171, 255, 0, 0.06)"> *}
 			<div id="sample_{$sample_number}_container" sample_number="{$sample_number}" class="row sample_container incomplete">

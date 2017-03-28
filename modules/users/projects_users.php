@@ -73,6 +73,8 @@ class projects_users extends NQ_Auth_User
 
 			foreach( $_POST['sample'] as $sample ) {
 
+				unset($sample_id); //prevent previous iteractions from interfering
+
 				//we only save samples that have a name, a type and at least one file
 				//unless the sample_id value is already set
 				if ( (int)$sample['sample_id'] > 0 ||
@@ -86,7 +88,7 @@ class projects_users extends NQ_Auth_User
 						$sample_id = (int)$sample['sample_id'];
 
 					}
-					$sample_name = mysql_real_escape_string( $sample['sample_name'] );
+					$sample_name = mysql_real_escape_string( trim($sample['sample_name']) );
 					$sample_type = (int)$sample['sample_type'];
 					$file_1_id = (int)$sample['file_1_id'];
 					$file_2_id = (int)$sample['file_2_id'];
@@ -110,6 +112,7 @@ class projects_users extends NQ_Auth_User
 							if ( $file_1_id < 1 && $file_2_id < 1 ) { // we have unassigned all files from the sample, so let's delete the sample
 
 								$query = "DELETE FROM `samples` WHERE `sample_id`={$sample_id} LIMIT 1";
+
 								$this->db->query($query);
 
 								if ( $this->db->rows_affected > 0 ) {
@@ -140,13 +143,16 @@ class projects_users extends NQ_Auth_User
 					} else { //new entry
 
 						$query = "INSERT INTO `samples` SET `sample_name`='{$sample_name}', `sample_type`={$sample_type}, `file_1_id`={$file_1_id}, `file_2_id`={$file_2_id} ";
+
 						$this->db->query($query);
 
 						//what was the inserted sample_id
 						$sample_id = $this->db->insert_id;
+
 						if ( $sample_id > 0 ) {
 							//map sample_id to project_id
 							$query = "INSERT INTO `samples_projects` SET `sample_id`={$sample_id}, `project_id`={$project_id}";
+
 							$this->db->query($query);
 
 							if ( $this->db->rows_affected > 0 ) {
@@ -159,7 +165,6 @@ class projects_users extends NQ_Auth_User
 				}
 
 			}
-
 
 			if ($num_samples_treated > 0) {
 				if ( $num_samples_treated == 1 )
