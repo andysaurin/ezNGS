@@ -1,4 +1,3 @@
-{debug}
 <form id="form-define-groups" action="/{$module}/{$class}/ChIP_define_groups" method="POST">
 
     <fieldset>
@@ -984,7 +983,7 @@
                         //console.log($key2);
                         $("#tools_available_chip").append("<div id='" + $key2 +"ChIP'></div>" );
                         $("#" + $key2+"ChIP").append("<h3>" + $key2 + "</h3>");
-                        
+
                         for (var $key3 in toolsAvailableRNATable[$key1][$key2]){
                             var nameTool = toolsAvailableRNATable[$key1][$key2][$key3]
                             $("#" + $key2+"ChIP").append("<input type=checkbox name=" + $key2 + "[]" + " value=" + nameTool + ">" + nameTool );
