@@ -4,7 +4,7 @@ author: "Lucie Khamvongsa, Andrew J. Saurin and Jacques van Helden"
 date: '2/24/2017; Last update: `r Sys.Date()`'
 output:
   md_document: 
-    toc: true
+    toc: false
   html_document:
     fig_caption: yes
     highlight: zenburn

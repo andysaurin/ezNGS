@@ -40,6 +40,7 @@ RewriteBase /
 
 RewriteRule ^$  /index.php?module=home [L]
 
+RewriteRule ^docs/$ docs/index.html [R=301]
 
 #login control
 RewriteRule ^login\/?(.*)$ /index.php?module=home&class=login [L,QSA]
