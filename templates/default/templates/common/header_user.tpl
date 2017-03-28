@@ -78,13 +78,13 @@
 					<!-- Left Nav Section -->
 					<ul class="left" style="">
 
-						<li class="has-dropdown">
+						<li >
 							<a href="/users/projects_users">All My Projects</a></li>
 					</ul>
 
 					</ul>
 
-					<ul class="right" style="">
+					{* useless 21/03/2017 <ul class="right" style="">
 
 					      <li class="has-dropdown">
 					        <a href="#" >Dropdown</a>
@@ -93,7 +93,7 @@
 					          <li class="active"><a href="#">Active link in dropdown</a></li>
 					        </ul>
 					      </li>
-					</ul>
+					</ul>*}
 
 				</section>
 

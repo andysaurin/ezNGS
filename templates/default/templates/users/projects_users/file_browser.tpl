@@ -65,7 +65,7 @@
 
 <div class="browser">
 
-      <div class="row">
+      <div id="extension_filter" class="row" style="display: none;">
         <div class="small-3 columns">
           <label for="txtFilter" class="right" value="">File types filter</label>
         </div>

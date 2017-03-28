@@ -1,10 +1,10 @@
 <ul class="tabs" data-tab>
-    <li class="tab-title"><a href="#fileBrowser" onClick="browser_init();">Import new sequence files</a></li>
+    <li class="tab-title"><a href="#fileBrowser" onClick="browser_init();">Add sequence files</a></li>
     <li class="tab-title{if $smarty.get.active == 'sampleAttribution'} active{/if}"><a href="#sampleAttribution">Sample descriptions</a></li>
     <li class="tab-title{if $smarty.get.active == 'sampleAnnotation'} active{/if}"><a href="#sampleAnnotation">Project descriptions</a></li>
     <li class="tab-title{if $smarty.get.active == 'ChIP-seq'} active{/if}"><a href="#ChIP-seq">ChIP-seq Workflow</a></li>
     <li class="tab-title{if $smarty.get.active == 'RNA-seq'} active{/if}"><a href="#RNA-seq">RNA-seq Workflow</a></li>
-    <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>
+   {* <li class="tab-title"><a href="#panel5">ChIP-seq and RNA-seq Integration</a></li>*}
 </ul>
 
 <div class="tabs-content">
@@ -23,9 +23,9 @@
     <div class="content{if $smarty.get.active == 'RNA-seq'} active{/if}" id="RNA-seq">
         {include file="users/projects_users/RNA-seq.tpl"}
     </div>
-    <div class="content" id="panel5">
+   {* <div class="content" id="panel5">
         <p>Empty</p>
-    </div>
+    </div>*}
 </div>
 
 

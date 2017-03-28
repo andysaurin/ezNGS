@@ -245,31 +245,31 @@ The current interface assumes that each fastq file corresponds to one sample.  I
 
 ### All my projects
 
-- All my projects: un triangle apparaît mais il n'y a rien en-dessous -> remplacer menu drop down par un menu normal. Alternative: all the project would appear under the menu when clicking on the triangle. 
+- ~~All my projects: un triangle apparaît mais il n'y a rien en-dessous -> remplacer menu drop down par un menu normal. Alternative: all the project would appear under the menu when clicking on the triangle.~~
 - The project summary displayed on the page "All my projects" could include some additional fields, in particular the number of samples, and the short description string. 
 
-- "Go Abda" -> "Open project Abda"
+- ~~"Go Abda" -> "Open project Abda"~~
 
 ### Project access
 
-- L'URL d'accès à un projet ne devrait contenir que l'ID.
+- ~~L'URL d'accès à un projet ne devrait contenir que l'ID.~~
 
-  <http://amidex.biotools.fr/users/projects_users/go/?id=56&name=Abda>
+  ~~<http://amidex.biotools.fr/users/projects_users/go/?id=56&name=Abda>~~
 
-devrait être:
+~~devrait être:~~
 
-  <http://amidex.biotools.fr/users/projects_users/go/?id=56>
+  ~~<http://amidex.biotools.fr/users/projects_users/go/?id=56>~~
 
-Par contre le nom de projet doit systématiquement apparaître sur le titre de la page de projet. 
+~~Par contre le nom de projet doit systématiquement apparaître sur le titre de la page de projet.~~
 
 
-Actuellement si l'utilisateur change le nom dans l'URL le site affiche le nom que l'utilsateur a entré, ce qui peut provoquer des incohérences entre le nom affihé et le nom réel. Le vrai nom de projet (stocké dans la DB) doit être affiché, pas le nom entré dans l'URL. 
+~~Actuellement si l'utilisateur change le nom dans l'URL le site affiche le nom que l'utilsateur a entré, ce qui peut provoquer des incohérences entre le nom affihé et le nom réel. Le vrai nom de projet (stocké dans la DB) doit être affiché, pas le nom entré dans l'URL.~~
 
-- Si on fournir un URL non valide, il faut afficher un message d'erreur "No such project" ou tout au moins une erreur 404. Par exemple
+- ~~Si on fournir un URL non valide, il faut afficher un message d'erreur "No such project" ou tout au moins une erreur 404. Par exemple~~
 
-  <http://amidex.biotools.fr/users/projects_users/go/?id=0980>
+  ~~<http://amidex.biotools.fr/users/projects_users/go/?id=0980>~~
 
-affiche "Welcome to project" alors qu'il n'existe pas de projet avec cet ID. 
+~~affiche "Welcome to project" alors qu'il n'existe pas de projet avec cet ID.~~
 
 ### Affichage des projets
 
@@ -283,23 +283,22 @@ En gros cela devrait ressembler à la page d'une série GEO.
 
 ### Import new sequence files
 
-- This form should be renamed "Add sequence files"
+- ~~This form should be renamed "Add sequence files"~~
 
-- la boîte de filtres ne fonctionne pas comme on s'y attendrait. Cette fonctionnalité fait partie de la classe prédéfinie php, mais on peut la masquer pour éviter la confusion, via le css. 
+- ~~la boîte de filtres ne fonctionne pas comme on s'y attendrait. Cette fonctionnalité fait partie de la classe prédéfinie php, mais on peut la masquer pour éviter la confusion, via le css.~~
 
 ### Manage project descriptions
 
 
-- Title_series: vérifier si c'est bien le nom, a priori on dirait "Series title"
+- ~~Title_series: vérifier si c'est bien le nom, a priori on dirait "Series title"~~
 
-- Le champ "Summary" doit être une textarea (plusieurs lignes) plutôt qu'une textbox (une ligne). 
+- ~~Le champ "Summary" doit être une textarea (plusieurs lignes) plutôt qu'une textbox (une ligne).~~
 
-- Overal design: textarea plutôt que textbox. 
+- ~~Overal design: textarea plutôt que textbox.~~ 
 
-- Ajouter le champ "Organism"
+- ~~Ajouter le champ "Organism"~~
 
-- Supplementary file: this field should not be a textbox but an upload button.  If this feature of GEO submissions is not really used, we can also suppress this field from our form.  To evaluate. 
-
+- ~~Supplementary file: this field should not be a textbox but an upload button.  If this feature of GEO submissions is not really used, we can also suppress this field from our form.  To evaluate.~~
 - Les boutons "Delete sample" ne fonctionnent pas. Il faudrait évaluer si l'on permet à l'utilisateur d'effacer les échantillons d'un projet. Ceci n'est pas évident car il se peut que l'échantillon ait déjà été traité, et u'il y ait un tas d'autres fichiers liés (bam, fastqc, ...). De plus il se peut que les résultats (par exemple tables de comptages, résultats d'analyse différentielle) soient basés sur cet échantillon -> en l'effaçant on casse la cohérence entre les données et les résultats. 
 
 - Sample description form: once a sequence file has been used in a workflow, its type cannot be change anymore, since an RNA-seq cannot become a ChIP-seq and reciprocally.
@@ -331,12 +330,12 @@ En gros cela devrait ressembler à la page d'une série GEO.
 
 ### Sample-group assignation
 
-- Sample-Group assignation: the blue button should be inside the gray rectangle. 
+- ~~Sample-Group assignation: the blue button should be inside the gray rectangle.~~
 
 ### Design description
 
 - the groups should be selected with a drop-down menu (HTML select) rather than as free text, to ensure consistency between the groups to be compared and those defined and assigned to samples .
 
-- actually the design should b ebased on the group IDs, not their names. The group name is a matter of display (this is displayed in the menu) but the design file should contain the unique ID of the group. This is also necessary if one wants to allow user to edit the group names (which is a good thing) without detroying the consistency between the design, the data (sample/group assignations) and the results. 
+- actually the design should be based on the group IDs, not their names. The group name is a matter of display (this is displayed in the menu) but the design file should contain the unique ID of the group. This is also necessary if one wants to allow user to edit the group names (which is a good thing) without detroying the consistency between the design, the data (sample/group assignations) and the results. 
 
-- The button "Save Design" should be inside the  Design description rectangle, not below it. 
+- ~~The button "Save Design" should be inside the  Design description rectangle, not below it.~~

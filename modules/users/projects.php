@@ -34,6 +34,8 @@ class projects extends NQ_Auth_User
         $this->set("manager",  $manager );
         $this->set('projects',  $this->all_projects );
         $this->set("is_rna_ok", false);
+
+        //test about add some information on the panel project from the button "All My projects"
     }
 
     public function __default()

@@ -4,7 +4,16 @@
     <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/amidex.iml" afterPath="$PROJECT_DIR$/.idea/amidex.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/Rmd/ezNGS_user_manual.Rmd" afterPath="$PROJECT_DIR$/doc/Rmd/ezNGS_user_manual.Rmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htdocs/stylesheets/main.css" afterPath="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/users/projects.php" afterPath="$PROJECT_DIR$/modules/users/projects.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/common/header_user.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/common/header_user.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
     </list>
     <ignored path="amidex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,21 +41,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChIP-seq.tpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
+      <file leaf-file-name="index.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="820" column="17" lean-forward="true" selection-start-line="820" selection-start-column="17" selection-end-line="820" selection-end-column="17" />
+            <state relative-caret-position="465">
+              <caret line="55" column="80" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
+      <file leaf-file-name="projects.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/users/projects.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15202">
-              <caret line="691" column="50" lean-forward="false" selection-start-line="691" selection-start-column="50" selection-end-line="691" selection-end-column="50" />
+            <state relative-caret-position="540">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,7 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Groups_available2_chip</find>
       <find>Groups_available_chip</find>
       <find>add_chip_assignation_in_db</find>
       <find>loadAssignation</find>
@@ -86,6 +94,7 @@
       <find>tools_available</find>
       <find>tools_available_chip</find>
       <find>load_tools_available_RNA</find>
+      <find>drop</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,10 +103,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/users/projects.php" />
-        <option value="$PROJECT_DIR$/templates/default/templates/common/header_admin.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/index.tpl" />
-        <option value="$PROJECT_DIR$/templates/default/templates/common/header_user.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/admin/projects/create.tpl" />
         <option value="$PROJECT_DIR$/modules/users/go.php" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl.php" />
@@ -106,10 +112,8 @@
         <option value="$PROJECT_DIR$/templates/default/templates/admin/projects.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_manager.php" />
         <option value="$PROJECT_DIR$/modules/api/browser.php" />
-        <option value="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
         <option value="$PROJECT_DIR$/uploads/toto/fatal.txt" />
         <option value="$PROJECT_DIR$/uploads/lucie/test/a.txt" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" />
         <option value="$PROJECT_DIR$/uploads/andy/untitled folder copy/tata.txt" />
         <option value="$PROJECT_DIR$/uploads/andy/untitled folder/untitled file" />
         <option value="$PROJECT_DIR$/uploads/lucie/test/lucie.txt" />
@@ -126,7 +130,6 @@
         <option value="$PROJECT_DIR$/uploads/lucie/sqlite.txt" />
         <option value="$PROJECT_DIR$/data/projects/34/metadata/description.yml" />
         <option value="$PROJECT_DIR$/data/projects/36/metadata/design.tab" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/test_config.tpl" />
         <option value="$PROJECT_DIR$/config/tools_available.yml" />
         <option value="$PROJECT_DIR$/config/config.php" />
@@ -139,12 +142,18 @@
         <option value="$PROJECT_DIR$/modules/api/import.php" />
         <option value="$PROJECT_DIR$/data/projects/49/boum.txt" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq_old.tpl" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
-        <option value="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
-        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
         <option value="$PROJECT_DIR$/includes/Module.php" />
         <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
+        <option value="$PROJECT_DIR$/templates/default/templates/common/header_user.tpl" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects.tpl" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
+        <option value="$PROJECT_DIR$/htdocs/stylesheets/main.css" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+        <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
+        <option value="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
+        <option value="$PROJECT_DIR$/modules/users/projects.php" />
       </list>
     </option>
   </component>
@@ -159,9 +168,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="3599" />
+    <option name="x" value="1919" />
+    <option name="y" value="144" />
     <option name="width" value="1922" />
-    <option name="height" value="1201" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -182,6 +192,16 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="1" />
   </component>
@@ -200,9 +220,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="amidex" />
@@ -322,6 +347,32 @@
               <option name="myItemId" value="default" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amidex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -355,106 +406,9 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="genomes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dm3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="genomes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dm3" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indexes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="genomes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ecoli_K12" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amidex" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -477,12 +431,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -500,10 +448,6 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
-      <PhpTestRunnerSettings />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -514,7 +458,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
+      <command value="run-script" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -715,12 +659,18 @@
       <workItem from="1489671024402" duration="5426000" />
       <workItem from="1489741985120" duration="2701000" />
       <workItem from="1489757322510" duration="4593000" />
-      <workItem from="1490020721133" duration="3496000" />
+      <workItem from="1490020721133" duration="3871000" />
+      <workItem from="1490089394443" duration="3139000" />
+      <workItem from="1490098449262" duration="4874000" />
+      <workItem from="1490114951306" duration="544000" />
+      <workItem from="1490283395091" duration="6037000" />
+      <workItem from="1490346435203" duration="607000" />
+      <workItem from="1490349569435" duration="2039000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="533122000" />
+    <option name="totallyTimeSpent" value="550737000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -732,10 +682,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3599" y="0" width="1922" height="1201" extended-state="6" />
+    <frame x="1919" y="144" width="1922" height="1032" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19103523" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49786323" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.50641024" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -786,15 +736,6 @@
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/includes/Module.php" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
@@ -817,48 +758,125 @@
     <entry file="file://$PROJECT_DIR$/modules/api/projects.php" />
     <entry file="file://$PROJECT_DIR$/modules/admin/create.php" />
     <entry file="file://$PROJECT_DIR$/modules/admin/projects.php" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/config.yml" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/design.tab" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/description.yml" />
     <entry file="file://$PROJECT_DIR$/data/workflows/RNA-seq_workflow_SE.py" />
-    <entry file="file://$PROJECT_DIR$/htdocs/stylesheets/main.css" />
     <entry file="file://$PROJECT_DIR$/config/config_tools/tools_available.yml" />
     <entry file="file://$PROJECT_DIR$/config/config_tools/macs2.yml" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
+    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="437" column="37" lean-forward="false" selection-start-line="437" selection-start-column="37" selection-end-line="437" selection-end-column="37" />
+        <state relative-caret-position="767">
+          <caret line="808" column="0" selection-start-line="808" selection-start-column="0" selection-end-line="808" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/common/header_main_website.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/common/header_user.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/home/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/users.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/projects.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="286">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/file_browser.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/go.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htdocs/stylesheets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="185" column="25" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3600">
+          <caret line="282" column="0" selection-start-line="282" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2970">
-          <caret line="53" column="120" lean-forward="false" selection-start-line="53" selection-start-column="120" selection-end-line="53" selection-end-column="120" />
+        <state relative-caret-position="240">
+          <caret line="16" column="212" selection-start-line="16" selection-start-column="212" selection-end-line="16" selection-end-column="212" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/admin/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="55" column="80" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15202">
-          <caret line="691" column="50" lean-forward="false" selection-start-line="691" selection-start-column="50" selection-end-line="691" selection-end-column="50" />
+        <state relative-caret-position="2865">
+          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
+    <entry file="file://$PROJECT_DIR$/modules/users/projects.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="820" column="17" lean-forward="true" selection-start-line="820" selection-start-column="17" selection-end-line="820" selection-end-column="17" />
+        <state relative-caret-position="540">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>

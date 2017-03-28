@@ -14,7 +14,7 @@
 
             <div class=" row left">
                 <div class="small-2 columns">
-                    <label for="Title_series" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title (less than 255 characters) that describes the overall study.">Title_series</span></label>
+                    <label for="Title_series" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Unique title (less than 255 characters) that describes the overall study.">Series title</span></label>
                 </div>
                 <div class="small-10 columns">
                     <input type="text" id="Title_series" name="Series_information[Title_series]" value="" >
