@@ -1383,6 +1383,22 @@ EOT;
 
 	}
 
+	public function get_sample($sample_id) {
+
+
+		$row = $this->db->get_row("SELECT * FROM `samples` WHERE `sample_id`={$sample_id} LIMIT 1");
+
+		if ( !is_object($row) )
+			$row = new stdClass;
+
+		//get file_1 and file_2 details
+		$row->file_1_info = $this->get_file($row->file_1_id);
+		$row->file_2_info = $this->get_file($row->file_2_id);
+
+		return $row;
+
+	}
+
 	public function get_file($file_id) {
 
 		$row = $this->db->get_row("SELECT * FROM `files` WHERE `file_id`={$file_id} LIMIT 1");
