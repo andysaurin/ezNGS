@@ -1013,7 +1013,32 @@ EOT;
 	}
 
 
+	public function db_array_search($key_val=null, $obj_key=null, $db_array=null) {
 
+		// takes an ezSQL db "mysql_fetch_results" array ($db_array) and returns the object whose object key ($obj_key) matches the searched-for key value {$key_val}
+
+		if ( !is_array($db_array) || !count($db_array) || $key_val == null || $obj_key == null )
+			return false;
+
+		foreach ( $db_array as $db_obj ) {
+
+			if ( is_object($db_obj) ) {
+				if ( isset($db_obj->$obj_key) && $db_obj->$obj_key == $key_val ) {
+					return $db_obj;
+				}
+			} else if ( is_array($db_obj) ) { // ezSQL mysql_fetch_results() was called with A_ARRAY to return an array and not an object
+
+				if ( isset($db_obj[$obj_key]) && $db_obj[$obj_key] == $key_val ) {
+					return $db_obj; //not really an object, but it's what we were looking for!
+				}
+
+
+			}
+		}
+		//nothing found!
+		return false;
+
+	}
 
 	/*
 		Non base framework functions
@@ -1335,7 +1360,7 @@ EOT;
     public function get_name_and_md5sum_by_file_id($file_id=0)
     {
         /*Verification*/
-        if($file_id < 0 ){
+        if($file_id < 1 ){
             return array();
         }
 
@@ -1350,7 +1375,7 @@ EOT;
     public function get_all_files_in_project($project_id=0)
 	{
         /*Verification*/
-        if($project_id < 0 ){
+        if($project_id < 1 ){
             return array();
         }
 
@@ -1365,6 +1390,57 @@ EOT;
 
 	}
 
+    public function get_all_samples_in_project($project_id=0)
+	{
+        /*Verification*/
+        if($project_id < 1 ){
+            return array();
+        }
+
+        /*Make a request to obtain all information about all files in this project*/
+
+        $samples =  $this->db->get_results("SELECT samples.* FROM `samples` INNER JOIN samples_projects ON samples.sample_id=samples_projects.sample_id WHERE `project_id`={$project_id} ORDER BY `sample_name` ASC");
+
+        if ( !count($samples) )
+            return array();
+
+		foreach ( $samples as $k=>$sample ) {
+			//get file_1 and file_2 details
+			$samples[$k]->file_1_info = $this->get_file($sample->file_1_id);
+			$samples[$k]->file_2_info = $this->get_file($sample->file_2_id);
+
+		}
+
+        return $samples;
+
+	}
+
+	public function get_sample($sample_id) {
+
+
+		$row = $this->db->get_row("SELECT * FROM `samples` WHERE `sample_id`={$sample_id} LIMIT 1");
+
+		if ( !is_object($row) )
+			$row = new stdClass;
+
+		//get file_1 and file_2 details
+		$row->file_1_info = $this->get_file($row->file_1_id);
+		$row->file_2_info = $this->get_file($row->file_2_id);
+
+		return $row;
+
+	}
+
+	public function get_file($file_id) {
+
+		$row = $this->db->get_row("SELECT * FROM `files` WHERE `file_id`={$file_id} LIMIT 1");
+
+		if ( !is_object($row) )
+			$row = new stdClass;
+
+		return $row;
+
+	}
 
 	public function metadata_in_db($all_col_name_array, $project_id=0)
     {
