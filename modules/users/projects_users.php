@@ -46,9 +46,10 @@ class projects_users extends NQ_Auth_User
         }
         //$this->set('projects',  $this->all_projects );
 
+        //Test about project additional info
+        //print_r($this->get_additional_projects_info());
 
-
-
+        $this->set('info_projects_available', $this->get_additional_projects_info());
     }
 
     public function delete_pair()

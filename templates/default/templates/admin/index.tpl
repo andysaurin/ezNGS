@@ -52,11 +52,20 @@
 
 					{/if}
 
+                {elseif $k == 'id' && $v|array_key_exists:$info_projects_available}
+                    {foreach $info_projects_available[$v] as $field_name=>$value}
+                    <div class="row">
+                        <div class="small-2 columns text-right subheader">{$field_name}</div>
+                        <div class="small-10 columns">{$value}</div>
+                    </div>
+
+                    {/foreach}
+
 				{else}
 					<div class="small-2 columns text-right subheader">{$k}</div>
 					<div class="small-10 columns">{$v}</div>
 
-				{/if}
+                {/if}
 
 			</div>
 

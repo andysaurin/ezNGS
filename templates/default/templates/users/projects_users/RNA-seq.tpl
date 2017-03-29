@@ -1,5 +1,7 @@
 <h2 xmlns="http://www.w3.org/1999/html">Sample grouping</h2>
 
+
+{debug}
 <form id="form-define-groups" action="/{$module}/{$class}/rna_define_groups" method="POST">
 
     <fieldset>
@@ -123,7 +125,7 @@
 
     <p>Select groups/conditions you want to analyze, if some are not available it's because they are not associated with any sample.</p>
 
-        <div class="medium-2 left">
+       {* Change format 27/03/2017 <div class="medium-2 left">
 
             <table id="desing_rna">
                 <tr>
@@ -137,10 +139,10 @@
                 </tr>
             </table>
 
-        </div>
+        </div>*}
 
-        <div class="medium-8 right">
-            <h3>Design analysis</h3>
+       {*<div class="medium-8 right">*}
+            {*<h3>Design analysis</h3>*}
 
             <p>Complete the table with RNA-seq analysis you want to perform. Example: CondA/CondB write "CondA" in Group reference and "CondB" in Group test.</p>
 
@@ -151,25 +153,47 @@
                 <input type="text" id="Project_id" name="project_id" value="{$project->id}" readonly>
             </div>
 
-            <table id="design_rna">
+            <table id="design_rna" class="medium-4">
                 <tbody>
                 <tr>
                     <th>Group reference</th>
                     <th>Group test</th>
 
                 </tr>
-                <tr id="rna_design_clone">
+                {* 24/03/2017<tr id="rna_design_clone">
                     <td class="small-4 Group_name_availble_ref_design"><input id="Group_name_availble_ref_design" class="input_without_space" type="text" name="Group_reference[]" /></td>
                     <td class="small-4 Group_name_availble_test_design"><input id="Group_name_availble_test_design" class="input_without_space" type="text" name="Group_test[]" /></td>
                     <td id="action"><a href="#!" id="deleteAnalysis" class="inline">Delete this analysis</a>
 
+                </tr>*}
+                <tr id="rna_design_clone">
+                    <td class="medium-2" ><select id='Group_name_availble_ref_design' name='Group_reference[]'>
+                            <option id='Empty1' value=''> </option>
+                        </select>
+                    </tdclass>
+                    <td class="medium-2"><select id='Group_name_availble_test_design' name='Group_test[]'>
+                            <option id='Empty1' value=''> </option>
+                        </select>
+                    </td>
                 </tr>
+
                 <tr id="rna_design1">
+                    <td class="medium-2"><select id='Group_name_availble_ref_design1' name='Group_reference[]'>
+                            <option id='Empty1' value=''> </option>
+                        </select>
+                    </td>
+                    <td class="medium-2"><select id='Group_name_availble_test_design1' name='Group_test[]'>
+                            <option id='Empty1' value=''> </option>
+                        </select>
+                    </td>
+                </tr>
+
+                {* 24/03/2017<tr id="rna_design1">
                     <td class="small-4 Group_name_availble_ref_design"><input id="Group_name_available_ref_design1" class="input_without_space" type="text" name="Group_reference[]" /></td>
                     <td class="small-4 Group_name_availble_test_design"><input id="Group_name_availble_test_design1" class="input_without_space" type="text" name="Group_test[]" /></td>
                     <td id="action"><a href="#!" id="deleteAnalysis" class="inline">Delete this analysis</a>
 
-                </tr>
+                </tr>*}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -178,7 +202,7 @@
                 </tfoot>
             </table>
 
-        </div>
+        {*</div>*}
     <div class="left small-3">
         <input class="button small round " type="submit" value="Save Design" />
     </div>
@@ -232,65 +256,6 @@
                 <input type="text" id="Project_id" name="project_id" value="{$project->id}" readonly>
             </div>
         </div>
-
-        {*<fieldset class="large-12">
-            <legend>Genome</legend>
-
-            <div class="row left">
-                <div class="large-1 columns">
-                    <label for="organism" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="Organism's name">Organism</span></label>
-                </div>
-                <div class="large-11 columns">
-                    <input type="text" id="organism" name="genome[organism]" value="" required>
-                </div>
-            </div>
-
-            <div class=" row left">
-                <div class="large-1 columns">
-                    <label for="version" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="version's name">Version</span></label>
-                </div>
-                <div class="large-11 columns">
-                    <input type="text" id="version" name="genome[version]" value="" required>
-                </div>
-            </div>
-
-            <div class=" row left">
-                <div class="large-1 columns">
-                    <label for="size" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="genome's size">Size</span></label>
-                </div>
-                <div class="large-11 columns">
-                    <input type="text" id="size" name="genome[size]" value="" required>
-                </div>
-            </div>
-
-            <div class=" row left">
-                <div class="large-1 columns">
-                    <label for="fasta_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="fasta_file's name">fasta_file</span></label>
-                </div>
-                <div class="large-11 columns">
-                    <input type="text" id="fasta_file" name="genome[fasta_file]" value="" required>
-                </div>
-            </div>
-
-            <div class=" row left">
-                <div class="large-1 columns">
-                    <label for="gff3_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gff3_file's name">gff3_file</span></label>
-                </div>
-                <div class="large-11 columns">
-                    <input type="text" id="gff3_file" name="genome[gff3_file]" value="" required>
-                </div>
-            </div>
-
-            <div class=" row left">
-                <div class="large-1 columns">
-                    <label for="gtf_file" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="gtf_file's name">gtf_file</span></label>
-                </div>
-                <div class="large-11 columns">
-                    <input type="text" id="gtf_file" name="genome[gtf_file]" value="" required>
-                </div>
-            </div>
-
-        </fieldset>*}
 
         <fieldset id="rna_genome_config" class="large-12">
             <legend>Genome</legend>
@@ -822,7 +787,7 @@
         }
 
         function loadAssignationAndSetDesign() {
-            //$("#desing_rna")
+           /* Old version we change for select possibility 27/03/2017 //$("#desing_rna")
             var AllFileAlreadyAssigned = {/literal}{$rna_group_already_assignated|json_encode}{literal};
             var AllGroupsAssigned = new Array;
 
@@ -855,7 +820,27 @@
                 $(this).attr("placeholder",AllGroupsAssignedUnique[indexFile]);
                 $(this).attr("value",AllGroupsAssignedUnique[indexFile]);
                 indexFile++;
+            });*/
+
+            var AllFileAlreadyAssigned = {/literal}{$rna_group_already_assignated|json_encode}{literal};
+            var AllGroupsAssigned = new Array;
+
+            AllFileAlreadyAssigned.forEach(function (entry) {
+                AllGroupsAssigned.push(entry["group_name"]);
             });
+
+            var AllGroupsAssignedUnique = new Array;
+            AllGroupsAssignedUnique = $.unique(AllGroupsAssigned);
+
+            //console.log(AllGroupsAssignedUnique);
+
+            AllGroupsAssignedUnique.forEach(function(entry){
+                $("#design_rna select").append("<option id='" + entry + "' value='" +entry+ "'>" + entry + " </option>");
+            });
+
+
+
+
 
         }
 
