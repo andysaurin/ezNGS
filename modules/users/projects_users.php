@@ -62,6 +62,139 @@ class projects_users extends NQ_Auth_User
 
     }
 
+	public function save_samples()
+	{
+
+		$num_samples_treated = 0;
+
+		if (!empty($_POST) && is_array($_POST['sample'] ) && isset($_POST['form_submit']) ){
+
+			$project_id = (int)$_POST['project_id'];
+
+
+			foreach( $_POST['sample'] as $sample ) {
+
+				unset($sample_id); //prevent previous iteractions from interfering
+
+				//we only save samples that have a name, a type and at least one file
+				//unless the sample_id value is already set
+				if ( (int)$sample['sample_id'] > 0 ||
+							( $sample['sample_name'] && (int)$sample['sample_type'] > 0  &&
+								( (int)$sample['file_1_id'] > 0 || (int)$sample['file_2_id'] > 0 )
+							)
+					) {
+
+					if ( is_numeric($sample['sample_id']) && $sample['sample_id'] > 0 ) {
+
+						$sample_id = (int)$sample['sample_id'];
+
+					}
+					$sample_name = mysql_real_escape_string( trim($sample['sample_name']) );
+					$sample_type = (int)$sample['sample_type'];
+					$file_1_id = (int)$sample['file_1_id'];
+					$file_2_id = (int)$sample['file_2_id'];
+
+
+					//if we only chose one file then make sure it is file_1_id
+					if ( $file_2_id > 0 && $file_1_id == 0 ) {
+
+						$file_1_id = $file_2_id;
+						$file_2_id = 0;
+
+					}
+
+					if ( is_numeric($sample_id) && $sample_id > 0 ) { //we already have this sample stored, so let's swap the db values with these ones in case we changed anything
+
+						//is this sample_id actually assigned to this project? If not, we cannot alter it!
+						if ( $this->db->get_var("SELECT `project_id` FROM `samples_projects` WHERE `sample_id`={$sample_id} && `project_id`={$project_id} LIMIT 1 ") ==  $project_id ) {
+
+							//ok, sample is assigned to this project, so all checks out - let's edit it
+
+							if ( $file_1_id < 1 && $file_2_id < 1 ) { // we have unassigned all files from the sample, so let's delete the sample
+
+								$query = "DELETE FROM `samples` WHERE `sample_id`={$sample_id} LIMIT 1";
+
+								$this->db->query($query);
+
+								if ( $this->db->rows_affected > 0 ) {
+									$query = "DELETE FROM `samples_projects` WHERE `sample_id`={$sample_id} AND `project_id`={$project_id} LIMIT 1";
+									$this->db->query($query);
+
+									if ( $this->db->rows_affected > 0 ) {
+										$num_samples_treated++;
+									}
+
+								}
+
+							} else {
+
+								$query = "REPLACE INTO `samples` SET `sample_id`={$sample_id}, `sample_name`='{$sample_name}', `sample_type`={$sample_type}, `file_1_id`={$file_1_id}, `file_2_id`={$file_2_id} ";
+
+								$this->db->query($query);
+
+								if ( $this->db->rows_affected > 0 ) {
+									$num_samples_treated++;
+								}
+
+							}
+
+						}
+
+
+					} else { //new entry
+
+						$query = "INSERT INTO `samples` SET `sample_name`='{$sample_name}', `sample_type`={$sample_type}, `file_1_id`={$file_1_id}, `file_2_id`={$file_2_id} ";
+
+						$this->db->query($query);
+
+						//what was the inserted sample_id
+						$sample_id = $this->db->insert_id;
+
+						if ( $sample_id > 0 ) {
+							//map sample_id to project_id
+							$query = "INSERT INTO `samples_projects` SET `sample_id`={$sample_id}, `project_id`={$project_id}";
+
+							$this->db->query($query);
+
+							if ( $this->db->rows_affected > 0 ) {
+								$num_samples_treated++;
+							}
+
+						}
+					}
+
+				}
+
+			}
+
+			if ($num_samples_treated > 0) {
+				if ( $num_samples_treated == 1 )
+					$message['text'] = "{$num_samples_treated} sample has been saved/modified";
+				else
+					$message['text'] = "{$num_samples_treated} samples have been saved/modified";
+				$message['type'] = 'success';
+				$message['delay'] = '3000';
+
+				$this->session->message = $message;
+
+			} else  {
+
+				$message['text'] = "No samples were modified or created";
+				$message['type'] = 'warning';
+				$message['delay'] = '3000';
+
+				$this->session->message = $message;
+
+			}
+
+
+		}
+
+       header("Location: go/?id={$project_id}&active=sampleAttribution" );
+	   exit;
+
+	}
+
     public function rna_define_groups()
     {
         if (!empty($_POST)){//check if the array are empty
@@ -628,6 +761,31 @@ class projects_users extends NQ_Auth_User
 	   	 	$this->set('project', $this->project_info( (int)$_GET['id'] ) );
             $this->all_files = $this->get_all_files_in_project($_GET['id']);
             $this->set('filetable', $this->all_files);
+            $this->all_samples = $this->get_all_samples_in_project($_GET['id']);
+            $this->set('sampletable', $this->all_samples);
+
+			//which files in the project haven't yet been assigned to a sample?
+			$unassigned_files = array();
+			$assigned_files = array();
+			foreach ($this->all_files as $file_obj) {
+				$file_id = $file_obj->file_id;
+				if ( $this->db_array_search($file_id, "file_1_id", $this->all_samples) ) { //file is assigned as "file1" in the samples array
+					$assigned_files[] = $file_obj;
+				} else if ( $this->db_array_search($file_id, "file_2_id", $this->all_samples) ) { //file is assigned as "file2" in the samples array
+					$assigned_files[] = $file_obj;
+				} else { // file is unassigned
+					$unassigned_files[] = $file_obj;
+				}
+			}
+
+			$this->set("unassigned_files", $unassigned_files); //this is used in the "unassigned files" column in the "Sequenced sample files" tab
+			$this->set("assigned_files", $assigned_files); //this is used as a blank placeholder in the "unassigned files" column in the "Sequenced sample files" tab. We can drag assigned files to this to unassign them
+
+
+			// what is the maximum number of samples we can have? == number of samples already assigned + number of unassigned files
+			$this->set("max_num_samples", ( count($unassigned_files) + count($this->all_samples) ) );
+
+            //separate sequence files into single-end or paired-end reads
 
             $this->all_rna_groups = $this->get_all_rna_groups_in_project($_GET['id']);
             $this->set('rna_groups', $this->all_rna_groups);

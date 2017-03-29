@@ -1,0 +1,3 @@
+[submodule "htdocs/docs"]
+	path = htdocs/docs
+	url = https://github.com/andysaurin/ezNGS_documentation

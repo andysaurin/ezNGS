@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{if $class_title}{$class_title}{else}Home{/if}</title>
 		<link rel="shortcut icon" href="{$host}/favicon.ico" />
@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="{$host}/assets/icons/foundation-icons.css" />
 		<script src="{$host}/bower_components/modernizr/modernizr.js"></script>
  	    <script src="{$host}/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="{$host}/bower_components/jquery-ui/jquery-ui.min.js"></script>
 
 		<script src="{$host}/bower_components/highlight-js/src/highlight.js"></script>
 
@@ -41,7 +42,7 @@
 
 				<ul class="title-area">
 					<li class="name">
-						<a href="{$host}" title="Home">Homepage</a>
+						<a href="{$host}" title="Home" class="tiny button radius info small">ezNGS</a>
 					</li>
 					<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
 					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
