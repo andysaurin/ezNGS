@@ -246,7 +246,7 @@ The current interface assumes that each fastq file corresponds to one sample.  I
 ### All my projects
 
 - ~~All my projects: un triangle apparaît mais il n'y a rien en-dessous -> remplacer menu drop down par un menu normal. Alternative: all the project would appear under the menu when clicking on the triangle.~~
-- The project summary displayed on the page "All my projects" could include some additional fields, in particular the number of samples, and the short description string. 
+- ~~The project summary displayed on the page "All my projects" could include some additional fields, in particular the number of samples, and the short description string.~~ 
 
 - ~~"Go Abda" -> "Open project Abda"~~
 
@@ -304,7 +304,7 @@ En gros cela devrait ressembler à la page d'une série GEO.
 - Sample description form: once a sequence file has been used in a workflow, its type cannot be change anymore, since an RNA-seq cannot become a ChIP-seq and reciprocally.
 
 
-- Add a button "validate" after each section of the form. 
+- ~~Add a button "validate" after each section of the form.~~ 
 
 ### Exécution des workflows
 

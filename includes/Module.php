@@ -1069,7 +1069,39 @@ EOT;
 
 	}
 
-	// test if a user is a project manager of a project
+	public function get_additional_projects_info()
+    {
+        //first we need all project ID
+        $ids = $this->db->get_results("SELECT id FROM `projects`");
+        //return $ids;
+        $info_projects_available = array();
+
+        //Part about Serie title
+        foreach ($ids as $id => $value) {
+            //return $value->id;
+            $filename = SYSTEM_PROJECTS_ROOT . "/" . $value->id . "/metadata/" . "/description.yml";
+            //We test if this file exist
+            if (file_exists($filename)) {
+                $all_annotation = yaml_parse_file($filename);//array
+                if(in_array("Title_series",array_keys($all_annotation["Series_information"]))){// check if a Title series key is defined
+                    //return $value->id .":" . $all_annotation["Series_information"]["Title_series"];
+                    //array_push($info_projects_available[$value->id]["Title_series"],$all_annotation["Series_information"]["Title_series"]);
+                    if (!empty($all_annotation["Series_information"]["Title_series"])){//check if a title serie is write
+                        $info_projects_available[$value->id]["Title_series"] = $all_annotation["Series_information"]["Title_series"];
+                    }
+                }//Part about Serie title END
+            }
+
+            //Part about the number of sample contain on each project
+            $sample_folder = SYSTEM_PROJECTS_ROOT . "/" . $value->id . "/samples/";
+            $info_projects_available[$value->id]["Number_sample"] = count(scandir($sample_folder))- 2;
+
+        }
+
+        return $info_projects_available;
+
+    }
+
 	public function is_project_manager( $user_id=0, $project_id=0 )
 	{
 		if ( $user_id < 1 || $project_id < 1 )

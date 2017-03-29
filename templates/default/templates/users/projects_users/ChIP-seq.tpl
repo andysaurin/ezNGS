@@ -1,4 +1,4 @@
-{debug}
+
 <form id="form-define-groups" action="/{$module}/{$class}/ChIP_define_groups" method="POST">
 
     <fieldset>

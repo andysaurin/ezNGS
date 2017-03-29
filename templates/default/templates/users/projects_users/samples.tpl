@@ -90,6 +90,10 @@
                 </div>
             </div>
 
+            <div class="row left">
+            <input class="button small round" type="submit" value="Validate" />
+            </div>
+
         </fieldset>
         {if $filetable|@count > 0 }
             <fieldset>
@@ -179,6 +183,9 @@
                     </tbody>
 
                 </table>
+
+
+                <input class="button small round" type="submit" value="Validate" />
 
 
             </fieldset>
