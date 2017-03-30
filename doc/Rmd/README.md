@@ -445,9 +445,9 @@ En gros cela devrait ressembler à la page d'une série GEO.
 
 ### Design description
 
--   the groups should be selected with a drop-down menu (HTML select)
+-   <s>the groups should be selected with a drop-down menu (HTML select)
     rather than as free text, to ensure consistency between the groups
-    to be compared and those defined and assigned to samples .
+    to be compared and those defined and assigned to samples .</s>
 
 -   actually the design should be based on the group IDs, not
     their names. The group name is a matter of display (this is

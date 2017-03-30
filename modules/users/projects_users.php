@@ -245,15 +245,15 @@ class projects_users extends NQ_Auth_User
     public function save_design()
     {
         if (!empty($_POST)) {//check if this array is empty.
+            //print_r($_POST);
             //in the html table foreach sub array the first line is empty and is used like a "template"
             //so we delete these lines before to save all information in the DB
             $project_id=$_POST['project_id'];
             unset($_POST['project_id']);
-            array_shift($_POST["Group_name_available"]);
+            //array_shift($_POST["Group_name_available"]);
             array_shift($_POST["Group_reference"]);
             array_shift($_POST["Group_test"]);
 
-/*            print_r($_POST);*/
             if (!$this->write_rna_design($_POST, $project_id)){
                 die("Error saving RNA design.tab");
             }

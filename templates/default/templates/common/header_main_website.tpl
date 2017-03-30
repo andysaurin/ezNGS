@@ -19,7 +19,7 @@
 
 		<script src="{$host}/bower_components/highlight-js/src/highlight.js"></script>
 
-		{if $show_recaptcha}<script src='https://www.google.com/recaptcha/api.js'></script>{/if}
+        {if $show_recaptcha}<script src='https://www.google.com/recaptcha/api.js'></script>{/if}
 
 		<!--[if lte IE 8]><script src="{$host}/js/html5.js"></script><![endif]-->
 		<script type="text/javascript">

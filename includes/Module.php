@@ -1979,7 +1979,10 @@ EOT;
         if($project_id < 0 ){
             return false;
         }
-        /*We need to check if the group name write by the user are defined and available*/
+       /* 29/03 This part is now USELESS because with the select option is not possible for an user
+       to choose a group name not available
+       _______________________________________
+       We need to check if the group name write by the user are defined and available
         //Group_reference part
         for ($i=0;$i<count($array["Group_reference"]);$i++){
 
@@ -1996,7 +1999,7 @@ EOT;
                 unset($array["Group_reference"][$i]);
                 unset($array["Group_test"][$i]);
             }
-        }
+        }*/
 
         /*Part about create/write the design.tab file*/
 

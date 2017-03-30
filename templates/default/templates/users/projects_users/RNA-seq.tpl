@@ -786,6 +786,19 @@
 
         }
 
+        Array.prototype.uniqueObjectArray = function(field) {
+            var processed = [];
+            for (var i=this.length-1; i>=0; i--) {
+                if (this[i].hasOwnProperty(field)) {
+                    if (processed.indexOf(this[i][field])<0) {
+                        processed.push(this[i][field]);
+                    } else {
+                        this.splice(i, 1);
+                    }
+                }
+            }
+        };// from http://stackoverflow.com/questions/18773778/create-array-of-unique-objects-by-property
+
         function loadAssignationAndSetDesign() {
            /* Old version we change for select possibility 27/03/2017 //$("#desing_rna")
             var AllFileAlreadyAssigned = {/literal}{$rna_group_already_assignated|json_encode}{literal};
@@ -824,18 +837,28 @@
 
             var AllFileAlreadyAssigned = {/literal}{$rna_group_already_assignated|json_encode}{literal};
             var AllGroupsAssigned = new Array;
+            //AllGroupsAssigned["group_name"]= new Array;
+            //AllGroupsAssigned["group_id"]= new Array;
 
             AllFileAlreadyAssigned.forEach(function (entry) {
-                AllGroupsAssigned.push(entry["group_name"]);
+                //AllGroupsAssigned["group_name"].push(entry["group_name"]);
+                //AllGroupsAssigned["group_id"].push(entry["group_id"]);
+
+                //Create a new objet
+                var group = new Object();
+                group.name = entry["group_name"];
+                group.id = entry["group_id"];
+                AllGroupsAssigned.push(group);
             });
 
-            var AllGroupsAssignedUnique = new Array;
-            AllGroupsAssignedUnique = $.unique(AllGroupsAssigned);
+            //var AllGroupsAssignedUnique = new Array;
+            //AllGroupsAssignedUnique["group_name"] = $.unique(AllGroupsAssigned["group_name"]);
+            //AllGroupsAssignedUnique["group_id"] = $.unique(AllGroupsAssigned["group_id"]);
+            AllGroupsAssigned.uniqueObjectArray("id");
+            console.log(AllGroupsAssigned);
 
-            //console.log(AllGroupsAssignedUnique);
-
-            AllGroupsAssignedUnique.forEach(function(entry){
-                $("#design_rna select").append("<option id='" + entry + "' value='" +entry+ "'>" + entry + " </option>");
+            AllGroupsAssigned.forEach(function(entry){
+                $("#design_rna select").append("<option id='" + entry.id + "' value='" +entry.id+ "'>" + entry.name + " </option>");
             });
 
 
