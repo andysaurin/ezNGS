@@ -949,7 +949,8 @@ class projects_users extends NQ_Auth_User
             //print_r($this->chip_group_already_assigned_in_db($_GET['id']));
             $this->set('chip_group_already_assigned', $this->chip_group_already_assigned_in_db($_GET['id']));
 
-            /*If in this project a design.tab file exist load it*/
+            /*31/03/2017 This is the old version base on the group name
+            If in this project a design.tab file exist load it
             //RNA part
             $filenameDesign = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata/RNA" . "/design.tab";
             $design_rna = array();
@@ -974,7 +975,41 @@ class projects_users extends NQ_Auth_User
                 array_shift($design_chip);
                 //print_r($design_rna);
                 $this->set("design_chip",$design_chip);
+            }*/
+
+            //Need to write process based on group_id
+
+            //If in this project a design.tab file exist load it
+            //RNA part
+            $filenameDesign = SYSTEM_PROJECTS_ROOT . "/" . $_GET['id'] . "/metadata/RNA" . "/design.tab";
+            $design_rna = array();
+            if (file_exists($filenameDesign)) {//check if file exist
+                $handle = fopen($filenameDesign, "r");//open a flux
+                while (($data = fgetcsv($handle, 0, "\t")) !== FALSE) {//read line by line
+                    array_push($design_rna, $data);//store every lines in a table
+                }
+                array_shift($design_rna);
+                //print_r($design_rna);
+                $design_rna_final=array();
+                $count = 1;
+                foreach ($design_rna as $analysis){
+                    $new_array = array();
+                    foreach ($analysis as $group_id){
+                        //print_r($group); OK
+                        //Creation d'une procedure get_group_name_by_group_id
+                        $group_name = $this->get_group_name_by_group_id($group_id);
+                        if($group_name != NULL){
+                            array_push($new_array,$group_name);
+                        }
+                    }
+                    array_push($design_rna_final,$new_array);
+
+                }
+
+                $this->set("design_rna",$design_rna_final);
             }
+
+
 
 
             /*If in this project a samples.tab file exist load it*/

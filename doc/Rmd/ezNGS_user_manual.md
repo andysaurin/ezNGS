@@ -324,9 +324,9 @@ Interface
     en-dessous -&gt; remplacer menu drop down par un menu normal.
     Alternative: all the project would appear under the menu when
     clicking on the triangle.</s>
--   The project summary displayed on the page "All my projects" could
+-   <s>The project summary displayed on the page "All my projects" could
     include some additional fields, in particular the number of samples,
-    and the short description string.
+    and the short description string.</s>
 
 -   <s>"Go Abda" -&gt; "Open project Abda"</s>
 
@@ -406,7 +406,7 @@ En gros cela devrait ressembler à la page d'une série GEO.
     workflow, its type cannot be change anymore, since an RNA-seq cannot
     become a ChIP-seq and reciprocally.
 
--   Add a button "validate" after each section of the form.
+-   <s>Add a button "validate" after each section of the form.</s>
 
 ### Exécution des workflows
 
@@ -445,17 +445,17 @@ En gros cela devrait ressembler à la page d'une série GEO.
 
 ### Design description
 
--   the groups should be selected with a drop-down menu (HTML select)
+-   <s>the groups should be selected with a drop-down menu (HTML select)
     rather than as free text, to ensure consistency between the groups
-    to be compared and those defined and assigned to samples .
+    to be compared and those defined and assigned to samples.</s>
 
--   actually the design should be based on the group IDs, not
+-   <s>actually the design should be based on the group IDs, not
     their names. The group name is a matter of display (this is
     displayed in the menu) but the design file should contain the unique
     ID of the group. This is also necessary if one wants to allow user
     to edit the group names (which is a good thing) without detroying
     the consistency between the design, the data
-    (sample/group assignations) and the results.
+    (sample/group assignations) and the results.</s>
 
 -   <s>The button "Save Design" should be inside the Design description
     rectangle, not below it.</s>

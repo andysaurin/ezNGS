@@ -1505,7 +1505,7 @@ EOT;
 
     }
 
-    public  function get_all_rna_groups_in_project($project_id=0)
+    public function get_all_rna_groups_in_project($project_id=0)
     {
         /*Verification*/
         if($project_id < 0 ){
@@ -1521,6 +1521,21 @@ EOT;
 
         return $rnaGroups;
     }
+
+    public function get_group_name_by_group_id($group_id=0)
+    {
+        /*Verification*/
+        if($group_id < 0 ){
+            return NULL;
+        }
+
+        /*Make a request to obtain the group_name by the group_id*/
+
+        $group_name =  $this->db->get_var("SELECT `group_name` FROM `groups` WHERE `group_id`='{$group_id}'");
+
+        return $group_name;
+    }
+
     public  function get_all_chip_groups_in_project($project_id=0)
     {
         /*Verification*/

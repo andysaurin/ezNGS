@@ -855,7 +855,7 @@
             //AllGroupsAssignedUnique["group_name"] = $.unique(AllGroupsAssigned["group_name"]);
             //AllGroupsAssignedUnique["group_id"] = $.unique(AllGroupsAssigned["group_id"]);
             AllGroupsAssigned.uniqueObjectArray("id");
-            console.log(AllGroupsAssigned);
+            //console.log(AllGroupsAssigned);
 
             AllGroupsAssigned.forEach(function(entry){
                 $("#design_rna select").append("<option id='" + entry.id + "' value='" +entry.id+ "'>" + entry.name + " </option>");
