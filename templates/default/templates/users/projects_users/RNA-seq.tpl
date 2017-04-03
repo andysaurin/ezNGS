@@ -17,7 +17,8 @@
                 </div>
             </div>
 
-        <table id="group_definition">
+       {* Old version 31/03/2017 we merge these two table to be more user friendly
+       <table id="group_definition">
             <tr>
                 <th>Group_name</th>
                 <th>Group_description</th>
@@ -67,19 +68,62 @@
                     <td class="large-2 Group_ID_available"><input id="Group_ID_availble" class="input_without_space" type="text" name="Group_ID_available[]" readonly/></td>
                     <td class="large-2 Group_name_available"><input id="Group_name_availble" class="input_without_space" type="text" name="Group_name_available[]" readonly/></td>
                     <td class="large-8 Group_description_available"><input id="Group_description_available" class="input_with_space" type="text" name="Group_description_available[]" readonly/></td>
-                    <td id="action"><a href="#!" id="deleteGroup" class="inline">Delete this Group</a>
+                    *}{* 31/03/2017 now user can change group name and description but can't delete it.<td id="action"><a href="#!" id="deleteGroup" class="inline">Delete this Group</a>*}{*
                 </tr>
                 <tr id="group_definition_available1">
                     <td class="large-2 Group_ID_available"><input id="Group_ID_availble" class="input_without_space" type="text" name="Group_ID_available[]" readonly/></td>
                     <td class="large-2 Group_name_available"><input id="Group_name_available1" class="input_without_space" type="text" name="Group_name_available[]" readonly/></td>
                     <td class="large-8 Group_description_available"><input id="Group_description_available1" class="input_with_space" type="text" name="Group_description_available[]" readonly/></td>
-                    <td id="action"><a href="#!" id="deleteGroup" class="inline">Delete this Group</a>
+                    *}{*31/03/2017 now user can change group name and description but can't delete it.<td id="action"><a href="#!" id="deleteGroup" class="inline">Delete this Group</a>*}{*
                 </tr>
             </table>
 
         </div>
     </fieldset>
-{/if}
+{/if}*}
+            <table id="group_available">
+                <tr>
+                    <th>Group_ID</th>
+                    <th>Group_name</th>
+                    <th>Group_description</th>
+                </tr>
+               {* 31/03/2017 useless and not compatible with the required restriction
+               <tr id="group_available_clone">
+                    <td class="large-2 Group_ID_available"><input id="Group_ID_availble" class="input_without_space" type="text" name="Group_ID[]" readonly/></td>
+                    <td class="large-2 Group_name_available"><input id="Group_name_availble" class="input_without_space" type="text" name="Group_name[]" /></td>
+                    <td class="large-8 Group_description_available"><input id="Group_description_available" class="input_with_space" type="text" name="Group_description[]" /></td>
+                    *}{* 31/03/2017 now user can change group name and description but can't delete it.<td id="action"><a href="#!" id="deleteGroup" class="inline">Delete this Group</a>*}{*
+                </tr>*}
+                <tr id="group_definition_available1">
+                    <td class="large-2 Group_ID_available"><input id="Group_ID_availble" class="input_without_space" type="text" name="Group_ID[]" readonly/></td>
+                    <td class="large-2 Group_name_available"><input id="Group_name_available1" class="input_without_space" type="text" name="Group_name[]" required/></td>
+                    <td class="large-8 Group_description_available"><input id="Group_description_available1" class="input_with_space" type="text" name="Group_description[]" /></td>
+                    {*31/03/2017 now user can change group name and description but can't delete it.<td id="action"><a href="#!" id="deleteGroup" class="inline">Delete this Group</a>*}
+                </tr>
+                <tfoot>
+                <tr>
+                    <td><a href="#!" id="add_group"> Add Group</a></td>
+                </tr>
+                </tfoot>
+            </table>
+
+            <div class="left">
+                <input class="button small round" type="submit" value="Save new(s) group(s)/ Modification" />
+            </div>
+
+        </div>
+
+        <div class="large-7 columns rigth ">
+
+            <p>This part is devoted to the definition of "groups". Whatever the type of data samples corresponding to a group, a condition.
+                In RNA-seq there are different conditions such as "KOnameGene" or "WildType". A sample can belong to several groups.
+                Please choose the name of groups wisely, without blankspace.</p>
+        </div>
+
+    </fieldset>
+
+</form>
+
 {if $all_annotations && $rna_groups|@count > 0 && in_array("RNA-seq",$data_type_used)}
 <form id="form-assignation-groups" action="/{$module}/{$class}/save_rna_assignation" method="POST">
     <fieldset>
@@ -167,22 +211,22 @@
 
                 </tr>*}
                 <tr id="rna_design_clone">
-                    <td class="medium-2" ><select id='Group_name_availble_ref_design' name='Group_reference[]'>
+                    <td class="medium-2 Group_name_availble_ref_design" ><select id='Group_name_availble_ref_design' name='Group_reference[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
-                    </tdclass>
-                    <td class="medium-2"><select id='Group_name_availble_test_design' name='Group_test[]'>
+                    </td>
+                    <td class="medium-2 Group_name_availble_test_design"><select id='Group_name_availble_test_design' name='Group_test[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
                     </td>
                 </tr>
 
                 <tr id="rna_design1">
-                    <td class="medium-2"><select id='Group_name_availble_ref_design1' name='Group_reference[]'>
+                    <td class="medium-2 Group_name_availble_ref_design"><select id='Group_name_availble_ref_design1' name='Group_reference[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
                     </td>
-                    <td class="medium-2"><select id='Group_name_availble_test_design1' name='Group_test[]'>
+                    <td class="medium-2 Group_name_availble_test_design"><select id='Group_name_availble_test_design1' name='Group_test[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
                     </td>
@@ -430,12 +474,13 @@
 
         /*Javascript function for the Add group possibility in the group definition table*/
         $indexGroup = 1;
-        $("#group_definition").on("click","#add_group",function () {
+        $("#group_available").on("click","#add_group",function () {
             $indexGroup++;
-            var $newTr = $("#group_definition_clone").clone().attr("id", "group_definition"+ $indexGroup);
+            var $newTr = $("#group_definition_available1").clone().attr("id", "group_definition_available"+ $indexGroup);
             $newTr.find("input").each(function() {
                 $(this).val('').attr("id",function(_, id) { return id + $indexGroup });
-            }).end().appendTo("#group_definition");
+                $(this).attr("value","");
+            }).end().appendTo("#group_available");
         });
 
         /*Javascript function for the Add a analysis possibility in the design_rna table*/
@@ -523,7 +568,7 @@
         function loadGroupAvailableRna(){
 
             var tableId = {/literal}{$rna_groups|json_encode}{literal};
-            var $indexSample = 0;
+            var $indexSample = 1;
             //first create lines
             var $numberOfLineToAdd = tableId.length -1 ;
             while ($numberOfLineToAdd != 0) {
@@ -537,23 +582,25 @@
 
                 $numberOfLineToAdd--;
             }
+            //console.log(tableId);
             //Fill these lines
             var indexFile = 0;
-            $("td.Group_ID_available input:not(td.Group_ID_available input:eq(0))").each(function(){
+            $("td.Group_ID_available input:not(td.Group_ID_available)").each(function(){
                 $(this).val(tableId[indexFile]["group_id"]);
                 $(this).attr("placeholder",tableId[indexFile]["group_id"]);
                 $(this).attr("value",tableId[indexFile]["group_id"]);
                 indexFile++;
+
             });
             var indexFile = 0;
-            $("td.Group_name_available input:not(td.Group_name_available input:eq(0))").each(function(){
+            $("td.Group_name_available input:not(td.Group_name_available)").each(function(){
                 $(this).val(tableId[indexFile]["group_name"]);
                 $(this).attr("placeholder",tableId[indexFile]["group_name"]);
                 $(this).attr("value",tableId[indexFile]["group_name"]);
                 indexFile++;
             });
             var indexFile = 0;
-            $("td.Group_description_available input:not(td.Group_description_available input:eq(0))").each(function(){
+            $("td.Group_description_available input:not(td.Group_description_available)").each(function(){
                 $(this).val(tableId[indexFile]["group_description"]);
                 $(this).attr("value",tableId[indexFile]["group_description"]);
                 $(this).attr("placeholder",tableId[indexFile]["group_description"]);
@@ -581,17 +628,15 @@
             }
             //Fill these lines
             var indexFile = 0;
-            $("td.Group_name_availble_ref_design input:not(td.Group_name_availble_ref_design input:eq(0))").each(function(){
-                $(this).val(designTable[indexFile][0]);
-                $(this).attr("placeholder",designTable[indexFile][0]);
-                $(this).attr("value",designTable[indexFile][0]);
+            $("td.Group_name_availble_ref_design select:not(td.Group_name_availble_ref_design select:eq(0))").each(function(){
+
+                $(this).find("option[id='" + designTable[indexFile][0]+"']").prop('selected', true);
                 indexFile++;
             });
             var indexFile = 0;
-            $("td.Group_name_availble_test_design input:not(td.Group_name_availble_test_design input:eq(0))").each(function(){
-                $(this).val(designTable[indexFile][1]);
-                $(this).attr("value",designTable[indexFile][1]);
-                $(this).attr("placeholder",designTable[indexFile][1]);
+            $("td.Group_name_availble_test_design select:not(td.Group_name_availble_test_design select:eq(0))").each(function(){
+
+                $(this).find("option[id='" + designTable[indexFile][1]+"']").prop('selected', true);
                 indexFile++;
             });
 
@@ -858,7 +903,7 @@
             //console.log(AllGroupsAssigned);
 
             AllGroupsAssigned.forEach(function(entry){
-                $("#design_rna select").append("<option id='" + entry.id + "' value='" +entry.id+ "'>" + entry.name + " </option>");
+                $("#design_rna select").append("<option id='" + entry.name + "' value='" +entry.id+ "'>" + entry.name + " </option>");
             });
 
 

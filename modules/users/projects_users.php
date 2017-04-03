@@ -202,13 +202,21 @@ class projects_users extends NQ_Auth_User
             //we need the project_id so we save it and delete it in the array
             $project_id=$_POST['project_id'];
             array_shift($_POST);
-            //in the html table foreach sub array the first line is empty and is used like a "template"
+           /* 31/03/2017
+           //in the html table foreach sub array the first line is empty and is used like a "template"
             //so we delete these lines before to save all information in the DB
+            array_shift($_POST["Group_ID"]);
             array_shift($_POST["Group_name"]);
-            array_shift($_POST["Group_description"]);
-            if (!$this->groups_in_db($_POST, $project_id,$data_type)){
+            array_shift($_POST["Group_description"]);*/
+            //print_r($_POST);
+
+            //BESOIN DE REECRIRE !!!!!
+
+            print_r($this->groups_in_db($_POST, $project_id,$data_type));
+
+            /*if (!$this->groups_in_db($_POST, $project_id,$data_type)){
                 die("Error saving RNA group");
-            }
+            }*/
         }
     }
 

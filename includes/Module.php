@@ -1844,7 +1844,8 @@ EOT;
 	public function groups_in_db($array, $project_id=0,$data_type)
 
     {
-        /*Verification*/
+        /*Old version 31/03/2017
+         Verification
         if($project_id < 0 ){
             return false;
         }
@@ -1852,7 +1853,28 @@ EOT;
         for ($i=0;$i<count($array["Group_name"]);$i++){
             $this->db->query("INSERT INTO `groups` (`group_id`,`data_type_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL, {$data_type},'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
         }
+        return true;*/
+
+		/*Verification*/
+        if($project_id < 0 ){
+			return false;
+		}
+
+        for ($i=0;$i<count($array["Group_ID"]);$i++){
+            if (empty($array["Group_ID"][$i])){ //group don't exist yet
+                //return "fini". $array["Group_name"][$i];
+                //create the group
+                $this->db->query("INSERT INTO `groups` (`group_id`,`data_type_id`, `group_name`, `group_description`, `created_by`, `project_id`) VALUES (NULL, {$data_type},'{$array["Group_name"][$i]}','{$array["Group_description"][$i]}','{$this->user->id}', '{$project_id}')");
+
+            }else{//Group already exist but need to be update
+                $this->db->query("UPDATE `ezNGS`.`groups` SET `group_name` = '{$array["Group_name"][$i]}', `group_description` = '{$array["Group_description"][$i]}', `created_by` = '{$this->user->id}'  WHERE `groups`.`group_id` = {$array['Group_ID'][$i]};");
+
+
+            }
+        }
+
         return true;
+
     }
 
     public function chip_group_already_assigned_in_db($project_id=0)

@@ -322,13 +322,13 @@ En gros cela devrait ressembler à la page d'une série GEO.
 
 #### Group definitions
 
-- The addition of a new group should appear as a row at the end of the list of existing groups. 
+- ~~The addition of a new group should appear as a row at the end of the list of existing groups.~~
 
-- The button "Add new group" is not necessary (especially if the "Save new group" section comes at the end of the existing groups). 
+- ~~The button "Add new group" is not necessary (especially if the "Save new group" section comes at the end of the existing groups).~~
 
-- The fields "Group description" and "Group name" should be editable even during the project. 
+- ~~The fields "Group description" and "Group name" should be editable even during the project.~~
 
-- The function "Delete this group" est dangereuse: si le group a déjà été utilisé dans un workflow on casse l'intégrité entre les données et les résultats. 
+- ~~The function "Delete this group" est dangereuse: si le group a déjà été utilisé dans un workflow on casse l'intégrité entre les données et les résultats.~~
 
 ### Sample-group assignation
 
