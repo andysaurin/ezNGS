@@ -29,7 +29,7 @@
 }
 </style>
 
-{debug}
+
 <h2>Sequenced sample files</h2>
 
 <fieldset>

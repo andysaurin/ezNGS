@@ -751,13 +751,14 @@
             for (var $key1 in toolsAvailableRNATable){
 //                console.log($key1);
                 if ($key1 == "RNA-seq"){
-//                console.log($key1);
+                console.log($key1);
                     for (var $key2 in toolsAvailableRNATable[$key1]){
-//                        console.log($key2);
+                        console.log($key2);
                         $("#tools_available_rna").append("<div id='" + $key2 +"'></div>" );
                         $("#" + $key2).append("<h3>" + $key2 + "</h3>");
                         for (var $key3 in toolsAvailableRNATable[$key1][$key2]){
-                            var nameTool = toolsAvailableRNATable[$key1][$key2][$key3]
+                            var nameTool = toolsAvailableRNATable[$key1][$key2][$key3];
+                            console.log(nameTool);
                             $("#" + $key2).append("<input type=checkbox name=" + $key2 + "[]" + " value=" + nameTool + ">" + nameTool );
                         }
 
@@ -831,7 +832,19 @@
 
         }
 
-        Array.prototype.uniqueObjectArray = function(field) {
+        function uniqueId(array) {
+            var processed = [];
+            for (var i=array.length-1; i>=0; i--){
+                if (processed.indexOf(array[i].id)<0) {
+                    processed.push(array[i].id);
+                } else {
+                    array.splice(i, 1);
+                }
+            }
+            return array;
+        }
+
+        /*Array.prototype.uniqueObjectArray = function(field) { 04/04/2017 Create a particular bug need to discuss with someone have experiencies in JS
             var processed = [];
             for (var i=this.length-1; i>=0; i--) {
                 if (this[i].hasOwnProperty(field)) {
@@ -842,7 +855,7 @@
                     }
                 }
             }
-        };// from http://stackoverflow.com/questions/18773778/create-array-of-unique-objects-by-property
+        }// from http://stackoverflow.com/questions/18773778/create-array-of-unique-objects-by-property*/
 
         function loadAssignationAndSetDesign() {
            /* Old version we change for select possibility 27/03/2017 //$("#desing_rna")
@@ -899,8 +912,9 @@
             //var AllGroupsAssignedUnique = new Array;
             //AllGroupsAssignedUnique["group_name"] = $.unique(AllGroupsAssigned["group_name"]);
             //AllGroupsAssignedUnique["group_id"] = $.unique(AllGroupsAssigned["group_id"]);
-            AllGroupsAssigned.uniqueObjectArray("id");
-            //console.log(AllGroupsAssigned);
+            //AllGroupsAssigned.uniqueObjectArray("id");
+            AllGroupsAssigned = uniqueId(AllGroupsAssigned);
+            console.log(AllGroupsAssigned);
 
             AllGroupsAssigned.forEach(function(entry){
                 $("#design_rna select").append("<option id='" + entry.name + "' value='" +entry.id+ "'>" + entry.name + " </option>");
