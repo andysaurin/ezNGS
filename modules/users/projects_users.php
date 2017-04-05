@@ -210,13 +210,14 @@ class projects_users extends NQ_Auth_User
             array_shift($_POST["Group_description"]);*/
             //print_r($_POST);
 
-            //BESOIN DE REECRIRE !!!!!
+            //print_r($this->groups_in_db($_POST, $project_id,$data_type));
 
-            print_r($this->groups_in_db($_POST, $project_id,$data_type));
-
-            /*if (!$this->groups_in_db($_POST, $project_id,$data_type)){
+            if (!$this->groups_in_db($_POST, $project_id,$data_type)){
                 die("Error saving RNA group");
-            }*/
+            }
+
+            header("Location: go/?id={$project_id}&active=RNA-seq" );
+            exit;
         }
     }
 
@@ -267,6 +268,8 @@ class projects_users extends NQ_Auth_User
             }
 
         }
+        header("Location: go/?id={$project_id}&active=RNA-seq" );
+        exit;
     }
 
     /* 11/10/2016 public function delete_rna_group_already_define()
@@ -292,6 +295,8 @@ class projects_users extends NQ_Auth_User
             }
 
         }
+        header("Location: go/?id={$project_id}&active=RNA-seq" );
+        exit;
     }
 
     public function write_sample_chip()
@@ -331,6 +336,9 @@ class projects_users extends NQ_Auth_User
             }
 
         }
+
+        header("Location: go/?id={$project_id}&active=RNA-seq" );
+        exit;
 
 
     }
@@ -436,6 +444,7 @@ class projects_users extends NQ_Auth_User
     public function save_rna_config()
     {
         if (!empty($_POST)) {//check if this array is empty.
+            $project_id = $_POST['project_id'];
             $pathToProject = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'];
             $filenameYaml = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata/RNA" . "/config.yml";
             #$filenameJson = SYSTEM_PROJECTS_ROOT . "/" . $_POST['project_id'] . "/metadata" . "/config.json";
@@ -449,6 +458,10 @@ class projects_users extends NQ_Auth_User
             $_POST["metadata"]["samples"] = $pathToProject . "/metadata/RNA/samples.tab";
             $_POST["metadata"]["design"] = $pathToProject . "/metadata/RNA/design.tab";
             $_POST["metadata"]["configfile"] = $pathToProject . "/metadata/RNA/config.yml";
+
+            $cmd ="grep -v '^>' " . SYSTEM_DATA_ROOT .  "/genomes/". $_POST["genome"]["organism"]."/".$_POST["genome"]["fasta_file"]." | perl -pe 's|\s||g' | wc -c";
+            $result = shell_exec($cmd);
+            $_POST["genome"]["size"] = $result;
 
             $_POST["dir"]["base"] = $pathToProject;
             $_POST["dir"]["reads_source"] = $pathToProject . "/samples";
@@ -519,6 +532,9 @@ class projects_users extends NQ_Auth_User
             //Write the config file
             $res = yaml_emit_file($filenameYaml, $configinit);
         }
+
+        header("Location: go/?id={$project_id}&active=RNA-seq" );
+        exit;
     }
 
     public function save_chip_config()
@@ -537,6 +553,10 @@ class projects_users extends NQ_Auth_User
             $_POST["metadata"]["samples"] = $pathToProject . "/metadata/ChIP/samples.tab";
             $_POST["metadata"]["design"] = $pathToProject . "/metadata/ChIP/design.tab";
             $_POST["metadata"]["configfile"] = $pathToProject . "/metadata/ChIP/config.yml";
+
+            $cmd ="grep -v '^>' " . SYSTEM_DATA_ROOT .  "/genomes/". $_POST["genome"]["organism"]."/".$_POST["genome"]["fasta_file"]." | perl -pe 's|\s||g' | wc -c";
+            $result = shell_exec($cmd);
+            $_POST["genome"]["size"] = $result;
 
             $_POST["dir"]["base"] = $pathToProject;
             $_POST["dir"]["reads_source"] = $pathToProject . "/samples";

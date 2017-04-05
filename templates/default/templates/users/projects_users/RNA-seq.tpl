@@ -188,7 +188,7 @@
        {*<div class="medium-8 right">*}
             {*<h3>Design analysis</h3>*}
 
-            <p>Complete the table with RNA-seq analysis you want to perform. Example: CondA/CondB write "CondA" in Group reference and "CondB" in Group test.</p>
+            <p>Indicate the groups to be compared for differential analysis. The left column indicates the test group (e.g. mutant, treated) and the right column the reference group (wild-type, untreated). Additional test versus reference comparisons can be done by clicking “Add analysis”.</p>
 
             <div class="small-1 columns">
                 <label for="Project_id"class="right inline">Project_id</label>
@@ -200,8 +200,8 @@
             <table id="design_rna" class="medium-4">
                 <tbody>
                 <tr>
-                    <th>Group reference</th>
                     <th>Group test</th>
+                    <th>Group reference</th>
 
                 </tr>
                 {* 24/03/2017<tr id="rna_design_clone">
@@ -211,22 +211,22 @@
 
                 </tr>*}
                 <tr id="rna_design_clone">
-                    <td class="medium-2 Group_name_availble_ref_design" ><select id='Group_name_availble_ref_design' name='Group_reference[]'>
+                    <td class="medium-2 Group_name_availble_test_design"><select id='Group_name_availble_test_design' name='Group_test[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
                     </td>
-                    <td class="medium-2 Group_name_availble_test_design"><select id='Group_name_availble_test_design' name='Group_test[]'>
+                    <td class="medium-2 Group_name_availble_ref_design" ><select id='Group_name_availble_ref_design' name='Group_reference[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
                     </td>
                 </tr>
 
                 <tr id="rna_design1">
-                    <td class="medium-2 Group_name_availble_ref_design"><select id='Group_name_availble_ref_design1' name='Group_reference[]'>
+                    <td class="medium-2 Group_name_availble_test_design"><select id='Group_name_availble_test_design1' name='Group_test[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
                     </td>
-                    <td class="medium-2 Group_name_availble_test_design"><select id='Group_name_availble_test_design1' name='Group_test[]'>
+                    <td class="medium-2 Group_name_availble_ref_design"><select id='Group_name_availble_ref_design1' name='Group_reference[]'>
                             <option id='Empty1' value=''> </option>
                         </select>
                     </td>
@@ -335,14 +335,14 @@
                 </div>
             </div>
 
-            <div class=" row left">
+            {*05/042017 Now the genome'size is calculated by the server <div class=" row left">
                 <div class="large-1 columns">
                     <label for="size" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="genome's size">Size</span></label>
                 </div>
                 <div class="large-11 columns">
                     <input type="text" id="size" name="genome[size]" value="" required>
                 </div>
-            </div>
+            </div>*}
 
             <div class=" row left">
                 <div class="large-1 columns">
@@ -732,6 +732,11 @@
 
             var tableGroupsDefined={/literal}{$rna_groups|json_encode}{literal};
 
+            var toto = [];
+            toto["group_name"] = "none";
+            tableGroupsDefined.push(toto);
+
+
             tableGroupsDefined.forEach(function (entry) {
                 for (var i=0; i < tableId2.length; i++){
                     //console.log(i);
@@ -739,7 +744,7 @@
                     //console.log(name);
                     var selectTd = "td.Groups_available2:eq("+(i+1)+")";
                     //console.log(selectTd);
-                    $(selectTd).append('<input type=checkbox name=' + name +' value=' + entry["group_name"] + '>' + entry["group_name"] );
+                    $(selectTd).append('<input type=radio name=' + name +' value=' + entry["group_name"] + '>' + entry["group_name"] );
                  }
              });
         }
@@ -751,14 +756,14 @@
             for (var $key1 in toolsAvailableRNATable){
 //                console.log($key1);
                 if ($key1 == "RNA-seq"){
-                console.log($key1);
+//                console.log($key1);
                     for (var $key2 in toolsAvailableRNATable[$key1]){
-                        console.log($key2);
+//                        console.log($key2);
                         $("#tools_available_rna").append("<div id='" + $key2 +"'></div>" );
                         $("#" + $key2).append("<h3>" + $key2 + "</h3>");
                         for (var $key3 in toolsAvailableRNATable[$key1][$key2]){
                             var nameTool = toolsAvailableRNATable[$key1][$key2][$key3];
-                            console.log(nameTool);
+//                            console.log(nameTool);
                             $("#" + $key2).append("<input type=checkbox name=" + $key2 + "[]" + " value=" + nameTool + ">" + nameTool );
                         }
 

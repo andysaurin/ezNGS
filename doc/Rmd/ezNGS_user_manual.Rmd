@@ -122,8 +122,8 @@ Note that this form enables you to provide a lot of details about the project it
 **TODO:**
 
 - add link to the excel document
-- Button "Add a contributor" should be under "SRA_center_name_code", rather than in the topright corner.
-- When a form is validated, the user should be redirected to the same form, or at least to the home page of the same project, but not to her/his general home page. 
+- ~~Button "Add a contributor" should be under "SRA_center_name_code", rather than in the topright corner.~~
+- ~~When a form is validated, the user should be redirected to the same form, or at least to the home page of the same project, but not to her/his general home page.~~
 </font>
 
 In this form, we restricted the fields to those that need to be filled in by the biologist. 
@@ -191,17 +191,17 @@ knitr::include_graphics('../images/rna-seq_design_description.png')
 <font color="red">
 TODO:
 
-- Sample-Group assignation: replace checkboxes by radio buttons (so far the snakemake workflows only support one condition per sample, since it is a single column of the sample.tab file). Add a "none" button to enable deselecting samples for the current analysis. 
+- ~~Sample-Group assignation: replace checkboxes by radio buttons (so far the snakemake workflows only support one condition per sample, since it is a single column of the sample.tab file). Add a "none" button to enable deselecting samples for the current analysis.~~
 
-- When there is an empty group, a checkbox currently appears. After adaptation, radio bxes should only appear for groups having a name. 
+- ~~When there is an empty group, a checkbox currently appears. After adaptation, radio bxes should only appear for groups having a name.~~
 
-- "Complete the table with RNA-seq analysis you want to perform. Example: CondA/CondB write "CondA" in Group reference and "CondB" in Group test."
+- ~~Complete the table with RNA-seq analysis you want to perform. Example: CondA/CondB write "CondA" in Group reference and "CondB" in Group test.~~
 
-    -> Indicate the groups to be compared for differential analysis. The left column indicates the test group (e.g. mutant, treated) and the right column the reference group (wild-type, untreated). Additional test versus reference comparisons can be done by clicking "Add analysis".
+    ~~-> Indicate the groups to be compared for differential analysis. The left column indicates the test group (e.g. mutant, treated) and the right column the reference group (wild-type, untreated). Additional test versus reference comparisons can be done by clicking "Add analysis".~~
 
-- In the design box, swap  Reference and Test: Test should come before reference (Test versus Reference). 
-- Group test -> Test group (e.g. mutant, treated)
-- Group reference -> Reference group (e.g. wild-type, untreated)
+- ~~In the design box, swap  Reference and Test: Test should come before reference (Test versus Reference).~~
+- ~~Group test -> Test group (e.g. mutant, treated)~~
+- ~~Group reference -> Reference group (e.g. wild-type, untreated)~~
 - "Sample To analyse" -> "Summary of the analysis"
 - the "Genome" section should be moved to the project form
 </font>
@@ -220,9 +220,9 @@ TODO
 
 - "Metadata" currently contain a single parameter. This is a bit strange to have a section for a single parameter. 
 
-- Genome size should be computed automatically
+- ~~Genome size should be computed automatically~~
 
-    ````grep -v '^>' /workspace/rsat/data/genomes/Drosophila_melanogaster/genome/Drosophila_melanogaster.dna.genome.fa | perl -pe 's|\s||g' | wc -c````
+    ~~````grep -v '^>' /workspace/rsat/data/genomes/Drosophila_melanogaster/genome/Drosophila_melanogaster.dna.genome.fa | perl -pe 's|\s||g' | wc -c````~~
     
 
 - Can we include a way to select automatically the genomes from UCSC    

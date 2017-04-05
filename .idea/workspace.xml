@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48eb2ec5-1828-48e0-bb0f-5cecfc279105" name="Default" comment="Fix function create new project">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/amidex.iml" afterPath="$PROJECT_DIR$/.idea/amidex.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/Rmd/ezNGS_user_manual.Rmd" afterPath="$PROJECT_DIR$/doc/Rmd/ezNGS_user_manual.Rmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/users/projects_users.php" afterPath="$PROJECT_DIR$/modules/users/projects_users.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/templates/users/projects_users/sample_attribution.tpl" afterPath="$PROJECT_DIR$/templates/default/templates/users/projects_users/sample_attribution.tpl" />
     </list>
     <ignored path="amidex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,14 +34,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
+      <file leaf-file-name="RNA-seq.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23276">
-              <caret line="1058" column="0" lean-forward="false" selection-start-line="1058" selection-start-column="0" selection-end-line="1058" selection-end-column="0" />
-              <folding>
-                <marker date="1491225135000" expanded="true" signature="40616:43616" ph="..." />
-              </folding>
+            <state relative-caret-position="-588">
+              <caret line="290" column="68" lean-forward="true" selection-start-line="290" selection-start-column="64" selection-end-line="290" selection-end-column="79" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,20 +47,126 @@
       <file leaf-file-name="Module.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/Module.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41844">
-              <caret line="1907" column="0" lean-forward="false" selection-start-line="1907" selection-start-column="0" selection-end-line="1907" selection-end-column="0" />
+            <state relative-caret-position="22">
+              <caret line="2015" column="29" lean-forward="false" selection-start-line="2015" selection-start-column="29" selection-end-line="2015" selection-end-column="29" />
               <folding>
-                <marker date="1491225135000" expanded="true" signature="61348:61354" ph="{...}" />
+                <marker date="1491225135000" expanded="true" signature="3176:3254" ph="..." />
+                <marker date="1491225135000" expanded="true" signature="3526:3585" ph="SELECT * FRO... users" />
+                <marker date="1491225135000" expanded="true" signature="3773:3868" ph="SELECT count... users" />
+                <marker date="1491225135000" expanded="true" signature="18057:18065" ph="..." />
+                <marker date="1491225135000" expanded="true" signature="19121:19179" ph="SELECT * FRO... users" />
+                <marker date="1491225135000" expanded="true" signature="29749:29790" ph="SELECT * FRO... users" />
+                <marker date="1491225135000" expanded="true" signature="30215:30259" ph="SELECT * FRO... projects" />
+                <marker date="1491225135000" expanded="true" signature="30307:30458" ph="SELECT proje... projects" />
+                <marker date="1491225135000" expanded="true" signature="30599:30772" ph="SELECT proje... projects" />
+                <marker date="1491225135000" expanded="true" signature="30980:31005" ph="SELECT id FR... projects" />
+                <marker date="1491225135000" expanded="true" signature="32714:32820" ph="SELECT `user... project_managers" />
+                <marker date="1491225135000" expanded="true" signature="33783:33904" ph="SELECT users... users" />
+                <marker date="1491225135000" expanded="true" signature="34347:34525" ph="INSERT INTO `projects`... " />
+                <marker date="1491225135000" expanded="true" signature="34922:34979" ph="SELECT `id` projects" />
+                <marker date="1491225135000" expanded="true" signature="35059:35160" ph="INSERT INTO `project_managers`... " />
+                <marker date="1491225135000" expanded="true" signature="35350:35449" ph="INSERT INTO `users_projects`... " />
+                <marker date="1491225135000" expanded="true" signature="38675:38732" ph="SELECT * FRO... projects" />
+                <marker date="1491225135000" expanded="true" signature="38876:38902" ph="SELECT * FRO... data_types" />
+                <marker date="1491225135000" expanded="true" signature="39182:39330" ph="INSERT INTO `files`... " />
+                <marker date="1491225135000" expanded="true" signature="39819:39875" ph="SELECT `file... files" />
+                <marker date="1491225135000" expanded="true" signature="40105:40219" ph="INSERT INTO `files_projects`... " />
+                <marker date="1491225135000" expanded="true" signature="40515:40541" ph="SELECT * FRO... data_types" />
+                <marker date="1491225135000" expanded="true" signature="40729:40822" ph="SELECT COUNT... files_projects" />
+                <marker date="1491225135000" expanded="true" signature="41243:41321" ph="SELECT files... files" />
+                <marker date="1491225135000" expanded="true" signature="41698:41849" ph="SELECT files... files" />
+                <marker date="1491225135000" expanded="true" signature="42230:42397" ph="SELECT sampl... samples" />
+                <marker date="1491225135000" expanded="true" signature="42783:42845" ph="SELECT * FRO... samples" />
+                <marker date="1491225135000" expanded="true" signature="43136:43192" ph="SELECT * FRO... files" />
+                <marker date="1491225135000" expanded="true" signature="43825:43936" ph="INSERT INTO `metadata`... " />
+                <marker date="1491225135000" expanded="true" signature="44002:44072" ph="SELECT `meta... metadata" />
+                <marker date="1491225135000" expanded="true" signature="44233:44335" ph="INSERT INTO `project_metadata`... " />
+                <marker date="1491225135000" expanded="true" signature="44570:44677" ph="SELECT COUNT... metadata" />
+                <marker date="1491225135000" expanded="true" signature="45130:45248" ph="SELECT COUNT... project_metadata" />
+                <marker date="1491225135000" expanded="true" signature="45812:45915" ph="SELECT * FRO... groups" />
+                <marker date="1491225135000" expanded="true" signature="46284:46348" ph="SELECT `grou... groups" />
+                <marker date="1491225135000" expanded="true" signature="46671:46775" ph="SELECT * FRO... groups" />
+                <marker date="1491225135000" expanded="true" signature="47422:47478" ph="SELECT `file... files" />
+                <marker date="1491225135000" expanded="true" signature="47684:47754" ph="SELECT `meta... metadata" />
+                <marker date="1491225135000" expanded="true" signature="47975:48108" ph="INSERT INTO `files_metadata`... " />
+                <marker date="1491225135000" expanded="true" signature="48513:48624" ph="SELECT COUNT... files_metadata" />
+                <marker date="1491225135000" expanded="true" signature="48976:49066" ph="DELETE FROM " />
+                <marker date="1491225135000" expanded="true" signature="49834:49887" ph="SELECT `file... files" />
+                <marker date="1491225135000" expanded="true" signature="49922:50008" ph="DELETE FROM " />
+                <marker date="1491225135000" expanded="true" signature="50176:50274" ph="SELECT `grou... groups" />
+                <marker date="1491225135000" expanded="true" signature="50313:50428" ph="INSERT INTO `groups_files`... " />
+                <marker date="1491225135000" expanded="true" signature="51938:52039" ph="SELECT `trea... chip_sample_pair" />
+                <marker date="1491225135000" expanded="true" signature="52106:52205" ph="SELECT `inpu... chip_sample_pair" />
+                <marker date="1491225135000" expanded="true" signature="52295:52389" ph="DELETE FROM " />
+                <marker date="1491225135000" expanded="true" signature="52428:52520" ph="DELETE FROM " />
+                <marker date="1491225135000" expanded="true" signature="53038:53156" ph="SELECT `grou... groups" />
+                <marker date="1491225135000" expanded="true" signature="53199:53318" ph="INSERT INTO `groups_files`... " />
+                <marker date="1491225135000" expanded="true" signature="53360:53477" ph="INSERT INTO `groups_files`... " />
+                <marker date="1491225135000" expanded="true" signature="54416:54511" ph="SELECT `file... files_projects" />
+                <marker date="1491225135000" expanded="true" signature="54678:54799" ph="INSERT INTO `chip_sample_type`... " />
+                <marker date="1491225135000" expanded="true" signature="54866:54956" ph="DELETE FROM " />
+                <marker date="1491225135000" expanded="true" signature="54999:55120" ph="INSERT INTO `chip_sample_type`... " />
+                <marker date="1491225135000" expanded="true" signature="55970:56069" ph="SELECT `file... files_projects" />
+                <marker date="1491225135000" expanded="true" signature="56161:56260" ph="SELECT `file... files_projects" />
+                <marker date="1491225135000" expanded="true" signature="56295:56452" ph="INSERT INTO `chip_sample_pair`... " />
+                <marker date="1491225135000" expanded="true" signature="56628:56772" ph="SELECT chip_... chip_sample_type" />
+                <marker date="1491225135000" expanded="true" signature="57038:57251" ph="SELECT files... files" />
+                <marker date="1491225135000" expanded="true" signature="57501:57716" ph="SELECT files... files" />
+                <marker date="1491225135000" expanded="true" signature="58177:58290" ph="SELECT `file... files_projects" />
+                <marker date="1491225135000" expanded="true" signature="58338:58449" ph="SELECT `file... files_projects" />
+                <marker date="1491225135000" expanded="true" signature="58480:58621" ph="DELETE FROM " />
+                <marker date="1491225135000" expanded="true" signature="58791:58841" ph="SELECT * FRO... chip_sample_pair" />
+                <marker date="1491225135000" expanded="true" signature="59074:59181" ph="SELECT COUNT... chip_sample_type" />
+                <marker date="1491225135000" expanded="true" signature="59497:59633" ph="SELECT COUNT... groups_files" />
+                <marker date="1491225135000" expanded="true" signature="60733:60974" ph="INSERT INTO `groups`... " />
+                <marker date="1491225135000" expanded="true" signature="61075:61271" ph="UPDATE `ezNG... " />
+                <marker date="1491225135000" expanded="true" signature="61591:61907" ph="SELECT chip_... groups_files" />
+                <marker date="1491225135000" expanded="true" signature="62683:62946" ph="SELECT files... groups_files" />
+                <marker date="1491225135000" expanded="true" signature="63334:63621" ph="SELECT files... groups_files" />
+                <marker date="1491225135000" expanded="true" signature="64217:64330" ph="SELECT `grou... groups" />
+                <marker date="1491225135000" expanded="true" signature="64438:64538" ph="SELECT `file... groups_files" />
+                <marker date="1491225135000" expanded="true" signature="64672:64753" ph="SELECT `inpu... chip_sample_pair" />
+                <marker date="1491225135000" expanded="true" signature="64813:64896" ph="SELECT `trea... chip_sample_pair" />
+                <marker date="1491225135000" expanded="true" signature="65239:65302" ph="SELECT `md5s... files" />
+                <marker date="1491225135000" expanded="true" signature="65790:65853" ph="SELECT `md5s... files" />
+                <marker date="1491225135000" expanded="true" signature="68772:68810" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RNA-seq.tpl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
+      <file leaf-file-name="projects_users.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="851" column="55" lean-forward="true" selection-start-line="851" selection-start-column="55" selection-end-line="851" selection-end-column="55" />
+            <state relative-caret-position="600">
+              <caret line="558" column="47" lean-forward="false" selection-start-line="558" selection-start-column="47" selection-end-line="558" selection-end-column="47" />
+              <folding>
+                <marker date="1491393729000" expanded="true" signature="3445:3557" ph="SELECT `proj... samples_projects" />
+                <marker date="1491393729000" expanded="true" signature="3810:3870" ph="DELETE FROM " />
+                <marker date="1491393729000" expanded="true" signature="3974:4074" ph="DELETE FROM " />
+                <marker date="1491393729000" expanded="true" signature="4610:4736" ph="INSERT INTO `samples`... " />
+                <marker date="1491393729000" expanded="true" signature="4952:5026" ph="INSERT INTO `samples_projects`... " />
+                <marker date="1491393729000" expanded="true" signature="41543:44543" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChIP-seq.tpl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="363" column="26" lean-forward="true" selection-start-line="363" selection-start-column="26" selection-end-line="363" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/projects/59/metadata/ChIP/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -72,20 +176,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Groups_available_chip</find>
-      <find>add_chip_assignation_in_db</find>
-      <find>loadAssignation</find>
-      <find>load</find>
-      <find>rna_group_already_assignated</find>
-      <find>group_already_assigned_in_db</find>
-      <find>git</find>
-      <find>group_available_chip</find>
-      <find>group_available_chip_design</find>
-      <find>get_all_chip_pair_already_defined</find>
-      <find>all_chip_pair_already_defined</find>
-      <find>save_chip_design</find>
-      <find>write_rna_design</find>
-      <find>create</find>
       <find>config.yml</find>
       <find>design.tab</find>
       <find>samples.tab</find>
@@ -102,6 +192,20 @@
       <find>load_tools_available_RNA</find>
       <find>drop</find>
       <find>tools_available</find>
+      <find>save_samp</find>
+      <find>save_an</find>
+      <find>sampleAttribution</find>
+      <find>rna_def</find>
+      <find>save_des</find>
+      <find>che</find>
+      <find>radio</find>
+      <find>console</find>
+      <find>save_rna_con</find>
+      <find>group refe</find>
+      <find>write_rna_design</find>
+      <find>save_desi</find>
+      <find>size</find>
+      <find>save_rna_config</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,10 +260,10 @@
         <option value="$PROJECT_DIR$/templates/default/templates/admin/index.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/common/header_main_website.tpl" />
-        <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
         <option value="$PROJECT_DIR$/includes/Module.php" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/sample_attribution.tpl" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
+        <option value="$PROJECT_DIR$/modules/users/projects_users.php" />
         <option value="$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
       </list>
     </option>
@@ -380,7 +484,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -394,18 +498,18 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config_tools" />
+              <option name="myItemId" value="genomes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -689,12 +793,15 @@
       <workItem from="1491211169000" duration="1767000" />
       <workItem from="1491219911066" duration="3201000" />
       <workItem from="1491295397494" duration="1490000" />
-      <workItem from="1491308117215" duration="1449000" />
+      <workItem from="1491308117215" duration="7137000" />
+      <workItem from="1491318978064" duration="297000" />
+      <workItem from="1491381591860" duration="1128000" />
+      <workItem from="1491389765641" duration="4506000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="602377000" />
+    <option name="totallyTimeSpent" value="613996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -707,7 +814,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="3599" y="0" width="1922" height="1201" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2140625" sideWeight="0.49453977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.49786323" order="6" side_tool="false" content_ui="tabs" />
@@ -754,9 +861,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
-    <entry file="file://$PROJECT_DIR$/includes/Module.php" />
     <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl" />
@@ -781,7 +885,6 @@
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/config.yml" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/design.tab" />
     <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/description.yml" />
-    <entry file="file://$PROJECT_DIR$/data/workflows/RNA-seq_workflow_SE.py" />
     <entry file="file://$PROJECT_DIR$/config/config_tools/macs2.yml" />
     <entry file="file://$PROJECT_DIR$/templates/default/templates/common/header_user.tpl">
       <provider selected="true" editor-type-id="text-editor">
@@ -876,51 +979,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/Module.php">
+    <entry file="file://$PROJECT_DIR$/config/config_tools/tools_available.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41844">
-          <caret line="1907" column="0" lean-forward="false" selection-start-line="1907" selection-start-column="0" selection-end-line="1907" selection-end-column="0" />
-          <folding>
-            <marker date="1491225135000" expanded="true" signature="61348:61354" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23276">
-          <caret line="1058" column="0" lean-forward="false" selection-start-line="1058" selection-start-column="0" selection-end-line="1058" selection-end-column="0" />
-          <folding>
-            <marker date="1491225135000" expanded="true" signature="40616:43616" ph="..." />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/sample_attribution.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="284">
+          <caret line="229" column="19" lean-forward="true" selection-start-line="229" selection-start-column="19" selection-end-line="229" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/samples.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="440">
+          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config_tools/tools_available.yml">
+    <entry file="file://$PROJECT_DIR$/data/workflows/RNA-seq_workflow_SE.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
+    <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/RNA/design.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="2015" column="29" lean-forward="false" selection-start-line="2015" selection-start-column="29" selection-end-line="2015" selection-end-column="29" />
+          <folding>
+            <marker date="1491225135000" expanded="true" signature="3176:3254" ph="..." />
+            <marker date="1491225135000" expanded="true" signature="3526:3585" ph="SELECT * FRO... users" />
+            <marker date="1491225135000" expanded="true" signature="3773:3868" ph="SELECT count... users" />
+            <marker date="1491225135000" expanded="true" signature="18057:18065" ph="..." />
+            <marker date="1491225135000" expanded="true" signature="19121:19179" ph="SELECT * FRO... users" />
+            <marker date="1491225135000" expanded="true" signature="29749:29790" ph="SELECT * FRO... users" />
+            <marker date="1491225135000" expanded="true" signature="30215:30259" ph="SELECT * FRO... projects" />
+            <marker date="1491225135000" expanded="true" signature="30307:30458" ph="SELECT proje... projects" />
+            <marker date="1491225135000" expanded="true" signature="30599:30772" ph="SELECT proje... projects" />
+            <marker date="1491225135000" expanded="true" signature="30980:31005" ph="SELECT id FR... projects" />
+            <marker date="1491225135000" expanded="true" signature="32714:32820" ph="SELECT `user... project_managers" />
+            <marker date="1491225135000" expanded="true" signature="33783:33904" ph="SELECT users... users" />
+            <marker date="1491225135000" expanded="true" signature="34347:34525" ph="INSERT INTO `projects`... " />
+            <marker date="1491225135000" expanded="true" signature="34922:34979" ph="SELECT `id` projects" />
+            <marker date="1491225135000" expanded="true" signature="35059:35160" ph="INSERT INTO `project_managers`... " />
+            <marker date="1491225135000" expanded="true" signature="35350:35449" ph="INSERT INTO `users_projects`... " />
+            <marker date="1491225135000" expanded="true" signature="38675:38732" ph="SELECT * FRO... projects" />
+            <marker date="1491225135000" expanded="true" signature="38876:38902" ph="SELECT * FRO... data_types" />
+            <marker date="1491225135000" expanded="true" signature="39182:39330" ph="INSERT INTO `files`... " />
+            <marker date="1491225135000" expanded="true" signature="39819:39875" ph="SELECT `file... files" />
+            <marker date="1491225135000" expanded="true" signature="40105:40219" ph="INSERT INTO `files_projects`... " />
+            <marker date="1491225135000" expanded="true" signature="40515:40541" ph="SELECT * FRO... data_types" />
+            <marker date="1491225135000" expanded="true" signature="40729:40822" ph="SELECT COUNT... files_projects" />
+            <marker date="1491225135000" expanded="true" signature="41243:41321" ph="SELECT files... files" />
+            <marker date="1491225135000" expanded="true" signature="41698:41849" ph="SELECT files... files" />
+            <marker date="1491225135000" expanded="true" signature="42230:42397" ph="SELECT sampl... samples" />
+            <marker date="1491225135000" expanded="true" signature="42783:42845" ph="SELECT * FRO... samples" />
+            <marker date="1491225135000" expanded="true" signature="43136:43192" ph="SELECT * FRO... files" />
+            <marker date="1491225135000" expanded="true" signature="43825:43936" ph="INSERT INTO `metadata`... " />
+            <marker date="1491225135000" expanded="true" signature="44002:44072" ph="SELECT `meta... metadata" />
+            <marker date="1491225135000" expanded="true" signature="44233:44335" ph="INSERT INTO `project_metadata`... " />
+            <marker date="1491225135000" expanded="true" signature="44570:44677" ph="SELECT COUNT... metadata" />
+            <marker date="1491225135000" expanded="true" signature="45130:45248" ph="SELECT COUNT... project_metadata" />
+            <marker date="1491225135000" expanded="true" signature="45812:45915" ph="SELECT * FRO... groups" />
+            <marker date="1491225135000" expanded="true" signature="46284:46348" ph="SELECT `grou... groups" />
+            <marker date="1491225135000" expanded="true" signature="46671:46775" ph="SELECT * FRO... groups" />
+            <marker date="1491225135000" expanded="true" signature="47422:47478" ph="SELECT `file... files" />
+            <marker date="1491225135000" expanded="true" signature="47684:47754" ph="SELECT `meta... metadata" />
+            <marker date="1491225135000" expanded="true" signature="47975:48108" ph="INSERT INTO `files_metadata`... " />
+            <marker date="1491225135000" expanded="true" signature="48513:48624" ph="SELECT COUNT... files_metadata" />
+            <marker date="1491225135000" expanded="true" signature="48976:49066" ph="DELETE FROM " />
+            <marker date="1491225135000" expanded="true" signature="49834:49887" ph="SELECT `file... files" />
+            <marker date="1491225135000" expanded="true" signature="49922:50008" ph="DELETE FROM " />
+            <marker date="1491225135000" expanded="true" signature="50176:50274" ph="SELECT `grou... groups" />
+            <marker date="1491225135000" expanded="true" signature="50313:50428" ph="INSERT INTO `groups_files`... " />
+            <marker date="1491225135000" expanded="true" signature="51938:52039" ph="SELECT `trea... chip_sample_pair" />
+            <marker date="1491225135000" expanded="true" signature="52106:52205" ph="SELECT `inpu... chip_sample_pair" />
+            <marker date="1491225135000" expanded="true" signature="52295:52389" ph="DELETE FROM " />
+            <marker date="1491225135000" expanded="true" signature="52428:52520" ph="DELETE FROM " />
+            <marker date="1491225135000" expanded="true" signature="53038:53156" ph="SELECT `grou... groups" />
+            <marker date="1491225135000" expanded="true" signature="53199:53318" ph="INSERT INTO `groups_files`... " />
+            <marker date="1491225135000" expanded="true" signature="53360:53477" ph="INSERT INTO `groups_files`... " />
+            <marker date="1491225135000" expanded="true" signature="54416:54511" ph="SELECT `file... files_projects" />
+            <marker date="1491225135000" expanded="true" signature="54678:54799" ph="INSERT INTO `chip_sample_type`... " />
+            <marker date="1491225135000" expanded="true" signature="54866:54956" ph="DELETE FROM " />
+            <marker date="1491225135000" expanded="true" signature="54999:55120" ph="INSERT INTO `chip_sample_type`... " />
+            <marker date="1491225135000" expanded="true" signature="55970:56069" ph="SELECT `file... files_projects" />
+            <marker date="1491225135000" expanded="true" signature="56161:56260" ph="SELECT `file... files_projects" />
+            <marker date="1491225135000" expanded="true" signature="56295:56452" ph="INSERT INTO `chip_sample_pair`... " />
+            <marker date="1491225135000" expanded="true" signature="56628:56772" ph="SELECT chip_... chip_sample_type" />
+            <marker date="1491225135000" expanded="true" signature="57038:57251" ph="SELECT files... files" />
+            <marker date="1491225135000" expanded="true" signature="57501:57716" ph="SELECT files... files" />
+            <marker date="1491225135000" expanded="true" signature="58177:58290" ph="SELECT `file... files_projects" />
+            <marker date="1491225135000" expanded="true" signature="58338:58449" ph="SELECT `file... files_projects" />
+            <marker date="1491225135000" expanded="true" signature="58480:58621" ph="DELETE FROM " />
+            <marker date="1491225135000" expanded="true" signature="58791:58841" ph="SELECT * FRO... chip_sample_pair" />
+            <marker date="1491225135000" expanded="true" signature="59074:59181" ph="SELECT COUNT... chip_sample_type" />
+            <marker date="1491225135000" expanded="true" signature="59497:59633" ph="SELECT COUNT... groups_files" />
+            <marker date="1491225135000" expanded="true" signature="60733:60974" ph="INSERT INTO `groups`... " />
+            <marker date="1491225135000" expanded="true" signature="61075:61271" ph="UPDATE `ezNG... " />
+            <marker date="1491225135000" expanded="true" signature="61591:61907" ph="SELECT chip_... groups_files" />
+            <marker date="1491225135000" expanded="true" signature="62683:62946" ph="SELECT files... groups_files" />
+            <marker date="1491225135000" expanded="true" signature="63334:63621" ph="SELECT files... groups_files" />
+            <marker date="1491225135000" expanded="true" signature="64217:64330" ph="SELECT `grou... groups" />
+            <marker date="1491225135000" expanded="true" signature="64438:64538" ph="SELECT `file... groups_files" />
+            <marker date="1491225135000" expanded="true" signature="64672:64753" ph="SELECT `inpu... chip_sample_pair" />
+            <marker date="1491225135000" expanded="true" signature="64813:64896" ph="SELECT `trea... chip_sample_pair" />
+            <marker date="1491225135000" expanded="true" signature="65239:65302" ph="SELECT `md5s... files" />
+            <marker date="1491225135000" expanded="true" signature="65790:65853" ph="SELECT `md5s... files" />
+            <marker date="1491225135000" expanded="true" signature="68772:68810" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/projects/56/metadata/RNA/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -930,8 +1113,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/RNA-seq.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="851" column="55" lean-forward="true" selection-start-line="851" selection-start-column="55" selection-end-line="851" selection-end-column="55" />
+        <state relative-caret-position="-588">
+          <caret line="290" column="68" lean-forward="true" selection-start-line="290" selection-start-column="64" selection-end-line="290" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/projects/59/metadata/ChIP/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/users/projects_users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="558" column="47" lean-forward="false" selection-start-line="558" selection-start-column="47" selection-end-line="558" selection-end-column="47" />
+          <folding>
+            <marker date="1491393729000" expanded="true" signature="3445:3557" ph="SELECT `proj... samples_projects" />
+            <marker date="1491393729000" expanded="true" signature="3810:3870" ph="DELETE FROM " />
+            <marker date="1491393729000" expanded="true" signature="3974:4074" ph="DELETE FROM " />
+            <marker date="1491393729000" expanded="true" signature="4610:4736" ph="INSERT INTO `samples`... " />
+            <marker date="1491393729000" expanded="true" signature="4952:5026" ph="INSERT INTO `samples_projects`... " />
+            <marker date="1491393729000" expanded="true" signature="41543:44543" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/templates/users/projects_users/ChIP-seq.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="363" column="26" lean-forward="true" selection-start-line="363" selection-start-column="26" selection-end-line="363" selection-end-column="26" />
           <folding />
         </state>
       </provider>

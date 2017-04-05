@@ -364,14 +364,14 @@
                     </div>
                 </div>
 
-                <div class=" row left">
+               {* 05/04/2017<div class=" row left">
                     <div class="large-1 columns">
                         <label for="size" class="right inline"><span data-tooltip aria-haspopup="true" class="has-tip" title="genome's size">Size</span></label>
                     </div>
                     <div class="large-11 columns">
                         <input type="text" id="size" name="genome[size]" value="" required>
                     </div>
-                </div>
+                </div>*}
 
                 <div class=" row left">
                     <div class="large-1 columns">
